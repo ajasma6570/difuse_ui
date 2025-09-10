@@ -67,7 +67,7 @@ export default function Hero() {
                   />
                 </div>
               </div>
-              <div className="flex justify-end mb-20 lg:mt-4">
+              <div className="flex justify-end mb-40 lg:mb-20 lg:mt-4">
                 <FloatingTogglePanel />
               </div>
             </div>

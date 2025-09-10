@@ -67,7 +67,7 @@ export default function Navbar() {
       />
 
       <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-3/4 md:w-1/2 2xl:w-4/12 bg-[#1C1E55] shadow-lg z-50 transform transition-transform duration-300 pt-6 px-12 space-y-8 ${
+        className={`fixed top-0 right-0 h-screen w-full sm:w-3/4 md:w-1/2 2xl:w-4/12 bg-[#1C1E55] shadow-lg z-50 transform transition-transform duration-300 pt-6 px-12 space-y-8 flex flex-col overflow-y-auto md:overflow-visible ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -77,7 +77,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="flex flex-col text-white text-right space-y-4 overflow-y-auto lg:overflow-visible max-h-screen lg:max-h-none">
+        <div className="flex-1 flex flex-col text-white text-right space-y-4 pb-10">
           {routes.map((route) => (
             <div key={route.title}>
               {route.children ? (
