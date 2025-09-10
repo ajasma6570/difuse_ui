@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 // import Navbar from "@/components/Navbar";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -22,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} ${poppins.variable} antialiased`}>
+      <body className={`${poppins.variable} antialiased font-poppins`}>
         <div className="md:bg-yellow-200 fixed left-0 top-20 z-[100] flex w-[30px] items-center justify-center bg-gray-200 py-[2.5px] text-[12px] uppercase text-black sm:bg-red-200 lg:bg-green-200 xl:bg-blue-200 2xl:bg-pink-200">
           <span className="block sm:hidden">all</span>
           <span className="hidden sm:block md:hidden">sm</span>
@@ -30,9 +31,9 @@ export default function RootLayout({
           <span className="hidden lg:block xl:hidden">lg</span>
           <span className="hidden xl:block 2xl:hidden">xl</span>
           <span className="hidden 2xl:block">2xl</span>
-        </div>
-        {/* <Navbar /> */}
-        <main>{children}</main>
+        </div>{" "}
+        <Navbar />
+        {children}
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { MdMenuOpen } from "react-icons/md";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
+import Link from "next/link";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -18,7 +19,7 @@ export default function Navbar() {
       children: [
         { title: "DMSBG Devices", url: "dmsbg-devices" },
         { title: "DPBX Devices", url: "dpbx-devices" },
-        { title: "Softphone", url: "/softphone" },
+        { title: "Softphone", url: "softphone" },
       ],
     },
     { title: "Online Store", url: "online-store" },
@@ -43,9 +44,8 @@ export default function Navbar() {
   };
 
   return (
-    <>
-      {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 flex items-center justify-between py-6 lg:max-w-[100rem] mx-auto px-6 lg:px-8 xl:px-10 z-50">
+    <nav>
+      <div className="fixed top-0 left-0 right-0 flex items-center justify-between py-6 px-6 2xl:px-0 max-w-9xl mx-auto z-50">
         <Image
           src="/images/logo.svg"
           alt="Difuse Logo"
@@ -57,9 +57,8 @@ export default function Navbar() {
         <button onClick={() => setOpen(true)} className="cursor-pointer z-50">
           <MdMenuOpen className="h-8 w-8 text-[#1C1E55]" />
         </button>
-      </nav>
+      </div>
 
-      {/* Overlay */}
       <div
         onClick={() => setOpen(false)}
         className={`fixed inset-0 bg-black/40 transition-opacity duration-300 z-40 ${
@@ -67,21 +66,18 @@ export default function Navbar() {
         }`}
       />
 
-      {/* Slide-in Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-3/4 lg:w-4/12 bg-[#1C1E55] shadow-lg z-50 transform transition-transform duration-300 pt-6 px-12 space-y-8 ${
+        className={`fixed top-0 right-0 h-full w-full sm:w-3/4 md:w-1/2 2xl:w-4/12 bg-[#1C1E55] shadow-lg z-50 transform transition-transform duration-300 pt-6 px-12 space-y-8 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Close button */}
         <div className="flex justify-end ">
-          <button onClick={() => setOpen(false)}>
+          <button onClick={() => setOpen(false)} className="cursor-pointer">
             <MdMenuOpen className="h-11 w-11  text-white" />
           </button>
         </div>
 
-        {/* Menu content */}
-        <div className="flex flex-col  text-white text-right">
+        <div className="flex flex-col text-white text-right space-y-4 overflow-y-auto lg:overflow-visible max-h-screen lg:max-h-none">
           {routes.map((route) => (
             <div key={route.title}>
               {route.children ? (
@@ -96,7 +92,7 @@ export default function Navbar() {
                     ) : (
                       <IoChevronDown className="h-7 w-7" />
                     )}
-                    <span className="tracking-tighter font-light">
+                    <span className="tracking-tighter font-light text-4xl lg:text-5xl">
                       {route.title}
                     </span>
                   </button>
@@ -107,26 +103,31 @@ export default function Navbar() {
                   >
                     <div className="flex flex-col space-y-2 pl-4 text-right">
                       {route.children.map((child) => (
-                        <a
+                        <Link
                           key={child.title}
                           href={child.url}
-                          className="text-base text-gray-300 hover:text-white"
+                          className="text-2xl"
+                          onClick={() => setOpen(false)}
                         >
                           {child.title}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
                 </>
               ) : (
-                <a href={route.url} className="text-[40px] font-light block">
+                <Link
+                  href={route.url}
+                  className="text-4xl lg:text-5xl font-light block"
+                  onClick={() => setOpen(false)}
+                >
                   <span className="tracking-tighter">{route.title}</span>
-                </a>
+                </Link>
               )}
             </div>
           ))}
         </div>
       </div>
-    </>
+    </nav>
   );
 }
