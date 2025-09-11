@@ -34,10 +34,10 @@ export default function Hero() {
         playsInline
       />
 
-      <div className="relative z-10 px-6 lg:px-8  py-7 lg:py-12 flex flex-col min-h-screen ">
-        <div className="flex-1 flex lg:items-center justify-center mt-20 lg:mt-0 ">
+      <div className="relative z-10 px-6 lg:px-8 py-7 lg:py-12 flex flex-col min-h-screen ">
+        <div className="flex-1 flex lg:items-center justify-center mt-14 lg:mt-0 ">
           <div className="flex flex-col lg:flex-row lg:items-start space-y-6 lg:space-y-0 space-x-20 xl:space-x-28 2xl:space-x-32 w-full max-w-9xl mx-auto">
-            <ul className="flex space-x-4 lg:flex-col flex-row text-2xl text-[#080809] tracking-tighter leading-7 font-normal flex-shrink-0 mt-4">
+            <ul className="flex space-x-4 lg:flex-col flex-row text-xl lg:text-2xl text-[#080809] tracking-tighter leading-7 font-normal flex-shrink-0 mt-4">
               <li>Compact</li>
               <li>Powerful</li>
               <li>Seamless</li>
@@ -45,10 +45,10 @@ export default function Hero() {
 
             <div className=" w-full flex-grow flex flex-col lg:flex-row justify-between">
               <div className="space-y-6">
-                <h1 className="text-5xl sm:text-6xl md:text-7xl text-[#080809] leading-tight tracking-tighter">
+                <h1 className="text-4xl sm:text-6xl md:text-7xl text-[#080809] leading-tight tracking-tighter">
                   Rebuilding the <br /> Network Stack. <br /> One Box at a Time.
                 </h1>
-                <p className="text-[20px] font-extralight leading-8 w-full sm:w-3/4 xl:max-w-[800px] text-[#2A2A2A]">
+                <p className="text-lg lg:text-xl font-extralight leading-8 w-full sm:w-3/4 lg:max-w-3xl xl:max-w-4xl text-[#2A2A2A]">
                   We build intelligent router platforms that unify networking
                   and communication — modular, self-hosted, and built for the
                   next decade of digital independence.
@@ -67,7 +67,7 @@ export default function Hero() {
                   />
                 </div>
               </div>
-              <div className="flex justify-end mb-40 lg:mb-20 lg:mt-4">
+              <div className="flex justify-end mb-32 lg:mb-20 lg:mt-4">
                 <FloatingTogglePanel />
               </div>
             </div>

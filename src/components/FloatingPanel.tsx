@@ -9,7 +9,7 @@ export default function ExpandablePanel() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -44,6 +44,7 @@ export default function ExpandablePanel() {
       <AnimatePresence>
         {isOpen && (
           <>
+            {/* Mobile panel */}
             <motion.div
               key="mobilePanel"
               initial={{
@@ -67,7 +68,7 @@ export default function ExpandablePanel() {
                 transformOrigin: "top right",
               }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="absolute top-0 lg:hidden right-0 z-20 h-[150px] w-md rounded-xl bg-black/45 backdrop-blur-md border border-white/40 overflow-hidden shadow-xl"
+              className="absolute top-0 lg:hidden right-0 z-20 w-full rounded-xl bg-black/45 backdrop-blur-md border border-white/40 overflow-hidden shadow-xl"
             >
               <motion.ul
                 initial="hidden"
@@ -87,10 +88,9 @@ export default function ExpandablePanel() {
                   className="p-4 flex items-start gap-1 w-full hover:bg-white/10 transition flex-col"
                 >
                   <MdOutlineCampaign className="h-8 w-8 lg:h-10 lg:w-10" />
-                  <div className="opacity-90 text-lg lg:text-[1.45rem] font-light flex flex-col ">
+                  <div className="opacity-90 text-md flex flex-col ">
                     <span>v2.7.0 is</span>
-                    <span>available for</span>
-                    <span>DMSBG-100</span>
+                    <span>available for DMSBG-100</span>
                   </div>
                 </motion.li>
                 <motion.li
@@ -101,15 +101,17 @@ export default function ExpandablePanel() {
                   className="p-4 flex items-start gap-1 w-full hover:bg-white/10 transition flex-col"
                 >
                   <MdSupportAgent className="h-8 w-8 lg:h-10 lg:w-10" />
-                  <p className="opacity-90 text-lg lg:text-[1.35rem] flex flex-col">
-                    <span className="font-light">For Support</span>
-                    <span className="text-xl lg:text-[1.35rem] font-semibold">
+                  <p className="opacity-90 text-md flex flex-col">
+                    <span className="">For Support</span>
+                    <span className="text-md whitespace-nowrap">
                       1800–599–TECH
                     </span>
                   </p>
                 </motion.li>
               </motion.ul>
             </motion.div>
+
+            {/* Desktop panel */}
             <motion.div
               key="desktopPanel"
               initial={{

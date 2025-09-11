@@ -69,7 +69,6 @@ export default function Homepage() {
               </h2>
             </div>
 
-            {/* Right Side - Description and Button */}
             <div className="flex flex-col justify-end ">
               <p className="text-sm xl:text-lg font-light leading-relaxed text-gray-700 ">
                 We believe business networks shouldn&#39;t rely on duct-taped
