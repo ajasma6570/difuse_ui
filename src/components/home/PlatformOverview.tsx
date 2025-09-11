@@ -10,7 +10,7 @@ import { BsGraphUp } from "react-icons/bs";
 
 export default function PlatformOverview() {
   return (
-    <section className="py-20 lg:py-40 lg:max-w-[100rem] mx-auto px-6 lg:px-8 xl:px-16 space-y-20 lg:space-y-40">
+    <section className="py-20 lg:py-40 lg:max-w-8xl w-full mx-auto px-6 lg:px-4 space-y-20 lg:space-y-40">
       <div className="space-y-10 md:space-y-14">
         <p className="text-[#1C1E55] font-normal text-2xl lg:text-3xl">
           Join 1,500+ teams powering their networks, calls, and cloud with

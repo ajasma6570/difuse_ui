@@ -43,7 +43,7 @@ export default function AnimatedSlideButton({
           ref={iconRef}
           variants={{
             rest: { x: 0 },
-            hover: { x: textWidth + 16 }, // 16 for gap-4
+            hover: { x: textWidth + 15 }, // 5 for gap-4
           }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className={iconClassName}
@@ -55,7 +55,7 @@ export default function AnimatedSlideButton({
           ref={textRef}
           variants={{
             rest: { x: 0 },
-            hover: { x: -(iconWidth + 16) }, // 16 for gap-4
+            hover: { x: -(iconWidth + 5) }, // 16 for gap-4
           }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className={textClassName}

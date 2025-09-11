@@ -35,7 +35,7 @@ export default function ProductsOverview() {
   ];
 
   return (
-    <section className="py-10 lg:max-w-[100rem] mx-auto px-6 lg:px-8 xl:px-16 space-y-40">
+    <section className="py-10 lg:max-w-8xl mx-auto px-6 lg:px-4 space-y-40 w-full">
       <div className="flex flex-col lg:flex-row gap-8">
         <p className="w-full lg:w-1/2 text-[42px] lg:text-5xl xl:text-6xl 2xl:text-[70px] font-normal leading-tight tracking-tight text-black">
           One Platform. Multiple Products.
