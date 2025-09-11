@@ -17,7 +17,7 @@ export default function HeroPillsPingPong() {
 
       <div className="relative z-10 flex h-full flex-col pb-14">
         <div className="mt-auto space-y-6">
-          <PingPongRow direction="right" pxPerSec={120}>
+          <PingPongRow direction="right" pxPerSec={60}>
             <Pill>wifi</Pill>
             <Pill>Multi - Business service gateway</Pill>
             <Pill>Routing</Pill>
@@ -27,7 +27,7 @@ export default function HeroPillsPingPong() {
             <Pill>Softphone application</Pill>
           </PingPongRow>
 
-          <PingPongRow direction="left" pxPerSec={120}>
+          <PingPongRow direction="left" pxPerSec={60}>
             <Pill>wifi</Pill>
             <Pill>Multi - Business service gateway</Pill>
             <Pill>Routing</Pill>
@@ -63,14 +63,11 @@ function PingPongRow({
       setOffset(Math.max(0, r.scrollWidth - c.clientWidth));
     };
 
-    // Run once
     calc();
 
-    // Recalc on resize
     const onResize = () => calc();
     window.addEventListener("resize", onResize);
 
-    // Recalc if content size changes (fonts/images/SSR hydration)
     const ro1 = new ResizeObserver(calc);
     const ro2 = new ResizeObserver(calc);
     if (containerRef.current) ro1.observe(containerRef.current);
