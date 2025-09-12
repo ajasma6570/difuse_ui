@@ -48,11 +48,15 @@ export default function PlatformOverview() {
                 icon={<FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
                 text="Learn about company"
                 className=" items-center gap-2 text-white bg-[#1C1E55] hover:bg-[#151347] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium hidden md:inline-flex"
+                variant="link"
+                href="/about"
               />
               <AnimatedSlideButton
                 icon={<FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
-                text="Learn more"
+                text="Learn about company"
                 className="inline-flex items-center gap-2 text-white bg-[#1C1E55] hover:bg-[#151347] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium md:hidden"
+                variant="link"
+                href="/about"
               />
             </div>
           </div>

@@ -105,7 +105,61 @@ export default function Testimonials() {
 
   return (
     <section className="py-20 lg:max-w-8xl mx-auto px-6 2xl:px-0">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+      {/* Mobile Layout - Single Card */}
+      <div className="block lg:hidden space-y-6">
+        <div className="space-y-6">
+          <h2 className="text-4xl sm:text-5xl font-normal leading-tight tracking-tight text-black">
+            What Our <br /> Clients Say
+          </h2>
+          <p className="text-gray-500">
+            See why forward-thinking teams choose Difuse for modular,
+            self-hosted infrastructure.
+          </p>
+        </div>
+
+        <div className="relative overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              initial={{ x: direction === "next" ? 300 : -300, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: direction === "next" ? -300 : 300, opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+              <TestimonialCard testimonial={testimonials[index]} />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div className="flex gap-4">
+          <button
+            onClick={handlePrev}
+            disabled={index === 0 || animating}
+            className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+              index === 0 || animating
+                ? "border border-[#999999] "
+                : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
+            }`}
+          >
+            <FaArrowLeft className="text-[#999999] group-hover:text-white" />
+          </button>
+
+          <button
+            onClick={handleNext}
+            disabled={index >= testimonials.length - 1 || animating}
+            className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+              index >= testimonials.length - 1 || animating
+                ? "border border-[#999999]"
+                : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
+            }`}
+          >
+            <FaArrowRight className="text-[#999999] group-hover:text-white" />
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop Layout - Two Cards */}
+      <div className="hidden lg:grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
         <div className="flex flex-col justify-between h-full pt-5">
           <h2 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight text-black">
             What Our <br /> Clients Say
@@ -115,7 +169,7 @@ export default function Testimonials() {
             self-hosted infrastructure.
           </p>
 
-          <div className="flex gap-4 pt-6">
+          <div className=" gap-4 pt-6 hidden lg:flex">
             <button
               onClick={handlePrev}
               disabled={index === 0 || animating}
@@ -197,6 +251,32 @@ export default function Testimonials() {
             )}
           </AnimatePresence>
         </div>
+
+        <div className="flex gap-4 pt-6 lg:hidden">
+          <button
+            onClick={handlePrev}
+            disabled={index === 0 || animating}
+            className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+              index === 0 || animating
+                ? "border border-[#999999] "
+                : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
+            }`}
+          >
+            <FaArrowLeft className="text-[#999999] group-hover:text-white" />
+          </button>
+
+          <button
+            onClick={handleNext}
+            disabled={index >= testimonials.length - 2 || animating}
+            className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+              index >= testimonials.length - 2 || animating
+                ? "border border-[#999999]"
+                : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
+            }`}
+          >
+            <FaArrowRight className="text-[#999999] group-hover:text-white" />
+          </button>
+        </div>
       </div>
     </section>
   );
@@ -204,7 +284,7 @@ export default function Testimonials() {
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm max-w-xl">
+    <div className="bg-white p-6 rounded-xl max-w-xl">
       <Image
         src="/images/testimonials/vector.png"
         alt={testimonial.name}

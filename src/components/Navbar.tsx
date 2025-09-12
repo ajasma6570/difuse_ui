@@ -12,7 +12,7 @@ export default function Navbar() {
 
   const routes = [
     { title: "Home", url: "/" },
-    { title: "Our Company", url: "our-company" },
+    { title: "Our Company", url: "/about" },
     {
       title: "Our Products",
       url: "/our-products",
@@ -46,14 +46,16 @@ export default function Navbar() {
   return (
     <nav>
       <div className="fixed top-0 left-0 right-0 flex items-center justify-between py-6 px-6 2xl:px-0 max-w-9xl mx-auto z-50">
-        <Image
-          src="/images/logo.svg"
-          alt="Difuse Logo"
-          width={150}
-          height={50}
-          className="h-8  w-auto object-contain"
-          priority
-        />
+        <Link href="/">
+          <Image
+            src="/images/logo.svg"
+            alt="Difuse Logo"
+            width={150}
+            height={50}
+            className="h-8  w-auto object-contain"
+            priority
+          />
+        </Link>
         <button onClick={() => setOpen(true)} className="cursor-pointer z-50">
           <MdMenuOpen className="h-8 w-8 text-[#1C1E55]" />
         </button>
