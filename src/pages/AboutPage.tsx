@@ -21,7 +21,7 @@ type Tab = {
 
 const TABS: Tab[] = [
   {
-    id: "dmsbg",
+    id: "dmsbg-devices",
     title: "DMSBG Devices",
     body: "Difuse’s DMSBG (Multi-Service Business Gateway) devices go beyond traditional routers. They integrate routing, firewall, Wi-Fi, PBX, NAS, DNS filtering, and more all in one streamlined unit. With open standards and modular firmware, each unit is built for autonomy, customization, and long-term agility.",
     image: "/images/about/product_1.png",
@@ -29,7 +29,7 @@ const TABS: Tab[] = [
     href: "/products/dmsbg-devices",
   },
   {
-    id: "DPBX Devices",
+    id: "dpbx-devices",
     title: "DPBX Devices",
     body: "Difuse’s DPBX (Private Branch Exchange) devices are purpose-built for secure, self-hosted business communication. They combine PBX capabilities with modular software, supporting advanced call routing, IVR, recording, and SIP trunking, all without cloud lock-ins or licensing traps. With scalable deployment options and full admin control, DPBX devices empower businesses to own their voice infrastructure.",
     image: "/images/about/product_2.png",
@@ -37,7 +37,7 @@ const TABS: Tab[] = [
     href: "/products/dpbx-devices",
   },
   {
-    id: "Softphone",
+    id: "softphone",
     title: "Softphone",
     body: "Make high-quality voice and SMS calls securely over the internet—right from your desktop, tablet, or mobile device. Difuse Phone connects seamlessly with your existing Difuse PBX or DMSBG systems, offering a unified, self-hosted communication experience without relying on third-party cloud services.",
     image: "/images/about/product_3.png",
@@ -47,11 +47,11 @@ const TABS: Tab[] = [
 ];
 
 export default function AboutPage() {
-  const [active, setActive] = useState<string>("dmsbg");
+  const [active, setActive] = useState<string>("dmsbg-devices");
   const tab = TABS.find((t) => t.id === active)!;
 
   return (
-    <main className="pt-14 min-h-screen bg-zinc-50 flex flex-col items-center justify-center">
+    <main className="pt-14 min-h-screen flex flex-col items-center justify-center">
       <div className="w-full md:max-w-8xl px-6 py-16">
         <div className="text-center md:max-w-5xl w-full mx-auto space-y-6">
           <p className="text-3xl tracking-wide text-[#25276C]">About Company</p>

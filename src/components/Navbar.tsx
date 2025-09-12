@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { MdMenuOpen } from "react-icons/md";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 import Link from "next/link";
@@ -17,12 +17,12 @@ export default function Navbar() {
       title: "Our Products",
       url: "/our-products",
       children: [
-        { title: "DMSBG Devices", url: "dmsbg-devices" },
-        { title: "DPBX Devices", url: "dpbx-devices" },
-        { title: "Softphone", url: "softphone" },
+        { title: "DMSBG Devices", url: "/products/dmsbg-devices" },
+        { title: "DPBX Devices", url: "/products/dpbx-devices" },
+        { title: "Softphone", url: "/products/softphone" },
       ],
     },
-    { title: "Online Store", url: "online-store" },
+    { title: "Online Store", url: "/online-store" },
     { title: "Newsroom", url: "newsroom" },
     { title: "Become a Partner", url: "become-a-partner" },
     { title: "Careers", url: "careers" },
@@ -42,6 +42,24 @@ export default function Navbar() {
   const toggleMenu = (title: string) => {
     setActiveMenu(activeMenu === title ? null : title);
   };
+
+  const navbarRef = useRef(null);
+
+  useEffect(() => {
+    if (!open) return;
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        navbarRef.current &&
+        !(navbarRef.current as HTMLElement).contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
 
   return (
     <nav>
@@ -79,7 +97,10 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="flex-1 flex flex-col text-white text-right space-y-4 pb-10">
+        <div
+          ref={navbarRef}
+          className="flex-1 flex flex-col text-white text-right space-y-4 pb-10"
+        >
           {routes.map((route) => (
             <div key={route.title}>
               {route.children ? (
