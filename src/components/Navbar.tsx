@@ -21,7 +21,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const navbarRef = useRef<HTMLDivElement | null>(null);
 
-  const routes = useMemo(
+  const routes: NavRoute[] = useMemo(
     () => [
       { title: "Home", url: "/" },
       { title: "Our Company", url: "/our-company" },
