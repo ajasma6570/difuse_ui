@@ -26,7 +26,7 @@ const TABS: Tab[] = [
     body: "Difuse’s DMSBG (Multi-Service Business Gateway) devices go beyond traditional routers. They integrate routing, firewall, Wi-Fi, PBX, NAS, DNS filtering, and more all in one streamlined unit. With open standards and modular firmware, each unit is built for autonomy, customization, and long-term agility.",
     image: "/images/about/product_1.png",
     icon: "/images/vector_1.png",
-    href: "/products/dmsbg-devices",
+    href: "/our-products/dmsbg-devices",
   },
   {
     id: "dpbx-devices",
@@ -34,7 +34,7 @@ const TABS: Tab[] = [
     body: "Difuse’s DPBX (Private Branch Exchange) devices are purpose-built for secure, self-hosted business communication. They combine PBX capabilities with modular software, supporting advanced call routing, IVR, recording, and SIP trunking, all without cloud lock-ins or licensing traps. With scalable deployment options and full admin control, DPBX devices empower businesses to own their voice infrastructure.",
     image: "/images/about/product_2.png",
     icon: "/images/vector_2.png",
-    href: "/products/dpbx-devices",
+    href: "/our-products/dpbx-devices",
   },
   {
     id: "softphone",
@@ -42,7 +42,7 @@ const TABS: Tab[] = [
     body: "Make high-quality voice and SMS calls securely over the internet—right from your desktop, tablet, or mobile device. Difuse Phone connects seamlessly with your existing Difuse PBX or DMSBG systems, offering a unified, self-hosted communication experience without relying on third-party cloud services.",
     image: "/images/about/product_3.png",
     icon: "/images/vector_3.png",
-    href: "/products/softphone",
+    href: "/our-products/softphone",
   },
 ];
 

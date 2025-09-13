@@ -36,7 +36,7 @@ export default function Hero() {
 
       <div className="relative z-10 px-6 lg:px-8 py-7 lg:py-12 flex flex-col min-h-screen ">
         <div className="flex-1 flex lg:items-center justify-center mt-14 lg:mt-0 ">
-          <div className="flex flex-col lg:flex-row lg:items-start space-y-6 lg:space-y-0 space-x-20 xl:space-x-28 2xl:space-x-32 w-full max-w-9xl mx-auto">
+          <div className="flex flex-col lg:flex-row lg:items-start space-y-6 lg:space-y-0 space-x-20 xl:space-x-28 2xl:space-x-32 w-full max-w-10xl mx-auto">
             <ul className="flex space-x-4 lg:flex-col flex-row text-xl lg:text-2xl text-[#080809] tracking-tighter leading-7 font-normal flex-shrink-0 mt-4">
               <li>Compact</li>
               <li>Powerful</li>
