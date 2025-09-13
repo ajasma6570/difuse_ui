@@ -50,7 +50,8 @@ export default function DmsbgPage() {
       <div className="w-full md:max-w-8xl px-6 py-16">
         <div className="text-center md:max-w-6xl w-full mx-auto space-y-6">
           <p className="text-3xl tracking-wide text-[#25276C]">
-            Our Products {">"} DPBX Devices
+            Our Products {">"}{" "}
+            <span className="text-[#080808]">DPBX Devices</span>
           </p>
           <h1 className="text-4xl md:text-7xl font-normal leading-tight text-[#080808]">
             Decentralized Telephony,
@@ -208,17 +209,17 @@ export default function DmsbgPage() {
               {features.map((f) => (
                 <div
                   key={f.title}
-                  className="bg-white rounded-xl flex flex-col justify-between p-8 min-h-[300px] lg:min-h-[300px]"
+                  className="bg-white rounded-xl flex flex-col justify-between p-8 min-h-[300px]"
                 >
                   <p className="text-3xl lg:text-4xl  text-[#080808]">
                     {f.title}
                   </p>
 
-                  <div className="grid grid-cols-2">
+                  <div className="flex gap-10">
                     <p className="flex items-end justify-start">
                       <AiOutlineSecurityScan className="h-16 w-16" />
                     </p>
-                    <p className="text-lg text-[#2A2A2A]">{f.desc}</p>
+                    <p className="text-md text-[#2A2A2A]">{f.desc}</p>
                   </div>
                 </div>
               ))}
