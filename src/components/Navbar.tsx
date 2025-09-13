@@ -10,7 +10,7 @@ import { LuArrowLeft } from "react-icons/lu";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
   const pathname = usePathname();
