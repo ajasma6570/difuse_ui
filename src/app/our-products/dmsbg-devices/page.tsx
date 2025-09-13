@@ -1,9 +1,11 @@
 import AnimatedSlideButton from "@/components/AnimatedSlideButton";
 import Footer from "@/components/Footer";
+import Banner from "@/components/utils/Banner";
 import Image from "next/image";
 import { AiOutlineSecurityScan } from "react-icons/ai";
 import { FiArrowRight } from "react-icons/fi";
 import { IoBagRemoveOutline } from "react-icons/io5";
+import { Images } from "@/assets/our-products";
 
 const features = [
   {
@@ -44,6 +46,39 @@ const features = [
   },
 ];
 
+const products = [
+  {
+    name: "DMSBG 300",
+    img: Images.DMSBG.Devices.DMSBG300.Desktop,
+    mobileImg: Images.DMSBG.Devices.DMSBG300.Mobile,
+    desc: "Take control of your network with the DMSBG‑100, a compact, intelligent gateway built for the modern workplace. Combining router, firewall, Wi‑Fi access point, soft PBX, VPN engine, and DNS control into one unified device, DMSBG‑100 simplifies your infrastructure without compromising on performance or privacy.",
+    moreDesc:
+      "Designed to replace cluttered legacy setups, it’s your go-to platform for secure, modular, and self-hosted connectivity, whether you're running a small business, a growing branch office, or a privacy-first home lab.",
+    store: "/#",
+    enquire: "/#",
+  },
+  {
+    name: "DMSBG 100",
+    img: Images.DMSBG.Devices.DMSBG100.Desktop,
+    mobileImg: Images.DMSBG.Devices.DMSBG100.Mobile,
+    desc: "Take control of your network with the DMSBG‑100, a compact, intelligent gateway built for the modern workplace. Combining router, firewall, Wi‑Fi access point, soft PBX, VPN engine, and DNS control into one unified device, DMSBG‑100 simplifies your infrastructure without compromising on performance or privacy.",
+    moreDesc:
+      "Designed to replace cluttered legacy setups, it’s your go-to platform for secure, modular, and self-hosted connectivity, whether you're running a small business, a growing branch office, or a privacy-first home lab.",
+    store: "/#",
+    enquire: "/#",
+  },
+  {
+    name: "DMSBG 50",
+    img: Images.DMSBG.Devices.DMSBG50.Desktop,
+    mobileImg: Images.DMSBG.Devices.DMSBG50.Mobile,
+    desc: "Take control of your network with the DMSBG‑100, a compact, intelligent gateway built for the modern workplace. Combining router, firewall, Wi‑Fi access point, soft PBX, VPN engine, and DNS control into one unified device, DMSBG‑100 simplifies your infrastructure without compromising on performance or privacy.",
+    moreDesc:
+      "Designed to replace cluttered legacy setups, it’s your go-to platform for secure, modular, and self-hosted connectivity, whether you're running a small business, a growing branch office, or a privacy-first home lab.",
+    store: "/#",
+    enquire: "/#",
+  },
+];
+
 export default function DmsbgPage() {
   return (
     <main className="pt-14 min-h-screen flex flex-col items-center justify-center">
@@ -74,20 +109,13 @@ export default function DmsbgPage() {
 
         <div className="relative mt-20 flex justify-center">
           <div className="relative w-full h-[650px] md:max-w-8xl rounded-lg overflow-hidden shadow-sm">
-            <Image
-              src="/images/products/dmsbg/banner.png"
-              alt="Office team"
-              fill
-              className="w-full h-auto object-cover"
-              priority
+            <Banner
+              mobile={Images.DMSBG.Banner.Mobile.src}
+              desktop={Images.DMSBG.Banner.Desktop.src}
+              desktopBlur={Images.DMSBG.Banner.Desktop.blurDataURL}
+              mobileBlur={Images.DMSBG.Banner.Mobile.blurDataURL}
+              alt="DMSBG Devices Banner"
             />
-            {/* <Image
-              src="/images/products/dmsbg/banner_sm.png"
-              alt="Office team"
-              fill
-              className="w-full h-auto object-cover lg:hidden"
-              priority
-            /> */}
           </div>
 
           <div className="absolute inset-0 flex flex-col justify-end mb-20 items-end">
@@ -122,53 +150,16 @@ export default function DmsbgPage() {
         </p>
 
         <section className="max-w-8xl mx-auto mt-20 space-y-2">
-          {[
-            {
-              name: "DMSBG 300",
-              img: "/images/products/dmsbg/img_1.png",
-              mobileImg: "/images/products/dmsbg/img_1_sm.png",
-              desc: "Take control of your network with the DMSBG‑100, a compact, intelligent gateway built for the modern workplace. Combining router, firewall, Wi‑Fi access point, soft PBX, VPN engine, and DNS control into one unified device, DMSBG‑100 simplifies your infrastructure without compromising on performance or privacy.",
-              moreDesc:
-                "Designed to replace cluttered legacy setups, it’s your go-to platform for secure, modular, and self-hosted connectivity, whether you're running a small business, a growing branch office, or a privacy-first home lab.",
-              store: "/#",
-              enquire: "/#",
-            },
-            {
-              name: "DMSBG 100",
-              img: "/images/products/dmsbg/img_2.png",
-              mobileImg: "/images/products/dmsbg/img_2_sm.png",
-              desc: "Take control of your network with the DMSBG‑100, a compact, intelligent gateway built for the modern workplace. Combining router, firewall, Wi‑Fi access point, soft PBX, VPN engine, and DNS control into one unified device, DMSBG‑100 simplifies your infrastructure without compromising on performance or privacy.",
-              moreDesc:
-                "Designed to replace cluttered legacy setups, it’s your go-to platform for secure, modular, and self-hosted connectivity, whether you're running a small business, a growing branch office, or a privacy-first home lab.",
-              store: "/#",
-              enquire: "/#",
-            },
-            {
-              name: "DMSBG 50",
-              img: "/images/products/dmsbg/img_3.png",
-              mobileImg: "/images/products/dmsbg/img_3_sm.png",
-              desc: "Take control of your network with the DMSBG‑100, a compact, intelligent gateway built for the modern workplace. Combining router, firewall, Wi‑Fi access point, soft PBX, VPN engine, and DNS control into one unified device, DMSBG‑100 simplifies your infrastructure without compromising on performance or privacy.",
-              moreDesc:
-                "Designed to replace cluttered legacy setups, it’s your go-to platform for secure, modular, and self-hosted connectivity, whether you're running a small business, a growing branch office, or a privacy-first home lab.",
-              store: "/#",
-              enquire: "/#",
-            },
-          ].map((p) => (
+          {products.map((p) => (
             <div key={p.name} className="relative overflow-hidden rounded-xl">
               <div className="relative h-[1300px] lg:h-[500px] bg-black">
-                <Image
-                  src={p.img}
+                <Banner
+                  mobile={p.mobileImg.src}
+                  desktop={p.img.src}
+                  mobileBlur={p.mobileImg.blurDataURL}
+                  desktopBlur={p.img.blurDataURL}
                   alt={p.name}
-                  fill
-                  className="w-full object-cover"
                 />
-                {/* <Image
-                  src={p.mobileImg}
-                  alt={p.name}
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                  fill
-                  className="w-full object-cover lg:hidden"
-                /> */}
               </div>
 
               <div className="p-6 md:px-20 py-10 absolute inset-0 text-white">
@@ -301,7 +292,9 @@ export default function DmsbgPage() {
             <div className="flex justify-end lg:flex-row flex-col gap-2">
               <div className="relative h-[400px] w-[400px] group overflow-hidden rounded-xl">
                 <Image
-                  src="/images/products/product_5.png"
+                  src={Images.ExtraImages.DPBXDevicesImg.src}
+                  placeholder="blur"
+                  blurDataURL={Images.ExtraImages.DPBXDevicesImg.blurDataURL}
                   alt="DPBX Device"
                   fill
                   className="object-cover transition-transform group-hover:scale-105 duration-300"
@@ -333,7 +326,9 @@ export default function DmsbgPage() {
 
               <div className="relative h-[400px] w-[400px] group overflow-hidden rounded-xl">
                 <Image
-                  src="/images/products/product_6.png"
+                  src={Images.ExtraImages.SoftphoneImg.src}
+                  placeholder="blur"
+                  blurDataURL={Images.ExtraImages.SoftphoneImg.blurDataURL}
                   alt="Softphone App"
                   fill
                   className="object-cover transition-transform group-hover:scale-105 duration-300"

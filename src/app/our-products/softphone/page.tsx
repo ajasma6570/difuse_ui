@@ -4,6 +4,8 @@ import Image from "next/image";
 import React from "react";
 import { AiOutlineSecurityScan } from "react-icons/ai";
 import { FiArrowRight } from "react-icons/fi";
+import { Images } from "@/assets/our-products";
+import Banner from "@/components/utils/Banner";
 
 export default function page() {
   const features = [
@@ -45,20 +47,13 @@ export default function page() {
 
         <div className="relative mt-20 flex justify-center">
           <div className="relative w-full h-[650px] md:max-w-8xl rounded-lg overflow-hidden shadow-sm">
-            <Image
-              src="/images/products/softphone/banner.png"
-              alt="Office team"
-              fill
-              className="w-full h-auto object-cover"
-              priority
+            <Banner
+              mobile={Images.Softphone.Banner.Mobile.src}
+              desktop={Images.Softphone.Banner.Desktop.src}
+              desktopBlur={Images.Softphone.Banner.Desktop.blurDataURL}
+              mobileBlur={Images.Softphone.Banner.Mobile.blurDataURL}
+              alt="Softphone Banner"
             />
-            {/* <Image
-                  src="/images/products/dmsbg/banner_sm.png"
-                  alt="Office team"
-                  fill
-                  className="w-full h-auto object-cover lg:hidden"
-                  priority
-                /> */}
           </div>
 
           <div className="absolute inset-0 flex flex-col justify-end mb-20 items-end">
@@ -104,7 +99,11 @@ export default function page() {
                 </div>
                 <div className="bg-[#F4F4F4] h-[500px] lg:h-7/12 rounded-xl relative overflow-hidden">
                   <Image
-                    src="/images/products/softphone/img_1.png"
+                    src={Images.Softphone.Extras.MasonryImage.src}
+                    placeholder="blur"
+                    blurDataURL={
+                      Images.Softphone.Extras.MasonryImage.blurDataURL
+                    }
                     alt="Seamless Integration"
                     fill
                     className="w-full h-auto object-cover"
@@ -115,8 +114,10 @@ export default function page() {
 
               <div className="bg-[#F4F4F4] rounded-xl relative overflow-hidden h-[900px] lg:h-full">
                 <Image
-                  src="/images/products/softphone/softphone.png"
-                  alt="Seamless Integration"
+                  src={Images.Softphone.Main.Desktop.src}
+                  placeholder="blur"
+                  blurDataURL={Images.Softphone.Main.Desktop.blurDataURL}
+                  alt="Difuse Phone App"
                   fill
                   className="w-full h-auto object-contain p-6 xl:p-10"
                   priority
@@ -125,7 +126,9 @@ export default function page() {
               <div className="flex flex-col gap-2 h-full">
                 <div className="bg-[#F4F4F4] h-[600px] lg:h-7/12 rounded-xl p-4 xl:p-6 flex flex-col items-center justify-center space-y-4">
                   <Image
-                    src="/images/products/softphone/google_play.png"
+                    src={Images.Softphone.Extras.GooglePlay.src}
+                    placeholder="blur"
+                    blurDataURL={Images.Softphone.Extras.GooglePlay.blurDataURL}
                     alt="Get it on Google Play"
                     height={40}
                     width={200}
@@ -136,7 +139,9 @@ export default function page() {
                   {/* QR Code */}
                   <div className="">
                     <Image
-                      src="/images/products/softphone/qr_code.png"
+                      src={Images.Softphone.Extras.QRCode.src}
+                      placeholder="blur"
+                      blurDataURL={Images.Softphone.Extras.QRCode.blurDataURL}
                       alt="QR Code"
                       height={200}
                       width={200}
@@ -243,8 +248,10 @@ export default function page() {
             <div className="flex justify-end lg:flex-row flex-col gap-2">
               <div className="relative h-[400px] w-[400px] group overflow-hidden rounded-xl">
                 <Image
-                  src="/images/products/product_7.png"
-                  alt="DPBX Device"
+                  src={Images.ExtraImages.DMSBGDevicesImg.src}
+                  placeholder="blur"
+                  blurDataURL={Images.ExtraImages.DMSBGDevicesImg.blurDataURL}
+                  alt="DMSBG Devices"
                   fill
                   className="object-cover transition-transform group-hover:scale-105 duration-300"
                 />
@@ -275,8 +282,10 @@ export default function page() {
 
               <div className="relative h-[400px] w-[400px] group overflow-hidden rounded-xl">
                 <Image
-                  src="/images/products/product_5.png"
-                  alt="Softphone App"
+                  src={Images.ExtraImages.DPBXDevicesImg.src}
+                  alt="DPBX Device"
+                  placeholder="blur"
+                  blurDataURL={Images.ExtraImages.DPBXDevicesImg.blurDataURL}
                   fill
                   className="object-cover transition-transform group-hover:scale-105 duration-300"
                 />
