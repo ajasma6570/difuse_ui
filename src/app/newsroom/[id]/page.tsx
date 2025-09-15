@@ -4,7 +4,15 @@ import Link from "next/link";
 import React from "react";
 import AsteriskImage from "$/images/news/integrating_asterisk.png";
 
-export default function page() {
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function Page(props: Props) {
+  const id = await props.params;
+
+  console.log(id);
+
   return (
     <main className="pt-20 min-h-screen flex flex-col  items-center">
       <div className="w-full md:max-w-8xl px-6 py-16">
