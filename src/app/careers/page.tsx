@@ -109,8 +109,8 @@ export default function Page() {
       ],
     },
   ];
-  const toggleAccordion = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
+  const toggleAccordion = (id: number) => {
+    setExpandedIndex(expandedIndex === id ? null : id);
   };
 
   return (
@@ -198,13 +198,13 @@ export default function Page() {
           </div>
 
           <div className="space-y-2 max-w-5xl mx-auto">
-            {jobs.map((job, index) => (
+            {jobs.map((job) => (
               <div
                 key={job.id}
                 className="border border-[#FBFBF9]/60 rounded-lg overflow-hidden"
               >
                 <button
-                  onClick={() => toggleAccordion(index)}
+                  onClick={() => toggleAccordion(job.id)}
                   className="w-full flex items-center justify-between px-6 py-5 text-left transition-colors cursor-pointer"
                 >
                   <div className="flex items-center gap-3">
@@ -228,7 +228,7 @@ export default function Page() {
                     </span>
                   </div>
                   <div className="text-[#FBFBF9]">
-                    {expandedIndex === index ? (
+                    {expandedIndex === job.id ? (
                       <LuMinus size={28} />
                     ) : (
                       <LuPlus size={28} />
@@ -237,14 +237,14 @@ export default function Page() {
                 </button>
 
                 <AnimatePresence initial={false}>
-                  {expandedIndex === index && (
+                  {expandedIndex === job.id && (
                     <motion.div
                       key="content"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
+                      className="overflow-hidden origin-top"
                     >
                       <div className="px-6 md:px-10 py-6 text-sm md:text-base">
                         <div className="flex flex-wrap gap-6 mb-6 text-lg text-[#FBFBF9]">
