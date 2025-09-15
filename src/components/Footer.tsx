@@ -64,7 +64,7 @@ export default function Footer() {
   return (
     <footer className="w-full">
       <div className="max-w-8xl mx-auto w-full px-6 2xl:px-0">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-28">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-28">
           <div className="border border-[#FBFBF9] rounded-xl p-8 flex flex-col justify-between h-[400px]">
             <div>
               <h2 className="text-[#FBFBF9] text-3xl lg:text-5xl 2xl:text-6xl font-light leading-tight">

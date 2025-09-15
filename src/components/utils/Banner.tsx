@@ -9,6 +9,7 @@ interface BannerProps {
   desktopBlur?: string;
   mobileBlur?: string;
   alt?: string;
+  className?: string;
 }
 
 export default function Banner({
@@ -17,6 +18,7 @@ export default function Banner({
   desktopBlur,
   mobileBlur,
   alt = "",
+  className,
 }: BannerProps) {
   const isMobile = useMediaQuery({ maxWidth: 1024 });
 
@@ -28,7 +30,7 @@ export default function Banner({
       quality={100}
       placeholder="blur"
       blurDataURL={isMobile ? mobileBlur : desktopBlur}
-      className="w-full h-auto object-cover"
+      className={`w-full h-auto object-cover ${className}`}
     />
   );
 }
