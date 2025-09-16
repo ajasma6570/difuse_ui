@@ -325,7 +325,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-b from-black/90 to-[#25276C] w-full mt-28">
+      <div className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] w-full mt-28">
         <Footer />
       </div>
     </main>

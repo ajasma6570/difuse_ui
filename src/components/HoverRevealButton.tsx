@@ -4,7 +4,7 @@ import { type ReactNode, useRef, useLayoutEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-interface AnimatedSlideButtonProps {
+interface HoverRevealButtonProps {
   icon: ReactNode;
   text: string;
   variant?: "button" | "link";
@@ -15,7 +15,7 @@ interface AnimatedSlideButtonProps {
   iconClassName?: string;
 }
 
-export default function AnimatedSlideButton({
+export default function HoverRevealButton({
   icon,
   text,
   variant = "button",
@@ -24,62 +24,75 @@ export default function AnimatedSlideButton({
   className = "",
   textClassName = "",
   iconClassName = "",
-}: AnimatedSlideButtonProps) {
-  const iconRef = useRef<HTMLSpanElement>(null);
+}: HoverRevealButtonProps) {
   const textRef = useRef<HTMLSpanElement>(null);
-  const [iconWidth, setIconWidth] = useState(0);
   const [textWidth, setTextWidth] = useState(0);
 
   useLayoutEffect(() => {
-    if (iconRef.current) setIconWidth(iconRef.current.offsetWidth);
-    if (textRef.current) setTextWidth(textRef.current.offsetWidth);
-  }, [icon, text]);
+    if (textRef.current) {
+      setTextWidth(textRef.current.scrollWidth);
+    }
+  }, [text]);
 
-  const baseClasses = `group flex items-center justify-center overflow-hidden transition-all duration-500 cursor-pointer w-auto ${className}`;
+  const baseClasses = `
+    group flex items-center justify-center overflow-hidden 
+    transition-all duration-300 cursor-pointer
+    ${className}
+  `;
 
   const content = (
-    <div className="flex items-center gap-3">
-      <motion.span
-        ref={iconRef}
-        variants={{
-          rest: { x: 0 },
-          hover: { x: textWidth + 15 },
-        }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className={iconClassName}
-        style={{ display: "inline-block" }}
-      >
-        {icon}
-      </motion.span>
+    <>
       <motion.span
         ref={textRef}
         variants={{
-          rest: { x: 0 },
-          hover: { x: -(iconWidth + 5) },
+          rest: {
+            width: 0,
+            opacity: 0,
+            marginRight: 0,
+          },
+          hover: {
+            width: textWidth,
+            opacity: 1,
+            marginLeft: 10,
+          },
         }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className={textClassName}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        className={` whitespace-nowrap overflow-hidden ${textClassName}`}
         style={{ display: "inline-block" }}
       >
         {text}
       </motion.span>
-    </div>
+
+      <span
+        className={`flex items-center justify-center flex-shrink-0 ${iconClassName}`}
+        style={{ display: "inline-block" }}
+      >
+        {icon}
+      </span>
+    </>
   );
 
   const actualVariant = variant === "link" || href ? "link" : "button";
 
-  return actualVariant === "link" ? (
-    <Link href={href ?? "#"} className="block">
+  if (actualVariant === "link") {
+    return (
       <motion.div
         initial="rest"
         animate="rest"
         whileHover="hover"
         className={baseClasses}
       >
-        {content}
+        <Link
+          href={href ?? "#"}
+          className="w-full h-full flex items-center justify-center"
+        >
+          {content}
+        </Link>
       </motion.div>
-    </Link>
-  ) : (
+    );
+  }
+
+  return (
     <motion.button
       type="button"
       initial="rest"

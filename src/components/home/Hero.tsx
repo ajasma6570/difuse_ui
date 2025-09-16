@@ -20,7 +20,6 @@ export default function Hero() {
       <Image
         src="/images/intro_mobile.jpg"
         alt="Background"
-        quality={100}
         fill
         className="-z-10 object-cover lg:hidden"
         priority
@@ -30,6 +29,7 @@ export default function Hero() {
         autoPlay
         loop
         muted
+        poster="/images/intro.jpg"
         className="absolute inset-0 w-full h-full object-cover -z-10 pointer-events-none hidden lg:block"
         playsInline
       />
@@ -58,12 +58,16 @@ export default function Hero() {
                   <AnimatedSlideButton
                     icon={<PiBag className="h-6 w-6" />}
                     text="Online Store"
-                    className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] hover:text-white py-4 px-[18px] rounded-lg bg-[#FBFBF9] text-xl leading-7 tracking-[-0.05em] font-normal"
+                    className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] hover:text-white rounded-lg bg-[#FBFBF9] text-xl tracking-[-0.05em] p-5 max-w-max "
+                    variant="link"
+                    href="/online-store"
                   />
                   <AnimatedSlideButton
                     icon={<FiArrowRight className="h-6 w-6" />}
                     text="Become a Partner"
-                    className="inline-flex hover:bg-[#1C1E55] hover:text-[#FBFBF9] px-6 py-4 rounded-lg text-xl leading-7 tracking-[-0.05em] font-normal"
+                    className="inline-flex hover:bg-[#1C1E55] hover:text-[#FBFBF9] rounded-lg text-xl tracking-[-0.05em] p-5 max-w-max "
+                    variant="link"
+                    href="/become-a-partner"
                   />
                 </div>
               </div>
