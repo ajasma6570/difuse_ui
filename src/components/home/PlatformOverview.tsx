@@ -2,9 +2,9 @@ import Image from "next/image";
 import React from "react";
 import AnimatedSlideButton from "@/components/AnimatedSlideButton";
 import PingPongRow from "@/components/PingPongRow";
-import { Images } from "@/assets/vectors";
+import { Vectors } from "@/assets/vectors";
 import ProductGif from "$/videos/products.gif";
-import { LuArrowRight } from "react-icons/lu";
+import { Icon } from "@iconify/react";
 
 export default function PlatformOverview() {
   return (
@@ -42,7 +42,7 @@ export default function PlatformOverview() {
 
             <div className="pt-4">
               <AnimatedSlideButton
-                icon={<LuArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
+                icon={<Icon icon="lucide:arrow-right" width={24} height={24} />}
                 text="Learn about company"
                 className=" items-center gap-2 text-white bg-[#1C1E55] hover:bg-[#151347] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max md:inline-flex"
                 variant="link"
@@ -70,14 +70,14 @@ export default function PlatformOverview() {
 
             <div className="flex items-center justify-center">
               <Image
-                src={Images.DotGraph.src}
+                src={Vectors.DotGraph.src}
                 alt="Gateway"
                 width={400}
                 height={400}
               />
             </div>
             <Image
-              src={Images.DifuseIcon.src}
+              src={Vectors.DifuseIcon.src}
               alt="Difuse Icon"
               width={48}
               height={48}
@@ -93,7 +93,7 @@ export default function PlatformOverview() {
               <div className="grid grid-cols-2">
                 <p className="flex items-end justify-start">
                   <Image
-                    src={Images.Lock.src}
+                    src={Vectors.Lock.src}
                     alt="Shield Check"
                     width={48}
                     height={48}
@@ -113,7 +113,7 @@ export default function PlatformOverview() {
               <div className="grid grid-cols-2">
                 <p className="flex items-end justify-start">
                   <Image
-                    src={Images.Heart.src}
+                    src={Vectors.Heart.src}
                     alt="Heart Rate Monitor"
                     width={48}
                     height={48}
@@ -133,7 +133,7 @@ export default function PlatformOverview() {
               <div className="grid grid-cols-2">
                 <p className="flex items-end justify-start">
                   <Image
-                    src={Images.Growth.src}
+                    src={Vectors.Growth.src}
                     alt="Growth Chart"
                     width={48}
                     height={48}

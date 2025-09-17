@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/utils/tailwindmerge";
 import { useMediaQuery } from "react-responsive";
-import { Images } from "@/assets/vectors";
+import { Vectors } from "@/assets/vectors";
 import Link from "next/link";
 import { LuArrowRight } from "react-icons/lu";
 
@@ -31,21 +31,21 @@ export default function ProductsOverview() {
     {
       id: 1,
       title: "DMSBG Devices",
-      icon: Images.Device,
+      icon: Vectors.Device,
       desc: "All-in-one hardware units combining routing, firewall, Wi-Fi 6, VPN, DNS management...",
       img: "/images/frame1.png",
     },
     {
       id: 2,
       title: "DPBX Devices",
-      icon: Images.Call,
+      icon: Vectors.Call,
       desc: "A complete software-defined telephony system that runs on your local network. Manage internal...",
       img: "/images/frame2.png",
     },
     {
       id: 3,
       title: "Softphone",
-      icon: Images.Cube,
+      icon: Vectors.Cube,
       desc: "A cross-platform calling app that integrates natively with your PBX system. Make and...",
       img: "/images/frame3.png",
     },
@@ -285,7 +285,7 @@ export default function ProductsOverview() {
 
             <div className="text-[#FBFBF9] space-y-4 text-xl">
               <Image
-                src={Images.DifuseWhite.src}
+                src={Vectors.DifuseWhite.src}
                 alt="Difuse Logo"
                 width={40}
                 height={40}

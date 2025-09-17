@@ -37,13 +37,16 @@ export default function AnimatedSlideButton({
 
   const baseClasses = `group flex items-center justify-center overflow-hidden transition-all duration-500 cursor-pointer w-auto ${className}`;
 
+  const computedIconShift = textWidth > 0 ? textWidth + 15 : 24;
+  const computedTextShift = iconWidth > 0 ? -(iconWidth + 8) : -30;
+
   const content = (
     <div className="flex items-center gap-3">
       <motion.span
         ref={iconRef}
         variants={{
           rest: { x: 0 },
-          hover: { x: textWidth + 15 },
+          hover: { x: computedIconShift },
         }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
         className={iconClassName}
@@ -55,7 +58,7 @@ export default function AnimatedSlideButton({
         ref={textRef}
         variants={{
           rest: { x: 0 },
-          hover: { x: -(iconWidth + 5) },
+          hover: { x: computedTextShift },
         }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
         className={textClassName}

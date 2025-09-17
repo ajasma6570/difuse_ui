@@ -212,7 +212,7 @@ export default function Footer() {
               />
             </Link>
           </div>
-          <div className="text-lg text-[#FBFBF9] py-4">
+          <div className="text-base text-center md:text-left md:text-lg text-[#FBFBF9] py-4">
             Copyright © {new Date().getFullYear()} Iridia Solutions Pvt. Ltd.
             All Rights Reserved.
           </div>

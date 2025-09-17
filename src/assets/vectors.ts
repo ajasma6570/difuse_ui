@@ -16,7 +16,7 @@ import Cube from "$/images/vectors/vector_9.png";
 import DifuseWhite from "$/images/vectors/difuse_white.png";
 import Store from "$/images/vectors/vector_9.png";
 
-export const Images = {
+export const Vectors = {
     Campaign,
     Support,
     DotGraph,

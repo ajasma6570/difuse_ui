@@ -1,3 +1,5 @@
+"use client";
+
 import AnimatedSlideButton from "@/components/AnimatedSlideButton";
 import Banner from "@/components/utils/Banner";
 import React from "react";

@@ -1,6 +1,6 @@
-import AboutPage from "@/pages/AboutPage";
+import OurCompanyPage from "@/pages/OurCompanyPage";
 import React from "react";
 
 export default function page() {
-  return <AboutPage />;
+  return <OurCompanyPage />;
 }

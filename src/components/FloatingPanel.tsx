@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoMdAdd, IoMdRemove } from "react-icons/io";
 import Image from "next/image";
-import { Images } from "@/assets/vectors";
+import { Vectors } from "@/assets/vectors";
 
 export default function ExpandablePanel() {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,7 +68,7 @@ export default function ExpandablePanel() {
                   className="p-4 flex items-start gap-2 w-full hover:bg-white/10 transition flex-col"
                 >
                   <Image
-                    src={Images.Campaign.src}
+                    src={Vectors.Campaign.src}
                     alt="campaign"
                     width={30}
                     height={30}
@@ -87,7 +87,7 @@ export default function ExpandablePanel() {
                   className="p-4 flex items-start gap-1 w-full hover:bg-white/10 transition flex-col"
                 >
                   <Image
-                    src={Images.Support.src}
+                    src={Vectors.Support.src}
                     alt="support"
                     width={30}
                     height={30}
@@ -146,7 +146,7 @@ export default function ExpandablePanel() {
                   className="p-4 flex items-start gap-2 hover:bg-white/10 transition flex-col"
                 >
                   <Image
-                    src={Images.Campaign.src}
+                    src={Vectors.Campaign.src}
                     alt="campaign"
                     width={40}
                     height={40}
@@ -166,7 +166,7 @@ export default function ExpandablePanel() {
                   className="p-4 flex items-start gap-2 hover:bg-white/10 transition flex-col"
                 >
                   <Image
-                    src={Images.Support.src}
+                    src={Vectors.Support.src}
                     alt="support"
                     width={40}
                     height={40}
@@ -196,7 +196,7 @@ export default function ExpandablePanel() {
             <ul className="divide-y divide-white/40 text-white h-full">
               <li className="h-1/2 flex items-center justify-center hover:bg-white/10 cursor-pointer">
                 <Image
-                  src={Images.Campaign.src}
+                  src={Vectors.Campaign.src}
                   alt="campaign"
                   width={30}
                   height={30}
@@ -205,7 +205,7 @@ export default function ExpandablePanel() {
               </li>
               <li className="h-1/2 flex items-center justify-center hover:bg-white/10 cursor-pointer">
                 <Image
-                  src={Images.Support.src}
+                  src={Vectors.Support.src}
                   alt="support"
                   width={30}
                   height={30}

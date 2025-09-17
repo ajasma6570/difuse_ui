@@ -104,7 +104,7 @@ export default function Testimonials() {
     index + 1 < testimonials.length ? testimonials[index + 1] : null;
 
   return (
-    <section className="py-20 lg:max-w-8xl mx-auto px-6 2xl:px-0">
+    <section className="py-28 lg:py-40 lg:max-w-8xl mx-auto px-6 2xl:px-0">
       {/* Mobile Layout - Single Card */}
       <div className="block lg:hidden space-y-6">
         <div className="space-y-6">

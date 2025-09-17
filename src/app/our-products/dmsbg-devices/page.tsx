@@ -1,3 +1,5 @@
+"use client";
+
 import AnimatedSlideButton from "@/components/AnimatedSlideButton";
 import Footer from "@/components/Footer";
 import Banner from "@/components/utils/Banner";

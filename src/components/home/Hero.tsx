@@ -1,9 +1,8 @@
 import React from "react";
 import AnimatedSlideButton from "../AnimatedSlideButton";
-import { PiBag } from "react-icons/pi";
 import FloatingTogglePanel from "@/components/FloatingPanel";
 import Image from "next/image";
-import { LuArrowRight } from "react-icons/lu";
+import { Icon } from "@iconify/react";
 
 export default function Hero() {
   return (
@@ -56,14 +55,18 @@ export default function Hero() {
 
                 <div className="mt-10 flex gap-4 lg:flex-row flex-col ">
                   <AnimatedSlideButton
-                    icon={<PiBag className="h-6 w-6" />}
+                    icon={
+                      <Icon icon="solar:bag-4-linear" width={24} height={24} />
+                    }
                     text="Online Store"
                     className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] hover:text-white rounded-lg bg-[#FBFBF9] text-xl tracking-[-0.05em] p-5 max-w-max "
                     variant="link"
                     href="/online-store"
                   />
                   <AnimatedSlideButton
-                    icon={<LuArrowRight className="h-6 w-6" />}
+                    icon={
+                      <Icon icon="lucide:arrow-right" width={24} height={24} />
+                    }
                     text="Become a Partner"
                     className="inline-flex hover:bg-[#1C1E55] hover:text-[#FBFBF9] rounded-lg text-xl tracking-[-0.05em] p-5 max-w-max "
                     variant="link"
