@@ -3,15 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import AsteriskImage from "$/images/news/integrating_asterisk.png";
+import { news } from "@/static-data/newsroom";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export default async function Page(props: Props) {
-  const id = await props.params;
+export async function generateStaticParams() {
+  return news.map((p) => ({ slug: p.slug }));
+}
 
-  console.log(id);
+export default async function Page(props: Props) {
+  const slug = await props.params;
+
+  console.log(slug);
 
   return (
     <main className="pt-20 min-h-screen flex flex-col  items-center">

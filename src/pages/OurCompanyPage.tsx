@@ -257,17 +257,6 @@ export default function OurCompanyPage() {
                     }`}
                     aria-pressed={active === item.id}
                   >
-                    {/* <Image
-                      src={item.icon}
-                      alt={item.title}
-                      width={32}
-                      height={32}
-                      className={`h-8 w-8 border rounded-lg ${
-                        active === item.id
-                          ? "border-indigo-600"
-                          : "border-zinc-400"
-                      }`}
-                    /> */}
                     <Icon
                       icon={item.icon}
                       width={32}

@@ -1,85 +1,12 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { LuArrowRight } from "react-icons/lu";
 import Footer from "@/components/Footer";
-import BannerDesktop from "$/images/news/banner.png";
-import BannerMobile from "$/images/news/banner_sm.png";
 import Banner from "@/components/utils/Banner";
-import KalmiaImage from "$/images/news/kalmia.png";
-import AsteriskImage from "$/images/news/integrating_asterisk.png";
-import Deskphone from "$/images/news/deskphone.png";
-
-type BannerPost = {
-  id: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  author: string;
-  image: StaticImageData;
-  mobileImage: StaticImageData;
-  categories: string[];
-};
-
-type NewPost = {
-  id: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  author: string;
-  image: StaticImageData;
-  categories: string[];
-};
-
-const bannerPost: BannerPost = {
-  id: "hero-1",
-  title:
-    "Introducing the DMSBG-100: The Compact Powerhouse for Next-Gen Business Networks",
-  excerpt:
-    "Difuse has officially launched the DMSBG-100, the first in our line of next-gen Multi-Service Business Gateways. Tailored for small to medium-sized businesses...",
-  date: "April 4, 2025",
-  author: "Hayzam",
-  image: BannerDesktop,
-  mobileImage: BannerMobile,
-  categories: ["Latest", "Product Updates"],
-};
-
-const ALL_POSTS: NewPost[] = [
-  {
-    id: "feat-1",
-    title: "Kalmi: A Simple Documentation CMS",
-    excerpt:
-      "A lightweight docs system with search, versioning, and MDX authoring.",
-    date: "April 1, 2025",
-    author: "Hayzam",
-    image: KalmiaImage,
-    categories: ["Latest", "Product Updates"],
-  },
-  {
-    id: "feat-2",
-    title:
-      "Guide to integrating Asterisk with Microsoft Teams using Direct Routing",
-    excerpt:
-      "A practical guide to connect on‑prem PBX with Teams for enterprise calling.",
-    date: "Mar 29, 2025",
-    author: "Hayzam",
-    image: AsteriskImage,
-    categories: ["Latest", "Insights", "Company News"],
-  },
-  {
-    id: "feat-3",
-    title:
-      "Saving 100+ Desk Phones from E‑Waste: QoS with TFTP and a Simpler PBX",
-    excerpt:
-      "A migration story that kept hardware in service while simplifying ops.",
-    date: "Mar 20, 2025",
-    author: "Hayzam",
-    image: Deskphone,
-    categories: ["Latest", "Company News"],
-  },
-];
+import { NewPost, news } from "@/static-data/newsroom";
 
 const CATEGORIES = [
   "Latest",
@@ -96,16 +23,17 @@ export default function Newsroom() {
   const [limit, setLimit] = useState(9);
 
   const posts = useMemo(() => {
-    const list = ALL_POSTS.concat(
+    const list = news.concat(
       Array.from({ length: 12 }).map((_, i) => ({
-        ...ALL_POSTS[i % ALL_POSTS.length],
+        ...news[i % news.length],
         id: `g-${i}`,
       }))
     );
     return list;
   }, []);
 
-  const featured = posts.slice(0, 3);
+  const bannerPost = posts.find((p) => p.banner) || posts[0];
+  const featured = posts.slice(1, 4);
 
   const filtered = posts
     .filter((p) => (active === "All" ? true : p.categories.includes(active)))
@@ -114,8 +42,6 @@ export default function Newsroom() {
         ? (p.title + " " + p.excerpt).toLowerCase().includes(q.toLowerCase())
         : true
     );
-
-  console.log({ filtered });
 
   return (
     <main className="pt-14 min-h-screen flex flex-col items-center justify-center">
@@ -211,12 +137,12 @@ export default function Newsroom() {
   );
 }
 
-function HeroCard({ post }: { post: BannerPost }) {
+function HeroCard({ post }: { post: NewPost }) {
   return (
     <article className="relative w-full overflow-hidden rounded-xl">
       <div className="group relative h-[320px] sm:h-[700px] w-full">
         <Banner
-          mobile={post.mobileImage?.src}
+          mobile={post.mobileImage?.src ?? ""}
           desktop={post.image.src}
           desktopBlur={post.image.blurDataURL}
           mobileBlur={post.mobileImage?.blurDataURL}
@@ -270,7 +196,7 @@ function HeroCard({ post }: { post: BannerPost }) {
 
             <div className="mt-3 w-5/12 flex justify-end">
               <Link
-                href={`/newsroom/${post.id}`}
+                href={`/newsroom/${post.slug}`}
                 className="inline-flex items-center gap-2 text-sm text-white bg-white/10 hover:bg-white/20 backdrop-blur px-3 py-1.5 rounded-md"
               >
                 Read more
@@ -287,7 +213,7 @@ function HeroCard({ post }: { post: BannerPost }) {
 function PostCard({ post }: { post: NewPost; compact?: boolean }) {
   return (
     <article className="relative overflow-hidden rounded-xl bg-gray-100 h-[400px]">
-      <Link href={`/newsroom/${post.id}`} className="block group">
+      <Link href={`/newsroom/${post.slug}`} className="block group">
         <div className={`relative h-[400px]`}>
           <div className="absolute inset-0 overflow-hidden">
             <Image
