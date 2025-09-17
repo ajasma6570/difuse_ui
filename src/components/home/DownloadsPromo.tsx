@@ -1,6 +1,6 @@
 import React from "react";
 import AnimatedSlideButton from "../AnimatedSlideButton";
-import { FiArrowRight } from "react-icons/fi";
+import { LuArrowRight } from "react-icons/lu";
 
 export default function DownloadsPromo() {
   return (
@@ -15,9 +15,9 @@ export default function DownloadsPromo() {
           and communication tools, everything you need to deploy or upgrade.
         </p>
         <AnimatedSlideButton
-          icon={<FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
+          icon={<LuArrowRight size={30} />}
           text="Go to Downloads"
-          className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
+          className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
         />
       </div>
     </section>

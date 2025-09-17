@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { FiArrowRight } from "react-icons/fi";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/utils/tailwindmerge";
 import { useMediaQuery } from "react-responsive";
 import { Images } from "@/assets/vectors";
 import Link from "next/link";
+import { LuArrowRight } from "react-icons/lu";
 
 const FLEX_GROW_DURATION = 600;
 const CARD_HEIGHT_COLLAPSED = 120;
@@ -133,7 +133,7 @@ export default function ProductsOverview() {
                         transition={{ duration: 0.2 }}
                         className="bg-white rounded-md p-3 cursor-pointer "
                       >
-                        <FiArrowRight className="text-[#1C1E55] h-6 w-6" />
+                        <LuArrowRight className="text-[#1C1E55] h-6 w-6" />
                       </motion.button>
                     </div>
                   )}
@@ -155,7 +155,7 @@ export default function ProductsOverview() {
                         transition={{ duration: 0.25 }}
                         className="text-[#1C1E55] text-xl bg-white rounded-md p-5 flex items-center gap-3 mt-2"
                       >
-                        <FiArrowRight className="text-[#1C1E55] h-6 w-6" />
+                        <LuArrowRight className="text-[#1C1E55] h-6 w-6" />
                         <span>Learn more</span>
                       </motion.button>
                     )}
@@ -254,7 +254,7 @@ export default function ProductsOverview() {
                         transition={{ duration: 0.3 }}
                         className="text-[#1C1E55] bg-white rounded-md p-3 flex items-center gap-2"
                       >
-                        <FiArrowRight className="text-[#1C1E55] h-7 w-7" />
+                        <LuArrowRight className="text-[#1C1E55] h-7 w-7" />
                         <span>Learn more</span>
                       </motion.button>
                     ) : (
@@ -266,7 +266,7 @@ export default function ProductsOverview() {
                         transition={{ duration: 0.2 }}
                         className="bg-white rounded-md p-3 cursor-pointer"
                       >
-                        <FiArrowRight className="text-[#1C1E55] h-7 w-7" />
+                        <LuArrowRight className="text-[#1C1E55] h-7 w-7" />
                       </motion.button>
                     )}
                   </AnimatePresence>

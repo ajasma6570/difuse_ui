@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { motion } from "framer-motion";
 import AnimatedSlideButton from "../AnimatedSlideButton";
 import { PiBag } from "react-icons/pi";
 import HoverRevealButton from "../HoverRevealButton";
+import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
 
 export default function OnlineStore() {
   const products = [
@@ -90,7 +90,7 @@ export default function OnlineStore() {
                   href={product.detailsLink}
                   className="p-3 lg:p-5 bg-[#FBFBF9] gap-2 text-[#1C1E55] text-md md:text-xl  rounded-lg flex items-center justify-center cursor-pointer"
                 >
-                  <FaArrowRight size={24} className="text-[#1C1E55]" />
+                  <LuArrowRight size={24} className="text-[#1C1E55]" />
                   Details
                 </Link>
               </div>
@@ -143,7 +143,7 @@ export default function OnlineStore() {
                     href={product.shopLink}
                   />
                   <HoverRevealButton
-                    icon={<FaArrowRight size={30} />}
+                    icon={<LuArrowRight size={30} />}
                     text="Details"
                     className="items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
                     variant="link"
@@ -172,19 +172,19 @@ export default function OnlineStore() {
           />
           <button
             onClick={handleLeft}
-            className="hidden lg:block border cursor-pointer border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 p-5 rounded-lg"
+            className="hidden lg:block border cursor-pointer border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 p-4 rounded-lg"
           >
-            <FaArrowLeft
-              size={20}
+            <LuArrowLeft
+              size={30}
               className="text-[#999999] group-hover:text-white"
             />
           </button>
           <button
             onClick={handleRight}
-            className="hidden lg:block border cursor-pointer border-[#999999] p-5 rounded-lg hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
+            className="hidden lg:block border cursor-pointer border-[#999999] p-4 rounded-lg hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
           >
-            <FaArrowRight
-              size={20}
+            <LuArrowRight
+              size={30}
               className="text-[#999999] group-hover:text-white"
             />
           </button>

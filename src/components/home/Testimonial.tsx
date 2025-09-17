@@ -3,7 +3,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { LuArrowRight, LuArrowLeft } from "react-icons/lu";
 
 interface Testimonial {
   quote: string;
@@ -131,29 +131,35 @@ export default function Testimonials() {
           </AnimatePresence>
         </div>
 
-        <div className="flex gap-4 mt-14">
+        <div className="flex gap-2 mt-14">
           <button
             onClick={handlePrev}
             disabled={index === 0 || animating}
-            className={` p-5 rounded-lg flex items-center justify-center ${
+            className={`p-4 rounded-lg flex items-center justify-center ${
               index === 0 || animating
                 ? "border border-[#999999] "
                 : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
             }`}
           >
-            <FaArrowLeft className="text-[#999999] group-hover:text-white" />
+            <LuArrowLeft
+              size={30}
+              className="text-[#999999] group-hover:text-white"
+            />
           </button>
 
           <button
             onClick={handleNext}
             disabled={index >= testimonials.length - 1 || animating}
-            className={`p-5 rounded-lg flex items-center justify-center ${
+            className={`p-4 rounded-lg flex items-center justify-center ${
               index >= testimonials.length - 1 || animating
                 ? "border border-[#999999]"
-                : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
+                : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 "
             }`}
           >
-            <FaArrowRight className="text-[#999999] group-hover:text-white" />
+            <LuArrowRight
+              size={30}
+              className="text-[#999999] group-hover:text-white"
+            />
           </button>
         </div>
       </div>
@@ -169,29 +175,35 @@ export default function Testimonials() {
             self-hosted infrastructure.
           </p>
 
-          <div className=" gap-4 pt-6 hidden lg:flex">
+          <div className=" gap-2 pt-6 hidden lg:flex">
             <button
               onClick={handlePrev}
               disabled={index === 0 || animating}
-              className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+              className={`p-4 rounded-lg flex items-center justify-center ${
                 index === 0 || animating
                   ? "border border-[#999999] "
                   : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
               }`}
             >
-              <FaArrowLeft className="text-[#999999] group-hover:text-white" />
+              <LuArrowLeft
+                size={30}
+                className="text-[#999999] group-hover:text-white"
+              />
             </button>
 
             <button
               onClick={handleNext}
               disabled={index >= testimonials.length - 2 || animating}
-              className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+              className={`p-4 rounded-lg flex items-center justify-center ${
                 index >= testimonials.length - 2 || animating
                   ? "border border-[#999999]"
                   : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
               }`}
             >
-              <FaArrowRight className="text-[#999999] group-hover:text-white" />
+              <LuArrowRight
+                size={30}
+                className="text-[#999999] group-hover:text-white"
+              />
             </button>
           </div>
         </div>
@@ -256,25 +268,31 @@ export default function Testimonials() {
           <button
             onClick={handlePrev}
             disabled={index === 0 || animating}
-            className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+            className={`p-4 rounded-lg flex items-center justify-center ${
               index === 0 || animating
                 ? "border border-[#999999] "
-                : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
+                : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 p-4"
             }`}
           >
-            <FaArrowLeft className="text-[#999999] group-hover:text-white" />
+            <LuArrowLeft
+              size={30}
+              className="text-[#999999] group-hover:text-white"
+            />
           </button>
 
           <button
             onClick={handleNext}
             disabled={index >= testimonials.length - 2 || animating}
-            className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+            className={`p-4 rounded-lg flex items-center justify-center ${
               index >= testimonials.length - 2 || animating
                 ? "border border-[#999999]"
-                : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
+                : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 p-4"
             }`}
           >
-            <FaArrowRight className="text-[#999999] group-hover:text-white" />
+            <LuArrowRight
+              size={30}
+              className="text-[#999999] group-hover:text-white"
+            />
           </button>
         </div>
       </div>

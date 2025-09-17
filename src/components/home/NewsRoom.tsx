@@ -2,13 +2,12 @@
 
 import Image from "next/image";
 import React from "react";
-import { FaArrowRight } from "react-icons/fa6";
 import AnimatedSlideButton from "../AnimatedSlideButton";
-import { FiArrowRight } from "react-icons/fi";
 import Footer from "../Footer";
 import HoverRevealButton from "../HoverRevealButton";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { LuArrowRight } from "react-icons/lu";
 
 export default function NewsRoom() {
   const news = [
@@ -91,19 +90,17 @@ export default function NewsRoom() {
 
                 <div>
                   <HoverRevealButton
-                    parentControlled
-                    icon={<FaArrowRight size={30} />}
-                    text="Read"
-                    className="items-center hidden xl:block text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                    icon={<LuArrowRight size={30} />}
+                    text="Details"
+                    className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
                     variant="link"
-                    iconClassName=""
                     href={item.slug}
                   />
                   <Link
                     href={item.slug}
                     className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
                   >
-                    <FaArrowRight size={20} className="text-[#25276C]" />
+                    <LuArrowRight size={20} className="text-[#25276C]" />
                     <span>Read</span>
                   </Link>
                 </div>
@@ -119,7 +116,7 @@ export default function NewsRoom() {
           </p>
 
           <AnimatedSlideButton
-            icon={<FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
+            icon={<LuArrowRight size={30} />}
             text="Explore Newsroom"
             className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
             variant="link"

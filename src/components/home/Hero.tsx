@@ -1,9 +1,9 @@
 import React from "react";
 import AnimatedSlideButton from "../AnimatedSlideButton";
 import { PiBag } from "react-icons/pi";
-import { FiArrowRight } from "react-icons/fi";
 import FloatingTogglePanel from "@/components/FloatingPanel";
 import Image from "next/image";
+import { LuArrowRight } from "react-icons/lu";
 
 export default function Hero() {
   return (
@@ -63,7 +63,7 @@ export default function Hero() {
                     href="/online-store"
                   />
                   <AnimatedSlideButton
-                    icon={<FiArrowRight className="h-6 w-6" />}
+                    icon={<LuArrowRight className="h-6 w-6" />}
                     text="Become a Partner"
                     className="inline-flex hover:bg-[#1C1E55] hover:text-[#FBFBF9] rounded-lg text-xl tracking-[-0.05em] p-5 max-w-max "
                     variant="link"
