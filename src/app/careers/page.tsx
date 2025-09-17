@@ -5,10 +5,10 @@ import Link from "next/link";
 import React, { useState } from "react";
 import BannerDesktop from "$/images/common/img_4.png";
 import HiringImage from "$/images/common/img_5.png";
-import AnimatedSlideButton from "@/components/AnimatedSlideButton";
+import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
 import { FaArrowRight } from "react-icons/fa6";
 import { LuMinus, LuPlus } from "react-icons/lu";
-import Footer from "@/components/Footer";
+import Footer from "@/components/common/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Page() {

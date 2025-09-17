@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import AnimatedSlideButton from "../AnimatedSlideButton";
-import Footer from "../Footer";
-import HoverRevealButton from "../HoverRevealButton";
+import AnimatedSlideButton from "../common/AnimatedSlideButton";
+import Footer from "../common/Footer";
+import HoverRevealButton from "../common/HoverRevealButton";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Icon } from "@iconify/react/dist/offline";

@@ -1,15 +1,15 @@
 "use client";
 
-import AnimatedSlideButton from "@/components/AnimatedSlideButton";
-import Banner from "@/components/utils/Banner";
+import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
 import React from "react";
-import { FiArrowRight } from "react-icons/fi";
 import Image from "next/image";
+import { FiArrowRight } from "react-icons/fi";
 import { AiOutlineSecurityScan } from "react-icons/ai";
 import BannerDesktop from "$/images/common/img.png";
 import ProgramDesktop from "$/images/common/img_2.png";
 import PartnerDesktop from "$/images/common/img_3.png";
-import Footer from "@/components/Footer";
+import Footer from "@/components/common/Footer";
+import ResponsiveImage from "@/components/common/ResponsiveImage";
 
 export default function page() {
   return (
@@ -17,12 +17,12 @@ export default function page() {
       <div className="w-full md:max-w-8xl pb-16 space-y-20">
         <div className="relative flex justify-center">
           <div className="relative w-full h-[900px] md:max-w-8xl rounded-lg overflow-hidden shadow-sm">
-            <Banner
-              mobile={BannerDesktop.src}
-              desktop={BannerDesktop.src}
-              desktopBlur={BannerDesktop.blurDataURL}
-              mobileBlur={BannerDesktop.blurDataURL}
+            <ResponsiveImage
+              desktop={BannerDesktop}
+              mobile={BannerDesktop}
               alt="DMSBG Devices Banner"
+              fill
+              className="object-cover"
             />
           </div>
 

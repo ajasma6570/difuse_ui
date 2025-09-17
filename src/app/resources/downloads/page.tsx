@@ -1,7 +1,7 @@
 "use client";
 
-import AnimatedSlideButton from "@/components/AnimatedSlideButton";
-import Footer from "@/components/Footer";
+import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
+import Footer from "@/components/common/Footer";
 import React, { useState } from "react";
 import { FaPhone } from "react-icons/fa6";
 

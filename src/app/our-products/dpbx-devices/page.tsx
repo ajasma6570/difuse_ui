@@ -1,13 +1,13 @@
 "use client";
 
-import AnimatedSlideButton from "@/components/AnimatedSlideButton";
-import Footer from "@/components/Footer";
-import Banner from "@/components/utils/Banner";
+import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
+import Footer from "@/components/common/Footer";
 import Image from "next/image";
 import { AiOutlineSecurityScan } from "react-icons/ai";
 import { FiArrowRight } from "react-icons/fi";
 import { IoBagRemoveOutline } from "react-icons/io5";
 import { Images } from "@/assets/our-products";
+import ResponsiveImage from "@/components/common/ResponsiveImage";
 
 const features = [
   {
@@ -88,12 +88,12 @@ export default function DmsbgPage() {
 
         <div className="relative mt-20 flex justify-center">
           <div className="relative w-full h-[650px] md:max-w-8xl rounded-lg overflow-hidden shadow-sm">
-            <Banner
-              mobile={Images.DPBX.Banner.Mobile.src}
-              desktop={Images.DPBX.Banner.Desktop.src}
-              desktopBlur={Images.DPBX.Banner.Desktop.blurDataURL}
-              mobileBlur={Images.DPBX.Banner.Mobile.blurDataURL}
+            <ResponsiveImage
+              desktop={Images.DPBX.Banner.Desktop}
+              mobile={Images.DPBX.Banner.Mobile}
               alt="DPBX Devices Banner"
+              className="object-cover"
+              fill
             />
           </div>
 
@@ -135,12 +135,12 @@ export default function DmsbgPage() {
           {products.map((p) => (
             <div key={p.name} className="relative overflow-hidden rounded-xl">
               <div className="relative h-[1300px] lg:h-[500px] bg-black">
-                <Banner
-                  mobile={p.mobileImg.src}
-                  desktop={p.img.src}
-                  desktopBlur={p.img.blurDataURL}
-                  mobileBlur={p.mobileImg.blurDataURL}
+                <ResponsiveImage
+                  desktop={p.img}
+                  mobile={p.mobileImg}
                   alt={p.name}
+                  fill
+                  className="object-cover"
                 />
               </div>
 

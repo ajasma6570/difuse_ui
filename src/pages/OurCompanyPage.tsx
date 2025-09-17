@@ -2,9 +2,9 @@
 
 import { OurCompanyImages } from "@/assets/our-company";
 import { Vectors } from "@/assets/vectors";
-import AnimatedSlideButton from "@/components/AnimatedSlideButton";
-import Footer from "@/components/Footer";
-import ResponsiveImage from "@/components/ResponsiveImage";
+import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
+import Footer from "@/components/common/Footer";
+import ResponsiveImage from "@/components/common/ResponsiveImage";
 import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 import { Icon } from "@iconify/react";

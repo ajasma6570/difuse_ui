@@ -1,6 +1,6 @@
 import React from "react";
-import AnimatedSlideButton from "../AnimatedSlideButton";
-import FloatingTogglePanel from "@/components/FloatingPanel";
+import AnimatedSlideButton from "../common/AnimatedSlideButton";
+import FloatingTogglePanel from "@/components/common/FloatingPanel";
 import Image from "next/image";
 import { Icon } from "@iconify/react/dist/offline";
 import bag4Linear from "@iconify/icons-solar/bag-4-linear";

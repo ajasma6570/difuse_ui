@@ -1,13 +1,13 @@
 "use client";
 
-import AnimatedSlideButton from "@/components/AnimatedSlideButton";
-import Footer from "@/components/Footer";
+import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
+import Footer from "@/components/common/Footer";
 import Image from "next/image";
 import React from "react";
 import { AiOutlineSecurityScan } from "react-icons/ai";
 import { FiArrowRight } from "react-icons/fi";
 import { Images } from "@/assets/our-products";
-import Banner from "@/components/utils/Banner";
+import ResponsiveImage from "@/components/common/ResponsiveImage";
 
 export default function page() {
   const features = [
@@ -49,12 +49,12 @@ export default function page() {
 
         <div className="relative mt-20 flex justify-center">
           <div className="relative w-full h-[650px] md:max-w-8xl rounded-lg overflow-hidden shadow-sm">
-            <Banner
-              mobile={Images.Softphone.Banner.Mobile.src}
-              desktop={Images.Softphone.Banner.Desktop.src}
-              desktopBlur={Images.Softphone.Banner.Desktop.blurDataURL}
-              mobileBlur={Images.Softphone.Banner.Mobile.blurDataURL}
+            <ResponsiveImage
+              desktop={Images.Softphone.Banner.Desktop}
+              mobile={Images.Softphone.Banner.Mobile}
               alt="Softphone Banner"
+              className="object-cover"
+              fill
             />
           </div>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import AnimatedSlideButton from "../AnimatedSlideButton";
+import AnimatedSlideButton from "../common/AnimatedSlideButton";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 

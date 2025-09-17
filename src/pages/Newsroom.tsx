@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { LuArrowRight } from "react-icons/lu";
-import Footer from "@/components/Footer";
-import Banner from "@/components/utils/Banner";
+import Footer from "@/components/common/Footer";
 import { NewPost, news } from "@/static-data/newsroom";
+import ResponsiveImage from "@/components/common/ResponsiveImage";
 
 const CATEGORIES = [
   "Latest",
@@ -141,13 +141,12 @@ function HeroCard({ post }: { post: NewPost }) {
   return (
     <article className="relative w-full overflow-hidden rounded-xl">
       <div className="group relative h-[320px] sm:h-[700px] w-full">
-        <Banner
-          mobile={post.mobileImage?.src ?? ""}
-          desktop={post.image.src}
-          desktopBlur={post.image.blurDataURL}
-          mobileBlur={post.mobileImage?.blurDataURL}
-          alt="Newsroom Banner"
-          className="group-hover:scale-105 transition-transform duration-500"
+        <ResponsiveImage
+          desktop={post.image}
+          mobile={post.mobileImage ?? post.image}
+          alt={post.title}
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          fill
         />
 
         <div className="absolute inset-0 p-5 sm:p-14 flex flex-col justify-between">

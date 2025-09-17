@@ -1,13 +1,15 @@
 "use client";
 
 import React from "react";
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { FiPhone } from "react-icons/fi";
-import AnimatedSlideButton from "./common/AnimatedSlideButton";
+import AnimatedSlideButton from "./AnimatedSlideButton";
 import Image from "next/image";
 import Link from "next/link";
-import { LuArrowRight } from "react-icons/lu";
+import { Icon } from "@iconify/react/dist/offline";
+import callIcon from "@iconify-icons/fluent/call-20-regular";
+import facebookIcon from "@iconify-icons/ri/facebook-fill";
+import twitterIcon from "@iconify-icons/ri/twitter-x-fill";
+import linkedinIcon from "@iconify-icons/ri/linkedin-fill";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
 
 export default function Footer() {
   const about = [
@@ -82,7 +84,7 @@ export default function Footer() {
               <div className="border border-white w-full border-b md:flex-1"></div>
 
               <AnimatedSlideButton
-                icon={<LuArrowRight size={30} />}
+                icon={<Icon icon={arrowRight} width={30} height={30} />}
                 text="Subscribe"
                 className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
                 onClick={() => alert("Subscribe functionality coming soon!")}
@@ -104,7 +106,7 @@ export default function Footer() {
                 resellers, and collaborators.
               </p>
               <AnimatedSlideButton
-                icon={<LuArrowRight size={30} />}
+                icon={<Icon icon={arrowRight} width={30} height={30} />}
                 text="Learn more"
                 className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
                 variant="link"
@@ -171,7 +173,7 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap gap-3 text-[#FBFBF9] w-full">
               <AnimatedSlideButton
-                icon={<FiPhone size={20} />}
+                icon={<Icon icon={callIcon} width={25} height={25} />}
                 text="1800-599-TECH"
                 className="max-w-max items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg sm:text-xl font-medium inline-flex"
                 variant="link"
@@ -179,7 +181,7 @@ export default function Footer() {
               />
 
               <AnimatedSlideButton
-                icon={<LuArrowRight className="h-6 w-6" />}
+                icon={<Icon icon={arrowRight} width={24} height={24} />}
                 text="Contact"
                 className="inline-flex hover:bg-[#FBFBF9] hover:text-[#1C1E55]  rounded-lg sm:text-xl tracking-[-0.05em] p-5 max-w-max "
                 variant="link"
@@ -193,14 +195,18 @@ export default function Footer() {
           <div className="flex items-center gap-4 text-[#6C6FD2]">
             <span className="text-lg text-[#FBFBF9]">Follow us on:</span>
             <Link href="https://www.facebook.com/DifuseHQ" target="_blank">
-              <FaFacebookF
-                size={24}
+              <Icon
+                icon={facebookIcon}
+                width={30}
+                height={30}
                 className="hover:text-white cursor-pointer"
               />
             </Link>
             <Link href="https://x.com/DifuseHQ" target="_blank">
-              <FaXTwitter
-                size={24}
+              <Icon
+                icon={twitterIcon}
+                width={30}
+                height={30}
                 className="hover:text-white cursor-pointer"
               />
             </Link>
@@ -208,8 +214,10 @@ export default function Footer() {
               href="https://www.linkedin.com/company/iridiasolutions/about/"
               target="_blank"
             >
-              <FaLinkedinIn
-                size={24}
+              <Icon
+                icon={linkedinIcon}
+                width={30}
+                height={30}
                 className="hover:text-white cursor-pointer"
               />
             </Link>

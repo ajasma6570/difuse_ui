@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import AnimatedSlideButton from "@/components/AnimatedSlideButton";
-import PingPongRow from "@/components/PingPongRow";
+import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
+import PingPongRow from "@/components/common/PingPongRow";
 import { Vectors } from "@/assets/vectors";
 import ProductGif from "$/videos/products.gif";
 import { Icon } from "@iconify/react/dist/offline";

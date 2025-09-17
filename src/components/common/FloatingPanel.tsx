@@ -13,6 +13,7 @@ export default function ExpandablePanel() {
     <div className="relative w-full">
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? "Collapse panel" : "Expand panel"}
         className="absolute -top-4 right-4 z-30 bg-white text-black rounded-full shadow-lg p-1 cursor-pointer"
       >
         {isOpen ? (
