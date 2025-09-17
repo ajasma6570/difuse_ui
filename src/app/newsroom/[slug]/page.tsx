@@ -14,9 +14,9 @@ export async function generateStaticParams() {
 }
 
 export default async function Page(props: Props) {
-  const slug = await props.params;
+  // const slug = await props.params;
 
-  console.log(slug);
+  // console.log(slug);
 
   return (
     <main className="pt-20 min-h-screen flex flex-col  items-center">
@@ -29,6 +29,7 @@ export default async function Page(props: Props) {
 
         <div className="mt-10 flex w-full gap-10">
           <div className="w-full md:w-7/12 space-y-4">
+            <span>Test Dummy Data</span>
             <p className="text-[#080808] text-6xl leading-tight">
               Guide to Integrating Asterisk with Microsoft Teams Using Direct
               Routing
