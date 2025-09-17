@@ -5,7 +5,8 @@ import { cn } from "@/utils/tailwindmerge";
 import { useMediaQuery } from "react-responsive";
 import { Vectors } from "@/assets/vectors";
 import Link from "next/link";
-import { LuArrowRight } from "react-icons/lu";
+import { Icon } from "@iconify/react/dist/offline";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
 
 const FLEX_GROW_DURATION = 600;
 const CARD_HEIGHT_COLLAPSED = 120;
@@ -133,7 +134,12 @@ export default function ProductsOverview() {
                         transition={{ duration: 0.2 }}
                         className="bg-white rounded-md p-3 cursor-pointer "
                       >
-                        <LuArrowRight className="text-[#1C1E55] h-6 w-6" />
+                        <Icon
+                          icon={arrowRight}
+                          width={24}
+                          height={24}
+                          className="text-[#1C1E55]"
+                        />
                       </motion.button>
                     </div>
                   )}
@@ -155,7 +161,12 @@ export default function ProductsOverview() {
                         transition={{ duration: 0.25 }}
                         className="text-[#1C1E55] text-xl bg-white rounded-md p-5 flex items-center gap-3 mt-2"
                       >
-                        <LuArrowRight className="text-[#1C1E55] h-6 w-6" />
+                        <Icon
+                          icon={arrowRight}
+                          width={28}
+                          height={28}
+                          className="text-[#1C1E55]"
+                        />
                         <span>Learn more</span>
                       </motion.button>
                     )}
@@ -254,8 +265,13 @@ export default function ProductsOverview() {
                         transition={{ duration: 0.3 }}
                         className="text-[#1C1E55] bg-white rounded-md p-3 flex items-center gap-2"
                       >
-                        <LuArrowRight className="text-[#1C1E55] h-7 w-7" />
-                        <span>Learn more</span>
+                        <Icon
+                          icon={arrowRight}
+                          width={28}
+                          height={28}
+                          className="text-[#1C1E55]"
+                        />
+                        <span className="text-lg">Learn more</span>
                       </motion.button>
                     ) : (
                       <motion.button
@@ -266,7 +282,12 @@ export default function ProductsOverview() {
                         transition={{ duration: 0.2 }}
                         className="bg-white rounded-md p-3 cursor-pointer"
                       >
-                        <LuArrowRight className="text-[#1C1E55] h-7 w-7" />
+                        <Icon
+                          icon={arrowRight}
+                          width={28}
+                          height={28}
+                          className="text-[#1C1E55]"
+                        />
                       </motion.button>
                     )}
                   </AnimatePresence>

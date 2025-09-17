@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@iconify/icons-lucide": "^1.2.135",
+    "@iconify/icons-solar": "^1.2.3",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",
     "gsap": "^3.13.0",

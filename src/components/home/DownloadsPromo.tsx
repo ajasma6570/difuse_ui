@@ -1,6 +1,7 @@
 import React from "react";
 import AnimatedSlideButton from "../AnimatedSlideButton";
-import { LuArrowRight } from "react-icons/lu";
+import { Icon } from "@iconify/react/dist/offline";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
 
 export default function DownloadsPromo() {
   return (
@@ -15,7 +16,7 @@ export default function DownloadsPromo() {
           and communication tools, everything you need to deploy or upgrade.
         </p>
         <AnimatedSlideButton
-          icon={<LuArrowRight size={30} />}
+          icon={<Icon icon={arrowRight} width={30} height={30} />}
           text="Go to Downloads"
           className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
         />

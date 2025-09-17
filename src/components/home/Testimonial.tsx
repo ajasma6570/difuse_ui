@@ -3,7 +3,9 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { LuArrowRight, LuArrowLeft } from "react-icons/lu";
+import { Icon } from "@iconify/react/dist/offline";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
+import arrowLeft from "@iconify/icons-lucide/arrow-left";
 
 interface Testimonial {
   quote: string;
@@ -141,8 +143,10 @@ export default function Testimonials() {
                 : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
             }`}
           >
-            <LuArrowLeft
-              size={30}
+            <Icon
+              icon={arrowLeft}
+              width={30}
+              height={30}
               className="text-[#999999] group-hover:text-white"
             />
           </button>
@@ -156,8 +160,10 @@ export default function Testimonials() {
                 : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 "
             }`}
           >
-            <LuArrowRight
-              size={30}
+            <Icon
+              icon={arrowRight}
+              width={30}
+              height={30}
               className="text-[#999999] group-hover:text-white"
             />
           </button>
@@ -185,8 +191,11 @@ export default function Testimonials() {
                   : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
               }`}
             >
-              <LuArrowLeft
-                size={30}
+              {" "}
+              <Icon
+                icon={arrowLeft}
+                width={30}
+                height={30}
                 className="text-[#999999] group-hover:text-white"
               />
             </button>
@@ -200,8 +209,10 @@ export default function Testimonials() {
                   : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
               }`}
             >
-              <LuArrowRight
-                size={30}
+              <Icon
+                icon={arrowRight}
+                width={30}
+                height={30}
                 className="text-[#999999] group-hover:text-white"
               />
             </button>
@@ -274,8 +285,10 @@ export default function Testimonials() {
                 : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 p-4"
             }`}
           >
-            <LuArrowLeft
-              size={30}
+            <Icon
+              icon={arrowLeft}
+              width={30}
+              height={30}
               className="text-[#999999] group-hover:text-white"
             />
           </button>
@@ -289,8 +302,10 @@ export default function Testimonials() {
                 : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 p-4"
             }`}
           >
-            <LuArrowRight
-              size={30}
+            <Icon
+              icon={arrowRight}
+              width={30}
+              height={30}
               className="text-[#999999] group-hover:text-white"
             />
           </button>

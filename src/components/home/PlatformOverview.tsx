@@ -4,7 +4,8 @@ import AnimatedSlideButton from "@/components/AnimatedSlideButton";
 import PingPongRow from "@/components/PingPongRow";
 import { Vectors } from "@/assets/vectors";
 import ProductGif from "$/videos/products.gif";
-import { Icon } from "@iconify/react";
+import { Icon } from "@iconify/react/dist/offline";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
 
 export default function PlatformOverview() {
   return (
@@ -42,7 +43,7 @@ export default function PlatformOverview() {
 
             <div className="pt-4">
               <AnimatedSlideButton
-                icon={<Icon icon="lucide:arrow-right" width={24} height={24} />}
+                icon={<Icon icon={arrowRight} width={24} height={24} />}
                 text="Learn about company"
                 className=" items-center gap-2 text-white bg-[#1C1E55] hover:bg-[#151347] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max md:inline-flex"
                 variant="link"

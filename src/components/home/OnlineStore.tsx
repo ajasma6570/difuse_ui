@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { motion } from "framer-motion";
 import AnimatedSlideButton from "../AnimatedSlideButton";
-import { PiBag } from "react-icons/pi";
 import HoverRevealButton from "../HoverRevealButton";
-import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
+import { Icon } from "@iconify/react/dist/offline";
+import bag4Linear from "@iconify/icons-solar/bag-4-linear";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
+import arrowLeft from "@iconify/icons-lucide/arrow-left";
 
 export default function OnlineStore() {
   const products = [
@@ -81,16 +82,26 @@ export default function OnlineStore() {
               <div className="flex justify-start items-center gap-2 lg:gap-4">
                 <Link
                   href={product.shopLink}
-                  className="p-3 md:p-5 whitespace-nowrap bg-[#FBFBF9] gap-2 text-[#1C1E55] text-md md:text-xl rounded-lg flex items-center justify-center cursor-pointer"
+                  className="p-3 md:p-5 whitespace-nowrap bg-[#FBFBF9] gap-2 text-[#1C1E55] text-lg md:text-xl rounded-lg flex items-center justify-center cursor-pointer"
                 >
-                  <HiOutlineShoppingBag size={24} className="text-[#1C1E55]" />
+                  <Icon
+                    icon={bag4Linear}
+                    width={24}
+                    height={24}
+                    className="text-[#1C1E55]"
+                  />
                   Shop now
                 </Link>
                 <Link
                   href={product.detailsLink}
-                  className="p-3 lg:p-5 bg-[#FBFBF9] gap-2 text-[#1C1E55] text-md md:text-xl  rounded-lg flex items-center justify-center cursor-pointer"
+                  className="p-3 lg:p-5 bg-[#FBFBF9] gap-2 text-[#1C1E55] text-lg md:text-xl  rounded-lg flex items-center justify-center cursor-pointer"
                 >
-                  <LuArrowRight size={24} className="text-[#1C1E55]" />
+                  <Icon
+                    icon={arrowRight}
+                    width={24}
+                    height={24}
+                    className="text-[#1C1E55]"
+                  />
                   Details
                 </Link>
               </div>
@@ -135,7 +146,7 @@ export default function OnlineStore() {
 
                 <div className="flex flex-col lg:flex-row items-center gap-4">
                   <HoverRevealButton
-                    icon={<HiOutlineShoppingBag size={30} />}
+                    icon={<Icon icon={bag4Linear} width={30} height={30} />}
                     text="Shop now"
                     className="items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
                     variant="link"
@@ -143,7 +154,7 @@ export default function OnlineStore() {
                     href={product.shopLink}
                   />
                   <HoverRevealButton
-                    icon={<LuArrowRight size={30} />}
+                    icon={<Icon icon={arrowRight} width={30} height={30} />}
                     text="Details"
                     className="items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
                     variant="link"
@@ -164,9 +175,9 @@ export default function OnlineStore() {
 
         <div className="flex items-center gap-2 justify-end">
           <AnimatedSlideButton
-            icon={<PiBag className="h-6 w-6" />}
+            icon={<Icon icon={bag4Linear} width={30} height={30} />}
             text="Explore Online Store"
-            className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] border border-[#1C1E55] hover:text-white rounded-lg bg-[#FBFBF9] text-xl tracking-[-0.05em] p-4 max-w-max "
+            className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] border border-[#1C1E55] hover:text-white rounded-lg bg-[#FBFBF9] text-xl lg:text-2xl tracking-[-0.05em] p-4 max-w-max "
             variant="link"
             href="/online-store"
           />
@@ -174,8 +185,10 @@ export default function OnlineStore() {
             onClick={handleLeft}
             className="hidden lg:block border cursor-pointer border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 p-4 rounded-lg"
           >
-            <LuArrowLeft
-              size={30}
+            <Icon
+              icon={arrowLeft}
+              width={30}
+              height={30}
               className="text-[#999999] group-hover:text-white"
             />
           </button>
@@ -183,8 +196,10 @@ export default function OnlineStore() {
             onClick={handleRight}
             className="hidden lg:block border cursor-pointer border-[#999999] p-4 rounded-lg hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
           >
-            <LuArrowRight
-              size={30}
+            <Icon
+              icon={arrowRight}
+              width={30}
+              height={30}
               className="text-[#999999] group-hover:text-white"
             />
           </button>

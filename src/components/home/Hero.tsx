@@ -2,7 +2,9 @@ import React from "react";
 import AnimatedSlideButton from "../AnimatedSlideButton";
 import FloatingTogglePanel from "@/components/FloatingPanel";
 import Image from "next/image";
-import { Icon } from "@iconify/react";
+import { Icon } from "@iconify/react/dist/offline";
+import bag4Linear from "@iconify/icons-solar/bag-4-linear";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
 
 export default function Hero() {
   return (
@@ -55,18 +57,14 @@ export default function Hero() {
 
                 <div className="mt-10 flex gap-4 lg:flex-row flex-col ">
                   <AnimatedSlideButton
-                    icon={
-                      <Icon icon="solar:bag-4-linear" width={24} height={24} />
-                    }
+                    icon={<Icon icon={bag4Linear} width={24} height={24} />}
                     text="Online Store"
                     className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] hover:text-white rounded-lg bg-[#FBFBF9] text-xl tracking-[-0.05em] p-5 max-w-max "
                     variant="link"
                     href="/online-store"
                   />
                   <AnimatedSlideButton
-                    icon={
-                      <Icon icon="lucide:arrow-right" width={24} height={24} />
-                    }
+                    icon={<Icon icon={arrowRight} width={24} height={24} />}
                     text="Become a Partner"
                     className="inline-flex hover:bg-[#1C1E55] hover:text-[#FBFBF9] rounded-lg text-xl tracking-[-0.05em] p-5 max-w-max "
                     variant="link"

@@ -5,7 +5,8 @@ import Footer from "../Footer";
 import HoverRevealButton from "../HoverRevealButton";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { LuArrowRight } from "react-icons/lu";
+import { Icon } from "@iconify/react/dist/offline";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
 
 export default function NewsRoom() {
   const news = [
@@ -88,7 +89,7 @@ export default function NewsRoom() {
 
                 <div>
                   <HoverRevealButton
-                    icon={<LuArrowRight size={30} />}
+                    icon={<Icon icon={arrowRight} width={24} height={24} />}
                     text="Details"
                     className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
                     variant="link"
@@ -98,7 +99,12 @@ export default function NewsRoom() {
                     href={item.slug}
                     className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
                   >
-                    <LuArrowRight size={20} className="text-[#25276C]" />
+                    <Icon
+                      icon={arrowRight}
+                      width={24}
+                      height={24}
+                      className="text-[#25276C]"
+                    />
                     <span>Read</span>
                   </Link>
                 </div>
@@ -114,7 +120,7 @@ export default function NewsRoom() {
           </p>
 
           <AnimatedSlideButton
-            icon={<LuArrowRight size={30} />}
+            icon={<Icon icon={arrowRight} width={24} height={24} />}
             text="Explore Newsroom"
             className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
             variant="link"
