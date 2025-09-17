@@ -1,38 +1,22 @@
 import React from "react";
 import AnimatedSlideButton from "../common/AnimatedSlideButton";
 import FloatingTogglePanel from "@/components/common/FloatingPanel";
-import Image from "next/image";
 import { Icon } from "@iconify/react/dist/offline";
 import bag4Linear from "@iconify/icons-solar/bag-4-linear";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
+import ResponsiveImage from "../common/ResponsiveImage";
+import IntroGif from "$/videos/intro.gif";
+import IntroMobile from "$/images/intro_mobile.jpg";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col">
-      {/* <Image
-        src="/images/intro.jpg"
+      <ResponsiveImage
+        desktop={IntroGif}
+        mobile={IntroMobile}
         alt="Background"
-        quality={100}
-        fill
-        className="-z-10 object-cover hidden lg:block"
+        className="-z-10 object-cover"
         priority
-      /> */}
-
-      <Image
-        src="/images/intro_mobile.jpg"
-        alt="Background"
-        fill
-        className="-z-10 object-cover lg:hidden"
-        priority
-      />
-      <video
-        src={"/videos/intro.mp4"}
-        autoPlay
-        loop
-        muted
-        poster="/images/intro.jpg"
-        className="absolute inset-0 w-full h-full object-cover -z-10 pointer-events-none hidden lg:block"
-        playsInline
       />
 
       <div className="relative z-10 px-6 lg:px-8 py-7 lg:py-12 flex flex-col min-h-screen ">
