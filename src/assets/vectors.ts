@@ -13,6 +13,8 @@ import DifuseIcon from "$/images/vectors/vector_6.png";
 import Device from "$/images/vectors/vector_7.png";
 import Call from "$/images/vectors/vector_8.png";
 import Cube from "$/images/vectors/vector_9.png";
+import DifuseWhite from "$/images/vectors/difuse_white.png";
+import Store from "$/images/vectors/vector_9.png";
 
 export const Images = {
     Campaign,
@@ -25,4 +27,6 @@ export const Images = {
     Device,
     Call,
     Cube,
+    DifuseWhite,
+    Store,
 };

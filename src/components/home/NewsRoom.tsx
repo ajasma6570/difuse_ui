@@ -1,13 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import AnimatedSlideButton from "../AnimatedSlideButton";
 import { FiArrowRight } from "react-icons/fi";
 import Footer from "../Footer";
+import HoverRevealButton from "../HoverRevealButton";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function NewsRoom() {
   const news = [
     {
+      slug: "guide-to-integrating-asterisk-with-microsoft-teams-using-direct-routing",
       title:
         "Guide to Integrating Asterisk with Microsoft Teams Using Direct Routing",
       date: "August 20, 2024",
@@ -15,6 +21,7 @@ export default function NewsRoom() {
       image: "integrating_asterisk.png",
     },
     {
+      slug: "saving-100-desk-phones-from-e-waste-doom-with-tftp-and-a-simpler-pbx",
       title:
         "Saving 100+ Desk Phones from E-Waste Doom with TFTP and a Simpler PBX",
       date: "August 20, 2024",
@@ -22,6 +29,7 @@ export default function NewsRoom() {
       image: "deskphone.png",
     },
     {
+      slug: "kalmia-a-simple-documentation-cms",
       title: "Kalmia: A Simple Documentation CMS",
       date: "August 20, 2024",
       author: "Hayzam",
@@ -47,7 +55,12 @@ export default function NewsRoom() {
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
 
-              <div className="absolute inset-0 p-8 flex flex-col justify-between">
+              <motion.div
+                initial="rest"
+                animate="rest"
+                whileHover="hover"
+                className="absolute inset-0 p-8 flex flex-col justify-between group"
+              >
                 <div>
                   <div className="flex justify-between text-white text-sm">
                     <div className="inline-flex items-center gap-2">
@@ -75,10 +88,26 @@ export default function NewsRoom() {
                     {item.title}
                   </p>
                 </div>
-                <button className="self-start mt-4 text-white hover:text-gray-300 bg-white p-3 rounded-md">
-                  <FaArrowRight size={20} className="text-[#25276C]" />
-                </button>
-              </div>
+
+                <div>
+                  <HoverRevealButton
+                    parentControlled
+                    icon={<FaArrowRight size={30} />}
+                    text="Read"
+                    className="items-center hidden xl:block text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                    variant="link"
+                    iconClassName=""
+                    href={item.slug}
+                  />
+                  <Link
+                    href={item.slug}
+                    className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                  >
+                    <FaArrowRight size={20} className="text-[#25276C]" />
+                    <span>Read</span>
+                  </Link>
+                </div>
+              </motion.div>
             </div>
           ))}
         </div>
@@ -92,7 +121,9 @@ export default function NewsRoom() {
           <AnimatedSlideButton
             icon={<FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
             text="Explore Newsroom"
-            className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
+            className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
+            variant="link"
+            href="/newsroom"
           />
         </div>
       </div>

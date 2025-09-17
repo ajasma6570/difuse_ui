@@ -2,12 +2,9 @@ import Image from "next/image";
 import React from "react";
 import AnimatedSlideButton from "@/components/AnimatedSlideButton";
 import PingPongRow from "@/components/PingPongRow";
-import { FaWifi } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
-import { AiOutlineSecurityScan } from "react-icons/ai";
-import { TbHeartRateMonitor } from "react-icons/tb";
-import { BsGraphUp } from "react-icons/bs";
 import { Images } from "@/assets/vectors";
+import ProductGif from "$/videos/products.gif";
 
 export default function PlatformOverview() {
   return (
@@ -25,12 +22,11 @@ export default function PlatformOverview() {
               <span className="inline-flex items-center gap-3 lg:gap-4">
                 Infrastructure
                 <Image
-                  src="/videos/products.gif"
+                  src={ProductGif.src}
                   alt="Hero animation"
                   width={100}
                   height={100}
                   className="w-12 h-12 md:w-16 md:h-16 xl:w-20 xl:h-20 object-contain"
-                  priority
                 />
               </span>
             </h2>
@@ -66,7 +62,7 @@ export default function PlatformOverview() {
 
         <div className="max-w-7xl mx-auto mt-14 lg:mt-24 grid grid-cols-1 sm:grid-cols-12 gap-2 px-8">
           <div className="col-span-12 lg:col-span-4 bg-white rounded-lg space-y-6 p-10 flex justify-between flex-col">
-            <p className="text-md lg:text-xl">
+            <p className="text-lg lg:text-xl">
               Enhance your network&#39;s versatility with our intuitive
               gateways, designed for smooth, effortless connectivity and
               efficient performance.
@@ -89,8 +85,8 @@ export default function PlatformOverview() {
           </div>
 
           <div className="col-span-12 lg:col-span-8 grid grid-cols-1 lg:grid-cols-2 gap-2">
-            <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] lg:min-h-[365px]">
-              <p className="text-3xl lg:text-4xl 2xl:text-5xl">
+            <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[260px] lg:min-h-[365px]">
+              <p className="text-4xl 2xl:text-5xl break-words">
                 Unyielding Security
               </p>
 
@@ -109,8 +105,8 @@ export default function PlatformOverview() {
                 </p>
               </div>
             </div>
-            <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] lg:min-h-[365px]">
-              <p className="text-3xl lg:text-4xl 2xl:text-5xl">
+            <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[260px] lg:min-h-[365px]">
+              <p className="text-4xl 2xl:text-5xl break-words">
                 Stellar Performance
               </p>
 
@@ -129,8 +125,8 @@ export default function PlatformOverview() {
                 </p>
               </div>
             </div>
-            <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] lg:min-h-[365px]">
-              <p className="text-3xl lg:text-4xl 2xl:text-5xl">
+            <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[260px] lg:min-h-[365px]">
+              <p className="text-4xl 2xl:text-5xl break-words">
                 Constant Evolution
               </p>
 

@@ -108,16 +108,16 @@ export default function Testimonials() {
       {/* Mobile Layout - Single Card */}
       <div className="block lg:hidden space-y-6">
         <div className="space-y-6">
-          <h2 className="text-4xl sm:text-5xl font-normal leading-tight tracking-tight text-black">
+          <h2 className="text-5xl sm:text-6xl font-normal leading-tight tracking-tight text-black">
             What Our <br /> Clients Say
           </h2>
-          <p className="text-gray-500">
+          <p className="text-[#2A2A2A]">
             See why forward-thinking teams choose Difuse for modular,
             self-hosted infrastructure.
           </p>
         </div>
 
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden mt-14">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
@@ -131,11 +131,11 @@ export default function Testimonials() {
           </AnimatePresence>
         </div>
 
-        <div className="flex gap-4">
+        <div className="flex gap-4 mt-14">
           <button
             onClick={handlePrev}
             disabled={index === 0 || animating}
-            className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+            className={` p-5 rounded-lg flex items-center justify-center ${
               index === 0 || animating
                 ? "border border-[#999999] "
                 : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
@@ -147,7 +147,7 @@ export default function Testimonials() {
           <button
             onClick={handleNext}
             disabled={index >= testimonials.length - 1 || animating}
-            className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+            className={`p-5 rounded-lg flex items-center justify-center ${
               index >= testimonials.length - 1 || animating
                 ? "border border-[#999999]"
                 : "border  border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
@@ -284,7 +284,7 @@ export default function Testimonials() {
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="bg-white p-6 rounded-xl max-w-xl">
+    <div className="bg-white lg:p-6 rounded-xl max-w-xl">
       <Image
         src="/images/testimonials/vector.png"
         alt={testimonial.name}

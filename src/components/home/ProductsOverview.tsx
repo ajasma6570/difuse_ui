@@ -5,10 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/utils/tailwindmerge";
 import { useMediaQuery } from "react-responsive";
 import { Images } from "@/assets/vectors";
+import Link from "next/link";
 
 const FLEX_GROW_DURATION = 600;
-const CARD_HEIGHT_COLLAPSED = 140;
-const CARD_HEIGHT_EXPANDED = 320;
+const CARD_HEIGHT_COLLAPSED = 120;
+const CARD_HEIGHT_EXPANDED = 360;
 
 export default function ProductsOverview() {
   const [expandedCardId, setExpandedCardId] = useState<number | null>(1);
@@ -109,10 +110,10 @@ export default function ProductsOverview() {
                   className="object-cover rounded-xl"
                 />
               </motion.div>
-              <div className="absolute inset-0 p-6 flex flex-col h-full justify-between">
+              <div className="absolute inset-0 p-8 flex flex-col h-full justify-between">
                 <div className="h-full">
                   {activeCardId === card.id ? (
-                    <motion.p className="text-2xl font-normal tracking-tight relative z-10 w-full text-white">
+                    <motion.p className="text-4xl font-normal tracking-tight relative z-10 w-full text-white">
                       {card.title}
                     </motion.p>
                   ) : (
@@ -139,7 +140,7 @@ export default function ProductsOverview() {
                 </div>
                 <div className="space-y-5 relative z-10">
                   {activeCardId === card.id && (
-                    <motion.p className="text-base font-light text-white">
+                    <motion.p className="text-xl font-light text-white">
                       {card.desc}
                     </motion.p>
                   )}
@@ -152,7 +153,7 @@ export default function ProductsOverview() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.25 }}
-                        className="text-[#1C1E55] bg-white rounded-md px-6 py-3 flex items-center gap-3 font-semibold mt-2"
+                        className="text-[#1C1E55] text-xl bg-white rounded-md p-5 flex items-center gap-3 mt-2"
                       >
                         <FiArrowRight className="text-[#1C1E55] h-6 w-6" />
                         <span>Learn more</span>
@@ -275,21 +276,32 @@ export default function ProductsOverview() {
           </div>
 
           <div className="col-span-4  bg-[linear-gradient(to_bottom,black_30%,#25276C_100%)] rounded-xl shadow-md flex flex-col justify-between p-12 h-[706px]">
-            <p className="text-lg font-light text-white">
+            <p className="text-lg font-light text-[#FBFBF9]">
               Whether you&#39;re deploying a single MSBG in an office, setting
               up a private phone system, or rolling out remote tools — every
               product in our lineup is designed to work in sync, scale with your
               needs, and eliminate IT complexity.
             </p>
 
-            <div className="text-white space-y-2 text-xl">
-              <p>logo</p>
+            <div className="text-[#FBFBF9] space-y-4 text-xl">
+              <Image
+                src={Images.DifuseWhite.src}
+                alt="Difuse Logo"
+                width={40}
+                height={40}
+                className="object-contain mb-6"
+              />
               <p>Our platform is designed to scale.</p>
               <p className="text-[#A8A8A8] ">
                 Get updates from our{" "}
-                <span className="font-bold text-white">Newsroom</span>
+                <Link href="/newsroom" className="font-bold text-[#FBFBF9]">
+                  Newsroom
+                </Link>
                 , <br /> or subscribe to our{" "}
-                <span className="font-bold text-white">Newsletter</span>.
+                <Link href="#" className="font-bold text-[#FBFBF9]">
+                  Newsletter
+                </Link>
+                .
               </p>
             </div>
           </div>

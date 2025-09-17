@@ -4,6 +4,9 @@ import { type ReactNode, useRef, useLayoutEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
+// motion-enabled Link for self-controlled mode
+const MotionLink = motion(Link);
+
 interface HoverRevealButtonProps {
   icon: ReactNode;
   text: string;
@@ -13,6 +16,7 @@ interface HoverRevealButtonProps {
   className?: string;
   textClassName?: string;
   iconClassName?: string;
+  parentControlled?: boolean; // << parent controls hover
 }
 
 export default function HoverRevealButton({
@@ -24,6 +28,7 @@ export default function HoverRevealButton({
   className = "",
   textClassName = "",
   iconClassName = "",
+  parentControlled = false,
 }: HoverRevealButtonProps) {
   const textRef = useRef<HTMLSpanElement>(null);
   const [textWidth, setTextWidth] = useState(0);
@@ -45,53 +50,64 @@ export default function HoverRevealButton({
       <motion.span
         ref={textRef}
         variants={{
-          rest: {
-            width: 0,
-            opacity: 0,
-            marginRight: 0,
-          },
-          hover: {
-            width: textWidth,
-            opacity: 1,
-            marginLeft: 10,
-          },
+          rest: { width: 0, opacity: 0 },
+          hover: { width: textWidth, opacity: 1 },
         }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
-        className={` whitespace-nowrap overflow-hidden ${textClassName}`}
+        className={`whitespace-nowrap overflow-hidden ${textClassName}`}
         style={{ display: "inline-block" }}
       >
         {text}
       </motion.span>
 
-      <span
+      <motion.span
+        variants={{
+          rest: { marginLeft: 0 },
+          hover: { marginLeft: 10 },
+        }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
         className={`flex items-center justify-center flex-shrink-0 ${iconClassName}`}
         style={{ display: "inline-block" }}
       >
         {icon}
-      </span>
+      </motion.span>
     </>
   );
 
   const actualVariant = variant === "link" || href ? "link" : "button";
 
-  if (actualVariant === "link") {
-    return (
-      <motion.div
-        initial="rest"
-        animate="rest"
-        whileHover="hover"
-        className={baseClasses}
+  // ---------- Parent-controlled (no whileHover here) ----------
+  if (parentControlled) {
+    return actualVariant === "link" ? (
+      <Link
+        href={href ?? "#"}
+        className={`w-full h-full flex items-center justify-center ${baseClasses}`}
       >
-        <Link
-          href={href ?? "#"}
-          className="w-full h-full flex items-center justify-center"
-        >
-          {content}
-        </Link>
-      </motion.div>
+        {content}
+      </Link>
+    ) : (
+      <button type="button" onClick={onClick} className={baseClasses}>
+        {content}
+      </button>
     );
   }
 
+  // ---------- Self-controlled link ----------
+  if (actualVariant === "link") {
+    return (
+      <MotionLink
+        href={href ?? "#"}
+        initial="rest"
+        animate="rest"
+        whileHover="hover"
+        className={`w-full h-full flex items-center justify-center ${baseClasses}`}
+      >
+        {content}
+      </MotionLink>
+    );
+  }
+
+  // ---------- Self-controlled button ----------
   return (
     <motion.button
       type="button"

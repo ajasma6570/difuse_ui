@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { motion } from "framer-motion";
+import AnimatedSlideButton from "../AnimatedSlideButton";
+import { PiBag } from "react-icons/pi";
+import HoverRevealButton from "../HoverRevealButton";
 
 export default function OnlineStore() {
   const products = [
@@ -75,18 +78,20 @@ export default function OnlineStore() {
                 <p className="text-[#1C1E55] text-2xl">{product.price}</p>
               </div>
 
-              <div className="flex items-center gap-4">
+              <div className="flex justify-start items-center gap-2 lg:gap-4">
                 <Link
                   href={product.shopLink}
-                  className="w-14 h-14 bg-[#FBFBF9] rounded-xl flex items-center justify-center cursor-pointer"
+                  className="p-3 md:p-5 whitespace-nowrap bg-[#FBFBF9] gap-2 text-[#1C1E55] text-md md:text-xl rounded-lg flex items-center justify-center cursor-pointer"
                 >
                   <HiOutlineShoppingBag size={24} className="text-[#1C1E55]" />
+                  Shop now
                 </Link>
                 <Link
                   href={product.detailsLink}
-                  className="w-14 h-14 bg-[#FBFBF9] rounded-xl flex items-center justify-center cursor-pointer"
+                  className="p-3 lg:p-5 bg-[#FBFBF9] gap-2 text-[#1C1E55] text-md md:text-xl  rounded-lg flex items-center justify-center cursor-pointer"
                 >
                   <FaArrowRight size={24} className="text-[#1C1E55]" />
+                  Details
                 </Link>
               </div>
             </div>
@@ -98,7 +103,7 @@ export default function OnlineStore() {
         <motion.div
           className="flex gap-4"
           animate={{
-            x: scrolled ? -150 : 168,
+            x: scrolled ? 0 : 250,
           }}
           transition={{
             type: "spring",
@@ -107,9 +112,12 @@ export default function OnlineStore() {
           }}
         >
           {products.map((product) => (
-            <div
+            <motion.div
               key={product.name}
-              className="relative h-[450px] w-[450px] flex-shrink-0"
+              initial="rest"
+              animate="rest"
+              whileHover="hover"
+              className="relative h-[450px] w-[450px] flex-shrink-0 group"
             >
               <Image
                 src={`/images/products/${product.image}`}
@@ -119,52 +127,52 @@ export default function OnlineStore() {
                 className="object-cover rounded-xl"
               />
 
-              <div className="absolute inset-0 p-8 flex flex-col justify-between ">
+              <div className="absolute inset-0 p-8 flex flex-col justify-between">
                 <div className="space-y-2.5">
                   <p className="text-[#080808] text-5xl">{product.name}</p>
                   <p className="text-[#1C1E55] text-3xl">{product.price}</p>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <Link
+                <div className="flex flex-col lg:flex-row items-center gap-4">
+                  <HoverRevealButton
+                    icon={<HiOutlineShoppingBag size={30} />}
+                    text="Shop now"
+                    className="items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                    variant="link"
+                    iconClassName=""
                     href={product.shopLink}
-                    className="w-16 h-16 bg-[#FBFBF9] rounded-xl flex items-center justify-center cursor-pointer"
-                  >
-                    <HiOutlineShoppingBag
-                      size={30}
-                      className="text-[#1C1E55]"
-                    />
-                  </Link>
-                  <Link
+                  />
+                  <HoverRevealButton
+                    icon={<FaArrowRight size={30} />}
+                    text="Details"
+                    className="items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                    variant="link"
                     href={product.detailsLink}
-                    className="w-16 h-16 bg-[#FBFBF9] rounded-xl flex items-center justify-center cursor-pointer"
-                  >
-                    <FaArrowRight size={30} className="text-[#1C1E55]" />
-                  </Link>
+                  />
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>
 
-      <div className="lg:max-w-8xl px-6 lg:px-4 w-full mx-auto flex justify-between items-center ">
+      <div className="lg:max-w-[88%] px-6 lg:pr-16 w-full ml-auto flex justify-between items-center ">
         <p className="w-1/2 hidden lg:block text-lg">
           Browse and buy modular hardware, communication tools, and software,
           everything you need to build your self-hosted infrastructure.
         </p>
 
         <div className="flex items-center gap-2 justify-end">
-          <Link
-            href="#"
-            className="text-[#25276C] underline flex items-center gap-2 border border-[#25276C] px-5 py-3 rounded-lg"
-          >
-            <HiOutlineShoppingBag size={20} className="text-[#25276C]" />
-            Explore Online Store
-          </Link>
+          <AnimatedSlideButton
+            icon={<PiBag className="h-6 w-6" />}
+            text="Explore Online Store"
+            className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] border border-[#1C1E55] hover:text-white rounded-lg bg-[#FBFBF9] text-xl tracking-[-0.05em] p-4 max-w-max "
+            variant="link"
+            href="/online-store"
+          />
           <button
             onClick={handleLeft}
-            className="hidden lg:block border cursor-pointer border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 p-4 rounded-lg"
+            className="hidden lg:block border cursor-pointer border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 p-5 rounded-lg"
           >
             <FaArrowLeft
               size={20}
@@ -173,7 +181,7 @@ export default function OnlineStore() {
           </button>
           <button
             onClick={handleRight}
-            className="hidden lg:block border cursor-pointer border-[#999999] p-4 rounded-lg hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
+            className="hidden lg:block border cursor-pointer border-[#999999] p-5 rounded-lg hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
           >
             <FaArrowRight
               size={20}
