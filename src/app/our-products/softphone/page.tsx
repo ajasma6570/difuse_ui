@@ -7,7 +7,11 @@ import React from "react";
 import { AiOutlineSecurityScan } from "react-icons/ai";
 import { FiArrowRight } from "react-icons/fi";
 import { Images } from "@/assets/our-products";
-import ResponsiveImage from "@/components/common/ResponsiveImage";
+import { Icon } from "@iconify/react/dist/offline";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
+import { motion } from "framer-motion";
+import HoverRevealButton from "@/components/common/HoverRevealButton";
+import Link from "next/link";
 
 export default function page() {
   const features = [
@@ -34,9 +38,9 @@ export default function page() {
           </p>
           <h1 className="text-4xl md:text-7xl font-normal leading-tight text-[#080808]">
             Free, Open and
-            <br className="hidden md:block" />
+            <span className="md:hidden">&nbsp;</span>
+            <br className="hidden md:inline" />
             Polished Softphone
-            <br className="hidden md:block" />
           </h1>
           <p className="text-lg text-center font-light text-[#2A2A2A] max-w-4xl mx-auto">
             Make high-quality voice and SMS calls securely over the
@@ -49,13 +53,20 @@ export default function page() {
 
         <div className="relative mt-20 flex justify-center">
           <div className="relative w-full h-[650px] md:max-w-8xl rounded-lg overflow-hidden shadow-sm">
-            <ResponsiveImage
-              desktop={Images.Softphone.Banner.Desktop}
-              mobile={Images.Softphone.Banner.Mobile}
-              alt="Softphone Banner"
-              className="object-cover"
-              fill
-            />
+            <picture>
+              <source
+                media="(max-width: 1024px)"
+                srcSet={Images.Softphone.Banner.Mobile.src}
+              />
+              <Image
+                src={Images.Softphone.Banner.Desktop.src}
+                alt="Softphone Banner"
+                fill
+                quality={100}
+                className="object-cover"
+                priority
+              />
+            </picture>
           </div>
 
           <div className="absolute inset-0 flex flex-col justify-end mb-20 items-end">
@@ -177,7 +188,7 @@ export default function page() {
         </section>
 
         <section className="max-w-8xl mx-auto mt-12 ">
-          <div className="rounded-xl p-20 bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] ">
+          <div className="rounded-xl p-6 md:p-20 bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] ">
             <h2 className="font-semibold mb-20 text-white text-6xl text-center">
               Key Features
             </h2>
@@ -204,16 +215,17 @@ export default function page() {
         </section>
 
         <section className="max-w-8xl mx-auto my-40 ">
-          <div className="rounded-xl bg-[linear-gradient(to_right,black_0%,#25276C_100%)] text-white p-8 md:p-12 h-[350px] flex flex-col justify-center ">
-            <div className="flex gap-8 items-center">
-              <div className="w-7/12">
-                <h2 className="text-3xl md:text-5xl font-medium leading-snug mb-4">
+          <div className="rounded-xl bg-[linear-gradient(to_right,black_0%,#25276C_100%)] text-white p-8 md:p-12 h-[630px] lg:h-[350px] flex flex-col justify-center ">
+            <div className="flex flex-col lg:flex-row gap-8 lg:items-center">
+              <div className="w-full lg:w-7/12">
+                <h2 className="text-4xl xl:text-5xl  font-medium leading-snug mb-4">
                   Download and Install
-                  <br />
+                  <span className="lg:hidden">&nbsp;</span>
+                  <br className="hidden lg:inline" />
                   Difuse Phone Today!
                 </h2>
               </div>
-              <div className="w-5/12">
+              <div className="w-full lg:w-5/12">
                 <div className="flex flex-col sm:flex-row gap-3">
                   <AnimatedSlideButton
                     icon={<FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
@@ -238,17 +250,19 @@ export default function page() {
         <section className="max-w-8xl mx-auto mb-20">
           <div className="grid lg:grid-cols-[1fr_2fr] gap-12 items-start">
             <div>
-              <h2 className="text-4xl md:text-6xl font-normal text-[#080808] leading-tight">
+              <h2 className="text-4xl xl:text-5xl font-normal text-[#080808] leading-tight">
                 Explore More
-                <br />
+                <span className="xl:hidden">&nbsp;</span>
+                <br className="hidden xl:inline" />
                 on the Our
-                <br />
+                <span className="xl:hidden">&nbsp;</span>
+                <br className="hidden xl:inline" />
                 Products Page
               </h2>
             </div>
 
             <div className="flex justify-end lg:flex-row flex-col gap-2">
-              <div className="relative h-[400px] w-[400px] group overflow-hidden rounded-xl">
+              <div className="relative h-[400px] lg:w-[400px] group overflow-hidden rounded-xl">
                 <Image
                   src={Images.ExtraImages.DMSBGDevicesImg.src}
                   placeholder="blur"
@@ -258,28 +272,38 @@ export default function page() {
                   className="object-cover transition-transform group-hover:scale-105 duration-300"
                 />
 
-                <div className="absolute inset-0 p-10 flex flex-col justify-between">
+                <motion.div
+                  initial="rest"
+                  animate="rest"
+                  whileHover="hover"
+                  className="absolute inset-0 p-10 flex flex-col justify-between"
+                >
                   <h3 className="text-white text-5xl font-medium">
                     DMSBG Devices
                   </h3>
                   <div className="flex justify-start">
-                    <div className="bg-white rounded-lg p-4 shadow-sm hover:translate-x-1 hover:translate-y-1 transition-transform">
-                      <svg
-                        className="w-5 h-5 text-gray-900"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </div>
+                    <HoverRevealButton
+                      icon={<Icon icon={arrowRight} width={24} height={24} />}
+                      text="Explore"
+                      className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                      variant="link"
+                      href="/our-products/dmsbg-devices"
+                      parentControlled
+                    />
+                    <Link
+                      href="/our-products/dmsbg-devices"
+                      className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                    >
+                      <Icon
+                        icon={arrowRight}
+                        width={24}
+                        height={24}
+                        className="text-[#25276C]"
+                      />
+                      <span>Explore</span>
+                    </Link>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
               <div className="relative h-[400px] w-[400px] group overflow-hidden rounded-xl">
@@ -292,28 +316,38 @@ export default function page() {
                   className="object-cover transition-transform group-hover:scale-105 duration-300"
                 />
 
-                <div className="absolute inset-0 p-10 flex flex-col justify-between">
+                <motion.div
+                  initial="rest"
+                  animate="rest"
+                  whileHover="hover"
+                  className="absolute inset-0 p-10 flex flex-col justify-between"
+                >
                   <h3 className="text-white text-5xl font-medium">
                     DPBX Devices
                   </h3>
                   <div className="flex justify-start">
-                    <div className="bg-white rounded-lg p-4 shadow-sm hover:translate-x-1 hover:translate-y-1 transition-transform">
-                      <svg
-                        className="w-5 h-5 text-gray-900"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </div>
+                    <HoverRevealButton
+                      icon={<Icon icon={arrowRight} width={24} height={24} />}
+                      text="Explore"
+                      className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                      variant="link"
+                      href="/our-products/dpbx-devices"
+                      parentControlled
+                    />
+                    <Link
+                      href="/our-products/dpbx-devices"
+                      className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                    >
+                      <Icon
+                        icon={arrowRight}
+                        width={24}
+                        height={24}
+                        className="text-[#25276C]"
+                      />
+                      <span>Explore</span>
+                    </Link>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
