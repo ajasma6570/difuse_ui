@@ -97,9 +97,9 @@ export default function DmsbgPage() {
           </p>
           <h1 className="text-4xl md:text-7xl font-normal leading-tight text-[#080808]">
             One box, infinite solutions for
-            <br className="hidden md:block" />
+            <span className="md:hidden">&nbsp;</span>
+            <br className="hidden md:inline" />
             your diverse needs
-            <br className="hidden md:block" />
           </h1>
           <p className="text-lg text-center font-light text-[#2A2A2A] max-w-4xl mx-auto">
             Discover Difuse’s DMSBG line compact, modular devices that converge
@@ -244,7 +244,7 @@ export default function DmsbgPage() {
         </section>
 
         <section className="max-w-8xl mx-auto mt-12 ">
-          <div className="rounded-xl p-6 md:p-20 bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] ">
+          <div className="rounded-lg p-6 md:p-20 bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] ">
             <h2 className="font-semibold mb-20 text-white text-6xl">
               Key Features
             </h2>
