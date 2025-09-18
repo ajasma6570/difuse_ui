@@ -4,6 +4,9 @@ import Link from "next/link";
 import React from "react";
 import AsteriskImage from "$/images/news/integrating_asterisk.png";
 import { news } from "@/static-data/newsroom";
+import { Icon } from "@iconify/react/dist/offline";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
+import arrowLeft from "@iconify/icons-lucide/arrow-left";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -19,16 +22,19 @@ export default async function Page(props: Props) {
   // console.log(slug);
 
   return (
-    <main className="pt-20 min-h-screen flex flex-col  items-center">
+    <main className="pt-14 min-h-screen flex flex-col  items-center">
       <div className="w-full md:max-w-8xl px-6 py-16">
         <div>
-          <Link href="/newsroom" className="text-[#8B8B8B] text-xl">
+          <Link
+            href="/newsroom"
+            className="text-[#8B8B8B] text-xl hover:text-[#25276C]"
+          >
             /Back to newsroom
           </Link>
         </div>
 
-        <div className="mt-10 flex w-full gap-10">
-          <div className="w-full md:w-7/12 space-y-4">
+        <div className="mt-10 flex flex-col lg:flex-row w-full gap-10">
+          <div className="w-full lg:w-7/12 space-y-4">
             <span>Test Dummy Data</span>
             <p className="text-[#080808] text-6xl leading-tight">
               Guide to Integrating Asterisk with Microsoft Teams Using Direct
@@ -41,7 +47,7 @@ export default async function Page(props: Props) {
               setup and Teams in no time.
             </p>
           </div>
-          <div className="w-full md:w-5/12 flex justify-end">
+          <div className="w-full lg:w-5/12 flex justify-center lg:justify-end">
             <Image
               src={AsteriskImage.src}
               placeholder="blur"
@@ -54,8 +60,8 @@ export default async function Page(props: Props) {
         </div>
 
         <hr className="my-20" />
-        <div className="flex w-full gap-10">
-          <div className="space-y-6 w-6/12">
+        <div className="flex flex-col lg:flex-row w-full gap-10">
+          <div className="space-y-6 w-full lg:w-6/12">
             <p>Introduction</p>
             <p>
               Love it or hate it, Microsoft Teams has become pretty popular. As
@@ -89,8 +95,8 @@ export default async function Page(props: Props) {
               get things set up.
             </p>
           </div>
-          <div className="w-2/12"></div>
-          <div className="w-4/12 h-full bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] rounded-xl p-4 flex flex-col items-center gap-2">
+          <div className="hidden lg:block lg:w-2/12"></div>
+          <div className="w-full lg:w-4/12 h-full bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] rounded-xl p-4 flex flex-col items-center gap-2">
             <div className="bg-[#FBFBF9] h-[70px] w-full rounded-xl"></div>
             <div className="bg-[#FBFBF9] h-[70px] w-full rounded-xl"></div>
             <div className="bg-[#25276C] h-[70px] w-full  rounded-xl"></div>
@@ -102,8 +108,34 @@ export default async function Page(props: Props) {
         <hr className="my-20" />
 
         <div className="flex justify-between">
-          <button>Left icon</button>
-          <button>right icon</button>
+          <div className="flex gap-6 items-center">
+            {" "}
+            <button className=" border cursor-pointer border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 p-4 rounded-lg">
+              <Icon
+                icon={arrowLeft}
+                width={30}
+                height={30}
+                className="text-[#999999] group-hover:text-white"
+              />
+            </button>
+            <p className="text-[#25276C] text-2xl font-medium">
+              Previous <br className="md:hidden" /> Post
+            </p>
+          </div>
+
+          <div className="flex gap-6 items-center">
+            <p className="text-[#25276C] text-2xl font-medium">
+              Next <br className="md:hidden" /> Post
+            </p>
+            <button className=" border cursor-pointer border-[#999999] p-4 rounded-lg hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300">
+              <Icon
+                icon={arrowRight}
+                width={30}
+                height={30}
+                className="text-[#999999] group-hover:text-white"
+              />
+            </button>
+          </div>
         </div>
       </div>
       <div className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] w-full mt-5">

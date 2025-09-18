@@ -312,15 +312,10 @@ function PostCard({ post }: { post: NewPost; compact?: boolean }) {
                   icon={<Icon icon={arrowRight} width={24} height={24} />}
                   text="Read"
                   className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
-                  variant="link"
-                  href={`/newsroom/${post.slug}`}
                   parentControlled
                 />
 
-                <Link
-                  href={`/newsroom/${post.slug}`}
-                  className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
-                >
+                <button className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max">
                   <Icon
                     icon={arrowRight}
                     width={24}
@@ -328,7 +323,7 @@ function PostCard({ post }: { post: NewPost; compact?: boolean }) {
                     className="text-[#25276C]"
                   />
                   <span>Read</span>
-                </Link>
+                </button>
               </div>
             </div>
           </motion.div>
