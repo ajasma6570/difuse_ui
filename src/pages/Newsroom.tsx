@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import Footer from "@/components/common/Footer";
 import { NewPost, news } from "@/static-data/newsroom";
-import ResponsiveImage from "@/components/common/ResponsiveImage";
 import HoverRevealButton from "@/components/common/HoverRevealButton";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
@@ -156,12 +155,13 @@ function HeroCard({ post }: { post: NewPost }) {
   return (
     <article className="relative w-full overflow-hidden rounded-xl">
       <div className="group relative h-[320px] lg:h-[700px] w-full">
-        <ResponsiveImage
-          desktop={post.image}
-          mobile={post.mobileImage ?? post.image}
+        <Image
+          src={post.image.src}
           alt={post.title}
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
           fill
+          quality={100}
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          priority
         />
 
         <div className="absolute inset-0 p-5 sm:p-14 flex flex-col justify-between">
