@@ -51,7 +51,7 @@ export default function Page() {
             your current support team.
           </p>
         </div>
-        <section className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] p-36 rounded-lg">
+        <section className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] p-8 lg:p-36 rounded-lg">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h1 className="text-[#FBFBF9] text-5xl font-medium mb-4">
@@ -64,9 +64,9 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 mb-2 max-w-4xl mx-auto">
-              <div className="space-y-2 col-span-4">
-                <div className="bg-[#FBFBF9] rounded-lg p-8 text-left space-y-4 flex justify-center flex-col h-[267px]">
+            <div className="grid grid-cols-12 lg:grid-cols-12 gap-2 mb-2 max-w-4xl mx-auto">
+              <div className="space-y-2 col-span-12 lg:col-span-4">
+                <div className="bg-[#FBFBF9] rounded-lg p-8 text-left space-y-4 flex justify-center flex-col lg:h-[267px]">
                   <Link
                     href="mailto:hello@difuse.io"
                     className="text-[#080808] text-2xl font-semibold"
@@ -90,7 +90,7 @@ export default function Page() {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-lg p-8 text-left space-y-4  flex justify-center flex-col h-[268px]">
+                <div className="bg-white rounded-lg p-8 text-left space-y-4 flex justify-center flex-col lg:h-[267px]">
                   <Link
                     href="tel:1800599TECH"
                     className="text-gray-900 text-2xl font-semibold"
@@ -122,7 +122,7 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className="col-span-8 space-y-2">
+              <div className="col-span-12 lg:col-span-8 space-y-2">
                 <div className="bg-[#FBFBF9] rounded-lg p-8">
                   <p className="text-[#080808]">
                     Tell us what you&lsquo;re looking for, and our team will get
@@ -131,7 +131,7 @@ export default function Page() {
                 </div>
                 <div className="bg-[#FBFBF9] rounded-lg p-8 ">
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                       <input
                         type="text"
                         name="firstName"
@@ -152,7 +152,7 @@ export default function Page() {
                       />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                       <input
                         type="email"
                         name="email"
@@ -284,8 +284,8 @@ export default function Page() {
           />
 
           <div className="absolute inset-0 flex">
-            <div className="w-1/2"></div>
-            <div className="w-1/2 flex flex-col justify-center items-start h-full px-6 lg:px-20 space-y-6">
+            <div className="lg:w-1/2"></div>
+            <div className="lg:w-1/2 flex flex-col justify-center items-start h-full px-6 lg:px-20 space-y-6">
               <p className="text-[#080808] text-6xl leading-tight">
                 Partner With Us
               </p>

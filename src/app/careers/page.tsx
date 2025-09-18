@@ -115,7 +115,7 @@ export default function Page() {
 
   return (
     <main className="mt-28">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-28">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-16 lg:space-y-28">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
           <div className="space-y-6 col-span-12 md:col-span-8">
             <p className="text-[#25276C] text-3xl">Careers</p>
@@ -150,7 +150,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="bg-[#F4F4F4] mt-20 rounded-xl overflow-hidden p-20 space-y-14">
+        <div className="bg-[#F4F4F4] mt-20 rounded-xl overflow-hidden p-8 lg:p-20 space-y-14">
           <div className="flex flex-col md:flex-row px-8 lg:px-16  gap-10">
             <p className="md:w-1/2 text-[#080808] text-5xl md:text-6xl font-light leading-snug">
               Our Hiring <br /> Philosophy
@@ -325,7 +325,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] w-full mt-28">
+      <div className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] w-full mt-16 lg:mt-28">
         <Footer />
       </div>
     </main>
