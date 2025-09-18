@@ -3,10 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { LuArrowRight } from "react-icons/lu";
 import Footer from "@/components/common/Footer";
 import { NewPost, news } from "@/static-data/newsroom";
 import ResponsiveImage from "@/components/common/ResponsiveImage";
+import HoverRevealButton from "@/components/common/HoverRevealButton";
+import { Icon } from "@iconify/react/dist/offline";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
+import SearchIcon from "@iconify/icons-lucide/search";
+import { motion } from "framer-motion";
 
 const CATEGORIES = [
   "Latest",
@@ -57,11 +61,15 @@ export default function Newsroom() {
             Difuse is shaping the future of unified IT infrastructure.
           </p>
         </div>
-        <section className="mt-12 grid gap-6">
+        <section className="mt-12 gap-6 hidden lg:grid">
           <HeroCard post={bannerPost} />
         </section>
 
-        <section className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-2">
+        <section className="mt-12 grid gap-6 lg:hidden">
+          <PostCard key={bannerPost.id} post={bannerPost} />
+        </section>
+
+        <section className="mt-2 grid grid-cols-1 lg:grid-cols-3 gap-2">
           {featured.map((p) => (
             <PostCard key={p.id} post={p} compact />
           ))}
@@ -72,14 +80,14 @@ export default function Newsroom() {
             Navigate by Category
           </h2>
 
-          <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <div className="flex items-center gap-2 mb-5">
+          <div className="mt-10 lg:mt-20 flex flex-col xl:flex-row lg:items-center lg:justify-between gap-6 mb-10 lg:mb-16">
+            <div className="flex flex-wrap items-center gap-2 order-2 xl:order-1">
               <button
                 onClick={() => setActive("All")}
-                className={`px-3 py-1.5 rounded-md text-sm border ${
+                className={`px-5 lg:px-10 py-2.5 rounded-md text-lg border ${
                   active === "All"
-                    ? "bg-indigo-600 text-white border-indigo-600"
-                    : "text-gray-700 hover:bg-gray-100 border-gray-300"
+                    ? "bg-[#25276C] text-[#FBFBF9] border-[#25276C]"
+                    : "text-[#080808] hover:bg-gray-100 border-[#BEBEBE]"
                 }`}
               >
                 All
@@ -88,10 +96,10 @@ export default function Newsroom() {
                 <button
                   key={c}
                   onClick={() => setActive(c)}
-                  className={`px-3 py-1.5 rounded-md text-sm border ${
+                  className={`px-5 lg:px-10 py-2.5 rounded-md text-lg border ${
                     active === c
-                      ? "bg-indigo-600 text-white border-indigo-600"
-                      : "text-gray-700 hover:bg-gray-100 border-gray-300"
+                      ? "bg-[#25276C] text-[#FBFBF9] border-[#25276C]"
+                      : "text-[#080808] hover:bg-gray-100 border-[#BEBEBE]"
                   }`}
                 >
                   {c}
@@ -99,15 +107,15 @@ export default function Newsroom() {
               ))}
             </div>
 
-            <div className="relative w-full sm:w-64">
+            <div className="relative w-full xl:w-64 order-1 xl:order-2">
               <input
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="Search posts…"
-                className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                className="w-full rounded-md border border-[#BEBEBE] bg-[#FBFBF9] pl-11 px-3 py-2.5 text-lg outline-none focus:border-[#1C1E55] focus:ring-1 focus:ring-[#1C1E55]"
               />
-              <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400 text-sm">
-                ⌕
+              <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-[#BEBEBE] text-sm">
+                <Icon icon={SearchIcon} width={24} height={24} />
               </span>
             </div>
           </div>
@@ -123,8 +131,15 @@ export default function Newsroom() {
           <div className="mt-20 flex justify-center">
             <button
               onClick={() => setLimit((n) => n + 9)}
-              className="px-4 py-2 rounded-md border border-gray-300 text-gray-800 hover:bg-gray-50"
+              className="flex gap-2 items-center  text-[#1C1E55] group hover:text-[#FBFBF9] hover:bg-[#1C1E55] border border-[#1C1E55] transition-colors duration-300 p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
             >
+              {" "}
+              <Icon
+                icon={arrowRight}
+                width={24}
+                height={24}
+                className="text-[#25276C] group-hover:text-[#FBFBF9] transition-colors duration-300"
+              />
               Load more
             </button>
           </div>
@@ -140,7 +155,7 @@ export default function Newsroom() {
 function HeroCard({ post }: { post: NewPost }) {
   return (
     <article className="relative w-full overflow-hidden rounded-xl">
-      <div className="group relative h-[320px] sm:h-[700px] w-full">
+      <div className="group relative h-[320px] lg:h-[700px] w-full">
         <ResponsiveImage
           desktop={post.image}
           mobile={post.mobileImage ?? post.image}
@@ -159,7 +174,12 @@ function HeroCard({ post }: { post: NewPost }) {
             </button>
           </div>
 
-          <div className="flex items-end">
+          <motion.div
+            initial="rest"
+            animate="rest"
+            whileHover="hover"
+            className="flex items-end"
+          >
             <div className="w-8/12 space-y-4">
               <div className="flex gap-8 items-center text-white text-sm">
                 <div className="inline-flex items-center gap-2">
@@ -194,15 +214,29 @@ function HeroCard({ post }: { post: NewPost }) {
             </div>
 
             <div className="mt-3 w-5/12 flex justify-end">
+              <HoverRevealButton
+                icon={<Icon icon={arrowRight} width={24} height={24} />}
+                text="Read"
+                className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                variant="link"
+                href={`/newsroom/${post.slug}`}
+                parentControlled
+              />
+
               <Link
                 href={`/newsroom/${post.slug}`}
-                className="inline-flex items-center gap-2 text-sm text-white bg-white/10 hover:bg-white/20 backdrop-blur px-3 py-1.5 rounded-md"
+                className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
               >
-                Read more
-                <LuArrowRight />
+                <Icon
+                  icon={arrowRight}
+                  width={24}
+                  height={24}
+                  className="text-[#25276C]"
+                />
+                <span>Read</span>
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </article>
@@ -217,16 +251,20 @@ function PostCard({ post }: { post: NewPost; compact?: boolean }) {
           <div className="absolute inset-0 overflow-hidden">
             <Image
               src={post.image.src}
-              placeholder="blur"
-              blurDataURL={post.image.blurDataURL}
               alt={post.title}
               fill
+              priority
               className="object-cover hover:scale-105 transition-transform duration-500"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           </div>
 
-          <div className="absolute inset-0 p-8 text-white flex flex-col justify-between">
+          <motion.div
+            initial="rest"
+            animate="rest"
+            whileHover="hover"
+            className="absolute inset-0 p-8 text-white flex flex-col justify-between"
+          >
             <div>
               <div className="flex items-center gap-2 mb-3 ">
                 <button className="text-md font-normal px-3 py-1 rounded-md bg-[#6C6FD2] text-white">
@@ -261,22 +299,39 @@ function PostCard({ post }: { post: NewPost; compact?: boolean }) {
                   </div>
                 </div>
 
-                <h3 className={`font-light leading-relaxed text-2xl `}>
+                <h3
+                  className={`font-light leading-relaxed text-2xl line-clamp-3`}
+                >
                   {post.title}
                 </h3>
               </div>
             </div>
             <div>
               <div className="mt-2 flex items-center justify-between">
-                <button
-                  aria-label="Open"
-                  className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-white/15 text-white hover:bg-white/25"
+                <HoverRevealButton
+                  icon={<Icon icon={arrowRight} width={24} height={24} />}
+                  text="Read"
+                  className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                  variant="link"
+                  href={`/newsroom/${post.slug}`}
+                  parentControlled
+                />
+
+                <Link
+                  href={`/newsroom/${post.slug}`}
+                  className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
                 >
-                  <LuArrowRight />
-                </button>
+                  <Icon
+                    icon={arrowRight}
+                    width={24}
+                    height={24}
+                    className="text-[#25276C]"
+                  />
+                  <span>Read</span>
+                </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </Link>
     </article>
