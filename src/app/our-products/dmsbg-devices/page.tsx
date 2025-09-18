@@ -7,7 +7,12 @@ import { AiOutlineSecurityScan } from "react-icons/ai";
 import { FiArrowRight } from "react-icons/fi";
 import { IoBagRemoveOutline } from "react-icons/io5";
 import { Images } from "@/assets/our-products";
-import ResponsiveImage from "@/components/common/ResponsiveImage";
+import Link from "next/link";
+import HoverRevealButton from "@/components/common/HoverRevealButton";
+import { Icon } from "@iconify/react/dist/offline";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
+import { motion } from "framer-motion";
+import { Vectors } from "@/assets/vectors";
 
 const features = [
   {
@@ -86,7 +91,7 @@ export default function DmsbgPage() {
     <main className="pt-14 min-h-screen flex flex-col items-center justify-center">
       <div className="w-full md:max-w-8xl px-6 py-16">
         <div className="text-center md:max-w-6xl w-full mx-auto space-y-6">
-          <p className="text-3xl tracking-wide text-[#25276C]">
+          <p className="text-2xl lg:text-3xl tracking-wide text-[#25276C]">
             Our Products {">"}{" "}
             <span className="text-[#080808]">DMSBG Devices</span>
           </p>
@@ -111,13 +116,20 @@ export default function DmsbgPage() {
 
         <div className="relative mt-20 flex justify-center">
           <div className="relative w-full h-[650px] md:max-w-8xl rounded-lg overflow-hidden shadow-sm">
-            <ResponsiveImage
-              desktop={Images.DMSBG.Banner.Desktop}
-              mobile={Images.DMSBG.Banner.Mobile}
-              alt="DMSBG Devices Banner"
-              className="object-cover"
-              fill
-            />
+            <picture>
+              <source
+                media="(max-width: 1024px)"
+                srcSet={Images.DMSBG.Banner.Mobile.src}
+              />
+              <Image
+                src={Images.DMSBG.Banner.Desktop.src}
+                alt="DMSBG Devices Banner"
+                fill
+                quality={100}
+                className="object-cover"
+                priority
+              />
+            </picture>
           </div>
 
           <div className="absolute inset-0 flex flex-col justify-end mb-20 items-end">
@@ -154,34 +166,39 @@ export default function DmsbgPage() {
         <section className="max-w-8xl mx-auto mt-20 space-y-2">
           {products.map((p) => (
             <div key={p.name} className="relative overflow-hidden rounded-xl">
-              <div className="relative h-[1300px] lg:h-[500px] bg-black">
-                <ResponsiveImage
-                  desktop={p.img}
-                  mobile={p.mobileImg}
-                  alt={p.name}
-                  fill
-                  className="object-cover"
-                />
+              <div className="relative h-[800px] lg:h-[500px] bg-black">
+                <picture>
+                  <source
+                    media="(max-width: 1024px)"
+                    srcSet={p.mobileImg.src}
+                  />
+                  <Image
+                    src={p.img.src}
+                    alt={p.name}
+                    fill
+                    quality={100}
+                    className="object-fill"
+                    priority
+                  />
+                </picture>
               </div>
 
               <div className="p-6 md:px-20 py-10 absolute inset-0 text-white">
-                <div className="flex">
-                  <h3 className="text-5xl font-semibold w-8/12">{p.name}</h3>
+                <div className="flex flex-col lg:flex-row justify-between h-full w-full ">
+                  <h3 className="text-5xl font-semibold h-full w-full xl:w-6/12 2xl:w-7/12">
+                    {p.name}
+                  </h3>
 
-                  <div className="flex flex-col justify-between h-full w-4/12 space-y-2">
-                    <p className="mt-3 text-md opacity-90 max-w-prose">
-                      {p.desc}
-                    </p>
-                    <p className="mt-3 text-md opacity-90 max-w-prose">
-                      {p.moreDesc}
-                    </p>
-                    <div className="mt-4 flex gap-2">
+                  <div className="flex flex-col justify-start h-full w-full xl:w-6/12 2xl:w-5/12 space-y-2">
+                    <p className="mt-3 text-md xl:text-lg">{p.desc}</p>
+                    <p className="mt-3 text-md xl:text-lg">{p.moreDesc}</p>
+                    <div className="mt-4 flex gap-2 flex-wrap">
                       <AnimatedSlideButton
                         icon={
                           <IoBagRemoveOutline className="h-5 w-5 lg:h-6 lg:w-6" />
                         }
                         text="Explore Online Store"
-                        className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg font-medium inline-flex whitespace-nowrap"
+                        className="inline-flex hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] rounded-lg text-xl tracking-[-0.05em] p-5 max-w-max "
                         variant="link"
                         href={p.store}
                       />
@@ -190,7 +207,7 @@ export default function DmsbgPage() {
                           <FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />
                         }
                         text="Enquire"
-                        className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg  font-medium inline-flex whitespace-nowrap"
+                        className="inline-flex hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] rounded-lg text-xl tracking-[-0.05em] p-5 max-w-max "
                         variant="link"
                         href={p.enquire}
                       />
@@ -201,20 +218,33 @@ export default function DmsbgPage() {
             </div>
           ))}
 
-          <div className="flex mt-20 items-center justify-between text-lg text-[#2A2A2A] font-normal">
-            <div>
-              <p>More models incoming</p>
+          <div className="flex flex-col lg:flex-row mt-20 lg:items-center lg:justify-between text-lg text-[#2A2A2A] font-normal">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-4 lg:mb-0">
+              <Image
+                src={Vectors.DifuseIcon.src}
+                alt="vector_icon"
+                width={24}
+                height={24}
+                className="object-contain inline mb-4 lg:mb-0"
+              />
+              <p className="text-[#2A2A2A] ">(More models incoming...)</p>
             </div>
 
-            <p>
-              Get updates from our <strong>Newsroom</strong>,or subscribe to our{" "}
-              <strong>Newsletter.</strong>
+            <p className="text-[#A8A8A8]">
+              Get updates from our{" "}
+              <Link href="/newsroom" className="text-[#080808] font-semibold">
+                Newsroom
+              </Link>
+              ,or subscribe to our{" "}
+              <Link href="/newsletter" className="text-[#080808] font-semibold">
+                Newsletter.
+              </Link>
             </p>
           </div>
         </section>
 
         <section className="max-w-8xl mx-auto mt-12 ">
-          <div className="rounded-xl p-20 bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] ">
+          <div className="rounded-xl p-6 md:p-20 bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] ">
             <h2 className="font-semibold mb-20 text-white text-6xl">
               Key Features
             </h2>
@@ -241,35 +271,37 @@ export default function DmsbgPage() {
         </section>
 
         <section className="max-w-8xl mx-auto my-40 ">
-          <div className="rounded-xl bg-[linear-gradient(to_right,black_0%,#25276C_100%)] text-white p-8 md:p-12 h-[350px] flex flex-col justify-center ">
-            <div className="flex gap-8 items-center">
-              <div className="w-7/12">
-                <h2 className="text-3xl md:text-5xl font-medium leading-snug mb-4">
+          <div className="rounded-xl bg-[linear-gradient(to_right,black_0%,#25276C_100%)] text-white p-8 md:p-12 h-[630px] lg:h-[350px] flex flex-col justify-center ">
+            <div className="flex flex-col lg:flex-row gap-8 lg:items-center">
+              <div className="w-full lg:w-7/12">
+                <h2 className="text-4xl xl:text-5xl font-normal leading-snug mb-4">
                   Find the Right DMSBG for
-                  <br />
+                  <span className="lg:hidden">&nbsp;</span>
+                  <br className="hidden lg:inline" />
                   Your Business
                 </h2>
               </div>
-              <div className="w-5/12">
+              <div className="w-full lg:w-5/12">
                 <p className="text-[#FBFBF9] text-lg leading-relaxed mb-6">
                   Explore specs, compare models, and choose
-                  <br />
-                  the device that fits your scale.
+                  <br className="hidden lg:inline" /> the device that fits your
+                  scale.
                 </p>
+
                 <div className="flex flex-col sm:flex-row gap-3">
                   <AnimatedSlideButton
                     icon={
                       <IoBagRemoveOutline className="h-5 w-5 lg:h-6 lg:w-6" />
                     }
                     text="Explore Online Store"
-                    className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg whitespace-nowrap font-medium inline-flex"
+                    className="inline-flex hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] rounded-lg text-xl tracking-[-0.05em] p-5 max-w-max "
                     variant="link"
-                    href="/contact"
+                    href="/online-store"
                   />
                   <AnimatedSlideButton
                     icon={<FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
                     text="Contact Us"
-                    className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg whitespace-nowrap font-medium inline-flex"
+                    className="inline-flex hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] rounded-lg text-xl tracking-[-0.05em] p-5 max-w-max "
                     variant="link"
                     href="/contact"
                   />
@@ -280,19 +312,21 @@ export default function DmsbgPage() {
         </section>
 
         <section className="max-w-8xl mx-auto mb-20">
-          <div className="grid lg:grid-cols-[1fr_2fr] gap-12 items-start">
+          <div className="grid xl:grid-cols-[1fr_2fr] gap-12 items-start">
             <div>
-              <h2 className="text-4xl md:text-6xl font-normal text-[#080808] leading-tight">
+              <h2 className="text-4xl xl:text-5xl font-normal text-[#080808] leading-tight">
                 Explore More
-                <br />
+                <span className="xl:hidden">&nbsp;</span>
+                <br className="hidden xl:inline" />
                 on the Our
-                <br />
+                <span className="xl:hidden">&nbsp;</span>
+                <br className="hidden xl:inline" />
                 Products Page
               </h2>
             </div>
 
-            <div className="flex justify-end lg:flex-row flex-col gap-2">
-              <div className="relative h-[400px] w-[400px] group overflow-hidden rounded-xl">
+            <div className="flex xl:justify-end lg:flex-row flex-col gap-2">
+              <div className="relative h-[400px] lg:w-[400px] group overflow-hidden rounded-xl">
                 <Image
                   src={Images.ExtraImages.DPBXDevicesImg.src}
                   placeholder="blur"
@@ -302,31 +336,41 @@ export default function DmsbgPage() {
                   className="object-cover transition-transform group-hover:scale-105 duration-300"
                 />
 
-                <div className="absolute inset-0 p-10 flex flex-col justify-between">
-                  <h3 className="text-white text-5xl font-medium">
+                <motion.div
+                  initial="rest"
+                  animate="rest"
+                  whileHover="hover"
+                  className="absolute inset-0 p-10 flex flex-col justify-between group:"
+                >
+                  <h3 className="text-white text-3xl lg:text-4xl font-medium">
                     DPBX Devices
                   </h3>
                   <div className="flex justify-start">
-                    <div className="bg-white rounded-lg p-4 shadow-sm hover:translate-x-1 hover:translate-y-1 transition-transform">
-                      <svg
-                        className="w-5 h-5 text-gray-900"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </div>
+                    <HoverRevealButton
+                      icon={<Icon icon={arrowRight} width={24} height={24} />}
+                      text="Explore"
+                      className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                      variant="link"
+                      href="/our-products/dpbx-devices"
+                      parentControlled
+                    />
+                    <Link
+                      href="/our-products/dpbx-devices"
+                      className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                    >
+                      <Icon
+                        icon={arrowRight}
+                        width={24}
+                        height={24}
+                        className="text-[#25276C]"
+                      />
+                      <span>Explore</span>
+                    </Link>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
-              <div className="relative h-[400px] w-[400px] group overflow-hidden rounded-xl">
+              <div className="relative h-[400px] lg:w-[400px] group overflow-hidden rounded-xl">
                 <Image
                   src={Images.ExtraImages.SoftphoneImg.src}
                   placeholder="blur"
@@ -336,26 +380,38 @@ export default function DmsbgPage() {
                   className="object-cover transition-transform group-hover:scale-105 duration-300"
                 />
 
-                <div className="absolute inset-0 p-10 flex flex-col justify-between">
-                  <h3 className="text-white text-5xl font-medium">Softphone</h3>
+                <motion.div
+                  initial="rest"
+                  animate="rest"
+                  whileHover="hover"
+                  className="absolute inset-0 p-10 flex flex-col justify-between group:"
+                >
+                  <h3 className="text-white text-3xl lg:text-4xl font-medium">
+                    Softphone
+                  </h3>
                   <div className="flex justify-start">
-                    <div className="bg-white rounded-lg p-4 shadow-sm hover:translate-x-1 hover:translate-y-1 transition-transform">
-                      <svg
-                        className="w-5 h-5 text-gray-900"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </div>
+                    <HoverRevealButton
+                      icon={<Icon icon={arrowRight} width={24} height={24} />}
+                      text="Explore"
+                      className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                      variant="link"
+                      href="/our-products/softphone"
+                      parentControlled
+                    />
+                    <Link
+                      href="/our-products/softphone"
+                      className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                    >
+                      <Icon
+                        icon={arrowRight}
+                        width={24}
+                        height={24}
+                        className="text-[#25276C]"
+                      />
+                      <span>Explore</span>
+                    </Link>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
