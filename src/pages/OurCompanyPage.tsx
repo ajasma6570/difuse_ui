@@ -4,7 +4,6 @@ import { OurCompanyImages } from "@/assets/our-company";
 import { Vectors } from "@/assets/vectors";
 import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
 import Footer from "@/components/common/Footer";
-import ResponsiveImage from "@/components/common/ResponsiveImage";
 import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
@@ -79,12 +78,20 @@ export default function OurCompanyPage() {
         <div className="relative mt-20 flex justify-center">
           <div className="w-full md:w-full md:max-w-8xl rounded-lg overflow-hidden shadow-sm">
             <div className="relative h-[550px] lg:h-[600px] w-full">
-              <ResponsiveImage
-                desktop={OurCompanyImages.Banner.Desktop}
-                mobile={OurCompanyImages.Banner.Mobile}
-                alt="w-full h-auto object-cover"
-                fill
-              />
+              <picture>
+                <source
+                  media="(max-width: 1024px)"
+                  srcSet={OurCompanyImages.Banner.Mobile.src}
+                />
+                <Image
+                  src={OurCompanyImages.Banner.Desktop.src}
+                  alt="Our company banner"
+                  fill
+                  quality={100}
+                  className="object-cover"
+                  priority
+                />
+              </picture>
             </div>
           </div>
         </div>
@@ -174,7 +181,7 @@ export default function OurCompanyPage() {
 
             <div className="col-span-12 lg:col-span-8 grid grid-cols-1 lg:grid-cols-2 gap-2 mt-10 lg:mt-0">
               <div className="rounded-lg hidden lg:flex flex-col justify-between p-8 min-h-[300px] lg:min-h-[365px]"></div>
-              <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] lg:min-h-[365px]">
+              <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-8 lg:min-h-[365px]">
                 <p className="text-3xl lg:text-4xl ">Open-source by design</p>
 
                 <div className="flex gap-8 md:gap-16">
@@ -185,13 +192,13 @@ export default function OurCompanyPage() {
                       height={48}
                     />
                   </p>
-                  <p className="text-md sm:text-xl">
+                  <p className="text-base lg:text-lg">
                     Built for transparency, flexibility, and community-driven
                     innovation
                   </p>
                 </div>
               </div>
-              <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] lg:min-h-[365px]">
+              <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-8 lg:min-h-[365px]">
                 <p className="text-3xl lg:text-4xl">Tailored deployments</p>
 
                 <div className="flex gap-8 md:gap-16">
@@ -202,13 +209,13 @@ export default function OurCompanyPage() {
                       height={48}
                     />
                   </p>
-                  <p className="text-md sm:text-xl">
+                  <p className="text-base lg:text-lg">
                     Customizable solutions built to match unique business
                     requirements, not force-fit features
                   </p>
                 </div>
               </div>
-              <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] lg:min-h-[365px]">
+              <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-8 lg:min-h-[365px]">
                 <p className="text-3xl lg:text-4xl ">
                   Community-first approach
                 </p>
@@ -217,7 +224,7 @@ export default function OurCompanyPage() {
                   <p className="flex items-end justify-start">
                     <Icon icon="formkit:people" width={48} height={48} />
                   </p>
-                  <p className="text-md sm:text-xl">
+                  <p className="text-base lg:text-lg">
                     Active engagement with developers, teams, and IT enthusiasts
                     worldwide
                   </p>
@@ -273,12 +280,12 @@ export default function OurCompanyPage() {
               </div>
 
               <div className="grid md:col-span-2 grid-cols-2 gap-5 items-stretch h-full">
-                <div className="rounded-lg overflow-hidden relative bg-zinc-900">
-                  <ResponsiveImage
-                    desktop={product.DesktopImage}
-                    mobile={product.MobileImage}
+                <div className="rounded-lg overflow-hidden relative">
+                  <Image
+                    src={product.DesktopImage.src}
                     alt={product.title}
                     fill
+                    quality={100}
                     className="object-cover"
                     priority
                   />
@@ -335,7 +342,7 @@ export default function OurCompanyPage() {
                     </div>
 
                     <div className="bg-[#F4F4F4] p-8 rounded-lg">
-                      <p className="text-[#2A2A2A] text-lg leading-relaxed mb-8">
+                      <p className="text-[#2A2A2A] text-base lg:text-lg leading-relaxed mb-8">
                         {item.body}
                       </p>
 
@@ -369,7 +376,7 @@ export default function OurCompanyPage() {
             </div>
             <div className="max-w-7xl mx-auto mt-14 lg:mt-20 grid grid-cols-1 sm:grid-cols-12 gap-2 px-8">
               <div className="col-span-12 lg:col-span-4 bg-white rounded-lg space-y-6 p-10 flex justify-between flex-col">
-                <p className="text-md lg:text-xl text-[#2A2A2A] font-light">
+                <p className="text-base lg:text-lg text-[#2A2A2A] font-light">
                   At Difuse, our core values are more than ideals, they’re the
                   blueprint for everything we design, deliver, and support. We
                   believe technology should empower, not overwhelm. That’s why
@@ -390,7 +397,7 @@ export default function OurCompanyPage() {
               </div>
 
               <div className="col-span-12 lg:col-span-8 grid grid-cols-1 lg:grid-cols-2 gap-2">
-                <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-4 lg:min-h-[365px]">
+                <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-8 lg:min-h-[365px]">
                   <p className="text-3xl lg:text-4xl 2xl:text-5xl">
                     Simplicity at Scale
                   </p>
@@ -399,14 +406,14 @@ export default function OurCompanyPage() {
                     <p className="flex items-end justify-start col-span-1">
                       <Icon icon="solar:scale-linear" width={48} height={48} />
                     </p>
-                    <p className="text-sm lg:text-[16px] col-span-2">
+                    <p className="text-base lg:text-lg col-span-2">
                       Power shouldn’t come with complexity. We strip away the
                       bloat of legacy systems and deliver modular tools that
                       work together, intuitively and efficiently.
                     </p>
                   </div>
                 </div>
-                <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-4 lg:min-h-[365px]">
+                <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-8 lg:min-h-[365px]">
                   <p className="text-3xl lg:text-4xl 2xl:text-5xl">
                     Future-Ready Thinking
                   </p>
@@ -419,14 +426,14 @@ export default function OurCompanyPage() {
                         height={48}
                       />
                     </p>
-                    <p className="text-sm lg:text-[16px]  col-span-2">
+                    <p className="text-base lg:text-lg col-span-2">
                       We’re not just solving today’s IT problems, we’re
                       designing for the next decade of decentralized,
                       intelligent, business-first infrastructure.
                     </p>
                   </div>
                 </div>
-                <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-4 lg:min-h-[365px]">
+                <div className="bg-white rounded-lg flex flex-col justify-between  p-8 min-h-[300px] space-y-8  lg:min-h-[365px]">
                   <p className="text-3xl lg:text-4xl 2xl:text-5xl">
                     Open Innovation
                   </p>
@@ -435,7 +442,7 @@ export default function OurCompanyPage() {
                     <p className="flex items-end justify-start col-span-1">
                       <Icon icon="tabler:bulb" width={48} height={48} />
                     </p>
-                    <p className="text-sm lg:text-[16px] col-span-2">
+                    <p className="text-base lg:text-lg col-span-2">
                       We’re built on open standards and open-source principles,
                       not closed ecosystems. This fuels faster development,
                       stronger security, and continuous community-driven
@@ -443,7 +450,7 @@ export default function OurCompanyPage() {
                     </p>
                   </div>
                 </div>
-                <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-4 lg:min-h-[365px]">
+                <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-8  lg:min-h-[365px]">
                   <p className="text-3xl lg:text-4xl 2xl:text-5xl">
                     Security as a Foundation
                   </p>
@@ -452,7 +459,7 @@ export default function OurCompanyPage() {
                     <p className="flex items-end justify-start col-span-1">
                       <Icon icon="hugeicons:security" width={48} height={48} />
                     </p>
-                    <p className="text-sm lg:text-[16px] col-span-2">
+                    <p className="text-base lg:text-lg col-span-2">
                       From self-hosted control to privacy-respecting
                       architecture, security isn’t a feature, it’s embedded into
                       every layer of our platform.
