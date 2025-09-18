@@ -94,6 +94,7 @@ export default function NewsRoom() {
                     className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
                     variant="link"
                     href={item.slug}
+                    parentControlled
                   />
                   <Link
                     href={item.slug}

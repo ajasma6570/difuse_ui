@@ -3,7 +3,7 @@ import React from "react";
 import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
 import PingPongRow from "@/components/common/PingPongRow";
 import { Vectors } from "@/assets/vectors";
-import ProductGif from "$/videos/products.gif";
+import ProductGif from "$/gif/products.gif";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 

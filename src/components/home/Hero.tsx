@@ -1,23 +1,29 @@
+"use client";
+
 import React from "react";
 import AnimatedSlideButton from "../common/AnimatedSlideButton";
 import FloatingTogglePanel from "@/components/common/FloatingPanel";
 import { Icon } from "@iconify/react/dist/offline";
 import bag4Linear from "@iconify/icons-solar/bag-4-linear";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
-import ResponsiveImage from "../common/ResponsiveImage";
-import IntroGif from "$/videos/intro.gif";
-import IntroMobile from "$/images/intro_mobile.jpg";
+import Image from "next/image";
+import IntroDesktop from "$/gif/intro-desktop.gif";
+import IntroMobile from "$/gif/intro-mobile.gif";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col">
-      <ResponsiveImage
-        desktop={IntroGif}
-        mobile={IntroMobile}
-        alt="Background"
-        className="-z-10 object-cover"
-        priority
-      />
+      <picture>
+        <source media="(max-width: 1024px)" srcSet={IntroMobile.src} />
+        <Image
+          src={IntroDesktop.src}
+          alt="Hero"
+          fill
+          quality={100}
+          className="object-cover"
+          priority
+        />
+      </picture>
 
       <div className="relative z-10 px-6 lg:px-8 py-7 lg:py-12 flex flex-col min-h-screen ">
         <div className="flex-1 flex lg:items-center justify-center mt-14 lg:mt-0 ">

@@ -96,12 +96,12 @@ export default function Navbar() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 px-6",
-        stickyMenu ? "backdrop-blur-lg" : ""
+        stickyMenu ? "backdrop-blur-sm" : ""
       )}
     >
       <nav
         className={cn(
-          "flex items-center justify-between py-3 lg:py-6 w-full max-w-10xl mx-auto transform transition-all duration-300",
+          "flex items-center justify-between py-3 w-full max-w-10xl mx-auto transform transition-all duration-300",
           stickyMenu ? "lg:py-4" : "lg:py-6"
         )}
       >
