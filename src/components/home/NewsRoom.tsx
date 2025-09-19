@@ -3,7 +3,7 @@ import React from "react";
 import AnimatedSlideButton from "../common/AnimatedSlideButton";
 import Footer from "../common/Footer";
 import HoverRevealButton from "../common/HoverRevealButton";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Link from "next/link";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";

@@ -12,7 +12,7 @@ import { Vectors } from "@/assets/vectors";
 import HoverRevealButton from "@/components/common/HoverRevealButton";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const features = [
   {

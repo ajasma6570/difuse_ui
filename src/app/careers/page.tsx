@@ -9,7 +9,7 @@ import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
 import { FaArrowRight } from "react-icons/fa6";
 import { LuMinus, LuPlus } from "react-icons/lu";
 import Footer from "@/components/common/Footer";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function Page() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);

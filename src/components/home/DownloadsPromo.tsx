@@ -4,7 +4,7 @@ import React, { useMemo, useRef, useState, useEffect } from "react";
 import AnimatedSlideButton from "../common/AnimatedSlideButton";
 import { Icon } from "@iconify/react";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants } from "motion/react";
 import type { IconifyIcon } from "@iconify/types";
 import house from "@iconify/icons-lucide/home";
 import cpu from "@iconify/icons-lucide/cpu";

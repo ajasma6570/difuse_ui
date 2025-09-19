@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { IoMdAdd, IoMdRemove } from "react-icons/io";
 import Image from "next/image";
 import { Vectors } from "@/assets/vectors";

@@ -1,7 +1,7 @@
 "use client";
 
 import { type ReactNode, useRef, useLayoutEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Link from "next/link";
 
 interface AnimatedSlideButtonProps {

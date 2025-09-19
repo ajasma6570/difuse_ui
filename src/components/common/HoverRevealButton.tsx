@@ -1,11 +1,11 @@
 "use client";
 
 import { type ReactNode, useRef, useLayoutEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Link from "next/link";
 
 // motion-enabled Link for self-controlled mode
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 interface HoverRevealButtonProps {
   icon: ReactNode;

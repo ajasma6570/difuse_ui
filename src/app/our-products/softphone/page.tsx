@@ -9,7 +9,7 @@ import { FiArrowRight } from "react-icons/fi";
 import { Images } from "@/assets/our-products";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import HoverRevealButton from "@/components/common/HoverRevealButton";
 import Link from "next/link";
 
