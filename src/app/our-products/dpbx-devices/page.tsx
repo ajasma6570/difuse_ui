@@ -3,53 +3,60 @@
 import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
 import Footer from "@/components/common/Footer";
 import Image from "next/image";
-import { AiOutlineSecurityScan } from "react-icons/ai";
-import { FiArrowRight } from "react-icons/fi";
-import { IoBagRemoveOutline } from "react-icons/io5";
 import { Images } from "@/assets/our-products";
 import Link from "next/link";
 import { Vectors } from "@/assets/vectors";
 import HoverRevealButton from "@/components/common/HoverRevealButton";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
+import bag4Linear from "@iconify/icons-solar/bag-4-linear";
 import { motion } from "motion/react";
 
 const features = [
   {
     title: "Unlimited Extensions",
     desc: "Unlimited extensions for on-site, remote, and mobile users",
+    icon: Vectors.Expand,
   },
   {
     title: "Universally Compatible",
     desc: "Effortlessly compatible with all SIP-based devices and services",
+    icon: Vectors.Venn,
   },
   {
     title: "Multi-Level IVR",
     desc: "Tailored Interactive Call Menus for Improved Interactions",
+    icon: Vectors.OrgChart,
   },
   {
     title: "Advanced Routing",
     desc: "Optimize call management with advanced customizable routing",
+    icon: Vectors.Branch,
   },
   {
     title: "Operator Panel",
     desc: "Efficiently manage calls with our easy-to-use operator panel",
+    icon: Vectors.Sliders,
   },
   {
     title: "Call Detail Records",
     desc: "Gain insights through detailed call statistics with our Call Detail Records feature",
+    icon: Vectors.Phone,
   },
   {
     title: "E2E Encryption",
     desc: "TLS and SRTP encryption for secure, private communication",
+    icon: Vectors.Padlock,
   },
   {
     title: "Conferences & Queues",
     desc: "Simple conferences and queues for effective communication",
+    icon: Vectors.Team,
   },
   {
     title: "On-Board Storage",
     desc: "On-board storage for call recordings and voicemail",
+    icon: Vectors.Folder,
   },
 ];
 
@@ -66,7 +73,7 @@ const products = [
   },
 ];
 
-export default function DmsbgPage() {
+export default function Page() {
   return (
     <main className="pt-14 min-h-screen flex flex-col items-center justify-center">
       <div className="w-full md:max-w-8xl px-6 py-16">
@@ -112,14 +119,14 @@ export default function DmsbgPage() {
           <div className="absolute inset-0 flex flex-col justify-end mb-20 items-end">
             <div className="space-x-4 justify-center mx-auto gap-4 flex flex-col sm:flex-row items-center">
               <AnimatedSlideButton
-                icon={<FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
+                icon={<Icon icon={arrowRight} width={24} height={24} />}
                 text="Contact Us"
                 className="items-center gap-2 hover:bg-[#25276C] hover:text-[#FBFBF9] text-[#25276C] border border-[#25276C] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
                 variant="link"
                 href="/contact Us"
               />
               <AnimatedSlideButton
-                icon={<IoBagRemoveOutline className="h-5 w-5 lg:h-6 lg:w-6" />}
+                icon={<Icon icon={bag4Linear} width={24} height={24} />}
                 text="Explore Online Store"
                 className="items-center gap-2 hover:bg-[#25276C] hover:text-[#FBFBF9] text-[#25276C] border border-[#25276C] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
                 variant="link"
@@ -174,18 +181,14 @@ export default function DmsbgPage() {
                     <p className="mt-3 text-md xl:text-lg">{p.moreDesc}</p>
                     <div className="mt-4 flex gap-2 flex-wrap">
                       <AnimatedSlideButton
-                        icon={
-                          <IoBagRemoveOutline className="h-5 w-5 lg:h-6 lg:w-6" />
-                        }
+                        icon={<Icon icon={bag4Linear} width={24} height={24} />}
                         text="Explore Online Store"
                         className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg font-medium inline-flex whitespace-nowrap"
                         variant="link"
                         href={p.store}
                       />
                       <AnimatedSlideButton
-                        icon={
-                          <FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />
-                        }
+                        icon={<Icon icon={arrowRight} width={24} height={24} />}
                         text="Enquire"
                         className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg  font-medium inline-flex whitespace-nowrap"
                         variant="link"
@@ -224,8 +227,8 @@ export default function DmsbgPage() {
         </section>
 
         <section className="max-w-8xl mx-auto mt-12 ">
-          <div className="rounded-lg p-6 md:p-20 bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] ">
-            <h2 className="font-semibold mb-20 text-white text-6xl">
+          <div className="rounded-lg p-6 py-14 md:p-20 bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] ">
+            <h2 className="font-semibold mb-14 lg:mb-20 text-white text-4xl lg:text-6xl">
               Key Features
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-3 ">
@@ -238,11 +241,17 @@ export default function DmsbgPage() {
                     {f.title}
                   </p>
 
-                  <div className="flex gap-10">
-                    <p className="flex items-end justify-start">
-                      <AiOutlineSecurityScan className="h-16 w-16" />
-                    </p>
-                    <p className="text-md text-[#2A2A2A]">{f.desc}</p>
+                  <div className="flex items-end gap-8 md:gap-16">
+                    <span className="shrink-0">
+                      <Image
+                        src={f.icon.src}
+                        alt={`${f.title}_icon`}
+                        width={40}
+                        height={40}
+                        className="object-contain"
+                      />
+                    </span>
+                    <p className="text-lg">{f.desc}</p>
                   </div>
                 </div>
               ))}
@@ -270,16 +279,14 @@ export default function DmsbgPage() {
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <AnimatedSlideButton
-                    icon={
-                      <IoBagRemoveOutline className="h-5 w-5 lg:h-6 lg:w-6" />
-                    }
+                    icon={<Icon icon={bag4Linear} width={24} height={24} />}
                     text="Explore Online Store"
                     className="inline-flex hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] rounded-lg text-xl tracking-[-0.05em] p-5 max-w-max "
                     variant="link"
                     href="/online-store"
                   />
                   <AnimatedSlideButton
-                    icon={<FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
+                    icon={<Icon icon={arrowRight} width={24} height={24} />}
                     text="Contact Us"
                     className="inline-flex hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] rounded-lg text-xl tracking-[-0.05em] p-5 max-w-max "
                     variant="link"

@@ -4,28 +4,30 @@ import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
 import Footer from "@/components/common/Footer";
 import Image from "next/image";
 import React from "react";
-import { AiOutlineSecurityScan } from "react-icons/ai";
-import { FiArrowRight } from "react-icons/fi";
 import { Images } from "@/assets/our-products";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 import { motion } from "motion/react";
 import HoverRevealButton from "@/components/common/HoverRevealButton";
 import Link from "next/link";
+import { Vectors } from "@/assets/vectors";
 
 export default function page() {
   const features = [
     {
       title: "Open Source",
       desc: "Difuse Phone is open source under GPLv3, ensuring transparency and security",
+      icon: Vectors.Magnet,
     },
     {
       title: "Free Push Notifications",
       desc: "Get notified of calls even when the app is closed or in the background without draining your battery",
+      icon: Vectors.Bell,
     },
     {
       title: "Easy to Deploy",
       desc: "Difuse Phone is easy to deploy and manage, with support for QR provisioning and other methods",
+      icon: Vectors.ArrowUp,
     },
   ];
 
@@ -72,14 +74,14 @@ export default function page() {
           <div className="absolute inset-0 flex flex-col justify-end mb-20 items-end">
             <div className="space-x-4 justify-center mx-auto gap-4 flex flex-col sm:flex-row items-center">
               <AnimatedSlideButton
-                icon={<FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
+                icon={<Icon icon={arrowRight} width={24} height={24} />}
                 text="Contact Us"
                 className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
                 variant="link"
                 href="/contact Us"
               />
               <AnimatedSlideButton
-                icon={<FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
+                icon={<Icon icon={arrowRight} width={24} height={24} />}
                 text="Download App Now"
                 className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
                 variant="link"
@@ -188,25 +190,31 @@ export default function page() {
         </section>
 
         <section className="max-w-8xl mx-auto mt-12 ">
-          <div className="rounded-xl p-6 md:p-20 bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] ">
-            <h2 className="font-semibold mb-20 text-white text-6xl text-center">
+          <div className="rounded-xl p-6 py-14 md:p-20 bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] ">
+            <h2 className="font-semibold mb-14 lg:mb-20 text-white text-6xl text-center">
               Key Features
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-3 ">
               {features.map((f) => (
                 <div
                   key={f.title}
-                  className="bg-white rounded-xl flex flex-col justify-between p-8 min-h-[300px] lg:min-h-[300px]"
+                  className="bg-white rounded-xl flex flex-col justify-between p-8 min-h-[300px] lg:min-h-[320px]"
                 >
                   <p className="text-3xl lg:text-4xl  text-[#080808]">
                     {f.title}
                   </p>
 
-                  <div className="flex gap-10">
-                    <p className="flex items-end justify-start">
-                      <AiOutlineSecurityScan className="h-16 w-16" />
-                    </p>
-                    <p className="text-md text-[#2A2A2A]">{f.desc}</p>
+                  <div className="flex items-end gap-8 md:gap-16">
+                    <span className="shrink-0">
+                      <Image
+                        src={f.icon.src}
+                        alt={`${f.title}_icon`}
+                        width={40}
+                        height={40}
+                        className="object-contain"
+                      />
+                    </span>
+                    <p className="text-lg">{f.desc}</p>
                   </div>
                 </div>
               ))}
@@ -228,14 +236,14 @@ export default function page() {
               <div className="w-full lg:w-5/12">
                 <div className="flex flex-col sm:flex-row gap-3">
                   <AnimatedSlideButton
-                    icon={<FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
+                    icon={<Icon icon={arrowRight} width={24} height={24} />}
                     text="Download App Now"
                     className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg whitespace-nowrap font-medium inline-flex"
                     variant="link"
                     href="/contact"
                   />
                   <AnimatedSlideButton
-                    icon={<FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
+                    icon={<Icon icon={arrowRight} width={24} height={24} />}
                     text="Contact Us"
                     className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg whitespace-nowrap font-medium inline-flex"
                     variant="link"

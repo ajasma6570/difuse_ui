@@ -80,8 +80,8 @@ export default function PlatformOverview() {
             <Image
               src={Vectors.DifuseIcon.src}
               alt="Difuse Icon"
-              width={48}
-              height={48}
+              width={35}
+              height={35}
             />
           </div>
 
@@ -96,8 +96,8 @@ export default function PlatformOverview() {
                   <Image
                     src={Vectors.Lock.src}
                     alt="Shield Check"
-                    width={48}
-                    height={48}
+                    width={35}
+                    height={35}
                     className="absolute"
                   />
                 </p>
@@ -114,10 +114,10 @@ export default function PlatformOverview() {
               <div className="grid grid-cols-2">
                 <p className="flex items-end justify-start">
                   <Image
-                    src={Vectors.Heart.src}
+                    src={Vectors.MonitorPulse.src}
                     alt="Heart Rate Monitor"
-                    width={48}
-                    height={48}
+                    width={35}
+                    height={35}
                     className="absolute"
                   />
                 </p>
@@ -136,8 +136,8 @@ export default function PlatformOverview() {
                   <Image
                     src={Vectors.Growth.src}
                     alt="Growth Chart"
-                    width={48}
-                    height={48}
+                    width={35}
+                    height={35}
                     className="absolute"
                   />
                 </p>

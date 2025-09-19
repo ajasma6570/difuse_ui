@@ -2,8 +2,10 @@
 
 import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
 import Footer from "@/components/common/Footer";
+import { Icon } from "@iconify/react/dist/offline";
+import download from "@iconify/icons-lucide/download";
+import phone from "@iconify/icons-lucide/phone";
 import React, { useState } from "react";
-import { FaPhone } from "react-icons/fa6";
 
 export default function Page() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -82,20 +84,8 @@ export default function Page() {
                       {item.version}
                     </td>
                     <td className="py-2 px-6 text-center">
-                      <button className="w-8 h-8 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white transition-colors">
-                        <svg
-                          className="w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                          />
-                        </svg>
+                      <button className="w-8 h-8 text-[#25276C] rounded-full flex items-center justify-center transition-colors">
+                        <Icon icon={download} width={28} height={28} />
                       </button>
                     </td>
                   </tr>
@@ -123,7 +113,7 @@ export default function Page() {
               >
                 Prev
               </button>
-              <span className="px-3 py-1 text-lg text-[#6C6FD2] border border-[#D9D9D9] rounded-lg ">
+              <span className="px-3 py-1 text-lg text-[#25276C] border border-[#D9D9D9] rounded-lg ">
                 {currentPage}
               </span>
               <button
@@ -153,7 +143,7 @@ export default function Page() {
             Contact our Support Team
           </p>
           <AnimatedSlideButton
-            icon={<FaPhone className="h-6 w-6" />}
+            icon={<Icon icon={phone} width={28} height={28} />}
             text="1800-599-TECH"
             variant="link"
             href="tel:1800599TECH"

@@ -4,49 +4,12 @@ import { OurCompanyImages } from "@/assets/our-company";
 import { Vectors } from "@/assets/vectors";
 import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
 import Footer from "@/components/common/Footer";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useState } from "react";
-import { Icon } from "@iconify/react";
-
-type Product = {
-  id: string;
-  DesktopImage: StaticImageData;
-  MobileImage: StaticImageData;
-  icon: string;
-  title: string;
-  body: string;
-  href: string;
-};
-
-const products: Product[] = [
-  {
-    id: "dmsbg-devices",
-    title: "DMSBG Devices",
-    body: "Difuse’s DMSBG (Multi-Service Business Gateway) devices go beyond traditional routers. They integrate routing, firewall, Wi-Fi, PBX, NAS, DNS filtering, and more all in one streamlined unit. With open standards and modular firmware, each unit is built for autonomy, customization, and long-term agility.",
-    DesktopImage: OurCompanyImages.Products.DMSBG.Desktop,
-    MobileImage: OurCompanyImages.Products.DMSBG.Mobile,
-    icon: "icon-park-outline:data-server",
-    href: "/our-products/dmsbg-devices",
-  },
-  {
-    id: "dpbx-devices",
-    title: "DPBX Devices",
-    body: "Difuse’s DPBX (Private Branch Exchange) devices are purpose-built for secure, self-hosted business communication. They combine PBX capabilities with modular software, supporting advanced call routing, IVR, recording, and SIP trunking, all without cloud lock-ins or licensing traps. With scalable deployment options and full admin control, DPBX devices empower businesses to own their voice infrastructure.",
-    DesktopImage: OurCompanyImages.Products.DPBX.Desktop,
-    MobileImage: OurCompanyImages.Products.DPBX.Mobile,
-    icon: "icon-park-outline:phone-two",
-    href: "/our-products/dpbx-devices",
-  },
-  {
-    id: "softphone",
-    title: "Softphone",
-    body: "Make high-quality voice and SMS calls securely over the internet—right from your desktop, tablet, or mobile device. Difuse Phone connects seamlessly with your existing Difuse PBX or DMSBG systems, offering a unified, self-hosted communication experience without relying on third-party cloud services.",
-    DesktopImage: OurCompanyImages.Products.Softphone.Desktop,
-    MobileImage: OurCompanyImages.Products.Softphone.Mobile,
-    icon: "iconoir:cube",
-    href: "/our-products/softphone",
-  },
-];
+import { Icon } from "@iconify/react/dist/offline";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
+import { ourValues, products, rightFeatures } from "@/static-data/ourCompany";
+import type { FeatureCard } from "@/static-data/ourCompany";
 
 export default function OurCompanyPage() {
   const [active, setActive] = useState<string>("dmsbg-devices");
@@ -180,56 +143,15 @@ export default function OurCompanyPage() {
             </div>
 
             <div className="col-span-12 lg:col-span-8 grid grid-cols-1 lg:grid-cols-2 gap-2 mt-10 lg:mt-0">
-              <div className="rounded-lg hidden lg:flex flex-col justify-between p-8 min-h-[300px] lg:min-h-[365px]"></div>
-              <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-8 lg:min-h-[365px]">
-                <p className="text-3xl lg:text-4xl ">Open-source by design</p>
-
-                <div className="flex gap-8 md:gap-16">
-                  <p className="flex items-end justify-start">
-                    <Icon
-                      icon="mdi:open-source-initiative"
-                      width={48}
-                      height={48}
-                    />
-                  </p>
-                  <p className="text-base lg:text-lg">
-                    Built for transparency, flexibility, and community-driven
-                    innovation
-                  </p>
-                </div>
-              </div>
-              <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-8 lg:min-h-[365px]">
-                <p className="text-3xl lg:text-4xl">Tailored deployments</p>
-
-                <div className="flex gap-8 md:gap-16">
-                  <p className="flex items-end justify-start">
-                    <Icon
-                      icon="carbon:deployment-policy"
-                      width={48}
-                      height={48}
-                    />
-                  </p>
-                  <p className="text-base lg:text-lg">
-                    Customizable solutions built to match unique business
-                    requirements, not force-fit features
-                  </p>
-                </div>
-              </div>
-              <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-8 lg:min-h-[365px]">
-                <p className="text-3xl lg:text-4xl ">
-                  Community-first approach
-                </p>
-
-                <div className="flex gap-8 md:gap-16">
-                  <p className="flex items-end justify-start">
-                    <Icon icon="formkit:people" width={48} height={48} />
-                  </p>
-                  <p className="text-base lg:text-lg">
-                    Active engagement with developers, teams, and IT enthusiasts
-                    worldwide
-                  </p>
-                </div>
-              </div>
+              <div className="rounded-lg hidden lg:flex flex-col justify-between p-8 min-h-[300px] lg:min-h-[365px]" />
+              {rightFeatures.map((f) => (
+                <FeatureCard
+                  key={f.title}
+                  title={f.title}
+                  body={f.body}
+                  icon={f.icon}
+                />
+              ))}
             </div>
           </div>
         </section>
@@ -264,8 +186,7 @@ export default function OurCompanyPage() {
                     }`}
                     aria-pressed={active === item.id}
                   >
-                    <Icon
-                      icon={item.icon}
+                    <item.icon
                       width={32}
                       height={32}
                       className={`${
@@ -298,13 +219,7 @@ export default function OurCompanyPage() {
 
                   <div className="mt-auto pt-4">
                     <AnimatedSlideButton
-                      icon={
-                        <Icon
-                          icon="lucide:arrow-right"
-                          width={24}
-                          height={24}
-                        />
-                      }
+                      icon={<Icon icon={arrowRight} width={24} height={24} />}
                       text="Learn more"
                       className=" items-center gap-2 text-[#1C1E55] border hover:text-white border-[#1C1E55] hover:bg-[#1C1E55] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium hidden md:inline-flex"
                       variant="link"
@@ -330,8 +245,7 @@ export default function OurCompanyPage() {
 
                   <div className="absolute inset-0 flex justify-between flex-col px-6 py-12">
                     <div className="flex items-center gap-3 px-4 lg:px-8">
-                      <Icon
-                        icon={item.icon}
+                      <item.icon
                         width={30}
                         height={30}
                         className="text-white"
@@ -347,13 +261,7 @@ export default function OurCompanyPage() {
                       </p>
 
                       <AnimatedSlideButton
-                        icon={
-                          <Icon
-                            icon="lucide:arrow-right"
-                            width={24}
-                            height={24}
-                          />
-                        }
+                        icon={<Icon icon={arrowRight} width={24} height={24} />}
                         text="Learn more"
                         className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] border border-[#1C1E55] hover:text-white rounded-lg  text-xl tracking-[-0.05em] p-4 max-w-max "
                         variant="link"
@@ -397,75 +305,9 @@ export default function OurCompanyPage() {
               </div>
 
               <div className="col-span-12 lg:col-span-8 grid grid-cols-1 lg:grid-cols-2 gap-2">
-                <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-8 lg:min-h-[365px]">
-                  <p className="text-3xl lg:text-4xl 2xl:text-5xl">
-                    Simplicity at Scale
-                  </p>
-
-                  <div className="flex gap-8">
-                    <p className="flex items-end justify-start col-span-1">
-                      <Icon icon="solar:scale-linear" width={48} height={48} />
-                    </p>
-                    <p className="text-base lg:text-lg col-span-2">
-                      Power shouldn’t come with complexity. We strip away the
-                      bloat of legacy systems and deliver modular tools that
-                      work together, intuitively and efficiently.
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-8 lg:min-h-[365px]">
-                  <p className="text-3xl lg:text-4xl 2xl:text-5xl">
-                    Future-Ready Thinking
-                  </p>
-
-                  <div className="flex gap-8 ">
-                    <p className="flex items-end justify-start col-span-1">
-                      <Icon
-                        icon="pepicons-pencil:next-track"
-                        width={48}
-                        height={48}
-                      />
-                    </p>
-                    <p className="text-base lg:text-lg col-span-2">
-                      We’re not just solving today’s IT problems, we’re
-                      designing for the next decade of decentralized,
-                      intelligent, business-first infrastructure.
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg flex flex-col justify-between  p-8 min-h-[300px] space-y-8  lg:min-h-[365px]">
-                  <p className="text-3xl lg:text-4xl 2xl:text-5xl">
-                    Open Innovation
-                  </p>
-
-                  <div className="flex gap-8">
-                    <p className="flex items-end justify-start col-span-1">
-                      <Icon icon="tabler:bulb" width={48} height={48} />
-                    </p>
-                    <p className="text-base lg:text-lg col-span-2">
-                      We’re built on open standards and open-source principles,
-                      not closed ecosystems. This fuels faster development,
-                      stronger security, and continuous community-driven
-                      improvement.
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-8  lg:min-h-[365px]">
-                  <p className="text-3xl lg:text-4xl 2xl:text-5xl">
-                    Security as a Foundation
-                  </p>
-
-                  <div className="flex gap-8">
-                    <p className="flex items-end justify-start col-span-1">
-                      <Icon icon="hugeicons:security" width={48} height={48} />
-                    </p>
-                    <p className="text-base lg:text-lg col-span-2">
-                      From self-hosted control to privacy-respecting
-                      architecture, security isn’t a feature, it’s embedded into
-                      every layer of our platform.
-                    </p>
-                  </div>
-                </div>
+                {ourValues.map((f) => (
+                  <FeatureCard key={f.title} {...f} />
+                ))}
               </div>
             </div>
           </div>
@@ -476,5 +318,25 @@ export default function OurCompanyPage() {
         <Footer />
       </div>
     </main>
+  );
+}
+
+export function FeatureCard({ title, body, icon }: FeatureCard) {
+  return (
+    <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-16 sm:space-y-8 lg:min-h-[365px]">
+      <p className="text-3xl lg:text-4xl">{title}</p>
+      <div className="flex items-end gap-8 md:gap-16">
+        <span className="shrink-0">
+          <Image
+            src={icon}
+            alt={title}
+            width={45}
+            height={45}
+            className="object-contain"
+          />
+        </span>
+        <p className="text-base lg:text-md">{body}</p>
+      </div>
+    </div>
   );
 }

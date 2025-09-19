@@ -3,13 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import BannerDesktop from "$/images/common/img_4.png";
-import HiringImage from "$/images/common/img_5.png";
 import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
-import { FaArrowRight } from "react-icons/fa6";
-import { LuMinus, LuPlus } from "react-icons/lu";
 import Footer from "@/components/common/Footer";
 import { motion, AnimatePresence } from "motion/react";
+import { Icon } from "@iconify/react/dist/offline";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
+import minus from "@iconify/icons-lucide/minus";
+import plus from "@iconify/icons-lucide/plus";
+import BannerDesktop from "$/images/common/img_4.png";
+import HiringImage from "$/images/common/img_5.png";
+import { Vectors } from "@/assets/vectors";
 
 export default function Page() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -119,8 +122,9 @@ export default function Page() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
           <div className="space-y-6 col-span-12 md:col-span-8">
             <p className="text-[#25276C] text-3xl">Careers</p>
-            <h1 className="text-5xl md:text-6xl text-[#080808] leading-tight font-normal">
-              Join Us and Build the <br /> Future of Communication
+            <h1 className="text-4xl md:text-6xl text-[#080808] leading-tight font-normal">
+              Join Us and Build the <span className="md:hidden">&nbsp;</span>
+              <br className="hidden md:inline" /> Future of Communication
             </h1>
             <p className="md:w-3/4 text-[#080808] text-lg">
               We believe innovation starts with people. That’s why we invest in
@@ -163,9 +167,11 @@ export default function Page() {
                 belong here.
               </p>
               <AnimatedSlideButton
-                icon={<FaArrowRight className="h-6 w-6" />}
+                icon={<Icon icon={arrowRight} width={24} height={24} />}
                 text="What we do"
-                className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] hover:text-white py-4 px-6 rounded-lg bg-[#FBFBF9] text-xl leading-7 tracking-[-0.05em] font-normal"
+                className="inline-flex hover:bg-[#25276C] hover:text-[#FBFBF9] text-[#25276C] border border-[#25276C] rounded-lg text-xl tracking-[-0.05em] p-5 max-w-max "
+                variant="link"
+                href="/contact"
               />
             </div>
           </div>
@@ -209,19 +215,13 @@ export default function Page() {
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-6 h-6  rounded flex items-center justify-center">
-                      <svg
-                        className="w-4 h-4 text-gray-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6M8 8v10l4-4 4 4V8"
-                        />
-                      </svg>
+                      <Image
+                        src={Vectors.BagSearch}
+                        alt="briefcase_icon"
+                        width={45}
+                        height={45}
+                        className="object-contain"
+                      />
                     </div>
                     <span className="text-[#FBFBF9] text-2xl md:text-3xl font-medium">
                       {job.title}
@@ -229,9 +229,9 @@ export default function Page() {
                   </div>
                   <div className="text-[#FBFBF9]">
                     {expandedIndex === job.id ? (
-                      <LuMinus size={28} />
+                      <Icon icon={minus} width={24} height={24} />
                     ) : (
-                      <LuPlus size={28} />
+                      <Icon icon={plus} width={24} height={24} />
                     )}
                   </div>
                 </button>
@@ -311,7 +311,9 @@ export default function Page() {
                         </div>
 
                         <AnimatedSlideButton
-                          icon={<FaArrowRight className="h-6 w-6" />}
+                          icon={
+                            <Icon icon={arrowRight} width={24} height={24} />
+                          }
                           text="Apply Now"
                           className="inline-flex text-[#FBFBF9] hover:bg-[#FBFBF9] hover:text-[#1C1E55] py-4 px-6 rounded-lg bg-transparent border border-[#FBFBF9] text-xl leading-7 tracking-[-0.05em] font-normal"
                         />

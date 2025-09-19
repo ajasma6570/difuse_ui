@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@iconify-icons/fluent": "^1.2.38",
     "@iconify-icons/ri": "^1.2.10",
     "@iconify/icons-lucide": "^1.2.135",
     "@iconify/icons-solar": "^1.2.3",

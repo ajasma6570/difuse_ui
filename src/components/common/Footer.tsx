@@ -5,11 +5,11 @@ import AnimatedSlideButton from "./AnimatedSlideButton";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react/dist/offline";
-import callIcon from "@iconify-icons/fluent/call-20-regular";
 import facebookIcon from "@iconify-icons/ri/facebook-fill";
 import twitterIcon from "@iconify-icons/ri/twitter-x-fill";
 import linkedinIcon from "@iconify-icons/ri/linkedin-fill";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
+import phone from "@iconify/icons-lucide/phone";
 
 export default function Footer() {
   const about = [
@@ -173,7 +173,7 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap gap-3 text-[#FBFBF9] w-full">
               <AnimatedSlideButton
-                icon={<Icon icon={callIcon} width={25} height={25} />}
+                icon={<Icon icon={phone} width={24} height={24} />}
                 text="1800-599-TECH"
                 className="max-w-max items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg sm:text-xl font-medium inline-flex"
                 variant="link"

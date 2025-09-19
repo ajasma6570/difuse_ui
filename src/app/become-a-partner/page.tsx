@@ -3,8 +3,6 @@
 import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
 import React from "react";
 import Image from "next/image";
-import { FiArrowRight } from "react-icons/fi";
-import { AiOutlineSecurityScan } from "react-icons/ai";
 import BannerDesktop from "$/images/common/img.png";
 import BannerMobile from "$/images/common/img_sm.png";
 import ProgramDesktop from "$/images/common/img_2.png";
@@ -12,8 +10,36 @@ import PartnerDesktop from "$/images/common/img_3.png";
 import Footer from "@/components/common/Footer";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
+import { Vectors } from "@/assets/vectors";
 
 export default function page() {
+  const partnerPrivileges = [
+    {
+      title: "Premium Support",
+      description: "Experience dedicated assistance and priority service",
+      icon: Vectors.Handshake,
+    },
+    {
+      title: "Partner Discounts",
+      description: "Access discounted rates tailored to our valued partners",
+      icon: Vectors.MehFace,
+    },
+    {
+      title: "Exclusive Benefits",
+      description:
+        "Experience cutting-edge features before anyone else and shape its future",
+      icon: Vectors.HandStar,
+    },
+  ];
+
+  const support = [
+    {
+      title: "Early access to Innovative features",
+      icon: Vectors.HourglassCheck,
+    },
+    { title: "Customized Partner Dashboard", icon: Vectors.Grid },
+    { title: "Exclusive resources for mutual growth", icon: Vectors.ChartUp },
+  ];
   return (
     <main className="mt-28 min-h-screen flex flex-col items-center px-6 ">
       <div className="w-full md:max-w-8xl pb-16 space-y-20">
@@ -45,7 +71,7 @@ export default function page() {
               innovation, and shared expertise in our collaborative ecosystem.
             </p>
             <AnimatedSlideButton
-              icon={<FiArrowRight className="h-5 w-5 lg:h-6 lg:w-6" />}
+              icon={<Icon icon={arrowRight} width={24} height={24} />}
               text="Apply Now"
               className="items-center gap-2 hover:bg-[#25276C] hover:text-[#FBFBF9] text-[#25276C] border border-[#25276C] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
               variant="link"
@@ -54,8 +80,8 @@ export default function page() {
           </div>
         </div>
 
-        <section className="rounded-2xl bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] p-8 sm:p-20 text-white shadow-lg">
-          <h2 className="text-2xl sm:text-6xl font-normal text-center text-[#FBFBF9]">
+        <section className="rounded-2xl bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] p-8 py-14 sm:p-20 text-white shadow-lg">
+          <h2 className="text-3xl sm:text-6xl font-normal text-center text-[#FBFBF9]">
             Experience Partner Privileges
           </h2>
           <p className="mt-10 text-center text-sm sm:text-lg text-[#FBFBF9] max-w-2xl mx-auto">
@@ -64,49 +90,29 @@ export default function page() {
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-3 mt-10">
-            <div className="bg-white rounded-xl flex flex-col justify-between p-8 min-h-[300px] ">
-              <p className="text-3xl lg:text-4xl  text-[#080808]">
-                Premium Support
-              </p>
+            {partnerPrivileges.map((f) => (
+              <div
+                key={f.title}
+                className="bg-white rounded-xl flex flex-col justify-between p-8 min-h-[300px] "
+              >
+                <p className="text-3xl lg:text-4xl  text-[#080808]">
+                  {f.title}
+                </p>
 
-              <div className="flex gap-10">
-                <p className="flex items-end justify-start">
-                  <AiOutlineSecurityScan className="h-16 w-16 text-[#2A2A2A]" />
-                </p>
-                <p className="text-lg lg:text-xl text-[#2A2A2A]">
-                  Experience dedicated assistance and priority service
-                </p>
+                <div className="flex items-end gap-8 md:gap-16">
+                  <span className="shrink-0">
+                    <Image
+                      src={f.icon.src}
+                      alt={`${f.title}_icon`}
+                      width={40}
+                      height={40}
+                      className="object-contain"
+                    />
+                  </span>
+                  <p className="text-lg text-[#080808]">{f.description}</p>
+                </div>
               </div>
-            </div>
-            <div className="bg-white rounded-xl flex flex-col justify-between p-8 min-h-[300px] ">
-              <p className="text-3xl lg:text-4xl  text-[#080808]">
-                Partner Discounts
-              </p>
-
-              <div className="flex gap-10">
-                <p className="flex items-end justify-start">
-                  <AiOutlineSecurityScan className="h-16 w-16 text-[#2A2A2A]" />
-                </p>
-                <p className="text-lg lg:text-xl text-[#2A2A2A]">
-                  Access discounted rates tailored to our valued partners
-                </p>
-              </div>
-            </div>
-            <div className="bg-white rounded-xl flex flex-col justify-between p-8 min-h-[300px] ">
-              <p className="text-3xl lg:text-4xl  text-[#080808]">
-                Exclusive Benefits
-              </p>
-
-              <div className="flex gap-10">
-                <p className="flex items-end justify-start">
-                  <AiOutlineSecurityScan className="h-16 w-16 text-[#2A2A2A]" />
-                </p>
-                <p className="text-lg lg:text-xl text-[#2A2A2A]">
-                  Experience cutting-edge features before anyone else and shape
-                  its future
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
@@ -126,80 +132,27 @@ export default function page() {
               </p>
 
               <ul className="space-y-2">
-                <li className="flex items-center justify-between gap-6 bg-[#F4F4F4] p-10 rounded-lg h-[150px]">
-                  <div>
-                    <p className="text-lg font-medium text-gray-900">
-                      Early access to
-                      <br />
-                      Innovative features
-                    </p>
-                  </div>{" "}
-                  <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center">
-                    <svg
-                      className="w-6 h-6 text-gray-700"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                {support.map((f) => (
+                  <li
+                    key={f.title}
+                    className="flex items-center justify-between gap-6 bg-[#F4F4F4] p-10 rounded-lg h-[150px]"
+                  >
+                    <div>
+                      <p className="text-lg font-medium text-gray-900 w-full">
+                        {f.title}
+                      </p>
+                    </div>{" "}
+                    <div className="lg:w-full flex items-center justify-end">
+                      <Image
+                        src={f.icon.src}
+                        alt={`${f.title}_icon`}
+                        width={48}
+                        height={48}
+                        className="object-contain"
                       />
-                    </svg>
-                  </div>
-                </li>
-
-                <li className="flex items-center justify-between gap-6 bg-[#F4F4F4] p-10 rounded-lg h-[150px]">
-                  <div>
-                    <p className="text-lg font-medium text-gray-900">
-                      Customized Partner
-                      <br />
-                      Dashboard
-                    </p>
-                  </div>
-                  <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center">
-                    <svg
-                      className="w-6 h-6 text-gray-700"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
-                      />
-                    </svg>
-                  </div>
-                </li>
-
-                <li className="flex items-center justify-between gap-6 bg-[#F4F4F4] p-10 rounded-lg h-[150px]">
-                  <div>
-                    <p className="text-lg font-medium text-gray-900">
-                      Exclusive resources
-                      <br />
-                      for mutual growth
-                    </p>
-                  </div>{" "}
-                  <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center">
-                    <svg
-                      className="w-6 h-6 text-gray-700"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                      />
-                    </svg>
-                  </div>
-                </li>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -239,54 +192,34 @@ export default function page() {
                 </p>
 
                 <div className="flex flex-col lg:flex-row gap-2">
-                  <div className="bg-[#FBFBF9] h-[200px] space-y-6 p-10 flex gap-5 rounded-lg">
-                    <p className="text-[#2A2A2A] text-xl md:text-md font-normal w-full md:w-auto">
-                      Exclusive rates on{" "}
-                      <span className="md:hidden">&nbsp;</span>
-                      <br className="hidden md:inline" />
-                      our devices and <span className="md:hidden">&nbsp;</span>
-                      <br className="hidden md:inline" /> services
+                  <div className="bg-[#FBFBF9] h-[200px] space-y-6 p-10 flex gap-5 rounded-lg w-full">
+                    <p className="text-[#2A2A2A] text-xl md:text-lg font-normal w-full md:w-auto">
+                      Exclusive rates on our devices and services
                     </p>
-                    <p className="flex justify-end h-full items-end  w-full md:w-auto">
+                    <p className="flex justify-end h-full items-end">
                       {" "}
-                      <svg
-                        className="w-6 h-6 text-gray-700"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                        />
-                      </svg>
+                      <Image
+                        src={Vectors.Percent.src}
+                        alt="percentage_icon"
+                        width={45}
+                        height={45}
+                        className="object-contain"
+                      />
                     </p>
                   </div>
-                  <div className="bg-[#FBFBF9] h-[200px] space-y-6 p-10 flex gap-5 rounded-lg">
-                    <p className="text-[#2A2A2A] text-xl md:text-md font-normal  w-full md:w-auto">
-                      Partner-specific <span className="md:hidden">&nbsp;</span>
-                      <br className="hidden md:inline" /> promotions for{" "}
-                      <span className="md:hidden">&nbsp;</span>
-                      <br className="hidden md:inline" />
-                      added value
+                  <div className="bg-[#FBFBF9] h-[200px] space-y-6 p-10 flex gap-5 rounded-lg w-full">
+                    <p className="text-[#2A2A2A] text-xl md:text-lg font-normal  w-full md:w-auto">
+                      Partner-specific promotions for added value
                     </p>
-                    <p className="flex justify-end h-full items-end  w-full md:w-auto">
+                    <p className="flex justify-end h-full items-end">
                       {" "}
-                      <svg
-                        className="w-6 h-6 text-gray-700"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                        />
-                      </svg>
+                      <Image
+                        src={Vectors.Star.src}
+                        alt="percentage_icon"
+                        width={45}
+                        height={45}
+                        className="object-contain"
+                      />
                     </p>
                   </div>
                 </div>

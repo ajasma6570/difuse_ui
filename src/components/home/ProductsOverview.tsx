@@ -226,8 +226,8 @@ export default function ProductsOverview() {
                   <Image
                     src={card.icon.src}
                     alt={card.title}
-                    width={40}
-                    height={40}
+                    width={35}
+                    height={35}
                     className="object-contain"
                   />
                 )}

@@ -6,7 +6,8 @@ import Link from "next/link";
 import React, { useState } from "react";
 import PartnerImage from "$/images/common/img_6.png";
 import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
-import { FaArrowRight } from "react-icons/fa6";
+import { Icon } from "@iconify/react/dist/offline";
+import arrowRight from "@iconify/icons-lucide/arrow-right";
 
 export default function Page() {
   const [formData, setFormData] = useState({
@@ -294,7 +295,7 @@ export default function Page() {
                 partners. Let&lsquo;s explore how we can work together.
               </p>{" "}
               <AnimatedSlideButton
-                icon={<FaArrowRight className="h-6 w-6" />}
+                icon={<Icon icon={arrowRight} width={24} height={24} />}
                 text="Learn more"
                 className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] hover:text-white py-4 px-[18px] rounded-lg  border border-[#1C1E55] text-xl leading-7 tracking-[-0.05em] font-normal"
               />

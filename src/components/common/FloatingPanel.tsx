@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { IoMdAdd, IoMdRemove } from "react-icons/io";
 import Image from "next/image";
 import { Vectors } from "@/assets/vectors";
+import minus from "@iconify/icons-lucide/minus";
+import plus from "@iconify/icons-lucide/plus";
+import { Icon } from "@iconify/react/dist/offline";
 
 export default function ExpandablePanel() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,9 +19,9 @@ export default function ExpandablePanel() {
         className="absolute -top-4 right-4 z-30 bg-white text-black rounded-full shadow-lg p-1 cursor-pointer"
       >
         {isOpen ? (
-          <IoMdRemove className="h-6 w-6" />
+          <Icon icon={minus} width={24} height={24} />
         ) : (
-          <IoMdAdd className="h-6 w-6" />
+          <Icon icon={plus} width={24} height={24} />
         )}
       </button>
 
