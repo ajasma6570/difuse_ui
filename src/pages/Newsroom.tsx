@@ -10,6 +10,7 @@ import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 import SearchIcon from "@iconify/icons-lucide/search";
 import { motion } from "motion/react";
+import PageTransition from "@/components/common/PageTransition";
 
 const CATEGORIES = [
   "Latest",
@@ -47,107 +48,109 @@ export default function Newsroom() {
     );
 
   return (
-    <main className="pt-14 min-h-screen flex flex-col items-center justify-center">
-      <div className="w-full md:max-w-8xl px-6 py-16">
-        <div className="space-y-8">
-          <p className="text-3xl text-[#25276C]">Newsroom</p>
+    <PageTransition motionKey="newsroom-main-page-wrapper">
+      <div className="pt-14 min-h-screen flex flex-col items-center justify-center">
+        <div className="w-full md:max-w-8xl px-6 py-16">
+          <div className="space-y-8">
+            <p className="text-3xl text-[#25276C]">Newsroom</p>
 
-          <h1 className="text-3xl sm:text-6xl font-medium leading-snug text-[#080808]">
-            Stay Updated with Difuse: <br /> News, Releases & Milestones
-          </h1>
-          <p className="max-w-2xl text-[#2A2A2A] text-lg">
-            From product rollouts to industry insights, get the latest on how
-            Difuse is shaping the future of unified IT infrastructure.
-          </p>
-        </div>
-        <section className="mt-12 gap-6 hidden lg:grid">
-          <HeroCard post={bannerPost} />
-        </section>
+            <h1 className="text-3xl sm:text-6xl font-medium leading-snug text-[#080808]">
+              Stay Updated with Difuse: <br /> News, Releases & Milestones
+            </h1>
+            <p className="max-w-2xl text-[#2A2A2A] text-lg">
+              From product rollouts to industry insights, get the latest on how
+              Difuse is shaping the future of unified IT infrastructure.
+            </p>
+          </div>
+          <section className="mt-12 gap-6 hidden lg:grid">
+            <HeroCard post={bannerPost} />
+          </section>
 
-        <section className="mt-12 grid gap-6 lg:hidden">
-          <PostCard key={bannerPost.id} post={bannerPost} />
-        </section>
+          <section className="mt-12 grid gap-6 lg:hidden">
+            <PostCard key={bannerPost.id} post={bannerPost} />
+          </section>
 
-        <section className="mt-2 grid grid-cols-1 lg:grid-cols-3 gap-2">
-          {featured.map((p) => (
-            <PostCard key={p.id} post={p} compact />
-          ))}
-        </section>
+          <section className="mt-2 grid grid-cols-1 lg:grid-cols-3 gap-2">
+            {featured.map((p) => (
+              <PostCard key={p.id} post={p} compact />
+            ))}
+          </section>
 
-        <section className="mt-28">
-          <h2 className="text-6xl font-medium text-[#080808]">
-            Navigate by Category
-          </h2>
+          <section className="mt-28">
+            <h2 className="text-6xl font-medium text-[#080808]">
+              Navigate by Category
+            </h2>
 
-          <div className="mt-10 lg:mt-20 flex flex-col xl:flex-row lg:items-center lg:justify-between gap-6 mb-10 lg:mb-16">
-            <div className="flex flex-wrap items-center gap-2 order-2 xl:order-1">
-              <button
-                onClick={() => setActive("All")}
-                className={`px-5 lg:px-10 py-2.5 rounded-md text-lg border ${
-                  active === "All"
-                    ? "bg-[#25276C] text-[#FBFBF9] border-[#25276C]"
-                    : "text-[#080808] hover:bg-gray-100 border-[#BEBEBE]"
-                }`}
-              >
-                All
-              </button>
-              {CATEGORIES.map((c) => (
+            <div className="mt-10 lg:mt-20 flex flex-col xl:flex-row lg:items-center lg:justify-between gap-6 mb-10 lg:mb-16">
+              <div className="flex flex-wrap items-center gap-2 order-2 xl:order-1">
                 <button
-                  key={c}
-                  onClick={() => setActive(c)}
+                  onClick={() => setActive("All")}
                   className={`px-5 lg:px-10 py-2.5 rounded-md text-lg border ${
-                    active === c
+                    active === "All"
                       ? "bg-[#25276C] text-[#FBFBF9] border-[#25276C]"
                       : "text-[#080808] hover:bg-gray-100 border-[#BEBEBE]"
                   }`}
                 >
-                  {c}
+                  All
                 </button>
-              ))}
+                {CATEGORIES.map((c) => (
+                  <button
+                    key={c}
+                    onClick={() => setActive(c)}
+                    className={`px-5 lg:px-10 py-2.5 rounded-md text-lg border ${
+                      active === c
+                        ? "bg-[#25276C] text-[#FBFBF9] border-[#25276C]"
+                        : "text-[#080808] hover:bg-gray-100 border-[#BEBEBE]"
+                    }`}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+
+              <div className="relative w-full xl:w-64 order-1 xl:order-2">
+                <input
+                  value={q}
+                  onChange={(e) => setQ(e.target.value)}
+                  placeholder="Search posts…"
+                  className="w-full rounded-md border border-[#BEBEBE] bg-[#FBFBF9] pl-11 px-3 py-2.5 text-lg outline-none focus:border-[#1C1E55] focus:ring-1 focus:ring-[#1C1E55]"
+                />
+                <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-[#BEBEBE] text-sm">
+                  <Icon icon={SearchIcon} width={24} height={24} />
+                </span>
+              </div>
             </div>
+          </section>
 
-            <div className="relative w-full xl:w-64 order-1 xl:order-2">
-              <input
-                value={q}
-                onChange={(e) => setQ(e.target.value)}
-                placeholder="Search posts…"
-                className="w-full rounded-md border border-[#BEBEBE] bg-[#FBFBF9] pl-11 px-3 py-2.5 text-lg outline-none focus:border-[#1C1E55] focus:ring-1 focus:ring-[#1C1E55]"
-              />
-              <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-[#BEBEBE] text-sm">
-                <Icon icon={SearchIcon} width={24} height={24} />
-              </span>
+          <section className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+            {filtered.slice(0, limit).map((p) => (
+              <PostCard key={p.id} post={p} />
+            ))}
+          </section>
+
+          {limit < filtered.length && (
+            <div className="mt-20 flex justify-center">
+              <button
+                onClick={() => setLimit((n) => n + 9)}
+                className="flex gap-2 items-center  text-[#1C1E55] group hover:text-[#FBFBF9] hover:bg-[#1C1E55] border border-[#1C1E55] transition-colors duration-300 p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+              >
+                {" "}
+                <Icon
+                  icon={arrowRight}
+                  width={24}
+                  height={24}
+                  className="text-[#25276C] group-hover:text-[#FBFBF9] transition-colors duration-300"
+                />
+                Load more
+              </button>
             </div>
-          </div>
-        </section>
-
-        <section className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-          {filtered.slice(0, limit).map((p) => (
-            <PostCard key={p.id} post={p} />
-          ))}
-        </section>
-
-        {limit < filtered.length && (
-          <div className="mt-20 flex justify-center">
-            <button
-              onClick={() => setLimit((n) => n + 9)}
-              className="flex gap-2 items-center  text-[#1C1E55] group hover:text-[#FBFBF9] hover:bg-[#1C1E55] border border-[#1C1E55] transition-colors duration-300 p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
-            >
-              {" "}
-              <Icon
-                icon={arrowRight}
-                width={24}
-                height={24}
-                className="text-[#25276C] group-hover:text-[#FBFBF9] transition-colors duration-300"
-              />
-              Load more
-            </button>
-          </div>
-        )}
-      </div>{" "}
-      <div className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] w-full mt-5">
-        <Footer />
+          )}
+        </div>{" "}
+        <div className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] w-full mt-5">
+          <Footer />
+        </div>
       </div>
-    </main>
+    </PageTransition>
   );
 }
 
