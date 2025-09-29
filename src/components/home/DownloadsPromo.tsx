@@ -4,14 +4,9 @@ import React, { useMemo, useRef, useState, useEffect } from "react";
 import AnimatedSlideButton from "../common/AnimatedSlideButton";
 import { Icon } from "@iconify/react";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
-import { motion, Variants } from "motion/react";
-import type { IconifyIcon } from "@iconify/types";
-import house from "@iconify/icons-lucide/home";
-import cpu from "@iconify/icons-lucide/cpu";
-import hardDrive from "@iconify/icons-lucide/hard-drive";
-import settings from "@iconify/icons-lucide/settings";
-import messageCircle from "@iconify/icons-lucide/message-circle";
+import { motion, Variants } from "framer-motion";
 import { cn } from "@/utils/tailwindmerge";
+import Image from "next/image";
 
 type Phase = "rest" | "hover" | "leave";
 
@@ -26,8 +21,9 @@ type BubbleStyle = {
 
 type RawIcon = {
   id: string;
-  icon: IconifyIcon;
+  icon: string;
   style: BubbleStyle;
+  className?: string;
 };
 
 const H = 680;
@@ -36,33 +32,39 @@ const BUBBLE = 180;
 const RAW_ICONS: RawIcon[] = [
   {
     id: "left-start",
-    icon: house,
-    style: { top: "65%", left: "11%", size: "h-[72px] w-[72px]" },
+    icon: "/images/vector2.png",
+    style: { top: "65%", left: "11%", size: "h-[75px] w-[75px]" },
+    className: "p-3",
   },
   {
     id: "left-mid",
-    icon: hardDrive,
-    style: { top: "80%", left: "21%", size: "h-[51px] w-[51px]" },
+    icon: "/images/img2.png",
+    style: { top: "80%", left: "21%", size: "h-[70px] w-[70px]" },
+    className: "p-0.5",
   },
   {
     id: "left-end",
-    icon: cpu,
+    icon: "/images/img.png",
     style: { top: "50%", left: "28%", size: "h-[80px] w-[80px]" },
+    className: "p-0.5",
   },
   {
     id: "right-start",
-    icon: settings,
+    icon: "/images/vector3.png",
     style: { top: "50%", right: "20%", size: "h-[80px] w-[80px]" },
+    className: "p-4",
   },
   {
     id: "right-mid",
-    icon: settings,
-    style: { top: "80%", right: "14%", size: "h-[51px] w-[51px]" },
+    icon: "/images/img.png",
+    style: { top: "80%", right: "14%", size: "h-[70px] w-[70px]" },
+    className: "p-0.5",
   },
   {
     id: "right-end",
-    icon: messageCircle,
-    style: { top: "65%", right: "2%", size: "h-[72px] w-[72px]" },
+    icon: "/images/vector.png",
+    style: { top: "65%", right: "2%", size: "h-[75px] w-[75px]" },
+    className: "p-3",
   },
 ];
 
@@ -115,7 +117,7 @@ export default function DownloadsPromo() {
   return (
     <section className="px-6">
       <motion.div
-        className="relative mt-20 w-full px-6 h-[680px] rounded-xl max-w-8xl flex space-y-10 justify-center flex-col items-center mx-auto bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] overflow-hidden"
+        className="relative mt-20 w-full px-6 h-[780px] sm:h-[650px] rounded-xl max-w-8xl flex space-y-10 justify-center flex-col items-center mx-auto bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] overflow-hidden"
         initial="rest"
         animate={phase}
         onHoverStart={() => {
@@ -147,7 +149,7 @@ export default function DownloadsPromo() {
           className="mt-72 xl:mt-64 pointer-events-none absolute inset-0 z-10 hidden lg:block"
           aria-hidden
         >
-          {ICONS.map(({ id, icon, style, drop }) => {
+          {ICONS.map(({ id, icon, style, drop, className }) => {
             const { size, ...pos } = style;
             return (
               <motion.li
@@ -163,12 +165,7 @@ export default function DownloadsPromo() {
                     size
                   )}
                 >
-                  <Icon
-                    icon={icon}
-                    className="text-[#25276C]"
-                    width={28}
-                    height={28}
-                  />
+                  <Image alt="icon" src={icon} className={className} fill />
                 </div>
               </motion.li>
             );
@@ -176,7 +173,7 @@ export default function DownloadsPromo() {
         </ul>
 
         <ul
-          className="lg:hidden absolute bottom-6 inset-x-0 z-10 flex items-end justify-evenly gap-4 px-6"
+          className="lg:hidden absolute bottom-6 inset-x-0 z-10 flex items-end justify-evenly gap-2 px-6"
           aria-hidden
         >
           {MOBILE_ICONS.map(({ id, icon }) => (
@@ -184,13 +181,8 @@ export default function DownloadsPromo() {
               key={`m-${id}`}
               className="odd:-translate-y-0 even:-translate-y-16 transition-transform"
             >
-              <div className="grid place-items-center h-14 w-14 rounded-full bg-[#F2F2F6] shadow-[0_12px_30px_rgba(0,0,0,0.25)]">
-                <Icon
-                  icon={icon}
-                  className="text-[#25276C]"
-                  width={22}
-                  height={22}
-                />
+              <div className="grid place-items-center h-12 sm:h-14 w-12  sm:w-14 rounded-full bg-[#F2F2F6] shadow-[0_12px_30px_rgba(0,0,0,0.25)]">
+                <Image alt="icon" src={icon} className="p-2" fill />
               </div>
             </li>
           ))}
