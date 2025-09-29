@@ -10,8 +10,8 @@ import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 import minus from "@iconify/icons-lucide/minus";
 import plus from "@iconify/icons-lucide/plus";
-import BannerDesktop from "$/images/common/img_4.png";
-import HiringImage from "$/images/common/img_5.png";
+import BannerDesktop from "$/images/common/img_4.webp";
+import HiringImage from "$/images/common/img_5.webp";
 import { Vectors } from "@/assets/vectors";
 import PageTransition from "@/components/common/PageTransition";
 

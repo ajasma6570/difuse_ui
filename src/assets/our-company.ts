@@ -1,14 +1,14 @@
-import BannerDesktop from "$/images/about/banner.png";
-import BannerMobile from "$/images/about/banner_sm.png";
+import BannerDesktop from "$/images/about/banner.webp";
+import BannerMobile from "$/images/about/banner_sm.webp";
 
-import Team from "$/images/about/img_1.png";
+import Team from "$/images/about/img_1.webp";
 
-import DMSBGDesktop from "$/images/about/product_1.png";
-import DMSBGMobile from "$/images/about/product_1_sm.png";
-import DPBXDesktop from "$/images/about/product_2.png";
-import DPBXMobile from "$/images/about/product_2_sm.png";
-import SoftphoneDesktop from "$/images/about/product_3.png";
-import SoftphoneMobile from "$/images/about/product_3_sm.png";
+import DMSBGDesktop from "$/images/about/product_1.webp";
+import DMSBGMobile from "$/images/about/product_1_sm.webp";
+import DPBXDesktop from "$/images/about/product_2.webp";
+import DPBXMobile from "$/images/about/product_2_sm.webp";
+import SoftphoneDesktop from "$/images/about/product_3.webp";
+import SoftphoneMobile from "$/images/about/product_3_sm.webp";
 
 export const OurCompanyImages = {
     Banner: { Desktop: BannerDesktop, Mobile: BannerMobile },

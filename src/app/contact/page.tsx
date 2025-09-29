@@ -4,7 +4,7 @@ import Footer from "@/components/common/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import PartnerImage from "$/images/common/img_6.png";
+import PartnerImage from "$/images/common/img_6.webp";
 import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";

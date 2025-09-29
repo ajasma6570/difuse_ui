@@ -8,7 +8,7 @@ export default function HeroPillsPingPong() {
   return (
     <div className="relative rounded-xl overflow-hidden min-h-[310px]">
       <Image
-        src="/images/img1.jpg"
+        src="/images/img1.webp"
         alt="Hero"
         fill
         className="object-cover scale-125"

@@ -3,10 +3,10 @@
 import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
 import React from "react";
 import Image from "next/image";
-import BannerDesktop from "$/images/common/img.png";
-import BannerMobile from "$/images/common/img_sm.png";
-import ProgramDesktop from "$/images/common/img_2.png";
-import PartnerDesktop from "$/images/common/img_3.png";
+import BannerDesktop from "$/images/common/img.webp";
+import BannerMobile from "$/images/common/img_sm.webp";
+import ProgramDesktop from "$/images/common/img_2.webp";
+import PartnerDesktop from "$/images/common/img_3.webp";
 import Footer from "@/components/common/Footer";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";

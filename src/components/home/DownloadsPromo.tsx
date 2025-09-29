@@ -38,13 +38,13 @@ const RAW_ICONS: RawIcon[] = [
   },
   {
     id: "left-mid",
-    icon: "/images/img2.png",
+    icon: "/images/img2.webp",
     style: { top: "80%", left: "21%", size: "h-[70px] w-[70px]" },
     className: "p-0.5",
   },
   {
     id: "left-end",
-    icon: "/images/img.png",
+    icon: "/images/img.webp",
     style: { top: "50%", left: "28%", size: "h-[80px] w-[80px]" },
     className: "p-0.5",
   },
@@ -56,7 +56,7 @@ const RAW_ICONS: RawIcon[] = [
   },
   {
     id: "right-mid",
-    icon: "/images/img.png",
+    icon: "/images/img3.webp",
     style: { top: "80%", right: "14%", size: "h-[70px] w-[70px]" },
     className: "p-0.5",
   },

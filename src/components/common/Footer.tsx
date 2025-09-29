@@ -120,7 +120,7 @@ export default function Footer() {
           <div className="col-span-12 lg:col-span-3 order-2 lg:order-1">
             <div className="flex items-center gap-2 mb-8">
               <Image
-                src="/images/logo_white.png"
+                src="/images/logo_white.webp"
                 alt="Difuse Logo"
                 width={150}
                 height={40}

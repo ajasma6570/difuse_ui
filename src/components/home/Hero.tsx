@@ -7,8 +7,8 @@ import { Icon } from "@iconify/react/dist/offline";
 import bag4Linear from "@iconify/icons-solar/bag-4-linear";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 import Image from "next/image";
-import IntroDesktop from "$/images/intro.jpg";
-import IntroMobile from "$/images/intro_mobile.jpg";
+import IntroDesktop from "$/images/intro.webp";
+import IntroMobile from "$/images/intro_mobile.webp";
 import PageTransition from "../common/PageTransition";
 
 export default function Hero() {

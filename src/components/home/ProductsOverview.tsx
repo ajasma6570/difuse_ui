@@ -33,21 +33,21 @@ export default function ProductsOverview() {
       title: "DMSBG Devices",
       icon: Vectors.Device,
       desc: "All-in-one hardware units combining routing, firewall, Wi-Fi 6, VPN, DNS management...",
-      img: "/images/frame1.png",
+      img: "/images/frame1.webp",
     },
     {
       id: 2,
       title: "DPBX Devices",
       icon: Vectors.Call,
       desc: "A complete software-defined telephony system that runs on your local network. Manage internal...",
-      img: "/images/frame2.png",
+      img: "/images/frame2.webp",
     },
     {
       id: 3,
       title: "Softphone",
       icon: Vectors.Cube,
       desc: "A cross-platform calling app that integrates natively with your PBX system. Make and...",
-      img: "/images/frame3.png",
+      img: "/images/frame3.webp",
     },
   ];
 
