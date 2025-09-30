@@ -1,4 +1,4 @@
-import OurCompanyPage from "@/pages/OurCompanyPage";
+import OurCompanyPage from "@/lib/pages/OurCompanyPage";
 import React from "react";
 
 export default function page() {

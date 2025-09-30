@@ -5,7 +5,7 @@ import AnimatedSlideButton from "../common/AnimatedSlideButton";
 import { Icon } from "@iconify/react";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 import { motion, Variants } from "framer-motion";
-import { cn } from "@/utils/tailwindmerge";
+import { cn } from "@/lib/utils/tailwindmerge";
 import Image from "next/image";
 
 type Phase = "rest" | "hover" | "leave";

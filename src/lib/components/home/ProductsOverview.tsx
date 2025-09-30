@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
-import { cn } from "@/utils/tailwindmerge";
+import { cn } from "@/lib/utils/tailwindmerge";
 import { Vectors } from "@/assets/vectors";
 import Link from "next/link";
 import { Icon } from "@iconify/react/dist/offline";

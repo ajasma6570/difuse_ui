@@ -2,15 +2,19 @@
 
 import { OurCompanyImages } from "@/assets/our-company";
 import { Vectors } from "@/assets/vectors";
-import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
-import Footer from "@/components/common/Footer";
+import AnimatedSlideButton from "@/lib/components/common/AnimatedSlideButton";
+import Footer from "@/lib/components/common/Footer";
 import Image from "next/image";
 import { useState } from "react";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
-import { ourValues, products, rightFeatures } from "@/static-data/ourCompany";
-import type { FeatureCard } from "@/static-data/ourCompany";
-import PageTransition from "@/components/common/PageTransition";
+import {
+  ourValues,
+  products,
+  rightFeatures,
+} from "@/lib/static-data/ourCompany";
+import type { FeatureCard } from "@/lib/static-data/ourCompany";
+import PageTransition from "@/lib/components/common/PageTransition";
 
 export default function OurCompanyPage() {
   const [active, setActive] = useState<string>("dmsbg-devices");

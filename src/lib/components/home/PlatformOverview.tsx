@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import AnimatedSlideButton from "@/components/common/AnimatedSlideButton";
-import PingPongRow from "@/components/common/PingPongRow";
+import AnimatedSlideButton from "@/lib/components/common/AnimatedSlideButton";
+import PingPongRow from "@/lib/components/common/PingPongRow";
 import { Vectors } from "@/assets/vectors";
 import ProductGif from "$/gif/products.gif";
 import { Icon } from "@iconify/react/dist/offline";
@@ -28,6 +28,7 @@ export default function PlatformOverview() {
                   width={100}
                   height={100}
                   className="w-12 h-12 md:w-16 md:h-16 xl:w-20 xl:h-20 object-contain"
+                  unoptimized
                 />
               </span>
             </h2>

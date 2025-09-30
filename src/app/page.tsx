@@ -1,5 +1,5 @@
-import Homepage from "@/pages/Homepage";
-import { icons, title } from "@/utils/meta";
+import Homepage from "@/lib/pages/Homepage";
+import { icons, title } from "@/lib/utils/meta";
 import { Metadata } from "next";
 
 const siteName = process.env.SITE_NAME;

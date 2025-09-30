@@ -1,4 +1,4 @@
-import Newsroom from "@/pages/Newsroom";
+import Newsroom from "@/lib/pages/Newsroom";
 import React from "react";
 
 export default function page() {

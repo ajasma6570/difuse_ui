@@ -2,7 +2,7 @@
 
 import React from "react";
 import AnimatedSlideButton from "../common/AnimatedSlideButton";
-import FloatingTogglePanel from "@/components/common/FloatingPanel";
+import FloatingTogglePanel from "@/lib/components/common/FloatingPanel";
 import { Icon } from "@iconify/react/dist/offline";
 import bag4Linear from "@iconify/icons-solar/bag-4-linear";
 import arrowRight from "@iconify/icons-lucide/arrow-right";

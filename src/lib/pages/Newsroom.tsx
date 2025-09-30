@@ -3,14 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import Footer from "@/components/common/Footer";
-import { NewPost, news } from "@/static-data/newsroom";
-import HoverRevealButton from "@/components/common/HoverRevealButton";
+import Footer from "@/lib/components/common/Footer";
+import { NewPost, news } from "@/lib/static-data/newsroom";
+import HoverRevealButton from "@/lib/components/common/HoverRevealButton";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 import SearchIcon from "@iconify/icons-lucide/search";
 import { motion } from "motion/react";
-import PageTransition from "@/components/common/PageTransition";
+import PageTransition from "@/lib/components/common/PageTransition";
 
 const CATEGORIES = [
   "Latest",

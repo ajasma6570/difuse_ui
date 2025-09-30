@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/common/Navbar";
-import SmoothScroll from "@/components/common/SmoothScroll";
-import ScrollToTopButton from "@/components/common/ScrollToTopButton";
+import Navbar from "@/lib/components/common/Navbar";
+import SmoothScroll from "@/lib/components/common/SmoothScroll";
+import ScrollToTopButton from "@/lib/components/common/ScrollToTopButton";
 
 const poppins = Poppins({
   subsets: ["latin"],

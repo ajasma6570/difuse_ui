@@ -1,13 +1,13 @@
-import Footer from "@/components/common/Footer";
+import Footer from "@/lib/components/common/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import AsteriskImage from "$/images/news/integrating_asterisk.png";
-import { news } from "@/static-data/newsroom";
+import { news } from "@/lib/static-data/newsroom";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 import arrowLeft from "@iconify/icons-lucide/arrow-left";
-import PageTransition from "@/components/common/PageTransition";
+import PageTransition from "@/lib/components/common/PageTransition";
 
 type Props = {
   params: Promise<{ slug: string }>;
