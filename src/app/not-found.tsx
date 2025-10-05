@@ -9,12 +9,12 @@ export default function NotFound() {
       <div className="text-center min-h-screen flex flex-col items-center justify-center px-6 space-y-6">
         <div>
           <div className="relative">
-            <h1 className="text-9xl md:text-[200px] leading-none">
+            <h1 className="text-9xl md:text-[350px] leading-none">
               <span className="text-[#080808]">4</span>
               <span className="text-[#25276C]">0</span>
               <span className="text-[#080808]">4</span>
             </h1>
-            <p className="absolute top-3 md:top-4 right-5 md:right-12 left-1/2 text-[#25276C] text-lg md:text-xl">
+            <p className="absolute top-3 md:top-10 right-5 md:right-32 left-1/2 text-[#25276C] text-lg md:text-2xl">
               ops!
             </p>
           </div>
