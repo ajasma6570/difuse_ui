@@ -11,6 +11,7 @@ interface AnimatedSlideButtonProps {
   href?: string;
   onClick?: () => void;
   className?: string;
+  containerClassName?: string;
   textClassName?: string;
   iconClassName?: string;
 }
@@ -22,6 +23,7 @@ export default function AnimatedSlideButton({
   href,
   onClick,
   className = "",
+  containerClassName = "",
   textClassName = "",
   iconClassName = "",
 }: AnimatedSlideButtonProps) {
@@ -72,7 +74,10 @@ export default function AnimatedSlideButton({
   const actualVariant = variant === "link" || href ? "link" : "button";
 
   return actualVariant === "link" ? (
-    <Link href={href ?? "#"} className="inline-block w-fit">
+    <Link
+      href={href ?? "#"}
+      className={`inline-block w-fit ${containerClassName}`}
+    >
       <motion.div
         initial="rest"
         animate="rest"

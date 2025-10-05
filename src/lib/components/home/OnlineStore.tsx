@@ -1,6 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import AnimatedSlideButton from "../common/AnimatedSlideButton";
 import HoverRevealButton from "../common/HoverRevealButton";
@@ -51,6 +53,30 @@ export default function OnlineStore() {
     setScrolled(false);
   };
 
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const getXValue = (scrolled: boolean) => {
+    if (windowWidth >= 1536) {
+      // 2xl
+      return scrolled ? "-23%" : "6%";
+    } else if (windowWidth >= 1280) {
+      // xl
+      return scrolled ? "-40%" : "2%";
+    } else if (windowWidth >= 1024) {
+      // lg
+      return scrolled ? "-61%" : "2%";
+    } else {
+      return scrolled ? "-23%" : "6%";
+    }
+  };
+
   return (
     <section className="py-10 lg:py-20 space-y-10 lg:space-y-20 text-left">
       <p className="text-4xl px-6 lg:px-4 lg:max-w-8xl w-full mx-auto sm:text-5xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight text-black">
@@ -62,7 +88,7 @@ export default function OnlineStore() {
         everything you need to build your self-hosted infrastructure.
       </p>
 
-      <div className="2xl:hidden px-6 grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <div className="lg:hidden px-6 grid grid-cols-1 sm:grid-cols-2 gap-2">
         {products.map((product) => (
           <div key={product.name} className="relative h-[350px] w-full">
             <Image
@@ -82,25 +108,21 @@ export default function OnlineStore() {
               <div className="flex justify-start items-center gap-2 lg:gap-4">
                 <Link
                   href={product.shopLink}
-                  className="p-3 md:p-5 whitespace-nowrap bg-[#FBFBF9] gap-2 text-[#1C1E55] text-lg md:text-xl rounded-lg flex items-center justify-center cursor-pointer"
+                  className="p-3 lg:p-5 whitespace-nowrap bg-[#FBFBF9] gap-2 text-[#1C1E55] text-base md:text-xl rounded-lg flex items-center justify-center cursor-pointer w-full"
                 >
                   <Icon
                     icon={bag4Linear}
-                    width={24}
-                    height={24}
-                    className="text-[#1C1E55]"
+                    className="text-[#1C1E55] w-5 h-5 lg:h-6 lg:w-6"
                   />
                   Shop now
                 </Link>
                 <Link
                   href={product.detailsLink}
-                  className="p-3 lg:p-5 bg-[#FBFBF9] gap-2 text-[#1C1E55] text-lg md:text-xl  rounded-lg flex items-center justify-center cursor-pointer"
+                  className="p-3 lg:p-5 bg-[#FBFBF9] gap-2 text-[#1C1E55] text-base md:text-xl  rounded-lg flex items-center justify-center cursor-pointer  w-full"
                 >
                   <Icon
                     icon={arrowRight}
-                    width={24}
-                    height={24}
-                    className="text-[#1C1E55]"
+                    className="text-[#1C1E55] w-5 h-5 lg:h-6 lg:w-6"
                   />
                   Details
                 </Link>
@@ -110,11 +132,11 @@ export default function OnlineStore() {
         ))}
       </div>
 
-      <div className="relative overflow-hidden hidden 2xl:block">
+      <div className="relative overflow-hidden hidden lg:block ">
         <motion.div
           className="flex gap-4"
           animate={{
-            x: scrolled ? 0 : 250,
+            x: getXValue(scrolled),
           }}
           transition={{
             type: "spring",
@@ -167,17 +189,18 @@ export default function OnlineStore() {
         </motion.div>
       </div>
 
-      <div className="lg:max-w-[88%] px-6 lg:pr-16 w-full ml-auto flex justify-between items-center ">
-        <p className="w-1/2 hidden lg:block text-lg">
+      <div className="lg:max-w-8xl px-6  w-full mx-auto flex justify-between items-center ">
+        <p className=" hidden lg:block text-lg">
           Browse and buy modular hardware, communication tools, and software,
           everything you need to build your self-hosted infrastructure.
         </p>
 
-        <div className="flex items-center gap-2 justify-end">
+        <div className="flex items-center gap-2 lg:justify-end w-full">
           <AnimatedSlideButton
             icon={<Icon icon={bag4Linear} width={30} height={30} />}
             text="Explore Online Store"
-            className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] border border-[#1C1E55] hover:text-white rounded-lg bg-[#FBFBF9] text-xl lg:text-2xl tracking-[-0.05em] p-4 max-w-max "
+            className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] border border-[#1C1E55] hover:text-white rounded-lg bg-[#FBFBF9] text-xl lg:text-2xl tracking-[-0.05em] p-4 w-full"
+            containerClassName="!w-full sm:max-w-max"
             variant="link"
             href="/online-store"
           />
