@@ -2,6 +2,58 @@ import AnimatedSlideButton from "@/lib/components/common/AnimatedSlideButton";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 import Footer from "@/lib/components/common/Footer";
+import { icons, title } from "@/lib/utils/meta";
+import { Metadata } from "next";
+
+const siteName = process.env.SITE_NAME;
+const siteUrl = process.env.SITE_URL;
+
+export const metadata: Metadata = {
+  title: `Difuse · Networks Simplified`,
+  description:
+    "Experience streamlined connectivity and security at the edge with Difuse – Intuitive business gateways.",
+  icons,
+  openGraph: {
+    title: `Difuse · Networks Simplified`,
+    description:
+      "Experience streamlined connectivity and security at the edge with Difuse – Intuitive business gateways",
+    images: [
+      {
+        url: `${siteUrl}/images/opengraph/300x300.png`,
+        width: 300,
+        height: 300,
+        alt: `${title} | ${siteName}`,
+      },
+      {
+        url: `${siteUrl}/images/opengraph/1200x627.png`,
+        width: 1200,
+        height: 627,
+        alt: `${title} | ${siteName}`,
+      },
+      {
+        url: `${siteUrl}/images/opengraph/1200x630.png`,
+        width: 1200,
+        height: 630,
+        alt: `${title} | ${siteName}`,
+      },
+      {
+        url: `${siteUrl}/images/opengraph/1200x675.png`,
+        width: 1200,
+        height: 675,
+        alt: `${title} | ${siteName}`,
+      },
+      {
+        url: `${siteUrl}/images/opengraph/1080x1080.png`,
+        width: 1080,
+        height: 1080,
+        alt: `${title} | ${siteName}`,
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://difuse-ui.vercel.app",
+  },
+};
 
 export default function NotFound() {
   return (
