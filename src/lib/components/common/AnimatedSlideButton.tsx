@@ -72,7 +72,7 @@ export default function AnimatedSlideButton({
   const actualVariant = variant === "link" || href ? "link" : "button";
 
   return actualVariant === "link" ? (
-    <Link href={href ?? "#"} className="block">
+    <Link href={href ?? "#"} className="inline-block w-fit">
       <motion.div
         initial="rest"
         animate="rest"

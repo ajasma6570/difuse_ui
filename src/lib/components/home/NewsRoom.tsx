@@ -7,46 +7,22 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
+import { news } from "@/lib/static-data/newsroom";
 
 export default function NewsRoom() {
-  const news = [
-    {
-      slug: "guide-to-integrating-asterisk-with-microsoft-teams-using-direct-routing",
-      title:
-        "Guide to Integrating Asterisk with Microsoft Teams Using Direct Routing",
-      date: "August 20, 2024",
-      author: "Hayzam",
-      image: "integrating_asterisk.png",
-    },
-    {
-      slug: "saving-100-desk-phones-from-e-waste-doom-with-tftp-and-a-simpler-pbx",
-      title:
-        "Saving 100+ Desk Phones from E-Waste Doom with TFTP and a Simpler PBX",
-      date: "August 20, 2024",
-      author: "Hayzam",
-      image: "deskphone.png",
-    },
-    {
-      slug: "kalmia-a-simple-documentation-cms",
-      title: "Kalmia: A Simple Documentation CMS",
-      date: "August 20, 2024",
-      author: "Hayzam",
-      image: "kalmia.png",
-    },
-  ];
   return (
     <section className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] pt-20 ">
       <div className="lg:max-w-[90rem] w-full mx-auto rounded-xl px-6 2xl:px-0">
         <p className="text-white text-4xl lg:text-6xl font-normal">Newsroom</p>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-3">
-          {news.map((item) => (
+          {news.slice(-3).map((item) => (
             <div
               key={item.title}
               className="relative h-[410px] w-full group overflow-hidden rounded-xl"
             >
               <Image
-                src={`/images/news/${item.image}`}
+                src={item.image}
                 alt={`news_${item.title}`}
                 fill
                 quality={100}

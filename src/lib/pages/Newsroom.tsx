@@ -36,14 +36,16 @@ export default function Newsroom() {
     return list;
   }, []);
 
-  const bannerPost = posts.find((p) => p.banner) || posts[0];
+  const bannerPost = posts.find((p) => p.isBanner) || posts[0];
   const featured = posts.slice(1, 4);
 
   const filtered = posts
     .filter((p) => (active === "All" ? true : p.categories.includes(active)))
     .filter((p) =>
       q.trim()
-        ? (p.title + " " + p.excerpt).toLowerCase().includes(q.toLowerCase())
+        ? (p.title + " " + p.description)
+            .toLowerCase()
+            .includes(q.toLowerCase())
         : true
     );
 
@@ -212,7 +214,7 @@ function HeroCard({ post }: { post: NewPost }) {
               </h3>
 
               <p className="mt-2 line-clamp-2 text-[#FBFBF9] text-lg">
-                {post.excerpt}
+                {post.description}
               </p>
             </div>
 
