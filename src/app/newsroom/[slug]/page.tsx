@@ -21,11 +21,7 @@ export async function generateStaticParams() {
 export default async function Page(props: Props) {
   const slug = await props.params;
 
-  console.log(slug);
-
   const post = news.find((p) => p.slug === slug.slug);
-
-  console.log("post", post);
 
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
   const shareTitle = post?.title || "";
@@ -56,7 +52,7 @@ export default async function Page(props: Props) {
 
           <div className="mt-10 flex flex-col lg:flex-row w-full gap-10">
             <div className="w-full lg:w-7/12 space-y-4">
-              <p className="text-[#080808] text-6xl leading-tight">
+              <p className="text-[#080808] text-[clamp(2rem,6vw,3.5rem)] leading-tight">
                 {post?.title}
               </p>
               <p className="text-[#2A2A2A] text-lg font-light">
@@ -75,41 +71,7 @@ export default async function Page(props: Props) {
 
           <hr className="my-20" />
           <div className="flex flex-col lg:flex-row w-full gap-10">
-            <div className="space-y-6 w-full lg:w-6/12">
-              <p>Introduction</p>
-              <p>
-                Love it or hate it, Microsoft Teams has become pretty popular.
-                As more organizations adopt it as their primary collaboration
-                tool, the need to integrate it with existing on-premise VoIP or
-                PBX systems is growing fast. If you’re using Asterisk—a highly
-                flexible, open-source PBX—you’re in luck. With the right
-                configuration, Asterisk can integrate cleanly with Microsoft
-                Teams using Direct Routing.
-              </p>
-              <p>
-                However, getting Asterisk to work with Microsoft Teams takes
-                some careful setup. Teams has strict SIP and TLS
-                requirements—most notably, it expects a Fully Qualified Domain
-                Name (FQDN) in the Contact header of SIP messages. This guide
-                walks you through building Asterisk 22.3.0 from source and
-                applying a patch that adds the contact_fqdn option to meet those
-                requirements.
-              </p>
-              <p>
-                Prefer an Easier Alternative? If you’re looking for a
-                ready-to-use solution with built-in PBX capabilities and
-                Microsoft Teams compatibility, check out the DMSBG-100. This
-                all-in-one gateway simplifies deployment with features like
-                WireGuard VPN, integrated firewall, and a user-friendly
-                interface—no patching, no coding, and no monthly subscription
-                fees. Every unit also includes free TLS certificates and managed
-                DNS, so you’re ready to go right out of the box.
-              </p>
-              <p>
-                If you’re sticking with the DIY route, this guide will help you
-                get things set up.
-              </p>
-            </div>
+            <div className="space-y-6 w-full lg:w-6/12">{post?.content}</div>
             <div className="hidden lg:block lg:w-2/12"></div>
             <div className="w-full lg:w-4/12 h-full bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] rounded-xl p-4 flex flex-col items-center gap-2">
               <div className="bg-[#FBFBF9] h-[70px] w-full rounded-xl font-medium text-lg px-6 text-[#080808] flex items-center justify-between">
@@ -122,7 +84,7 @@ export default async function Page(props: Props) {
                 </div>
               </div>
 
-              <div className="bg-[#FBFBF9] h-[70px] w-full rounded-xl flex items-center justify-between font-medium px-6 text-xl text-[#25276C]">
+              <div className="bg-[#FBFBF9] h-[70px] w-full rounded-xl flex items-center justify-start gap-4 font-medium px-6 text-xl text-[#676767]">
                 <span className="text-lg text-[#676767]">Share this on:</span>
                 <ShareButtons url={shareUrl} title={shareTitle} />
               </div>
@@ -146,7 +108,7 @@ export default async function Page(props: Props) {
                       />
                     </div>
                     <div className="flex-1 min-w-0 justify-between flex flex-col">
-                      <h3 className="text-xl font-medium text-[#080808] line-clamp-3 leading-tight mb-2">
+                      <h3 className="text-lg font-medium text-[#080808] line-clamp-3 leading-relaxed mb-2">
                         {relatedPost.title}
                       </h3>
                       <Link
@@ -165,30 +127,34 @@ export default async function Page(props: Props) {
           <hr className="my-20" />
 
           <div className="flex justify-between items-center">
-            <div className="flex gap-6 items-center">
+            <div className="flex gap-4 lg:gap-6 items-center">
               {previousPost ? (
-                <Link href={`/newsroom/${previousPost.slug}`}>
-                  <button className="border cursor-pointer border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 p-4 rounded-lg">
+                <button
+                  disabled={!previousPost}
+                  className="border cursor-pointer border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 p-4 rounded-lg"
+                >
+                  <Link href={`/newsroom/${previousPost.slug}`}>
+                    {" "}
                     <Icon
                       icon={arrowLeft}
                       width={30}
                       height={30}
                       className="text-[#999999] group-hover:text-white"
-                    />
-                  </button>
-                </Link>
+                    />{" "}
+                  </Link>
+                </button>
               ) : (
-                <button className="border cursor-not-allowed border-[#E5E5E5] p-4 rounded-lg opacity-50">
+                <button className="border   p-2 lg:p-4 rounded-lg opacity-30">
                   <Icon
                     icon={arrowLeft}
                     width={30}
                     height={30}
-                    className="text-[#E5E5E5]"
+                    className="text-[#999999]"
                   />
                 </button>
               )}
               <div>
-                <p className="text-[#25276C] text-xl font-medium">
+                <p className="text-[#25276C] text-lg lg:text-xl font-medium">
                   Previous Post
                 </p>
                 {previousPost && (
@@ -199,18 +165,20 @@ export default async function Page(props: Props) {
               </div>
             </div>
 
-            <div className="flex gap-6 items-center">
+            <div className="flex gap-4 lg:gap-6 items-center">
               <div className="text-right">
-                <p className="text-[#25276C] text-xl font-medium">Next Post</p>
-                {nextPost && (
+                <p className="text-[#25276C] text-lg lg:text-xl font-medium">
+                  Next Post
+                </p>
+                {/* {nextPost && (
                   <p className="text-[#676767] text-sm truncate max-w-[200px]">
                     {nextPost.title}
                   </p>
-                )}
+                )} */}
               </div>
               {nextPost ? (
                 <Link href={`/newsroom/${nextPost.slug}`}>
-                  <button className="border cursor-pointer border-[#999999] p-4 rounded-lg hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300">
+                  <button className="border cursor-pointer border-[#999999] p-2 lg:p-4 rounded-lg hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300">
                     <Icon
                       icon={arrowRight}
                       width={30}
