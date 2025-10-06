@@ -21,10 +21,7 @@ export default function ProductsOverview() {
   const handleCardClick = (cardId: number) => {
     if (expandedCardId === cardId) return;
     setExpandedCardId(cardId);
-    setActiveCardId(null);
-    setTimeout(() => {
-      setActiveCardId(cardId);
-    }, FLEX_GROW_DURATION);
+    setActiveCardId(cardId);
   };
 
   const cards = [
@@ -74,26 +71,33 @@ export default function ProductsOverview() {
             onClick={() => handleCardClick(card.id)}
             onHoverStart={() => setHovered(card.id)}
             onHoverEnd={() => setHovered(null)}
-            initial={false}
-            animate={
-              expandedCardId === card.id
-                ? { height: CARD_HEIGHT_EXPANDED }
-                : { height: CARD_HEIGHT_COLLAPSED }
-            }
+            initial="collapsed"
+            animate={expandedCardId === card.id ? "expanded" : "collapsed"}
+            exit="exit"
+            variants={{
+              expanded: {
+                opacity: 1,
+                height: CARD_HEIGHT_EXPANDED,
+              },
+              collapsed: {
+                opacity: 1,
+                height: CARD_HEIGHT_COLLAPSED,
+              },
+              exit: {
+                opacity: 0,
+                height: CARD_HEIGHT_COLLAPSED,
+              },
+            }}
             transition={{
               duration: FLEX_GROW_DURATION / 1000,
               ease: "easeInOut",
             }}
             className={cn(
-              "relative rounded-xl shadow-md cursor-pointer overflow-hidden group w-full ",
+              "relative rounded-xl shadow-md cursor-pointer overflow-hidden group w-full",
               expandedCardId === card.id ? "items-start" : "items-center"
             )}
             style={{
               minHeight: CARD_HEIGHT_COLLAPSED,
-              height:
-                expandedCardId === card.id
-                  ? CARD_HEIGHT_EXPANDED
-                  : CARD_HEIGHT_COLLAPSED,
             }}
           >
             <motion.div
@@ -112,69 +116,145 @@ export default function ProductsOverview() {
             </motion.div>
             <div className="absolute inset-0 p-8 flex flex-col h-full justify-between">
               <div className="h-full">
-                {activeCardId === card.id ? (
-                  <motion.p className="text-4xl font-normal tracking-tight relative z-10 w-full text-white">
-                    {card.title}
-                  </motion.p>
-                ) : (
-                  <div className="flex items-center justify-between h-full w-full">
-                    <Image
-                      src={card.icon.src}
-                      alt={card.title}
-                      width={38}
-                      height={38}
-                      className="object-contain mb-2"
-                    />
-                    <motion.button
-                      key="icon-btn"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="bg-white rounded-md p-3 cursor-pointer "
-                    >
-                      <Icon
-                        icon={arrowRight}
-                        width={24}
-                        height={24}
-                        className="text-[#1C1E55]"
-                      />
-                    </motion.button>
-                  </div>
-                )}
-              </div>
-              <div className="space-y-5 relative z-10">
-                {activeCardId === card.id && (
-                  <motion.p className="text-xl font-light text-white">
-                    {card.desc}
-                  </motion.p>
-                )}
-
                 <AnimatePresence mode="wait">
-                  {activeCardId === card.id && (
-                    <motion.button
-                      key="text-btn"
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 8 }}
-                      transition={{ duration: 0.25 }}
-                      className="text-[#1C1E55] text-xl bg-white rounded-md p-5 flex items-center gap-3 mt-2"
+                  {activeCardId === card.id ? (
+                    <motion.p
+                      key="title"
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: 1,
+                        transition: {
+                          delay: 0.3,
+                          duration: 0.5,
+                          ease: "easeInOut",
+                        },
+                      }}
+                      exit={{
+                        opacity: 0,
+                        x: 30,
+                        transition: {
+                          delay: 0,
+                          duration: 0.3,
+                          ease: "easeInOut",
+                        },
+                      }}
+                      className="text-4xl font-normal tracking-tight relative z-10 w-full text-white"
                     >
-                      <Icon
-                        icon={arrowRight}
-                        width={28}
-                        height={28}
-                        className="text-[#1C1E55]"
-                      />
-                      <span>Learn more</span>
-                    </motion.button>
+                      {card.title}
+                    </motion.p>
+                  ) : (
+                    <motion.div
+                      key="icon-content"
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: 1,
+                        transition: {
+                          duration: 0.3,
+                          ease: "easeInOut",
+                        },
+                      }}
+                      exit={{
+                        opacity: 0,
+                        transition: { duration: 0.2, ease: "easeInOut" },
+                      }}
+                      className="flex items-center justify-between h-full w-full"
+                    >
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{
+                          opacity: 1,
+                          scale: 1,
+                          transition: { delay: 0.1, duration: 0.2 },
+                        }}
+                      >
+                        <Image
+                          src={card.icon.src}
+                          alt={card.title}
+                          width={38}
+                          height={38}
+                          className="object-contain mb-2"
+                        />
+                      </motion.div>
+
+                      <motion.button
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                          transition: { delay: 0.15, duration: 0.2 },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          x: 20,
+                          transition: { duration: 0.15 },
+                        }}
+                        className="bg-white rounded-md p-3 cursor-pointer"
+                        whileHover={{ scale: 1.05, rotate: 5 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Icon
+                          icon={arrowRight}
+                          width={24}
+                          height={24}
+                          className="text-[#1C1E55]"
+                        />
+                      </motion.button>
+                    </motion.div>
                   )}
                 </AnimatePresence>
+              </div>
+
+              <div className="space-y-5 relative z-10">
+                {activeCardId === card.id && (
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key="mobile-view-product"
+                      initial="initial"
+                      variants={{
+                        initial: { opacity: 0 },
+                        expanded: {
+                          opacity: 1,
+                          transition: {
+                            delay: 0.3,
+                            duration: 0.5,
+                            ease: "easeInOut",
+                          },
+                        },
+                      }}
+                      animate={
+                        expandedCardId === card.id ? "expanded" : "initial"
+                      }
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      <motion.p className="text-xl font-light text-white">
+                        {card.desc}
+                      </motion.p>
+                      <motion.button
+                        key="text-btn"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        transition={{ duration: 0.25 }}
+                        className="text-[#1C1E55] text-xl bg-white rounded-md p-5 flex items-center gap-3 mt-2"
+                      >
+                        <Icon
+                          icon={arrowRight}
+                          width={28}
+                          height={28}
+                          className="text-[#1C1E55]"
+                        />
+                        <span>Learn more</span>
+                      </motion.button>{" "}
+                    </motion.div>
+                  </AnimatePresence>
+                )}
               </div>
             </div>
           </motion.div>
         ))}
       </div>
+
       <div className="hidden lg:grid grid-cols-12 gap-3 mt-12">
         <div className="col-span-8 flex gap-3 ">
           {cards.map((card, index) => (
@@ -199,7 +279,7 @@ export default function ProductsOverview() {
               }}
               className={cn(
                 `rounded-xl shadow-md cursor-pointer h-[706px] p-12 flex flex-col justify-between text-white relative overflow-hidden group`,
-                expandedCardId === card.id ? "items-start" : "items-center"
+                expandedCardId === card.id ? "" : "items-center"
               )}
             >
               <motion.div
@@ -218,35 +298,64 @@ export default function ProductsOverview() {
               </motion.div>
 
               <div>
-                {activeCardId === card.id ? (
-                  <motion.p className="text-5xl font-normal tracking-tight relative z-10 w-full">
-                    {card.title}
-                  </motion.p>
-                ) : (
-                  <Image
-                    src={card.icon.src}
-                    alt={card.title}
-                    width={35}
-                    height={35}
-                    className="object-contain"
-                  />
-                )}
+                <AnimatePresence mode="wait">
+                  {activeCardId === card.id ? (
+                    <motion.p
+                      key="title"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="text-5xl font-normal tracking-tight relative z-10 w-full"
+                    >
+                      {card.title}
+                    </motion.p>
+                  ) : (
+                    <motion.div
+                      key="icon"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="w-full mx-auto flex justify-center items-center h-full"
+                    >
+                      <Image
+                        src={card.icon.src}
+                        alt={card.title}
+                        width={35}
+                        height={35}
+                        className="object-contain"
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               <div className="space-y-6 relative z-10">
                 {activeCardId === card.id && (
                   <motion.p
                     variants={{
-                      hovered: { opacity: 1 },
                       initial: { opacity: 0 },
-                    }}
-                    transition={{
-                      delay: 0.1,
-                      duration: 0.3,
-                      ease: "easeInOut",
+                      hovered: {
+                        opacity: 1,
+                        transition: {
+                          delay: 0.3,
+                          duration: 0.3,
+                          ease: "easeInOut",
+                        },
+                      },
+                      exit: {
+                        opacity: 0,
+                        transition: {
+                          delay: 0,
+                          duration: 0.2,
+                          ease: "easeInOut",
+                        },
+                      },
                     }}
                     initial="initial"
                     animate={hovered === card.id ? "hovered" : "initial"}
+                    exit="exit"
                     className="text-lg font-light transform transition-all duration-500"
                   >
                     {card.desc}
@@ -257,10 +366,13 @@ export default function ProductsOverview() {
                   {activeCardId === card.id && hovered === card.id ? (
                     <motion.button
                       key="text-btn"
-                      initial={{ opacity: 0, x: -10 }}
+                      initial={{ opacity: 0, x: 0 }}
                       animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -10 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{
+                        duration: 0.3,
+                        delay: 0.3,
+                        ease: "easeInOut",
+                      }}
                       className="text-[#1C1E55] bg-white rounded-md p-3 flex items-center gap-2"
                     >
                       <Icon
@@ -276,8 +388,11 @@ export default function ProductsOverview() {
                       key="icon-btn"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.2 }}
+                      transition={{
+                        duration: 0.3,
+                        delay: 0.3,
+                        ease: "easeInOut",
+                      }}
                       className="bg-white rounded-md p-3 cursor-pointer"
                     >
                       <Icon
