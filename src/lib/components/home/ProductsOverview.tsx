@@ -31,6 +31,7 @@ export default function ProductsOverview() {
       icon: Vectors.Device,
       desc: "All-in-one hardware units combining routing, firewall, Wi-Fi 6, VPN, DNS management...",
       img: "/images/frame1.webp",
+      href: "/our-products/dmsbg-devices",
     },
     {
       id: 2,
@@ -38,6 +39,7 @@ export default function ProductsOverview() {
       icon: Vectors.Call,
       desc: "A complete software-defined telephony system that runs on your local network. Manage internal...",
       img: "/images/frame2.webp",
+      href: "/our-products/dpbx-devices",
     },
     {
       id: 3,
@@ -45,6 +47,7 @@ export default function ProductsOverview() {
       icon: Vectors.Cube,
       desc: "A cross-platform calling app that integrates natively with your PBX system. Make and...",
       img: "/images/frame3.webp",
+      href: "/our-products/softphone",
     },
   ];
 
@@ -375,13 +378,18 @@ export default function ProductsOverview() {
                       }}
                       className="text-[#1C1E55] bg-white rounded-md p-3 flex items-center gap-2"
                     >
-                      <Icon
-                        icon={arrowRight}
-                        width={28}
-                        height={28}
-                        className="text-[#1C1E55]"
-                      />
-                      <span className="text-lg">Learn more</span>
+                      <Link
+                        href={card.href}
+                        className="flex items-center gap-2"
+                      >
+                        <Icon
+                          icon={arrowRight}
+                          width={28}
+                          height={28}
+                          className="text-[#1C1E55]"
+                        />
+                        <span className="text-lg">Learn more</span>
+                      </Link>
                     </motion.button>
                   ) : (
                     <motion.button
@@ -395,12 +403,14 @@ export default function ProductsOverview() {
                       }}
                       className="bg-white rounded-md p-3 cursor-pointer"
                     >
-                      <Icon
-                        icon={arrowRight}
-                        width={28}
-                        height={28}
-                        className="text-[#1C1E55]"
-                      />
+                      <Link href={card.href}>
+                        <Icon
+                          icon={arrowRight}
+                          width={28}
+                          height={28}
+                          className="text-[#1C1E55]"
+                        />
+                      </Link>
                     </motion.button>
                   )}
                 </AnimatePresence>
