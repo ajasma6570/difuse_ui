@@ -12,6 +12,48 @@ import arrowRight from "@iconify/icons-lucide/arrow-right";
 import arrowLeft from "@iconify/icons-lucide/arrow-left";
 
 export default function OnlineStore() {
+  const textRef = React.useRef<HTMLParagraphElement>(null);
+  const productsContainerRef = React.useRef<HTMLDivElement>(null);
+  const [textX, setTextX] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    function updatePositions() {
+      if (textRef.current) {
+        setTextX(textRef.current.getBoundingClientRect().x);
+      }
+
+      setWindowWidth(window.innerWidth);
+    }
+    updatePositions();
+    window.addEventListener("resize", updatePositions);
+    return () => window.removeEventListener("resize", updatePositions);
+  }, []);
+
+  const getXValue = (scrolled: boolean) => {
+    if (windowWidth >= 1536) {
+      // 2xl
+      return scrolled ? `calc(-27% + ${textX}px)` : `calc(2% + ${textX}px)`;
+    } else if (windowWidth >= 1280) {
+      // xl
+      return scrolled ? `calc(-30% + ${textX}px)` : `calc(2% + ${textX}px)`;
+    } else if (windowWidth >= 1024) {
+      // lg
+      return scrolled ? `calc(-61% + ${textX}px)` : `calc(2% + ${textX}px)`;
+    } else {
+      return scrolled ? `calc(-23% + ${textX}px)` : `calc(2% + ${textX}px)`;
+    }
+  };
+
+  const handleRight = () => {
+    setScrolled(true);
+  };
+
+  const handleLeft = () => {
+    setScrolled(false);
+  };
+
   const products = [
     {
       name: "DMSBG 300",
@@ -43,43 +85,12 @@ export default function OnlineStore() {
     },
   ];
 
-  const [scrolled, setScrolled] = useState(false);
-
-  const handleRight = () => {
-    setScrolled(true);
-  };
-
-  const handleLeft = () => {
-    setScrolled(false);
-  };
-
-  const [windowWidth, setWindowWidth] = useState(0);
-
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const getXValue = (scrolled: boolean) => {
-    if (windowWidth >= 1536) {
-      // 2xl
-      return scrolled ? "-23%" : "6%";
-    } else if (windowWidth >= 1280) {
-      // xl
-      return scrolled ? "-40%" : "2%";
-    } else if (windowWidth >= 1024) {
-      // lg
-      return scrolled ? "-61%" : "2%";
-    } else {
-      return scrolled ? "-23%" : "6%";
-    }
-  };
-
   return (
     <section className="py-10 lg:py-20 space-y-10 lg:space-y-20 text-left">
-      <p className="text-4xl px-6 lg:px-4 lg:max-w-8xl w-full mx-auto sm:text-5xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight text-black">
+      <p
+        ref={textRef}
+        className="text-4xl px-6 lg:px-4 lg:max-w-8xl w-full mx-auto sm:text-5xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight text-black"
+      >
         Online Store
       </p>
 
@@ -134,6 +145,7 @@ export default function OnlineStore() {
 
       <div className="relative overflow-hidden hidden lg:block ">
         <motion.div
+          ref={productsContainerRef}
           className="flex gap-4"
           animate={{
             x: getXValue(scrolled),
