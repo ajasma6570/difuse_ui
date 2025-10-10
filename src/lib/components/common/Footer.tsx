@@ -72,7 +72,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-28">
           <div className="border border-[#FBFBF9] rounded-xl p-8 lg:p-14 flex flex-col justify-between">
             <div>
-              <h2 className="text-[#FBFBF9] text-3xl lg:text-5xl 2xl:text-6xl font-light leading-tight">
+              <h2 className="text-[#FBFBF9] text-[clamp(1.5rem,3vw,5.5rem)] font-light leading-tight">
                 Stay in the Loop.
                 <br />
                 Product News That
@@ -94,7 +94,7 @@ export default function Footer() {
 
           <div className="bg-[#25276C] rounded-xl p-8 lg:p-14 flex flex-col justify-between">
             <div>
-              <h2 className="text-[#FBFBF9] text-3xl lg:text-5xl 2xl:text-6xl font-light leading-tight">
+              <h2 className="text-[#FBFBF9] text-[clamp(1.5rem,3vw,5.5rem)] font-light leading-tight">
                 Interested in
                 <br /> Partnering With
                 <br /> Difuse?
@@ -164,7 +164,7 @@ export default function Footer() {
           </div>
 
           <div className="col-span-12 lg:col-span-4 order-1 lg:order-4 ">
-            <h3 className="text-4xl md:text-5xl 2xl:text-6xl font-normal mb-6 text-[#FBFBF9]">
+            <h3 className="text-[clamp(2rem,2.5vw,5.5rem)] font-normal mb-6 text-[#FBFBF9]">
               Have any Queries?
             </h3>
             <p className="text-[#FBFBF9] text-lg font-light mb-8 lg:mb-6">

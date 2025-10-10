@@ -9,6 +9,7 @@ interface AnimatedSlideButtonProps {
   text: string;
   variant?: "button" | "link";
   href?: string;
+  buttonType?: "button" | "submit" | "reset";
   onClick?: () => void;
   className?: string;
   containerClassName?: string;
@@ -21,6 +22,7 @@ export default function AnimatedSlideButton({
   text,
   variant = "button",
   href,
+  buttonType = "button",
   onClick,
   className = "",
   containerClassName = "",
@@ -89,7 +91,7 @@ export default function AnimatedSlideButton({
     </Link>
   ) : (
     <motion.button
-      type="button"
+      type={buttonType}
       initial="rest"
       animate="rest"
       whileHover="hover"

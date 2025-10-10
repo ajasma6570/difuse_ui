@@ -9,6 +9,11 @@ import AnimatedSlideButton from "@/lib/components/common/AnimatedSlideButton";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 import PageTransition from "@/lib/components/common/PageTransition";
+import facebookIcon from "@iconify-icons/ri/facebook-fill";
+import twitterIcon from "@iconify-icons/ri/twitter-x-fill";
+import linkedinIcon from "@iconify-icons/ri/linkedin-fill";
+import Mail from "@iconify/icons-lucide/mail";
+import phone from "@iconify/icons-lucide/phone";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -67,53 +72,29 @@ export default function Contact() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-12 lg:grid-cols-12 gap-2 mb-2 max-w-4xl mx-auto">
-                <div className="space-y-2 col-span-12 lg:col-span-4">
-                  <div className="bg-[#FBFBF9] rounded-lg p-8 text-left space-y-4 flex justify-center flex-col lg:h-[267px]">
+              <div className="grid grid-cols-12 lg:grid-cols-12 gap-2 mb-2 max-w-4xl mx-auto items-stretch">
+                <div className="space-y-2 col-span-12 lg:col-span-4 h-full flex flex-col">
+                  <div className="bg-[#FBFBF9] rounded-lg p-8 text-left space-y-4 flex justify-center flex-col h-full">
                     <Link
                       href="mailto:hello@difuse.io"
-                      className="text-[#080808] text-2xl font-semibold"
+                      className="text-[#080808] text-2xl font-medium"
                     >
                       hello@difuse.io
                     </Link>
                     <div className="mb-4 w-full">
-                      <svg
-                        className="w-6 h-6 text-gray-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                      </svg>
+                      <Icon icon={Mail} className="text-[#080808] h-8 w-8" />
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-lg p-8 text-left space-y-4 flex justify-center flex-col lg:h-[267px]">
+                  <div className="bg-white rounded-lg p-8 text-left space-y-4 flex justify-center flex-col h-full">
                     <Link
                       href="tel:1800599TECH"
-                      className="text-gray-900 text-2xl font-semibold"
+                      className="text-[#080808] text-2xl font-medium"
                     >
                       1800-599-TECH
                     </Link>
                     <div className="mb-4 w-full">
-                      <svg
-                        className="w-6 h-6 text-gray-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                      </svg>
+                      <Icon icon={phone} className="text-[#080808] h-8 w-8" />
                     </div>
                   </div>
                   <div className="bg-white rounded-lg p-8 text-left">
@@ -125,14 +106,14 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="col-span-12 lg:col-span-8 space-y-2">
-                  <div className="bg-[#FBFBF9] rounded-lg p-8">
+                <div className="col-span-12 lg:col-span-8 space-y-2 h-full flex flex-col">
+                  <div className="bg-[#FBFBF9] rounded-lg p-10">
                     <p className="text-[#080808]">
                       Tell us what you&lsquo;re looking for, and our team will
                       get back within 1 business day.
                     </p>
                   </div>
-                  <div className="bg-[#FBFBF9] rounded-lg p-8 ">
+                  <div className="bg-[#FBFBF9] rounded-lg p-10 ">
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                         <input
@@ -196,7 +177,7 @@ export default function Contact() {
                         required
                       />
 
-                      <div className="flex items-center border border-[#949494] rounded-lg w-sm mx-auto p-4 justify-center gap-3">
+                      <div className="flex flex-col lg:flex-row items-center border border-[#949494] rounded-lg lg:w-sm mx-auto p-4 justify-center gap-3">
                         <input type="checkbox" className="w-4 h-4" required />
                         <span className="text-lg text-gray-600">
                           Verify you are human
@@ -208,55 +189,52 @@ export default function Contact() {
                         </div>
                       </div>
 
-                      <button
-                        type="submit"
-                        className="w-full bg-[#4c51bf] hover:bg-[#434190] text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
-                      >
-                        <span>→</span>
-                        Submit
-                      </button>
+                      <AnimatedSlideButton
+                        icon={<Icon icon={arrowRight} width={24} height={24} />}
+                        text="Submit"
+                        className=" items-center gap-2 text-white bg-[#1C1E55] hover:bg-[#151347] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] !w-full md:inline-flex"
+                        containerClassName="!w-full"
+                        variant="button"
+                        buttonType="submit"
+                      />
                     </form>
                   </div>
                 </div>
               </div>
 
               <div className="bg-[#F9FAFB] rounded-lg p-6 mb-2 max-w-4xl mx-auto">
-                <div className="flex items-center justify-center gap-6">
-                  <span className="text-[#080808] font-medium">
-                    Follow us on:
-                  </span>
-                  <div className="flex gap-4">
-                    <a
-                      href="#"
-                      className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center"
-                    >
-                      <svg
-                        className="w-4 h-4 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                      </svg>
-                    </a>
-                    <a
-                      href="#"
-                      className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center"
-                    >
-                      <span className="text-white font-bold text-sm">X</span>
-                    </a>
-                    <a
-                      href="#"
-                      className="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center"
-                    >
-                      <svg
-                        className="w-4 h-4 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                      </svg>
-                    </a>
-                  </div>
+                <div className="flex justify-center items-center gap-4 lg:gap-8 text-[#6C6FD2]">
+                  <span className="text-lg text-[#080808]">Follow us on:</span>
+                  <Link
+                    href="https://www.facebook.com/DifuseHQ"
+                    target="_blank"
+                  >
+                    <Icon
+                      icon={facebookIcon}
+                      width={30}
+                      height={30}
+                      className="hover:text-white cursor-pointer"
+                    />
+                  </Link>
+                  <Link href="https://x.com/DifuseHQ" target="_blank">
+                    <Icon
+                      icon={twitterIcon}
+                      width={30}
+                      height={30}
+                      className="hover:text-white cursor-pointer"
+                    />
+                  </Link>
+                  <Link
+                    href="https://www.linkedin.com/company/iridiasolutions/about/"
+                    target="_blank"
+                  >
+                    <Icon
+                      icon={linkedinIcon}
+                      width={30}
+                      height={30}
+                      className="hover:text-white cursor-pointer"
+                    />
+                  </Link>
                 </div>
               </div>
 
