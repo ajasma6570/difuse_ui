@@ -5,8 +5,10 @@ import Image from "next/image";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 import arrowLeft from "@iconify/icons-lucide/arrow-left";
+import { AnimatePresence, motion } from "motion/react";
 
 interface Testimonial {
+  id: number;
   quote: string;
   name: string;
   title: string;
@@ -15,6 +17,7 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
+    id: 1,
     quote:
       "One Switching to Difuse helped us eliminate three separate devices: router, PBX, and firewall with one unified platform. Our IT stack is lighter, faster, and far easier to manage.",
     name: "Ravi Prakash",
@@ -22,6 +25,7 @@ const testimonials: Testimonial[] = [
     avatar: "client_1.png",
   },
   {
+    id: 2,
     quote:
       "Two The Difuse platform gave us an edge as a managed service provider. We now offer self-hosted voice + network solutions in a single box, no external dependencies.",
     name: "Priya Menon",
@@ -29,6 +33,7 @@ const testimonials: Testimonial[] = [
     avatar: "client_2.png",
   },
   {
+    id: 3,
     quote:
       "Three As a systems integrator, we’ve deployed Difuse boxes across retail chains. The modular OS lets us tailor every site’s network needs without bloated overhead.",
     name: "Marcus K.",
@@ -36,6 +41,7 @@ const testimonials: Testimonial[] = [
     avatar: "client_3.png",
   },
   {
+    id: 4,
     quote:
       "Four Switching to Difuse helped us eliminate three separate devices: router, PBX, and firewall with one unified platform. Our IT stack is lighter, faster, and far easier to manage.",
     name: "Ravi Prakash",
@@ -43,6 +49,7 @@ const testimonials: Testimonial[] = [
     avatar: "client_1.png",
   },
   {
+    id: 5,
     quote:
       "Five Switching to Difuse helped us eliminate three separate devices: router, PBX, and firewall with one unified platform. Our IT stack is lighter, faster, and far easier to manage.",
     name: "Ravi Prakash",
@@ -53,27 +60,24 @@ const testimonials: Testimonial[] = [
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
-
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const leftRef = useRef<HTMLDivElement | null>(null);
-  const rightRef = useRef<HTMLDivElement | null>(null);
+  const [direction, setDirection] = useState(1);
 
   const handleNext = () => {
     if (index >= testimonials.length - 1) return;
+    setDirection(1);
     setIndex((prev) => prev + 1);
   };
 
   const handlePrev = () => {
     if (index <= 0) return;
+    setDirection(-1);
     setIndex((prev) => prev - 1);
   };
 
   const current = testimonials[index];
-  const maybeNext =
-    index + 1 < testimonials.length ? testimonials[index + 1] : null;
 
   return (
-    <section className="py-28 lg:py-40 lg:max-w-8xl mx-auto px-6 2xl:px-0">
+    <section className="py-28 lg:py-40 lg:max-w-8xl mx-auto px-6 2xl:px-0 overflow-hidden">
       {/* Mobile Layout - Single Card */}
       <div className="block lg:hidden space-y-6">
         <div className="space-y-6">
@@ -88,7 +92,20 @@ export default function Testimonials() {
 
         {/* Mobile: Instant change without animation - same as desktop */}
         <div className="relative overflow-hidden mt-14">
-          <TestimonialCard testimonial={testimonials[index]} />
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                duration: 0.3,
+                ease: "easeInOut",
+              }}
+            >
+              <TestimonialCard testimonial={testimonials[index]} />
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         <div className="flex gap-2 mt-14">
@@ -177,19 +194,25 @@ export default function Testimonials() {
         </div>
 
         {/* Desktop: Simple two-card layout with instant updates */}
-        <div className="lg:col-span-2" ref={wrapperRef} aria-live="polite">
-          <div className="grid grid-cols-2 gap-8">
-            <div ref={leftRef}>
+        <div className="lg:col-span-2">
+          <div className="flex gap-8">
+            <motion.div>
               <TestimonialCard testimonial={current} />
-            </div>
+            </motion.div>
 
-            <div ref={rightRef} className="disabled opacity-30">
-              {maybeNext ? (
-                <TestimonialCard testimonial={maybeNext} />
-              ) : (
-                <div className="h-full w-full" />
-              )}
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={index}
+                initial={{ x: direction === 1 ? 0 : -490 }}
+                animate={{ x: direction === 1 ? -490 : 0 }}
+                transition={{ duration: 0.5 }}
+                className="disabled bg-white flex gap-8"
+              >
+                {testimonials.slice(index + 1).map((testimonial, idx) => (
+                  <TestimonialCard key={idx} testimonial={testimonial} />
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
@@ -199,7 +222,7 @@ export default function Testimonials() {
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="bg-white lg:p-6 rounded-xl max-w-xl">
+    <div className="bg-white lg:p-6 rounded-xl lg:w-[460px]">
       <Image
         src="/images/testimonials/vector.png"
         alt={testimonial.name}
