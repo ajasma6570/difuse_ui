@@ -38,7 +38,7 @@ export default function Hero() {
 
               <div className=" w-full flex-grow flex flex-col lg:flex-row justify-between">
                 <div className="space-y-6">
-                  <h1 className="text-4xl sm:text-6xl md:text-7xl text-[#080809] leading-tight tracking-tighter">
+                  <h1 className="text-[clamp(2.4rem,4vw,4.5rem)] text-[#080809] leading-tight tracking-tighter">
                     Rebuilding the <br /> Network Stack. <br /> One Box at a
                     Time.
                   </h1>

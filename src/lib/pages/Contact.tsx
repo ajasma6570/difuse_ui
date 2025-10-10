@@ -284,7 +284,7 @@ export default function Contact() {
           </section>
         </div>
         <div className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] w-full mt-32">
-          <Footer />
+          <Footer type="product" />
         </div>
       </div>
     </PageTransition>

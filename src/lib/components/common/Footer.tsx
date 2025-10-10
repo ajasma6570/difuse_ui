@@ -11,7 +11,11 @@ import linkedinIcon from "@iconify-icons/ri/linkedin-fill";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 import phone from "@iconify/icons-lucide/phone";
 
-export default function Footer() {
+export default function Footer({
+  type = "default",
+}: {
+  type?: "default" | "product";
+}) {
   const about = [
     {
       name: "Our Company",
@@ -70,16 +74,58 @@ export default function Footer() {
     <footer className="w-full">
       <div className="max-w-8xl mx-auto w-full px-6 2xl:px-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-28">
+          <div className="bg-[#25276C] rounded-xl p-8 lg:p-14 ">
+            {type === "default" ? (
+              <div className="flex flex-col justify-between">
+                <div>
+                  <h2 className="text-[#FBFBF9] text-[clamp(2.5rem,3vw,3.3rem)] font-light leading-tight">
+                    Interested in Partnering With Difuse?
+                  </h2>
+                </div>
+                <div className="mt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 ">
+                  <p className="text-lg text-[#FBFBF9] md:flex-1">
+                    Our portal is live and reserved for selected integrators,
+                    resellers, and collaborators.
+                  </p>
+                  <AnimatedSlideButton
+                    icon={<Icon icon={arrowRight} width={30} height={30} />}
+                    text="Learn more"
+                    className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
+                    variant="link"
+                    href="/become-a-partner"
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-8">
+                <h2 className="text-[#FBFBF9] text-[clamp(2.5rem,3vw,3.3rem)] font-light leading-tight">
+                  Power Your Business
+                  <br />
+                  with Difuse
+                </h2>
+
+                <p className="text-[#FBFBF9] text-xl">
+                  Purchase directly from our online store and take full control
+                  of your infrastructure.
+                </p>
+                <AnimatedSlideButton
+                  icon={<Icon icon={arrowRight} width={30} height={30} />}
+                  text="Explore Online Store"
+                  className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
+                  variant="link"
+                  href="/online-store"
+                />
+              </div>
+            )}
+          </div>
+
           <div className="border border-[#FBFBF9] rounded-xl p-8 lg:p-14 flex flex-col justify-between">
             <div>
-              <h2 className="text-[#FBFBF9] text-[clamp(1.5rem,3vw,5.5rem)] font-light leading-tight">
-                Stay in the Loop.
-                <br />
-                Product News That
-                <br />
-                Actually Matters.
+              <h2 className="text-[#FBFBF9] text-[clamp(2.5rem,3vw,3.3rem)] font-light leading-tight mb-16 lg:mb-0 ">
+                Stay in the Loop. Product News That Actually Matters.
               </h2>
             </div>
+
             <div className="mt-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
               <div className="border border-white w-full border-b md:flex-1"></div>
 
@@ -88,29 +134,6 @@ export default function Footer() {
                 text="Subscribe"
                 className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
                 onClick={() => alert("Subscribe functionality coming soon!")}
-              />
-            </div>
-          </div>
-
-          <div className="bg-[#25276C] rounded-xl p-8 lg:p-14 flex flex-col justify-between">
-            <div>
-              <h2 className="text-[#FBFBF9] text-[clamp(1.5rem,3vw,5.5rem)] font-light leading-tight">
-                Interested in
-                <br /> Partnering With
-                <br /> Difuse?
-              </h2>
-            </div>
-            <div className="mt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 ">
-              <p className="text-lg text-[#FBFBF9] md:flex-1">
-                Our portal is live and reserved for selected integrators,
-                resellers, and collaborators.
-              </p>
-              <AnimatedSlideButton
-                icon={<Icon icon={arrowRight} width={30} height={30} />}
-                text="Learn more"
-                className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
-                variant="link"
-                href="/become-a-partner"
               />
             </div>
           </div>

@@ -149,7 +149,7 @@ export default function Newsroom() {
           )}
         </div>{" "}
         <div className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] w-full mt-5">
-          <Footer />
+          <Footer type="product" />
         </div>
       </div>
     </PageTransition>
