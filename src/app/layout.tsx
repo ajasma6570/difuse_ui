@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/lib/components/common/Navbar";
-import SmoothScroll from "@/lib/components/common/SmoothScroll";
 import ScrollToTopButton from "@/lib/components/common/ScrollToTopButton";
 import { icons } from "@/utils/meta";
+import SmoothScrollProvider from "@/lib/components/common/SmoothScroll";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -53,10 +53,11 @@ export default function RootLayout({
           <span className="hidden xl:block 2xl:hidden">xl</span>
           <span className="hidden 2xl:block">2xl</span>
         </div>{" "}
-        <SmoothScroll />
-        <Navbar />
-        {children}
-        <ScrollToTopButton />
+        <SmoothScrollProvider>
+          <Navbar />
+          {children}
+          <ScrollToTopButton />
+        </SmoothScrollProvider>
       </body>
     </html>
   );
