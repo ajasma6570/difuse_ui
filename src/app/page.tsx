@@ -1,6 +1,13 @@
-import Homepage from "@/lib/pages/Homepage";
+import React from "react";
 import { icons, title } from "@/lib/utils/meta";
 import { Metadata } from "next";
+import Hero from "@/lib/components/home/Hero";
+import PlatformOverview from "@/lib/components/home/PlatformOverview";
+import ProductsOverview from "@/lib/components/home/ProductsOverview";
+import OnlineStore from "@/lib/components/home/OnlineStore";
+import DownloadsPromo from "@/lib/components/home/DownloadsPromo";
+import Testimonials from "@/lib/components/home/Testimonial";
+import NewsRoom from "@/lib/components/home/NewsRoom";
 
 const siteName = process.env.SITE_NAME;
 const siteUrl = process.env.SITE_URL;
@@ -53,5 +60,15 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <Homepage />;
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Hero />
+      <PlatformOverview />
+      <ProductsOverview />
+      <OnlineStore />
+      <DownloadsPromo />
+      <Testimonials />
+      <NewsRoom />
+    </div>
+  );
 }
