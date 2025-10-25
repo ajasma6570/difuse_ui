@@ -1,4 +1,4 @@
-export const title = "Difuse · Networks Simplified"
+export const title = "Difuse · Networks Simplified";
 const siteName = process.env.SITE_NAME || "Difuse · Networks Simplified";
 const siteUrl = process.env.SITE_URL || "https://difuse-ui.vercel.app";
 
@@ -23,7 +23,6 @@ export const icons = {
       type: "image/png",
       sizes: "96x96",
       url: "/favicon-96x96.png",
-
     },
     {
       rel: "icon",
@@ -71,14 +70,17 @@ export const icons = {
       url: "/apple-icon-180x180.png",
     },
   ],
-}
+};
 
 interface OpenGraphDataParams {
   title: string;
   description?: string;
 }
 
-export const getOpenGraphData = ({ title, description }: OpenGraphDataParams) => ({
+export const getOpenGraphData = ({
+  title,
+  description,
+}: OpenGraphDataParams) => ({
   title: `${title} | ${siteName}`,
   description:
     description ||
@@ -89,6 +91,6 @@ export const getOpenGraphData = ({ title, description }: OpenGraphDataParams) =>
       width: 2800,
       height: 1600,
       alt: `${title} | ${siteName}`,
-    }
+    },
   ],
 });

@@ -16,14 +16,14 @@ export default function BlogCard({
 }: BlogCardProps) {
   return (
     <article className={`relative overflow-hidden rounded-xl ${height}`}>
-      <Link href={`/newsroom/${blog.slug}`} className="block group">
+      <Link href={`/newsroom/${blog.slug}`} className="group block">
         <div className={`relative ${height}`}>
           <div className="absolute inset-0 overflow-hidden">
             <Image
               src={blog.image}
               alt={blog.title}
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           </div>
@@ -32,15 +32,15 @@ export default function BlogCard({
             initial="rest"
             animate="rest"
             whileHover="hover"
-            className="absolute inset-0 p-8 text-white flex flex-col justify-between"
+            className="absolute inset-0 flex flex-col justify-between p-8 text-white"
           >
             <div>
               {variant === "newsroom" && blog.categories && (
-                <div className="flex items-center gap-2 mb-3">
+                <div className="mb-3 flex items-center gap-2">
                   {blog.categories.map((category, index) => (
                     <span
                       key={index}
-                      className="text-md font-normal px-3 py-1 rounded-md bg-[#6C6FD2] first:bg-[#6C6FD2] last:bg-[#25276C] text-white"
+                      className="text-md rounded-md bg-[#6C6FD2] px-3 py-1 font-normal text-white first:bg-[#6C6FD2] last:bg-[#25276C]"
                     >
                       {category}
                     </span>
@@ -49,7 +49,7 @@ export default function BlogCard({
               )}
 
               <div className="space-y-4">
-                <div className="flex gap-8 items-center justify-between text-white text-sm">
+                <div className="flex items-center justify-between gap-8 text-sm text-white">
                   <div className="inline-flex items-center gap-2">
                     <Icon icon="solar:calendar-linear" width={20} height={20} />
                     <span className="text-base">{blog.date}</span>
@@ -61,7 +61,7 @@ export default function BlogCard({
                   </div>
                 </div>
 
-                <h3 className="font-light leading-relaxed text-2xl line-clamp-3">
+                <h3 className="line-clamp-3 text-2xl leading-relaxed font-light">
                   {blog.title}
                 </h3>
               </div>
@@ -71,11 +71,11 @@ export default function BlogCard({
               <HoverRevealButton
                 icon={<Icon icon={arrowRight} width={24} height={24} />}
                 text="Read"
-                className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                className="hidden max-w-max items-center rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors hover:bg-[#E5E5E5] xl:flex"
                 parentControlled
               />
 
-              <button className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max">
+              <button className="flex max-w-max items-center gap-2 rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors hover:bg-[#E5E5E5] xl:hidden">
                 <Icon
                   icon={arrowRight}
                   width={24}

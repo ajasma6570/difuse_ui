@@ -45,20 +45,20 @@ export default function Newsroom({ blogs }: { blogs: BlogPost[] }) {
 
   return (
     <PageTransition motionKey="newsroom-main-page-wrapper">
-      <div className="pt-14 min-h-screen flex flex-col items-center justify-center">
-        <div className="w-full md:max-w-8xl px-6 py-16">
+      <div className="flex min-h-screen flex-col items-center justify-center pt-14">
+        <div className="md:max-w-8xl w-full px-6 py-16">
           <div className="space-y-8">
             <p className="text-3xl text-[#25276C]">Newsroom</p>
 
-            <h1 className="text-3xl sm:text-6xl font-medium leading-snug text-[#080808]">
+            <h1 className="text-3xl leading-snug font-medium text-[#080808] sm:text-6xl">
               Stay Updated with Difuse: <br /> News, Releases & Milestones
             </h1>
-            <p className="max-w-2xl text-[#2A2A2A] text-lg">
+            <p className="max-w-2xl text-lg text-[#2A2A2A]">
               From product rollouts to industry insights, get the latest on how
               Difuse is shaping the future of unified IT infrastructure.
             </p>
           </div>
-          <section className="mt-12 gap-6 hidden lg:grid">
+          <section className="mt-12 hidden gap-6 lg:grid">
             <BlogBannerCard key={bannerPost.slug} blog={bannerPost} />
           </section>
 
@@ -66,7 +66,7 @@ export default function Newsroom({ blogs }: { blogs: BlogPost[] }) {
             <BlogCard key={bannerPost.slug} blog={bannerPost} />
           </section>
 
-          <section className="mt-2 grid grid-cols-1 lg:grid-cols-3 gap-2">
+          <section className="mt-2 grid grid-cols-1 gap-2 lg:grid-cols-3">
             {featured.map((p) => (
               <BlogCard key={p.slug} blog={p} />
             ))}
@@ -77,14 +77,14 @@ export default function Newsroom({ blogs }: { blogs: BlogPost[] }) {
               Navigate by Category
             </h2>
 
-            <div className="mt-10 lg:mt-20 flex flex-col xl:flex-row lg:items-center lg:justify-between gap-6 mb-10 lg:mb-16">
-              <div className="flex flex-wrap items-center gap-2 order-2 xl:order-1">
+            <div className="mt-10 mb-10 flex flex-col gap-6 lg:mt-20 lg:mb-16 lg:items-center lg:justify-between xl:flex-row">
+              <div className="order-2 flex flex-wrap items-center gap-2 xl:order-1">
                 <button
                   onClick={() => setActive("All")}
-                  className={`px-5 lg:px-10 py-2.5 rounded-md text-lg border ${
+                  className={`rounded-md border px-5 py-2.5 text-lg lg:px-10 ${
                     active === "All"
-                      ? "bg-[#25276C] text-[#FBFBF9] border-[#25276C]"
-                      : "text-[#080808] hover:bg-gray-100 border-[#BEBEBE]"
+                      ? "border-[#25276C] bg-[#25276C] text-[#FBFBF9]"
+                      : "border-[#BEBEBE] text-[#080808] hover:bg-gray-100"
                   }`}
                 >
                   All
@@ -93,10 +93,10 @@ export default function Newsroom({ blogs }: { blogs: BlogPost[] }) {
                   <button
                     key={c}
                     onClick={() => setActive(c)}
-                    className={`px-5 lg:px-10 py-2.5 rounded-md text-lg border ${
+                    className={`rounded-md border px-5 py-2.5 text-lg lg:px-10 ${
                       active === c
-                        ? "bg-[#25276C] text-[#FBFBF9] border-[#25276C]"
-                        : "text-[#080808] hover:bg-gray-100 border-[#BEBEBE]"
+                        ? "border-[#25276C] bg-[#25276C] text-[#FBFBF9]"
+                        : "border-[#BEBEBE] text-[#080808] hover:bg-gray-100"
                     }`}
                   >
                     {c}
@@ -104,21 +104,21 @@ export default function Newsroom({ blogs }: { blogs: BlogPost[] }) {
                 ))}
               </div>
 
-              <div className="relative w-full xl:w-64 order-1 xl:order-2">
+              <div className="relative order-1 w-full xl:order-2 xl:w-64">
                 <input
                   value={q}
                   onChange={(e) => setQ(e.target.value)}
                   placeholder="Search posts…"
-                  className="w-full rounded-md border border-[#BEBEBE] bg-[#FBFBF9] pl-11 px-3 py-2.5 text-lg outline-none focus:border-[#1C1E55] focus:ring-1 focus:ring-[#1C1E55]"
+                  className="w-full rounded-md border border-[#BEBEBE] bg-[#FBFBF9] px-3 py-2.5 pl-11 text-lg outline-none focus:border-[#1C1E55] focus:ring-1 focus:ring-[#1C1E55]"
                 />
-                <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-[#BEBEBE] text-sm">
+                <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-sm text-[#BEBEBE]">
                   <Icon icon={SearchIcon} width={24} height={24} />
                 </span>
               </div>
             </div>
           </section>
 
-          <section className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+          <section className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.slice(0, limit).map((p) => (
               <PostCard key={p.id} post={p} />
             ))}
@@ -128,21 +128,21 @@ export default function Newsroom({ blogs }: { blogs: BlogPost[] }) {
             <div className="mt-20 flex justify-center">
               <button
                 onClick={() => setLimit((n) => n + 9)}
-                className="flex gap-2 items-center  text-[#1C1E55] group hover:text-[#FBFBF9] hover:bg-[#1C1E55] border border-[#1C1E55] transition-colors duration-300 p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                className="group flex max-w-max items-center gap-2 rounded-lg border border-[#1C1E55] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors duration-300 hover:bg-[#1C1E55] hover:text-[#FBFBF9]"
               >
                 {" "}
                 <Icon
                   icon={arrowRight}
                   width={24}
                   height={24}
-                  className="text-[#25276C] group-hover:text-[#FBFBF9] transition-colors duration-300"
+                  className="text-[#25276C] transition-colors duration-300 group-hover:text-[#FBFBF9]"
                 />
                 Load more
               </button>
             </div>
           )}
         </div>{" "}
-        <div className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] w-full mt-5">
+        <div className="mt-5 w-full bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)]">
           <Footer type="product" />
         </div>
       </div>
@@ -153,7 +153,7 @@ export default function Newsroom({ blogs }: { blogs: BlogPost[] }) {
 function PostCard({ post }: { post: BlogPost; compact?: boolean }) {
   return (
     <article className="relative overflow-hidden rounded-xl bg-gray-100">
-      <Link href={`/newsroom/${post.slug}`} className="block group">
+      <Link href={`/newsroom/${post.slug}`} className="group block">
         <div className={`relative h-[400px]`}>
           <div className="absolute inset-0 overflow-hidden">
             <Image
@@ -161,7 +161,7 @@ function PostCard({ post }: { post: BlogPost; compact?: boolean }) {
               alt={post.title}
               fill
               priority
-              className="object-cover hover:scale-105 transition-transform duration-500"
+              className="object-cover transition-transform duration-500 hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           </div>
@@ -170,20 +170,20 @@ function PostCard({ post }: { post: BlogPost; compact?: boolean }) {
             initial="rest"
             animate="rest"
             whileHover="hover"
-            className="absolute inset-0 p-8 text-white flex flex-col justify-between"
+            className="absolute inset-0 flex flex-col justify-between p-8 text-white"
           >
             <div>
-              <div className="flex items-center gap-2 mb-3 ">
-                <button className="text-md font-normal px-3 py-1 rounded-md bg-[#6C6FD2] text-white">
+              <div className="mb-3 flex items-center gap-2">
+                <button className="text-md rounded-md bg-[#6C6FD2] px-3 py-1 font-normal text-white">
                   Latest
                 </button>
-                <button className="text-md font-normal px-3 py-1 rounded-md bg-[#25276C] text-white">
+                <button className="text-md rounded-md bg-[#25276C] px-3 py-1 font-normal text-white">
                   Product Updates
                 </button>
               </div>
 
               <div className="space-y-4">
-                <div className="flex gap-8 items-center justify-between text-white text-sm">
+                <div className="flex items-center justify-between gap-8 text-sm text-white">
                   <div className="inline-flex items-center gap-2">
                     <Image
                       src="/images/news/vector1.png"
@@ -207,7 +207,7 @@ function PostCard({ post }: { post: BlogPost; compact?: boolean }) {
                 </div>
 
                 <h3
-                  className={`font-light leading-relaxed text-2xl line-clamp-3`}
+                  className={`line-clamp-3 text-2xl leading-relaxed font-light`}
                 >
                   {post.title}
                 </h3>
@@ -218,11 +218,11 @@ function PostCard({ post }: { post: BlogPost; compact?: boolean }) {
                 <HoverRevealButton
                   icon={<Icon icon={arrowRight} width={24} height={24} />}
                   text="Read"
-                  className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                  className="hidden max-w-max items-center rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors hover:bg-[#E5E5E5] xl:flex"
                   parentControlled
                 />
 
-                <button className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max">
+                <button className="flex max-w-max items-center gap-2 rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors hover:bg-[#E5E5E5] xl:hidden">
                   <Icon
                     icon={arrowRight}
                     width={24}

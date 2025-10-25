@@ -67,7 +67,7 @@ const blogs: BlogPost[] = getMarkDownData("src/data/blogs").sort(
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex min-h-screen flex-col">
       <Hero />
       <PlatformOverview />
       <ProductsOverview />

@@ -9,16 +9,16 @@ import arrowRight from "@iconify/icons-lucide/arrow-right";
 
 export default function PlatformOverview() {
   return (
-    <section className="py-20 lg:py-40 lg:max-w-8xl w-full mx-auto px-6 lg:px-4 space-y-20 lg:space-y-40">
+    <section className="lg:max-w-8xl mx-auto w-full space-y-20 px-6 py-20 lg:space-y-40 lg:px-4 lg:py-40">
       <div className="space-y-10 md:space-y-14">
-        <p className="text-[#1C1E55] font-normal text-2xl lg:text-3xl">
+        <p className="text-2xl font-normal text-[#1C1E55] lg:text-3xl">
           Join 1,500+ teams powering their networks, calls, and cloud with
           Difuse
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-24">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:gap-24">
           <div className="relative">
-            <h2 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight text-black">
+            <h2 className="text-4xl leading-tight font-normal tracking-tight text-black sm:text-5xl lg:text-5xl xl:text-6xl">
               The Unified Platform for Smarter Business{" "}
               <span className="inline-flex items-center gap-3 lg:gap-4">
                 Infrastructure
@@ -27,15 +27,15 @@ export default function PlatformOverview() {
                   alt="Hero animation"
                   width={100}
                   height={100}
-                  className="w-12 h-12 md:w-16 md:h-16 xl:w-20 xl:h-20 object-contain"
+                  className="h-12 w-12 object-contain md:h-16 md:w-16 xl:h-20 xl:w-20"
                   unoptimized
                 />
               </span>
             </h2>
           </div>
 
-          <div className="flex flex-col justify-end ">
-            <p className="text-lg font-light leading-relaxed text-gray-700 ">
+          <div className="flex flex-col justify-end">
+            <p className="text-lg leading-relaxed font-light text-gray-700">
               We believe business networks shouldn&#39;t rely on duct-taped
               hardware or third-party cloud dependency. Our platform brings
               together multi-service gateways, VoIP systems, and communication
@@ -46,7 +46,7 @@ export default function PlatformOverview() {
               <AnimatedSlideButton
                 icon={<Icon icon={arrowRight} width={24} height={24} />}
                 text="Learn about company"
-                className=" items-center gap-2 text-white bg-[#1C1E55] hover:bg-[#151347] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max md:inline-flex"
+                className="max-w-max items-center gap-2 rounded-lg bg-[#1C1E55] p-5 text-xl tracking-[-0.05em] text-white transition-colors hover:bg-[#151347] md:inline-flex"
                 variant="link"
                 href="/about"
               />
@@ -54,16 +54,16 @@ export default function PlatformOverview() {
           </div>
         </div>
       </div>
-      <div className="py-16 lg:py-28 max-w-[93rem] mx-auto min-h-screen rounded-lg bg-[linear-gradient(to_bottom,black_30%,#25276C_100%)]">
-        <h2 className="text-white text-left lg:text-center text-3xl px-10">
+      <div className="mx-auto min-h-screen max-w-[93rem] rounded-lg bg-[linear-gradient(to_bottom,black_30%,#25276C_100%)] py-16 lg:py-28">
+        <h2 className="px-10 text-left text-3xl text-white lg:text-center">
           Why Difuse?
         </h2>
-        <p className="text-white text-4xl 2xl:text-7xl text-left px-10 lg:text-center mt-8 lg:mt-16 leading-tight">
+        <p className="mt-8 px-10 text-left text-4xl leading-tight text-white lg:mt-16 lg:text-center 2xl:text-7xl">
           Everything You Need. <br /> Built for Power Users.
         </p>
 
-        <div className="max-w-7xl mx-auto mt-14 lg:mt-24 grid grid-cols-1 sm:grid-cols-12 gap-2 px-8">
-          <div className="col-span-12 lg:col-span-4 bg-white rounded-lg space-y-6 p-10 flex justify-between flex-col">
+        <div className="mx-auto mt-14 grid max-w-7xl grid-cols-1 gap-2 px-8 sm:grid-cols-12 lg:mt-24">
+          <div className="col-span-12 flex flex-col justify-between space-y-6 rounded-lg bg-white p-10 lg:col-span-4">
             <p className="text-lg lg:text-xl">
               Enhance your network&#39;s versatility with our intuitive
               gateways, designed for smooth, effortless connectivity and
@@ -86,9 +86,9 @@ export default function PlatformOverview() {
             />
           </div>
 
-          <div className="col-span-12 lg:col-span-8 grid grid-cols-1 lg:grid-cols-2 gap-2">
-            <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[260px] lg:min-h-[365px]">
-              <p className="text-4xl 2xl:text-5xl break-words">
+          <div className="col-span-12 grid grid-cols-1 gap-2 lg:col-span-8 lg:grid-cols-2">
+            <div className="flex min-h-[260px] flex-col justify-between rounded-lg bg-white p-8 lg:min-h-[365px]">
+              <p className="text-4xl break-words 2xl:text-5xl">
                 Unyielding Security
               </p>
 
@@ -107,8 +107,8 @@ export default function PlatformOverview() {
                 </p>
               </div>
             </div>
-            <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[260px] lg:min-h-[365px]">
-              <p className="text-4xl 2xl:text-5xl break-words">
+            <div className="flex min-h-[260px] flex-col justify-between rounded-lg bg-white p-8 lg:min-h-[365px]">
+              <p className="text-4xl break-words 2xl:text-5xl">
                 Stellar Performance
               </p>
 
@@ -127,8 +127,8 @@ export default function PlatformOverview() {
                 </p>
               </div>
             </div>
-            <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[260px] lg:min-h-[365px]">
-              <p className="text-4xl 2xl:text-5xl break-words">
+            <div className="flex min-h-[260px] flex-col justify-between rounded-lg bg-white p-8 lg:min-h-[365px]">
+              <p className="text-4xl break-words 2xl:text-5xl">
                 Constant Evolution
               </p>
 

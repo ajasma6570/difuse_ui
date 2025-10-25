@@ -87,27 +87,27 @@ export default async function Page({
   const shareTitle = postBlog?.title || "";
   return (
     <PageTransition motionKey="newsroom-slug-page-wrapper">
-      <div className="pt-14 min-h-screen flex flex-col  items-center">
-        <div className="w-full md:max-w-8xl px-6 py-16">
+      <div className="flex min-h-screen flex-col items-center pt-14">
+        <div className="md:max-w-8xl w-full px-6 py-16">
           <div>
             <Link
               href="/newsroom"
-              className="text-[#8B8B8B] text-xl hover:text-[#25276C]"
+              className="text-xl text-[#8B8B8B] hover:text-[#25276C]"
             >
               /Back to newsroom
             </Link>
           </div>
 
-          <div className="mt-10 flex flex-col lg:flex-row w-full gap-10">
-            <div className="w-full lg:w-7/12 space-y-4">
-              <p className="text-[#080808] text-[clamp(2rem,6vw,3.5rem)] leading-tight">
+          <div className="mt-10 flex w-full flex-col gap-10 lg:flex-row">
+            <div className="w-full space-y-4 lg:w-7/12">
+              <p className="text-[clamp(2rem,6vw,3.5rem)] leading-tight text-[#080808]">
                 {postBlog?.title}
               </p>
-              <p className="text-[#2A2A2A] text-lg font-light">
+              <p className="text-lg font-light text-[#2A2A2A]">
                 {postBlog?.description}
               </p>
             </div>
-            <div className="w-full lg:w-5/12 flex justify-center lg:justify-end">
+            <div className="flex w-full justify-center lg:w-5/12 lg:justify-end">
               <Image
                 src={postBlog?.image ?? ""}
                 alt={`news_${postBlog?.title ?? "image"}`}
@@ -118,8 +118,8 @@ export default async function Page({
           </div>
 
           <hr className="my-20" />
-          <div className="flex flex-col lg:flex-row w-full gap-10">
-            <div className="space-y-6 w-full lg:w-6/12">
+          <div className="flex w-full flex-col gap-10 lg:flex-row">
+            <div className="w-full space-y-6 lg:w-6/12">
               <article className="prose lg:prose-xl">
                 <ReactMarkdown rehypePlugins={[rehypeSlug]}>
                   {blog.content}
@@ -128,49 +128,49 @@ export default async function Page({
             </div>
 
             <div className="hidden lg:block lg:w-2/12"></div>
-            <div className="w-full lg:w-4/12 h-full bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] rounded-xl p-4 flex flex-col items-center gap-2">
-              <div className="bg-[#FBFBF9] h-[70px] w-full rounded-xl font-medium text-lg px-6 text-[#080808] flex items-center justify-between">
+            <div className="flex h-full w-full flex-col items-center gap-2 rounded-xl bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] p-4 lg:w-4/12">
+              <div className="flex h-[70px] w-full items-center justify-between rounded-xl bg-[#FBFBF9] px-6 text-lg font-medium text-[#080808]">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-[#D9D9D9] rounded-full flex items-center justify-center">
-                    <Icon icon={user} className="text-[#080808] h-5 w-5" />
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#D9D9D9]">
+                    <Icon icon={user} className="h-5 w-5 text-[#080808]" />
                   </div>
                   <span className="font-medium">{postBlog?.author}</span> |
-                  <span className="text-[#676767] text-sm">
+                  <span className="text-sm text-[#676767]">
                     {postBlog?.date}
                   </span>
                 </div>
               </div>
 
-              <div className="bg-[#FBFBF9] h-[70px] w-full rounded-xl flex items-center justify-start gap-4 font-medium px-6 text-xl text-[#676767]">
+              <div className="flex h-[70px] w-full items-center justify-start gap-4 rounded-xl bg-[#FBFBF9] px-6 text-xl font-medium text-[#676767]">
                 <span className="text-lg text-[#676767]">Share this on:</span>
                 <ShareButtons url={shareUrl} title={shareTitle} />
               </div>
 
-              <div className="bg-[#25276C] h-[70px] w-full rounded-xl text-[#FBFBF9] flex justify-center px-6 items-center font-medium text-xl">
+              <div className="flex h-[70px] w-full items-center justify-center rounded-xl bg-[#25276C] px-6 text-xl font-medium text-[#FBFBF9]">
                 Related posts:
               </div>
 
               {relatedPosts.map((relatedPost, index) => (
                 <div
                   key={index}
-                  className="bg-[#FBFBF9] w-full rounded-xl p-4 hover:shadow-lg transition-shadow duration-300"
+                  className="w-full rounded-xl bg-[#FBFBF9] p-4 transition-shadow duration-300 hover:shadow-lg"
                 >
                   <div className="flex gap-4">
-                    <div className="relative w-[120px] h-[120px] flex-shrink-0 rounded-lg overflow-hidden">
+                    <div className="relative h-[120px] w-[120px] flex-shrink-0 overflow-hidden rounded-lg">
                       <Image
                         src={relatedPost.image || "/placeholder-image.jpg"}
                         alt={relatedPost.title}
                         fill
-                        className="object-cover w-full h-full"
+                        className="h-full w-full object-cover"
                       />
                     </div>
-                    <div className="flex-1 min-w-0 justify-between flex flex-col">
-                      <h3 className="text-lg font-medium text-[#080808] line-clamp-3 leading-relaxed mb-2">
+                    <div className="flex min-w-0 flex-1 flex-col justify-between">
+                      <h3 className="mb-2 line-clamp-3 text-lg leading-relaxed font-medium text-[#080808]">
                         {relatedPost.title}
                       </h3>
                       <Link
                         href={`/newsroom/${relatedPost.slug}`}
-                        className="inline-flex items-center gap-1 text-[#25276C] text-lg font-medium hover:text-[#1a1c4f] transition-colors duration-200"
+                        className="inline-flex items-center gap-1 text-lg font-medium text-[#25276C] transition-colors duration-200 hover:text-[#1a1c4f]"
                       >
                         <Icon icon={arrowRight} width={14} height={14} />
                         Read
@@ -183,12 +183,12 @@ export default async function Page({
           </div>
           <hr className="my-20" />
 
-          <div className="flex justify-between items-center">
-            <div className="flex gap-4 lg:gap-6 items-center">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4 lg:gap-6">
               {previousPost ? (
                 <button
                   disabled={!previousPost}
-                  className="border cursor-pointer border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 p-4 rounded-lg"
+                  className="group cursor-pointer rounded-lg border border-[#999999] p-4 transition-colors duration-300 hover:border-[#25276C] hover:bg-[#25276C]"
                 >
                   <Link href={`/newsroom/${previousPost.slug}`}>
                     {" "}
@@ -201,7 +201,7 @@ export default async function Page({
                   </Link>
                 </button>
               ) : (
-                <button className="border   p-2 lg:p-4 rounded-lg opacity-30">
+                <button className="rounded-lg border p-2 opacity-30 lg:p-4">
                   <Icon
                     icon={arrowLeft}
                     width={30}
@@ -211,20 +211,20 @@ export default async function Page({
                 </button>
               )}
               <div>
-                <p className="text-[#25276C] text-lg lg:text-xl font-medium">
+                <p className="text-lg font-medium text-[#25276C] lg:text-xl">
                   Previous Post
                 </p>
                 {previousPost && (
-                  <p className="text-[#676767] text-sm truncate max-w-[200px]">
+                  <p className="max-w-[200px] truncate text-sm text-[#676767]">
                     {previousPost.title}
                   </p>
                 )}
               </div>
             </div>
 
-            <div className="flex gap-4 lg:gap-6 items-center">
+            <div className="flex items-center gap-4 lg:gap-6">
               <div className="text-right">
-                <p className="text-[#25276C] text-lg lg:text-xl font-medium">
+                <p className="text-lg font-medium text-[#25276C] lg:text-xl">
                   Next Post
                 </p>
                 {/* {nextPost && (
@@ -235,7 +235,7 @@ export default async function Page({
               </div>
               {nextPost ? (
                 <Link href={`/newsroom/${nextPost.slug}`}>
-                  <button className="border cursor-pointer border-[#999999] p-2 lg:p-4 rounded-lg hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300">
+                  <button className="group cursor-pointer rounded-lg border border-[#999999] p-2 transition-colors duration-300 hover:border-[#25276C] hover:bg-[#25276C] lg:p-4">
                     <Icon
                       icon={arrowRight}
                       width={30}
@@ -245,7 +245,7 @@ export default async function Page({
                   </button>
                 </Link>
               ) : (
-                <button className="border cursor-not-allowed border-[#E5E5E5] p-4 rounded-lg opacity-50">
+                <button className="cursor-not-allowed rounded-lg border border-[#E5E5E5] p-4 opacity-50">
                   <Icon
                     icon={arrowRight}
                     width={30}
@@ -257,7 +257,7 @@ export default async function Page({
             </div>
           </div>
         </div>
-        <div className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] w-full mt-5">
+        <div className="mt-5 w-full bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)]">
           <Footer type="product" />
         </div>
       </div>

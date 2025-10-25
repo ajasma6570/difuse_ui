@@ -18,13 +18,13 @@ export default function OurCompanyPage() {
 
   return (
     <PageTransition motionKey="our-company-page-wrapper">
-      <div className="mt-14 min-h-screen flex flex-col items-center justify-center">
-        <div className="w-full md:max-w-8xl px-6 py-16">
-          <div className="text-center md:max-w-5xl w-full mx-auto space-y-6">
+      <div className="mt-14 flex min-h-screen flex-col items-center justify-center">
+        <div className="md:max-w-8xl w-full px-6 py-16">
+          <div className="mx-auto w-full space-y-6 text-center md:max-w-5xl">
             <p className="text-3xl tracking-wide text-[#25276C]">
               About Company
             </p>
-            <h1 className="text-4xl md:text-7xl font-normal leading-tight text-[#080808]">
+            <h1 className="text-4xl leading-tight font-normal text-[#080808] md:text-7xl">
               <span className="block md:hidden">
                 Designed for the Modern Infrastructure Landscape
               </span>
@@ -35,7 +35,7 @@ export default function OurCompanyPage() {
                 Landscape
               </span>
             </h1>
-            <p className="text-lg text-center font-light text-[#2A2A2A] max-w-xl mx-auto">
+            <p className="mx-auto max-w-xl text-center text-lg font-light text-[#2A2A2A]">
               We&lsquo;re redefining business-grade networking and
               communications through open-source-driven, self-hosted technology,
               secure, scalable, and fully owned.
@@ -43,8 +43,8 @@ export default function OurCompanyPage() {
           </div>
 
           <div className="relative mt-20 flex justify-center">
-            <div className="w-full md:w-full md:max-w-8xl rounded-lg overflow-hidden shadow-sm">
-              <div className="relative h-[550px] lg:h-[600px] w-full">
+            <div className="md:max-w-8xl w-full overflow-hidden rounded-lg shadow-sm md:w-full">
+              <div className="relative h-[550px] w-full lg:h-[600px]">
                 <picture>
                   <source
                     media="(max-width: 1024px)"
@@ -63,13 +63,13 @@ export default function OurCompanyPage() {
             </div>
           </div>
 
-          <section className="mt-16 lg:mt-40 grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] items-start">
-            <h2 className="text-5xl lg:text-6xl font-normal text-[#080808] leading-snug">
+          <section className="mt-16 grid items-start gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] lg:mt-40">
+            <h2 className="text-5xl leading-snug font-normal text-[#080808] lg:text-6xl">
               Our Story,
               <br />
               Our Mission
             </h2>
-            <div className="space-y-6 text-lg text-[#2A2A2A] ">
+            <div className="space-y-6 text-lg text-[#2A2A2A]">
               <p className="leading-snug" style={{ fontWeight: 100 }}>
                 Founded in 2023 by IT veterans at Iridia Solutions Private
                 Limited, Difuse was born out of a deep-rooted frustration with
@@ -105,7 +105,7 @@ export default function OurCompanyPage() {
 
           <section className="mt-20 lg:mt-40">
             <div className="relative">
-              <div className="relative rounded-lg overflow-hidden h-[700px] w-full">
+              <div className="relative h-[700px] w-full overflow-hidden rounded-lg">
                 <Image
                   src={OurCompanyImages.Team.src}
                   alt="Team working"
@@ -115,19 +115,19 @@ export default function OurCompanyPage() {
               </div>
 
               <div className="absolute inset-0 flex items-end justify-between p-8 md:p-16">
-                <div className="flex flex-col lg:flex-row w-full gap-4">
-                  <div className="lg:w-3/12 rounded-full text-white flex items-end pb-5">
+                <div className="flex w-full flex-col gap-4 lg:flex-row">
+                  <div className="flex items-end rounded-full pb-5 text-white lg:w-3/12">
                     <div className="relative h-12 w-12">
                       <Image
                         src={Vectors.DifuseWhite}
                         alt="difuse logo"
                         fill
-                        className="object-contain w-full h-full absolute bottom-0"
+                        className="absolute bottom-0 h-full w-full object-contain"
                       />
                     </div>
                   </div>
 
-                  <p className="lg:w-9/12 text-white/90 text-3xl md:text-6xl font-normal leading-tight text-left">
+                  <p className="text-left text-3xl leading-tight font-normal text-white/90 md:text-6xl lg:w-9/12">
                     Join 1,500+ teams
                     <br />
                     powering their networks,
@@ -139,16 +139,16 @@ export default function OurCompanyPage() {
             </div>
           </section>
 
-          <section className="mt-24 lg:mt-40 max-w-8xl mx-auto  rounded-lg bg-[linear-gradient(to_bottom,black_30%,#25276C_100%)]">
-            <div className="px-8 py-16 lg:p-20 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-12 ">
-              <div className="col-span-12 lg:col-span-4  rounded-lg space-y-6  flex justify-between flex-col">
-                <h2 className="text-white text-left text-5xl lg:text-6xl ">
+          <section className="max-w-8xl mx-auto mt-24 rounded-lg bg-[linear-gradient(to_bottom,black_30%,#25276C_100%)] lg:mt-40">
+            <div className="mx-auto grid max-w-7xl grid-cols-1 px-8 py-16 sm:grid-cols-12 lg:p-20">
+              <div className="col-span-12 flex flex-col justify-between space-y-6 rounded-lg lg:col-span-4">
+                <h2 className="text-left text-5xl text-white lg:text-6xl">
                   What Sets Us Apart
                 </h2>
               </div>
 
-              <div className="col-span-12 lg:col-span-8 grid grid-cols-1 lg:grid-cols-2 gap-2 mt-10 lg:mt-0">
-                <div className="rounded-lg hidden lg:flex flex-col justify-between p-8 min-h-[300px] lg:min-h-[365px]" />
+              <div className="col-span-12 mt-10 grid grid-cols-1 gap-2 lg:col-span-8 lg:mt-0 lg:grid-cols-2">
+                <div className="hidden min-h-[300px] flex-col justify-between rounded-lg p-8 lg:flex lg:min-h-[365px]" />
                 {rightFeatures.map((f) => (
                   <FeatureCard
                     key={f.title}
@@ -161,13 +161,13 @@ export default function OurCompanyPage() {
             </div>
           </section>
 
-          <section className="bg-zinc-50 mt-24 lg:mt-40">
-            <div className="mx-auto max-w-8xl space-y-40 ">
+          <section className="mt-24 bg-zinc-50 lg:mt-40">
+            <div className="max-w-8xl mx-auto space-y-40">
               <div className="grid grid-cols-1 lg:grid-cols-2">
-                <h2 className="text-5xl lg:text-6xl font-normal text-[#080808] mb-6">
+                <h2 className="mb-6 text-5xl font-normal text-[#080808] lg:text-6xl">
                   What We Build
                 </h2>
-                <p className="text-[#2A2A2A] font-light text-lg">
+                <p className="text-lg font-light text-[#2A2A2A]">
                   At Difuse, we design next-generation, self-hosted
                   infrastructure that simplifies how modern businesses manage
                   networking and communication. From modular router platforms
@@ -178,16 +178,16 @@ export default function OurCompanyPage() {
                 </p>
               </div>
 
-              <div className="hidden lg:grid gap-6 md:grid-cols-3 items-start h-[600px]">
-                <div className="space-y-2 col-span-1 h-full">
+              <div className="hidden h-[600px] items-start gap-6 md:grid-cols-3 lg:grid">
+                <div className="col-span-1 h-full space-y-2">
                   {products.map((item) => (
                     <button
                       key={item.id}
                       onClick={() => setActive(item.id)}
-                      className={`w-full text-left flex items-center gap-3 cursor-pointer rounded-md p-5 text-xl lg:text-4xl transition-colors ${
+                      className={`flex w-full cursor-pointer items-center gap-3 rounded-md p-5 text-left text-xl transition-colors lg:text-4xl ${
                         active === item.id
-                          ? " bg-[#F4F4F4]  text-[#25276C]"
-                          : " bg-white text-[#C6C6C6] hover:bg-white"
+                          ? "bg-[#F4F4F4] text-[#25276C]"
+                          : "bg-white text-[#C6C6C6] hover:bg-white"
                       }`}
                       aria-pressed={active === item.id}
                     >
@@ -205,8 +205,8 @@ export default function OurCompanyPage() {
                   ))}
                 </div>
 
-                <div className="grid md:col-span-2 grid-cols-2 gap-5 items-stretch h-full">
-                  <div className="rounded-lg overflow-hidden relative">
+                <div className="grid h-full grid-cols-2 items-stretch gap-5 md:col-span-2">
+                  <div className="relative overflow-hidden rounded-lg">
                     <Image
                       src={product.DesktopImage.src}
                       alt={product.title}
@@ -217,7 +217,7 @@ export default function OurCompanyPage() {
                     />
                   </div>
 
-                  <div className="rounded-lg bg-white p-5 flex flex-col">
+                  <div className="flex flex-col rounded-lg bg-white p-5">
                     <p className="mt-3 text-lg leading-snug font-light text-[#2A2A2A]">
                       {product.body}
                     </p>
@@ -226,7 +226,7 @@ export default function OurCompanyPage() {
                       <AnimatedSlideButton
                         icon={<Icon icon={arrowRight} width={24} height={24} />}
                         text="Learn more"
-                        className=" items-center gap-2 text-[#1C1E55] border hover:text-white border-[#1C1E55] hover:bg-[#1C1E55] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium hidden md:inline-flex"
+                        className="hidden items-center gap-2 rounded-lg border border-[#1C1E55] px-6 py-4 text-lg font-medium text-[#1C1E55] transition-colors hover:bg-[#1C1E55] hover:text-white md:inline-flex lg:text-xl"
                         variant="link"
                         href={product.href}
                       />
@@ -235,11 +235,11 @@ export default function OurCompanyPage() {
                 </div>
               </div>
 
-              <div className="lg:hidden space-y-2 w-full">
+              <div className="w-full space-y-2 lg:hidden">
                 {products.map((item) => (
                   <div
                     key={item.id}
-                    className="relative rounded-2xl overflow-hidden w-full h-[950px]"
+                    className="relative h-[950px] w-full overflow-hidden rounded-2xl"
                   >
                     <Image
                       src={item.MobileImage.src}
@@ -248,20 +248,20 @@ export default function OurCompanyPage() {
                       className="object-center"
                     />
 
-                    <div className="absolute inset-0 flex justify-between flex-col px-6 py-12">
+                    <div className="absolute inset-0 flex flex-col justify-between px-6 py-12">
                       <div className="flex items-center gap-3 px-4 lg:px-8">
                         <item.icon
                           width={30}
                           height={30}
                           className="text-white"
                         />
-                        <h3 className="text-[#FBFBF9] text-4xl font-medium">
+                        <h3 className="text-4xl font-medium text-[#FBFBF9]">
                           {item.title}
                         </h3>
                       </div>
 
-                      <div className="bg-[#F4F4F4] p-8 rounded-lg">
-                        <p className="text-[#2A2A2A] text-base lg:text-lg leading-relaxed mb-8">
+                      <div className="rounded-lg bg-[#F4F4F4] p-8">
+                        <p className="mb-8 text-base leading-relaxed text-[#2A2A2A] lg:text-lg">
                           {item.body}
                         </p>
 
@@ -270,7 +270,7 @@ export default function OurCompanyPage() {
                             <Icon icon={arrowRight} width={24} height={24} />
                           }
                           text="Learn more"
-                          className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] border border-[#1C1E55] hover:text-white rounded-lg  text-xl tracking-[-0.05em] p-4 max-w-max "
+                          className="inline-flex max-w-max rounded-lg border border-[#1C1E55] p-4 text-xl tracking-[-0.05em] text-[#1C1E55] hover:bg-[#1C1E55] hover:text-white"
                           variant="link"
                           href={item.href}
                         />
@@ -283,15 +283,15 @@ export default function OurCompanyPage() {
           </section>
 
           <section className="mt-28 lg:mt-40">
-            <div className="py-20 max-w-8xl mx-auto min-h-screen rounded-lg bg-[#F4F4F4]">
-              <div className="max-w-7xl mx-auto px-8">
-                <p className="text-[#080808] text-5xl lg:text-6xl">
+            <div className="max-w-8xl mx-auto min-h-screen rounded-lg bg-[#F4F4F4] py-20">
+              <div className="mx-auto max-w-7xl px-8">
+                <p className="text-5xl text-[#080808] lg:text-6xl">
                   Our Core Values
                 </p>
               </div>
-              <div className="max-w-7xl mx-auto mt-14 lg:mt-20 grid grid-cols-1 sm:grid-cols-12 gap-2 px-8">
-                <div className="col-span-12 lg:col-span-4 bg-white rounded-lg space-y-6 p-10 flex justify-between flex-col">
-                  <p className="text-base lg:text-lg text-[#2A2A2A] font-light">
+              <div className="mx-auto mt-14 grid max-w-7xl grid-cols-1 gap-2 px-8 sm:grid-cols-12 lg:mt-20">
+                <div className="col-span-12 flex flex-col justify-between space-y-6 rounded-lg bg-white p-10 lg:col-span-4">
+                  <p className="text-base font-light text-[#2A2A2A] lg:text-lg">
                     At Difuse, our core values are more than ideals, they’re the
                     blueprint for everything we design, deliver, and support. We
                     believe technology should empower, not overwhelm. That’s why
@@ -307,11 +307,11 @@ export default function OurCompanyPage() {
                     alt="difuse logo"
                     width={48}
                     height={48}
-                    className="object-contain w-12 h-12"
+                    className="h-12 w-12 object-contain"
                   />
                 </div>
 
-                <div className="col-span-12 lg:col-span-8 grid grid-cols-1 lg:grid-cols-2 gap-2">
+                <div className="col-span-12 grid grid-cols-1 gap-2 lg:col-span-8 lg:grid-cols-2">
                   {ourValues.map((f) => (
                     <FeatureCard key={f.title} {...f} />
                   ))}
@@ -321,7 +321,7 @@ export default function OurCompanyPage() {
           </section>
         </div>
 
-        <div className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] w-full">
+        <div className="w-full bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)]">
           <Footer />
         </div>
       </div>
@@ -331,7 +331,7 @@ export default function OurCompanyPage() {
 
 export function FeatureCard({ title, body, icon }: FeatureCard) {
   return (
-    <div className="bg-white rounded-lg flex flex-col justify-between p-8 min-h-[300px] space-y-16 sm:space-y-8 lg:min-h-[365px]">
+    <div className="flex min-h-[300px] flex-col justify-between space-y-16 rounded-lg bg-white p-8 sm:space-y-8 lg:min-h-[365px]">
       <p className="text-3xl lg:text-4xl">{title}</p>
       <div className="flex items-end gap-8 md:gap-16">
         <span className="shrink-0">
@@ -343,7 +343,7 @@ export function FeatureCard({ title, body, icon }: FeatureCard) {
             className="object-contain"
           />
         </span>
-        <p className="text-base lg:text-md">{body}</p>
+        <p className="lg:text-md text-base">{body}</p>
       </div>
     </div>
   );

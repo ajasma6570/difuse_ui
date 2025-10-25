@@ -34,20 +34,20 @@ export default function Softphone() {
 
   return (
     <PageTransition motionKey="our-products-softphone-page-wrapper">
-      <div className="pt-14 min-h-screen flex flex-col items-center justify-center">
-        <div className="w-full md:max-w-8xl px-6 py-16">
-          <div className="text-center md:max-w-6xl w-full mx-auto space-y-6">
+      <div className="flex min-h-screen flex-col items-center justify-center pt-14">
+        <div className="md:max-w-8xl w-full px-6 py-16">
+          <div className="mx-auto w-full space-y-6 text-center md:max-w-6xl">
             <p className="text-3xl tracking-wide text-[#25276C]">
               Our Products {">"}{" "}
               <span className="text-[#080808]">Softphone</span>
             </p>
-            <h1 className="text-4xl md:text-7xl font-normal leading-tight text-[#080808]">
+            <h1 className="text-4xl leading-tight font-normal text-[#080808] md:text-7xl">
               Free, Open and
               <span className="md:hidden">&nbsp;</span>
               <br className="hidden md:inline" />
               Polished Softphone
             </h1>
-            <p className="text-lg text-center font-light text-[#2A2A2A] max-w-4xl mx-auto">
+            <p className="mx-auto max-w-4xl text-center text-lg font-light text-[#2A2A2A]">
               Make high-quality voice and SMS calls securely over the
               internet—right from your desktop, tablet, or mobile device. Difuse
               Phone connects seamlessly with your existing Difuse PBX or DMSBG
@@ -57,7 +57,7 @@ export default function Softphone() {
           </div>
 
           <div className="relative mt-20 flex justify-center">
-            <div className="relative w-full h-[650px] md:max-w-8xl rounded-lg overflow-hidden shadow-sm">
+            <div className="md:max-w-8xl relative h-[650px] w-full overflow-hidden rounded-lg shadow-sm">
               <picture>
                 <source
                   media="(max-width: 1024px)"
@@ -74,48 +74,48 @@ export default function Softphone() {
               </picture>
             </div>
 
-            <div className="absolute inset-0 flex flex-col justify-end mb-20 items-end">
-              <div className="space-x-4 justify-center mx-auto gap-4 flex flex-col sm:flex-row items-center">
+            <div className="absolute inset-0 mb-20 flex flex-col items-end justify-end">
+              <div className="mx-auto flex flex-col items-center justify-center gap-4 space-x-4 sm:flex-row">
                 <AnimatedSlideButton
                   icon={<Icon icon={arrowRight} width={24} height={24} />}
                   text="Contact Us"
-                  className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#FBFBF9] px-6 py-4 text-lg font-medium text-[#FBFBF9] transition-colors hover:bg-[#FBFBF9] hover:text-[#25276C] lg:text-xl"
                   variant="link"
                   href="/contact Us"
                 />
                 <AnimatedSlideButton
                   icon={<Icon icon={arrowRight} width={24} height={24} />}
                   text="Download App Now"
-                  className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#FBFBF9] px-6 py-4 text-lg font-medium text-[#FBFBF9] transition-colors hover:bg-[#FBFBF9] hover:text-[#25276C] lg:text-xl"
                   variant="link"
                   href="/online-store"
                 />
               </div>
             </div>
           </div>
-          <section className=" py-12">
+          <section className="py-12">
             <div className="mx-auto max-w-7xl px-6">
-              <div className="text-center mb-10">
-                <h2 className="text-3xl md:text-6xl font-medium text-zinc-900 leading-tight">
+              <div className="mb-10 text-center">
+                <h2 className="text-3xl leading-tight font-medium text-zinc-900 md:text-6xl">
                   Meet Difuse Phone:
                   <br className="hidden md:block" />
                   The Platform–Native Softphone
                 </h2>
               </div>
 
-              <div className="grid gap-2 grid-cols-1 lg:grid-cols-3 h-full lg:h-[800px]">
-                <div className="flex flex-col gap-2 h-full ">
-                  <div className="bg-[#F4F4F4] h-[350px] lg:h-5/12 rounded-xl flex flex-col justify-center space-y-4 p-6 xl:p-16">
-                    <p className="text-[#25276C] text-4xl">
+              <div className="grid h-full grid-cols-1 gap-2 lg:h-[800px] lg:grid-cols-3">
+                <div className="flex h-full flex-col gap-2">
+                  <div className="flex h-[350px] flex-col justify-center space-y-4 rounded-xl bg-[#F4F4F4] p-6 lg:h-5/12 xl:p-16">
+                    <p className="text-4xl text-[#25276C]">
                       Seamless Integration
                     </p>
-                    <p className="text-[#2A2A2A] text-lg font-light ">
+                    <p className="text-lg font-light text-[#2A2A2A]">
                       Although the client can be used with any SIP server, it
                       integrates seamlessly with Difuse offering free PUSH
                       notifications among other awesome features
                     </p>
                   </div>
-                  <div className="bg-[#F4F4F4] h-[500px] lg:h-7/12 rounded-xl relative overflow-hidden">
+                  <div className="relative h-[500px] overflow-hidden rounded-xl bg-[#F4F4F4] lg:h-7/12">
                     <Image
                       src={Images.Softphone.Extras.MasonryImage.src}
                       placeholder="blur"
@@ -124,25 +124,25 @@ export default function Softphone() {
                       }
                       alt="Seamless Integration"
                       fill
-                      className="w-full h-auto object-cover"
+                      className="h-auto w-full object-cover"
                       priority
                     />
                   </div>
                 </div>
 
-                <div className="bg-[#F4F4F4] rounded-xl relative overflow-hidden h-[900px] lg:h-full">
+                <div className="relative h-[900px] overflow-hidden rounded-xl bg-[#F4F4F4] lg:h-full">
                   <Image
                     src={Images.Softphone.Main.Desktop.src}
                     placeholder="blur"
                     blurDataURL={Images.Softphone.Main.Desktop.blurDataURL}
                     alt="Difuse Phone App"
                     fill
-                    className="w-full h-auto object-contain p-6 xl:p-10"
+                    className="h-auto w-full object-contain p-6 xl:p-10"
                     priority
                   />
                 </div>
-                <div className="flex flex-col gap-2 h-full">
-                  <div className="bg-[#F4F4F4] h-[600px] lg:h-7/12 rounded-xl p-4 xl:p-6 flex flex-col items-center justify-center space-y-4">
+                <div className="flex h-full flex-col gap-2">
+                  <div className="flex h-[600px] flex-col items-center justify-center space-y-4 rounded-xl bg-[#F4F4F4] p-4 lg:h-7/12 xl:p-6">
                     <Image
                       src={Images.Softphone.Extras.GooglePlay.src}
                       placeholder="blur"
@@ -171,7 +171,7 @@ export default function Softphone() {
                     </div>
 
                     {/* Text */}
-                    <p className="text-[#080808] font-medium text-center text-xl leading-tight">
+                    <p className="text-center text-xl leading-tight font-medium text-[#080808]">
                       Get the App,
                       <br />
                       Just Scan &
@@ -180,10 +180,10 @@ export default function Softphone() {
                     </p>
                   </div>
 
-                  <div className="bg-[#F4F4F4] h-[350px] lg:h-5/12 rounded-xl flex flex-col justify-center space-y-4 p-6 xl:p-16">
+                  <div className="flex h-[350px] flex-col justify-center space-y-4 rounded-xl bg-[#F4F4F4] p-6 lg:h-5/12 xl:p-16">
                     {" "}
-                    <p className="text-[#25276C] text-3xl">One-Click Setup</p>
-                    <p className="text-[#2A2A2A] text-lg font-light ">
+                    <p className="text-3xl text-[#25276C]">One-Click Setup</p>
+                    <p className="text-lg font-light text-[#2A2A2A]">
                       Difuse Phone supports QR based provisioning among other
                       setup methods that makes setup a breeze for both users and
                       admins
@@ -194,18 +194,18 @@ export default function Softphone() {
             </div>
           </section>
 
-          <section className="max-w-8xl mx-auto mt-12 ">
-            <div className="rounded-xl p-6 py-14 md:p-20 bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] ">
-              <h2 className="font-semibold mb-14 lg:mb-20 text-white text-6xl text-center">
+          <section className="max-w-8xl mx-auto mt-12">
+            <div className="rounded-xl bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] p-6 py-14 md:p-20">
+              <h2 className="mb-14 text-center text-6xl font-semibold text-white lg:mb-20">
                 Key Features
               </h2>
-              <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-3 ">
+              <div className="grid grid-cols-1 gap-3 lg:grid-cols-2 2xl:grid-cols-3">
                 {features.map((f) => (
                   <div
                     key={f.title}
-                    className="bg-white rounded-xl flex flex-col justify-between p-8 min-h-[300px] lg:min-h-[320px]"
+                    className="flex min-h-[300px] flex-col justify-between rounded-xl bg-white p-8 lg:min-h-[320px]"
                   >
-                    <p className="text-3xl lg:text-4xl  text-[#080808]">
+                    <p className="text-3xl text-[#080808] lg:text-4xl">
                       {f.title}
                     </p>
 
@@ -227,11 +227,11 @@ export default function Softphone() {
             </div>
           </section>
 
-          <section className="max-w-8xl mx-auto my-40 ">
-            <div className="rounded-xl bg-[linear-gradient(to_right,black_0%,#25276C_100%)] text-white p-8 md:p-12 h-[630px] lg:h-[350px] flex flex-col justify-center ">
-              <div className="flex flex-col lg:flex-row gap-8 lg:items-center">
+          <section className="max-w-8xl mx-auto my-40">
+            <div className="flex h-[630px] flex-col justify-center rounded-xl bg-[linear-gradient(to_right,black_0%,#25276C_100%)] p-8 text-white md:p-12 lg:h-[350px]">
+              <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
                 <div className="w-full lg:w-7/12">
-                  <h2 className="text-4xl xl:text-5xl  font-medium leading-snug mb-4">
+                  <h2 className="mb-4 text-4xl leading-snug font-medium xl:text-5xl">
                     Download and Install
                     <span className="lg:hidden">&nbsp;</span>
                     <br className="hidden lg:inline" />
@@ -239,18 +239,18 @@ export default function Softphone() {
                   </h2>
                 </div>
                 <div className="w-full lg:w-5/12">
-                  <div className="flex flex-col sm:flex-row gap-3">
+                  <div className="flex flex-col gap-3 sm:flex-row">
                     <AnimatedSlideButton
                       icon={<Icon icon={arrowRight} width={24} height={24} />}
                       text="Download App Now"
-                      className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg whitespace-nowrap font-medium inline-flex"
+                      className="inline-flex items-center gap-2 rounded-lg border border-[#FBFBF9] px-6 py-4 text-lg font-medium whitespace-nowrap text-[#FBFBF9] transition-colors hover:bg-[#FBFBF9] hover:text-[#25276C]"
                       variant="link"
                       href="/contact"
                     />
                     <AnimatedSlideButton
                       icon={<Icon icon={arrowRight} width={24} height={24} />}
                       text="Contact Us"
-                      className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg whitespace-nowrap font-medium inline-flex"
+                      className="inline-flex items-center gap-2 rounded-lg border border-[#FBFBF9] px-6 py-4 text-lg font-medium whitespace-nowrap text-[#FBFBF9] transition-colors hover:bg-[#FBFBF9] hover:text-[#25276C]"
                       variant="link"
                       href="/contact"
                     />
@@ -261,9 +261,9 @@ export default function Softphone() {
           </section>
 
           <section className="max-w-8xl mx-auto mb-20">
-            <div className="grid lg:grid-cols-[1fr_2fr] gap-12 items-start">
+            <div className="grid items-start gap-12 lg:grid-cols-[1fr_2fr]">
               <div>
-                <h2 className="text-4xl xl:text-5xl font-normal text-[#080808] leading-tight">
+                <h2 className="text-4xl leading-tight font-normal text-[#080808] xl:text-5xl">
                   Explore More
                   <span className="xl:hidden">&nbsp;</span>
                   <br className="hidden xl:inline" />
@@ -274,38 +274,38 @@ export default function Softphone() {
                 </h2>
               </div>
 
-              <div className="flex justify-end lg:flex-row flex-col gap-2">
-                <div className="relative h-[400px] lg:w-[400px] group overflow-hidden rounded-xl">
+              <div className="flex flex-col justify-end gap-2 lg:flex-row">
+                <div className="group relative h-[400px] overflow-hidden rounded-xl lg:w-[400px]">
                   <Image
                     src={Images.ExtraImages.DMSBGDevicesImg.src}
                     placeholder="blur"
                     blurDataURL={Images.ExtraImages.DMSBGDevicesImg.blurDataURL}
                     alt="DMSBG Devices"
                     fill
-                    className="object-cover transition-transform group-hover:scale-105 duration-300"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
 
                   <motion.div
                     initial="rest"
                     animate="rest"
                     whileHover="hover"
-                    className="absolute inset-0 p-10 flex flex-col justify-between"
+                    className="absolute inset-0 flex flex-col justify-between p-10"
                   >
-                    <h3 className="text-white text-5xl font-medium">
+                    <h3 className="text-5xl font-medium text-white">
                       DMSBG Devices
                     </h3>
                     <div className="flex justify-start">
                       <HoverRevealButton
                         icon={<Icon icon={arrowRight} width={24} height={24} />}
                         text="Explore"
-                        className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                        className="hidden max-w-max items-center rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors hover:bg-[#E5E5E5] xl:flex"
                         variant="link"
                         href="/our-products/dmsbg-devices"
                         parentControlled
                       />
                       <Link
                         href="/our-products/dmsbg-devices"
-                        className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                        className="flex max-w-max items-center gap-2 rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors hover:bg-[#E5E5E5] xl:hidden"
                       >
                         <Icon
                           icon={arrowRight}
@@ -319,37 +319,37 @@ export default function Softphone() {
                   </motion.div>
                 </div>
 
-                <div className="relative h-[400px] w-[400px] group overflow-hidden rounded-xl">
+                <div className="group relative h-[400px] w-[400px] overflow-hidden rounded-xl">
                   <Image
                     src={Images.ExtraImages.DPBXDevicesImg.src}
                     alt="DPBX Device"
                     placeholder="blur"
                     blurDataURL={Images.ExtraImages.DPBXDevicesImg.blurDataURL}
                     fill
-                    className="object-cover transition-transform group-hover:scale-105 duration-300"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
 
                   <motion.div
                     initial="rest"
                     animate="rest"
                     whileHover="hover"
-                    className="absolute inset-0 p-10 flex flex-col justify-between"
+                    className="absolute inset-0 flex flex-col justify-between p-10"
                   >
-                    <h3 className="text-white text-5xl font-medium">
+                    <h3 className="text-5xl font-medium text-white">
                       DPBX Devices
                     </h3>
                     <div className="flex justify-start">
                       <HoverRevealButton
                         icon={<Icon icon={arrowRight} width={24} height={24} />}
                         text="Explore"
-                        className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                        className="hidden max-w-max items-center rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors hover:bg-[#E5E5E5] xl:flex"
                         variant="link"
                         href="/our-products/dpbx-devices"
                         parentControlled
                       />
                       <Link
                         href="/our-products/dpbx-devices"
-                        className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                        className="flex max-w-max items-center gap-2 rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors hover:bg-[#E5E5E5] xl:hidden"
                       >
                         <Icon
                           icon={arrowRight}
@@ -366,7 +366,7 @@ export default function Softphone() {
             </div>
           </section>
         </div>
-        <div className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] w-full">
+        <div className="w-full bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)]">
           <Footer />
         </div>
       </div>

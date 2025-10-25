@@ -34,59 +34,59 @@ export default function Downloads() {
   return (
     <PageTransition motionKey="resources-downloads-page-wrapper">
       <div className="mt-28">
-        <div className="max-w-8xl mx-auto px-6 lg:px-12 space-y-16 lg:space-y-28">
+        <div className="max-w-8xl mx-auto space-y-16 px-6 lg:space-y-28 lg:px-12">
           {" "}
-          <div className="text-center md:max-w-6xl w-full mx-auto space-y-6">
+          <div className="mx-auto w-full space-y-6 text-center md:max-w-6xl">
             <p className="text-3xl tracking-wide text-[#25276C]">Downloads</p>
-            <h1 className="text-3xl md:text-7xl font-normal leading-tight text-[#080808]">
+            <h1 className="text-3xl leading-tight font-normal text-[#080808] md:text-7xl">
               All Your Resources,
               <br className="hidden md:block" />
               One Place
             </h1>
-            <p className="text-lg text-center font-light text-[#2A2A2A] max-w-4xl mx-auto">
+            <p className="mx-auto max-w-4xl text-center text-lg font-light text-[#2A2A2A]">
               Access the latest resources, tools, and documentation to keep your
               systems running at peak performance. Whether you’re setting up a
               new device, upgrading firmware, or looking for product manuals,
               you’ll find it all here.
             </p>
           </div>
-          <div className="bg-[#F4F4F4] rounded-lg shadow-sm overflow-hidden mb-16 lg:mb-32">
+          <div className="mb-16 overflow-hidden rounded-lg bg-[#F4F4F4] shadow-sm lg:mb-32">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[200px]">
                 <thead>
                   <tr className="border-b border-[#D9D9D9] bg-[#F4F4F4]">
-                    <th className="text-left py-4 px-6 text-xs lg:text-lg whitespace-nowrap font-medium text-[#080808] border-r border-[#D9D9D9]">
+                    <th className="border-r border-[#D9D9D9] px-6 py-4 text-left text-xs font-medium whitespace-nowrap text-[#080808] lg:text-lg">
                       Type
                     </th>
-                    <th className="text-left py-4 px-6 text-xs lg:text-lg whitespace-nowrap font-medium text-[#080808] border-r border-[#D9D9D9]">
+                    <th className="border-r border-[#D9D9D9] px-6 py-4 text-left text-xs font-medium whitespace-nowrap text-[#080808] lg:text-lg">
                       Device
                     </th>
-                    <th className="text-left py-4 px-6 text-xs lg:text-lg whitespace-nowrap font-medium text-[#080808] border-r border-[#D9D9D9]">
+                    <th className="border-r border-[#D9D9D9] px-6 py-4 text-left text-xs font-medium whitespace-nowrap text-[#080808] lg:text-lg">
                       Environment
                     </th>
-                    <th className="text-left py-4 px-6 text-xs lg:text-lg whitespace-nowrap font-medium text-[#080808] border-r border-[#D9D9D9]">
+                    <th className="border-r border-[#D9D9D9] px-6 py-4 text-left text-xs font-medium whitespace-nowrap text-[#080808] lg:text-lg">
                       Version
                     </th>
-                    <th className="text-center py-4 px-6 text-xs lg:text-lg whitespace-nowrap font-medium text-[#080808] w-16"></th>
+                    <th className="w-16 px-6 py-4 text-center text-xs font-medium whitespace-nowrap text-[#080808] lg:text-lg"></th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#D9D9D9] ">
+                <tbody className="divide-y divide-[#D9D9D9]">
                   {currentItems.map((item) => (
                     <tr key={item.id} className="text-[#080808]">
-                      <td className="py-2 px-6 text-xs lg:text-lg border-r border-[#D9D9D9]">
+                      <td className="border-r border-[#D9D9D9] px-6 py-2 text-xs lg:text-lg">
                         {item.type}
                       </td>
-                      <td className="py-2 px-6 text-xs lg:text-lg border-r border-[#D9D9D9]">
+                      <td className="border-r border-[#D9D9D9] px-6 py-2 text-xs lg:text-lg">
                         {item.device}
                       </td>
-                      <td className="py-2 px-6 text-xs lg:text-lg border-r border-[#D9D9D9]">
+                      <td className="border-r border-[#D9D9D9] px-6 py-2 text-xs lg:text-lg">
                         {item.environment}
                       </td>
-                      <td className="py-2 px-6 text-xs lg:text-lg border-r border-[#D9D9D9]">
+                      <td className="border-r border-[#D9D9D9] px-6 py-2 text-xs lg:text-lg">
                         {item.version}
                       </td>
-                      <td className="py-2 px-6 text-center">
-                        <button className="w-8 h-8 text-[#25276C] rounded-full flex items-center justify-center transition-colors">
+                      <td className="px-6 py-2 text-center">
+                        <button className="flex h-8 w-8 items-center justify-center rounded-full text-[#25276C] transition-colors">
                           <Icon icon={download} width={28} height={28} />
                         </button>
                       </td>
@@ -95,27 +95,27 @@ export default function Downloads() {
                 </tbody>
               </table>
             </div>
-            <div className="px-4 lg:px-6 py-6 bg-[#F4F4F4] border-t border-[#D9D9D9] flex flex-col gap-6 lg:flex-row justify-between items-center">
+            <div className="flex flex-col items-center justify-between gap-6 border-t border-[#D9D9D9] bg-[#F4F4F4] px-4 py-6 lg:flex-row lg:px-6">
               <p className="text-sm text-[#9E9E9E]">
                 Note: Ensure you are downloading files compatible with your
                 device model and software version.
               </p>
-              <div className="flex items-center justify-center gap-2 ">
+              <div className="flex items-center justify-center gap-2">
                 <button
                   onClick={() => handlePageChange(1)}
                   disabled={currentPage === 1}
-                  className="px-3 py-1 text-lg border border-[#D9D9D9] text-[#9E9E9E] rounded-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="cursor-pointer rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#9E9E9E] disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   First
                 </button>
                 <button
                   onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
                   disabled={currentPage === 1}
-                  className="px-3 py-1 text-lg border border-[#D9D9D9] text-[#9E9E9E]  rounded-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="cursor-pointer rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#9E9E9E] disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   Prev
                 </button>
-                <span className="px-3 py-1 text-lg text-[#25276C] border border-[#D9D9D9] rounded-lg ">
+                <span className="rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#25276C]">
                   {currentPage}
                 </span>
                 <button
@@ -123,14 +123,14 @@ export default function Downloads() {
                     handlePageChange(Math.min(totalPages, currentPage + 1))
                   }
                   disabled={currentPage === totalPages}
-                  className="px-3 py-1 text-lg border border-[#D9D9D9] text-[#9E9E9E] rounded-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="cursor-pointer rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#9E9E9E] disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   Next
                 </button>
                 <button
                   onClick={() => handlePageChange(totalPages)}
                   disabled={currentPage === totalPages}
-                  className="px-3 py-1 text-lg border border-[#D9D9D9] text-[#9E9E9E] rounded-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="cursor-pointer rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#9E9E9E] disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   Last
                 </button>
@@ -138,10 +138,10 @@ export default function Downloads() {
             </div>
           </div>
           <div className="text-left lg:text-center">
-            <h2 className="text-4xl leading-snug lg:text-5xl font-normal  text-[#080808] mb-4">
+            <h2 className="mb-4 text-4xl leading-snug font-normal text-[#080808] lg:text-5xl">
               Need something not listed here?
             </h2>
-            <p className="text-[#080808] text-lg mb-6">
+            <p className="mb-6 text-lg text-[#080808]">
               Contact our Support Team
             </p>
             <AnimatedSlideButton
@@ -149,11 +149,11 @@ export default function Downloads() {
               text="1800-599-TECH"
               variant="link"
               href="tel:1800599TECH"
-              className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] hover:text-white py-4 px-[18px] rounded-lg border border-[#1C1E55] text-xl leading-7 tracking-[-0.05em] font-normal"
+              className="inline-flex rounded-lg border border-[#1C1E55] px-[18px] py-4 text-xl leading-7 font-normal tracking-[-0.05em] text-[#1C1E55] hover:bg-[#1C1E55] hover:text-white"
             />
           </div>
         </div>{" "}
-        <div className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] w-full mt-16 lg:mt-32">
+        <div className="mt-16 w-full bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] lg:mt-32">
           <Footer type="product" />
         </div>
       </div>

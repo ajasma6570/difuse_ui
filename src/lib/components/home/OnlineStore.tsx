@@ -86,20 +86,20 @@ export default function OnlineStore() {
   ];
 
   return (
-    <section className="py-10 lg:py-20 space-y-10 lg:space-y-20 text-left">
+    <section className="space-y-10 py-10 text-left lg:space-y-20 lg:py-20">
       <p
         ref={textRef}
-        className="text-4xl px-6 lg:px-4 lg:max-w-8xl w-full mx-auto sm:text-5xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight text-black"
+        className="lg:max-w-8xl mx-auto w-full px-6 text-4xl leading-tight font-normal tracking-tight text-black sm:text-5xl lg:px-4 lg:text-5xl xl:text-6xl"
       >
         Online Store
       </p>
 
-      <p className="px-6 lg:px-4 lg:max-w-8xl w-full mx-auto lg:hidden text-lg">
+      <p className="lg:max-w-8xl mx-auto w-full px-6 text-lg lg:hidden lg:px-4">
         Browse and buy modular hardware, communication tools, and software,
         everything you need to build your self-hosted infrastructure.
       </p>
 
-      <div className="lg:hidden px-6 grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 gap-2 px-6 sm:grid-cols-2 lg:hidden">
         {products.map((product) => (
           <div key={product.name} className="relative h-[350px] w-full">
             <Image
@@ -107,33 +107,33 @@ export default function OnlineStore() {
               alt={product.name}
               fill
               quality={100}
-              className="object-cover rounded-xl"
+              className="rounded-xl object-cover"
             />
 
-            <div className="absolute inset-0 p-6 flex flex-col justify-between">
+            <div className="absolute inset-0 flex flex-col justify-between p-6">
               <div className="space-y-2">
-                <p className="text-[#080808] text-3xl">{product.name}</p>
-                <p className="text-[#1C1E55] text-2xl">{product.price}</p>
+                <p className="text-3xl text-[#080808]">{product.name}</p>
+                <p className="text-2xl text-[#1C1E55]">{product.price}</p>
               </div>
 
-              <div className="flex justify-start items-center gap-2 lg:gap-4">
+              <div className="flex items-center justify-start gap-2 lg:gap-4">
                 <Link
                   href={product.shopLink}
-                  className="p-3 lg:p-5 whitespace-nowrap bg-[#FBFBF9] gap-2 text-[#1C1E55] text-base md:text-xl rounded-lg flex items-center justify-center cursor-pointer w-full"
+                  className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#FBFBF9] p-3 text-base whitespace-nowrap text-[#1C1E55] md:text-xl lg:p-5"
                 >
                   <Icon
                     icon={bag4Linear}
-                    className="text-[#1C1E55] w-5 h-5 lg:h-6 lg:w-6"
+                    className="h-5 w-5 text-[#1C1E55] lg:h-6 lg:w-6"
                   />
                   Shop now
                 </Link>
                 <Link
                   href={product.detailsLink}
-                  className="p-3 lg:p-5 bg-[#FBFBF9] gap-2 text-[#1C1E55] text-base md:text-xl  rounded-lg flex items-center justify-center cursor-pointer  w-full"
+                  className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#FBFBF9] p-3 text-base text-[#1C1E55] md:text-xl lg:p-5"
                 >
                   <Icon
                     icon={arrowRight}
-                    className="text-[#1C1E55] w-5 h-5 lg:h-6 lg:w-6"
+                    className="h-5 w-5 text-[#1C1E55] lg:h-6 lg:w-6"
                   />
                   Details
                 </Link>
@@ -143,7 +143,7 @@ export default function OnlineStore() {
         ))}
       </div>
 
-      <div className="relative overflow-hidden hidden lg:block ">
+      <div className="relative hidden overflow-hidden lg:block">
         <motion.div
           ref={productsContainerRef}
           className="flex gap-4"
@@ -162,27 +162,27 @@ export default function OnlineStore() {
               initial="rest"
               animate="rest"
               whileHover="hover"
-              className="relative h-[450px] w-[450px] flex-shrink-0 group"
+              className="group relative h-[450px] w-[450px] flex-shrink-0"
             >
               <Image
                 src={`/images/products/${product.image}`}
                 alt={product.name}
                 fill
                 quality={100}
-                className="object-cover rounded-xl"
+                className="rounded-xl object-cover"
               />
 
-              <div className="absolute inset-0 p-8 flex flex-col justify-between">
+              <div className="absolute inset-0 flex flex-col justify-between p-8">
                 <div className="space-y-2.5">
-                  <p className="text-[#080808] text-5xl">{product.name}</p>
-                  <p className="text-[#1C1E55] text-3xl">{product.price}</p>
+                  <p className="text-5xl text-[#080808]">{product.name}</p>
+                  <p className="text-3xl text-[#1C1E55]">{product.price}</p>
                 </div>
 
-                <div className="flex flex-col lg:flex-row items-center gap-4">
+                <div className="flex flex-col items-center gap-4 lg:flex-row">
                   <HoverRevealButton
                     icon={<Icon icon={bag4Linear} width={30} height={30} />}
                     text="Shop now"
-                    className="items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                    className="max-w-max items-center rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors hover:bg-[#E5E5E5]"
                     variant="link"
                     iconClassName=""
                     href={product.shopLink}
@@ -190,7 +190,7 @@ export default function OnlineStore() {
                   <HoverRevealButton
                     icon={<Icon icon={arrowRight} width={30} height={30} />}
                     text="Details"
-                    className="items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                    className="max-w-max items-center rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors hover:bg-[#E5E5E5]"
                     variant="link"
                     href={product.detailsLink}
                   />
@@ -201,24 +201,24 @@ export default function OnlineStore() {
         </motion.div>
       </div>
 
-      <div className="lg:max-w-8xl px-6  w-full mx-auto flex justify-between items-center ">
-        <p className=" hidden lg:block text-lg">
+      <div className="lg:max-w-8xl mx-auto flex w-full items-center justify-between px-6">
+        <p className="hidden text-lg lg:block">
           Browse and buy modular hardware, communication tools, and software,
           everything you need to build your self-hosted infrastructure.
         </p>
 
-        <div className="flex items-center gap-2 lg:justify-end w-full">
+        <div className="flex w-full items-center gap-2 lg:justify-end">
           <AnimatedSlideButton
             icon={<Icon icon={bag4Linear} width={30} height={30} />}
             text="Explore Online Store"
-            className="inline-flex text-[#1C1E55] hover:bg-[#1C1E55] border border-[#1C1E55] hover:text-white rounded-lg bg-[#FBFBF9] text-xl lg:text-2xl tracking-[-0.05em] p-4 w-full"
+            className="inline-flex w-full rounded-lg border border-[#1C1E55] bg-[#FBFBF9] p-4 text-xl tracking-[-0.05em] text-[#1C1E55] hover:bg-[#1C1E55] hover:text-white lg:text-2xl"
             containerClassName="!w-full sm:max-w-max"
             variant="link"
             href="/online-store"
           />
           <button
             onClick={handleLeft}
-            className="hidden lg:block border cursor-pointer border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300 p-4 rounded-lg"
+            className="group hidden cursor-pointer rounded-lg border border-[#999999] p-4 transition-colors duration-300 hover:border-[#25276C] hover:bg-[#25276C] lg:block"
           >
             <Icon
               icon={arrowLeft}
@@ -229,7 +229,7 @@ export default function OnlineStore() {
           </button>
           <button
             onClick={handleRight}
-            className="hidden lg:block border cursor-pointer border-[#999999] p-4 rounded-lg hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
+            className="group hidden cursor-pointer rounded-lg border border-[#999999] p-4 transition-colors duration-300 hover:border-[#25276C] hover:bg-[#25276C] lg:block"
           >
             <Icon
               icon={arrowRight}

@@ -52,13 +52,13 @@ export default function ProductsOverview() {
   ];
 
   return (
-    <section className="py-10 lg:max-w-8xl mx-auto px-6 lg:px-4 space-y-10 lg:space-y-40 w-full">
-      <div className="flex flex-col lg:flex-row gap-8">
-        <p className="w-full lg:w-1/2 text-[42px] lg:text-5xl xl:text-6xl 2xl:text-[70px] font-normal leading-tight tracking-tight text-black">
+    <section className="lg:max-w-8xl mx-auto w-full space-y-10 px-6 py-10 lg:space-y-40 lg:px-4">
+      <div className="flex flex-col gap-8 lg:flex-row">
+        <p className="w-full text-[42px] leading-tight font-normal tracking-tight text-black lg:w-1/2 lg:text-5xl xl:text-6xl 2xl:text-[70px]">
           One Platform. Multiple Products.
         </p>
-        <div className="w-full lg:w-1/2 flex flex-col justify-end ">
-          <p className="text-sm xl:text-lg font-light leading-relaxed text-gray-700 ">
+        <div className="flex w-full flex-col justify-end lg:w-1/2">
+          <p className="text-sm leading-relaxed font-light text-gray-700 xl:text-lg">
             Our ecosystem is built around modular, interoperable products — each
             designed to simplify your infrastructure while giving you full
             control. From core network services to secure communication tools,
@@ -96,7 +96,7 @@ export default function ProductsOverview() {
               ease: "easeInOut",
             }}
             className={cn(
-              "relative rounded-xl shadow-md cursor-pointer overflow-hidden group w-full",
+              "group relative w-full cursor-pointer overflow-hidden rounded-xl shadow-md",
               expandedCardId === card.id ? "items-start" : "items-center"
             )}
             style={{
@@ -104,7 +104,7 @@ export default function ProductsOverview() {
             }}
           >
             <motion.div
-              className="absolute inset-0 rounded-xl -z-10 bg-[#1C1E55] overflow-hidden"
+              className="absolute inset-0 -z-10 overflow-hidden rounded-xl bg-[#1C1E55]"
               initial={{ scale: 1 }}
               animate={hovered === card.id ? { scale: 1.08 } : { scale: 1 }}
               transition={{ duration: 0.3 }}
@@ -114,10 +114,10 @@ export default function ProductsOverview() {
                 alt={card.title}
                 fill
                 sizes="(max-width: 1024px) 100vw, 33vw"
-                className="object-cover rounded-xl"
+                className="rounded-xl object-cover"
               />
             </motion.div>
-            <div className="absolute inset-0 p-8 flex flex-col h-full justify-between">
+            <div className="absolute inset-0 flex h-full flex-col justify-between p-8">
               <div className="h-full">
                 <AnimatePresence mode="wait">
                   {activeCardId === card.id ? (
@@ -141,7 +141,7 @@ export default function ProductsOverview() {
                           ease: "easeInOut",
                         },
                       }}
-                      className="text-4xl font-normal tracking-tight relative z-10 w-full text-white"
+                      className="relative z-10 w-full text-4xl font-normal tracking-tight text-white"
                     >
                       {card.title}
                     </motion.p>
@@ -160,7 +160,7 @@ export default function ProductsOverview() {
                         opacity: 0,
                         transition: { duration: 0.2, ease: "easeInOut" },
                       }}
-                      className="flex items-center justify-between h-full w-full"
+                      className="flex h-full w-full items-center justify-between"
                     >
                       <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -175,7 +175,7 @@ export default function ProductsOverview() {
                           alt={card.title}
                           width={38}
                           height={38}
-                          className="object-contain mb-2"
+                          className="mb-2 object-contain"
                         />
                       </motion.div>
 
@@ -191,7 +191,7 @@ export default function ProductsOverview() {
                           x: 20,
                           transition: { duration: 0.15 },
                         }}
-                        className="bg-white rounded-md p-3 cursor-pointer"
+                        className="cursor-pointer rounded-md bg-white p-3"
                         whileHover={{ scale: 1.05, rotate: 5 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -207,7 +207,7 @@ export default function ProductsOverview() {
                 </AnimatePresence>
               </div>
 
-              <div className="space-y-5 relative z-10">
+              <div className="relative z-10 space-y-5">
                 {activeCardId === card.id && (
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -239,7 +239,7 @@ export default function ProductsOverview() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.25 }}
-                        className="text-[#1C1E55] text-xl bg-white rounded-md p-5 flex items-center gap-3 mt-2"
+                        className="mt-2 flex items-center gap-3 rounded-md bg-white p-5 text-xl text-[#1C1E55]"
                       >
                         <Icon
                           icon={arrowRight}
@@ -258,8 +258,8 @@ export default function ProductsOverview() {
         ))}
       </div>
 
-      <div className="hidden lg:grid grid-cols-12 gap-3 mt-12">
-        <div className="col-span-8 flex gap-3 ">
+      <div className="mt-12 hidden grid-cols-12 gap-3 lg:grid">
+        <div className="col-span-8 flex gap-3">
           {cards.map((card, index) => (
             <motion.div
               key={index}
@@ -281,12 +281,12 @@ export default function ProductsOverview() {
                 flexBasis: 0,
               }}
               className={cn(
-                `rounded-xl shadow-md cursor-pointer h-[706px] p-12 flex flex-col justify-between text-white relative overflow-hidden group`,
+                `group relative flex h-[706px] cursor-pointer flex-col justify-between overflow-hidden rounded-xl p-12 text-white shadow-md`,
                 expandedCardId === card.id ? "" : "items-center"
               )}
             >
               <motion.div
-                className="absolute inset-0 rounded-xl -z-10 bg-[#1C1E55] overflow-hidden"
+                className="absolute inset-0 -z-10 overflow-hidden rounded-xl bg-[#1C1E55]"
                 initial={{ scale: 1 }}
                 animate={hovered === card.id ? { scale: 1.1 } : { scale: 1 }}
                 transition={{ duration: 0.3 }}
@@ -296,7 +296,7 @@ export default function ProductsOverview() {
                   alt={card.title}
                   fill
                   quality={100}
-                  className="object-cover rounded-xl"
+                  className="rounded-xl object-cover"
                 />
               </motion.div>
 
@@ -309,7 +309,7 @@ export default function ProductsOverview() {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="text-5xl font-normal tracking-tight relative z-10 w-full"
+                      className="relative z-10 w-full text-5xl font-normal tracking-tight"
                     >
                       {card.title}
                     </motion.p>
@@ -320,7 +320,7 @@ export default function ProductsOverview() {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="w-full mx-auto flex justify-center items-center h-full"
+                      className="mx-auto flex h-full w-full items-center justify-center"
                     >
                       <Image
                         src={card.icon.src}
@@ -334,7 +334,7 @@ export default function ProductsOverview() {
                 </AnimatePresence>
               </div>
 
-              <div className="space-y-6 relative z-10">
+              <div className="relative z-10 space-y-6">
                 {activeCardId === card.id && (
                   <motion.p
                     variants={{
@@ -359,7 +359,7 @@ export default function ProductsOverview() {
                     initial="initial"
                     animate={hovered === card.id ? "hovered" : "initial"}
                     exit="exit"
-                    className="text-lg font-light transform transition-all duration-500"
+                    className="transform text-lg font-light transition-all duration-500"
                   >
                     {card.desc}
                   </motion.p>
@@ -376,7 +376,7 @@ export default function ProductsOverview() {
                         delay: 0.3,
                         ease: "easeInOut",
                       }}
-                      className="text-[#1C1E55] bg-white rounded-md p-3 flex items-center gap-2"
+                      className="flex items-center gap-2 rounded-md bg-white p-3 text-[#1C1E55]"
                     >
                       <Link
                         href={card.href}
@@ -401,7 +401,7 @@ export default function ProductsOverview() {
                         delay: 0.3,
                         ease: "easeInOut",
                       }}
-                      className="bg-white rounded-md p-3 cursor-pointer"
+                      className="cursor-pointer rounded-md bg-white p-3"
                     >
                       <Link href={card.href}>
                         <Icon
@@ -419,7 +419,7 @@ export default function ProductsOverview() {
           ))}
         </div>
 
-        <div className="col-span-4  bg-[linear-gradient(to_bottom,black_30%,#25276C_100%)] rounded-xl shadow-md flex flex-col justify-between p-12 h-[706px]">
+        <div className="col-span-4 flex h-[706px] flex-col justify-between rounded-xl bg-[linear-gradient(to_bottom,black_30%,#25276C_100%)] p-12 shadow-md">
           <p className="text-lg font-light text-[#FBFBF9]">
             Whether you&#39;re deploying a single MSBG in an office, setting up
             a private phone system, or rolling out remote tools — every product
@@ -427,16 +427,16 @@ export default function ProductsOverview() {
             and eliminate IT complexity.
           </p>
 
-          <div className="text-[#FBFBF9] space-y-4 text-xl">
+          <div className="space-y-4 text-xl text-[#FBFBF9]">
             <Image
               src={Vectors.DifuseWhite.src}
               alt="Difuse Logo"
               width={40}
               height={40}
-              className="object-contain mb-6"
+              className="mb-6 object-contain"
             />
             <p>Our platform is designed to scale.</p>
-            <p className="text-[#A8A8A8] ">
+            <p className="text-[#A8A8A8]">
               Get updates from our{" "}
               <Link href="/newsroom" className="font-bold text-[#FBFBF9]">
                 Newsroom

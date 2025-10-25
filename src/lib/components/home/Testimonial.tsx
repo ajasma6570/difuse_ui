@@ -77,11 +77,11 @@ export default function Testimonials() {
   const current = testimonials[index];
 
   return (
-    <section className="py-28 lg:py-40 lg:max-w-8xl mx-auto px-6 2xl:px-0 overflow-hidden">
+    <section className="lg:max-w-8xl mx-auto overflow-hidden px-6 py-28 lg:py-40 2xl:px-0">
       {/* Mobile Layout - Single Card */}
-      <div className="block lg:hidden space-y-6">
+      <div className="block space-y-6 lg:hidden">
         <div className="space-y-6">
-          <h2 className="text-5xl sm:text-6xl font-normal leading-tight tracking-tight text-black">
+          <h2 className="text-5xl leading-tight font-normal tracking-tight text-black sm:text-6xl">
             What Our <br /> Clients Say
           </h2>
           <p className="text-[#2A2A2A]">
@@ -91,7 +91,7 @@ export default function Testimonials() {
         </div>
 
         {/* Mobile: Instant change without animation - same as desktop */}
-        <div className="relative overflow-hidden mt-14">
+        <div className="relative mt-14 overflow-hidden">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={index}
@@ -108,14 +108,14 @@ export default function Testimonials() {
           </AnimatePresence>
         </div>
 
-        <div className="flex gap-2 mt-14">
+        <div className="mt-14 flex gap-2">
           <button
             onClick={handlePrev}
             disabled={index === 0}
-            className={`p-4 rounded-lg flex items-center justify-center ${
+            className={`flex items-center justify-center rounded-lg p-4 ${
               index === 0
-                ? "border border-[#999999] opacity-50 cursor-not-allowed"
-                : "border border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
+                ? "cursor-not-allowed border border-[#999999] opacity-50"
+                : "group border border-[#999999] transition-colors duration-300 hover:border-[#25276C] hover:bg-[#25276C]"
             }`}
           >
             <Icon
@@ -129,10 +129,10 @@ export default function Testimonials() {
           <button
             onClick={handleNext}
             disabled={index >= testimonials.length - 1}
-            className={`p-4 rounded-lg flex items-center justify-center ${
+            className={`flex items-center justify-center rounded-lg p-4 ${
               index >= testimonials.length - 1
-                ? "border border-[#999999] opacity-50 cursor-not-allowed"
-                : "border border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
+                ? "cursor-not-allowed border border-[#999999] opacity-50"
+                : "group border border-[#999999] transition-colors duration-300 hover:border-[#25276C] hover:bg-[#25276C]"
             }`}
           >
             <Icon
@@ -146,9 +146,9 @@ export default function Testimonials() {
       </div>
 
       {/* Desktop Layout - Two Cards */}
-      <div className="hidden lg:grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
-        <div className="flex flex-col justify-between h-full pt-5">
-          <h2 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-normal leading-tight tracking-tight text-black">
+      <div className="hidden grid-cols-1 items-start gap-10 lg:grid lg:grid-cols-3">
+        <div className="flex h-full flex-col justify-between pt-5">
+          <h2 className="text-4xl leading-tight font-normal tracking-tight text-black sm:text-5xl lg:text-5xl xl:text-6xl">
             What Our <br /> Clients Say
           </h2>
           <p className="text-gray-500">
@@ -156,14 +156,14 @@ export default function Testimonials() {
             self-hosted infrastructure.
           </p>
 
-          <div className="gap-2 pt-6 hidden lg:flex">
+          <div className="hidden gap-2 pt-6 lg:flex">
             <button
               onClick={handlePrev}
               disabled={index === 0}
-              className={`p-4 rounded-lg flex items-center justify-center ${
+              className={`flex items-center justify-center rounded-lg p-4 ${
                 index === 0
-                  ? "border border-[#999999] opacity-50 cursor-not-allowed"
-                  : "border border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
+                  ? "cursor-not-allowed border border-[#999999] opacity-50"
+                  : "group border border-[#999999] transition-colors duration-300 hover:border-[#25276C] hover:bg-[#25276C]"
               }`}
             >
               <Icon
@@ -177,10 +177,10 @@ export default function Testimonials() {
             <button
               onClick={handleNext}
               disabled={index >= testimonials.length - 2}
-              className={`p-4 rounded-lg flex items-center justify-center ${
+              className={`flex items-center justify-center rounded-lg p-4 ${
                 index >= testimonials.length - 2
-                  ? "border border-[#999999] opacity-50 cursor-not-allowed"
-                  : "border border-[#999999] hover:bg-[#25276C] hover:border-[#25276C] group transition-colors duration-300"
+                  ? "cursor-not-allowed border border-[#999999] opacity-50"
+                  : "group border border-[#999999] transition-colors duration-300 hover:border-[#25276C] hover:bg-[#25276C]"
               }`}
             >
               <Icon
@@ -206,7 +206,7 @@ export default function Testimonials() {
                 initial={{ x: direction === 1 ? 0 : -490 }}
                 animate={{ x: direction === 1 ? -490 : 0 }}
                 transition={{ duration: 0.5 }}
-                className="disabled bg-white flex gap-8"
+                className="disabled flex gap-8 bg-white"
               >
                 {testimonials.slice(index + 1).map((testimonial, idx) => (
                   <TestimonialCard key={idx} testimonial={testimonial} />
@@ -222,7 +222,7 @@ export default function Testimonials() {
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="bg-white lg:p-6 rounded-xl lg:w-[460px]">
+    <div className="rounded-xl bg-white lg:w-[460px] lg:p-6">
       <Image
         src="/images/testimonials/vector.png"
         alt={testimonial.name}
@@ -230,10 +230,10 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
         height={40}
         className="rounded-full"
       />
-      <p className="text-2xl text-[#080808] mt-2 leading-relaxed">
+      <p className="mt-2 text-2xl leading-relaxed text-[#080808]">
         {testimonial.quote}
       </p>
-      <div className="flex items-center mt-6 gap-4">
+      <div className="mt-6 flex items-center gap-4">
         <Image
           src={`/images/testimonials/${testimonial.avatar}`}
           alt={testimonial.name}
@@ -242,7 +242,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           className="rounded-full"
         />
         <div>
-          <p className="font-medium text-[#25276C] text-lg">
+          <p className="text-lg font-medium text-[#25276C]">
             {testimonial.name}
           </p>
           <p className="text-sm text-[#6B6B6B]">{testimonial.title}</p>

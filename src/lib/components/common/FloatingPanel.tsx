@@ -16,7 +16,7 @@ export default function ExpandablePanel() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label={isOpen ? "Collapse panel" : "Expand panel"}
-        className="absolute -top-4 right-4 z-30 bg-white text-black rounded-full shadow-lg p-1 cursor-pointer"
+        className="absolute -top-4 right-4 z-30 cursor-pointer rounded-full bg-white p-1 text-black shadow-lg"
       >
         {isOpen ? (
           <Icon icon={minus} width={24} height={24} />
@@ -51,7 +51,7 @@ export default function ExpandablePanel() {
                 transformOrigin: "top right",
               }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="absolute top-0 lg:hidden right-0 z-20 w-full rounded-xl bg-black/45 backdrop-blur-md border border-white/40 overflow-hidden shadow-xl"
+              className="absolute top-0 right-0 z-20 w-full overflow-hidden rounded-xl border border-white/40 bg-black/45 shadow-xl backdrop-blur-md lg:hidden"
             >
               <motion.ul
                 initial="hidden"
@@ -61,14 +61,14 @@ export default function ExpandablePanel() {
                   hidden: { opacity: 0 },
                   show: { opacity: 1 },
                 }}
-                className="divide-x divide-white/30 text-white flex w-full"
+                className="flex w-full divide-x divide-white/30 text-white"
               >
                 <motion.li
                   variants={{
                     hidden: { opacity: 0, x: 20 },
                     show: { opacity: 1, x: 0 },
                   }}
-                  className="p-4 flex items-start gap-2 w-full hover:bg-white/10 transition flex-col"
+                  className="flex w-full flex-col items-start gap-2 p-4 transition hover:bg-white/10"
                 >
                   <Image
                     src={Vectors.Campaign.src}
@@ -77,7 +77,7 @@ export default function ExpandablePanel() {
                     height={30}
                     className="object-contain"
                   />
-                  <div className="opacity-90 text-md flex flex-col ">
+                  <div className="text-md flex flex-col opacity-90">
                     <span>v2.7.0 is</span>
                     <span>available for DMSBG-100</span>
                   </div>
@@ -87,7 +87,7 @@ export default function ExpandablePanel() {
                     hidden: { opacity: 0, x: 20 },
                     show: { opacity: 1, x: 0 },
                   }}
-                  className="p-4 flex items-start gap-1 w-full hover:bg-white/10 transition flex-col"
+                  className="flex w-full flex-col items-start gap-1 p-4 transition hover:bg-white/10"
                 >
                   <Image
                     src={Vectors.Support.src}
@@ -96,7 +96,7 @@ export default function ExpandablePanel() {
                     height={30}
                     className="object-contain"
                   />
-                  <p className="opacity-90 text-md flex flex-col">
+                  <p className="text-md flex flex-col opacity-90">
                     <span className="">For Support</span>
                     <span className="text-md whitespace-nowrap">
                       1800–599–TECH
@@ -129,7 +129,7 @@ export default function ExpandablePanel() {
                 transformOrigin: "top right",
               }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="absolute hidden lg:block top-0 right-0 z-20 h-[336px] w-[240px] rounded-xl bg-black/45 backdrop-blur-md border border-white/40 overflow-hidden shadow-xl"
+              className="absolute top-0 right-0 z-20 hidden h-[336px] w-[240px] overflow-hidden rounded-xl border border-white/40 bg-black/45 shadow-xl backdrop-blur-md lg:block"
             >
               <motion.ul
                 initial="hidden"
@@ -146,7 +146,7 @@ export default function ExpandablePanel() {
                     hidden: { opacity: 0, x: 20 },
                     show: { opacity: 1, x: 0 },
                   }}
-                  className="p-4 flex items-start gap-2 hover:bg-white/10 transition flex-col"
+                  className="flex flex-col items-start gap-2 p-4 transition hover:bg-white/10"
                 >
                   <Image
                     src={Vectors.Campaign.src}
@@ -155,7 +155,7 @@ export default function ExpandablePanel() {
                     height={40}
                     className="object-contain"
                   />{" "}
-                  <div className="opacity-90 text-lg lg:text-[1.45rem] font-light flex flex-col ">
+                  <div className="flex flex-col text-lg font-light opacity-90 lg:text-[1.45rem]">
                     <span>v2.7.0 is</span>
                     <span>available for</span>
                     <span>DMSBG-100</span>
@@ -166,7 +166,7 @@ export default function ExpandablePanel() {
                     hidden: { opacity: 0, x: 20 },
                     show: { opacity: 1, x: 0 },
                   }}
-                  className="p-4 flex items-start gap-2 hover:bg-white/10 transition flex-col"
+                  className="flex flex-col items-start gap-2 p-4 transition hover:bg-white/10"
                 >
                   <Image
                     src={Vectors.Support.src}
@@ -175,9 +175,9 @@ export default function ExpandablePanel() {
                     height={40}
                     className="object-contain"
                   />{" "}
-                  <p className="opacity-90 text-lg lg:text-[1.35rem] flex flex-col">
+                  <p className="flex flex-col text-lg opacity-90 lg:text-[1.35rem]">
                     <span className="font-light">For Support</span>
-                    <span className="text-xl lg:text-[1.35rem] font-semibold">
+                    <span className="text-xl font-semibold lg:text-[1.35rem]">
                       1800–599–TECH
                     </span>
                   </p>
@@ -194,10 +194,10 @@ export default function ExpandablePanel() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-0 right-0 z-20 w-28 xl:w-28 h-[9rem] sm:h-[10rem]  rounded-xl bg-black/45 backdrop-blur-md border border-white/40 overflow-hidden shadow-xl"
+            className="absolute top-0 right-0 z-20 h-[9rem] w-28 overflow-hidden rounded-xl border border-white/40 bg-black/45 shadow-xl backdrop-blur-md sm:h-[10rem] xl:w-28"
           >
-            <ul className="divide-y divide-white/40 text-white h-full">
-              <li className="h-1/2 flex items-center justify-center hover:bg-white/10 cursor-pointer">
+            <ul className="h-full divide-y divide-white/40 text-white">
+              <li className="flex h-1/2 cursor-pointer items-center justify-center hover:bg-white/10">
                 <Image
                   src={Vectors.Campaign.src}
                   alt="campaign"
@@ -206,7 +206,7 @@ export default function ExpandablePanel() {
                   className="object-contain"
                 />
               </li>
-              <li className="h-1/2 flex items-center justify-center hover:bg-white/10 cursor-pointer">
+              <li className="flex h-1/2 cursor-pointer items-center justify-center hover:bg-white/10">
                 <Image
                   src={Vectors.Support.src}
                   alt="support"

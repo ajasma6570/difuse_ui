@@ -54,7 +54,7 @@ export default function HoverRevealButton({
           hover: { width: textWidth, opacity: 1 },
         }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
-        className={`whitespace-nowrap overflow-hidden ${textClassName}`}
+        className={`overflow-hidden whitespace-nowrap ${textClassName}`}
         style={{ display: "inline-block" }}
       >
         {text}
@@ -66,7 +66,7 @@ export default function HoverRevealButton({
           hover: { marginLeft: 10 },
         }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
-        className={`flex items-center justify-center flex-shrink-0 ${iconClassName}`}
+        className={`flex flex-shrink-0 items-center justify-center ${iconClassName}`}
         style={{ display: "inline-block" }}
       >
         {icon}
@@ -81,7 +81,7 @@ export default function HoverRevealButton({
     return actualVariant === "link" ? (
       <Link
         href={href ?? "#"}
-        className={`w-full h-full flex items-center justify-center ${baseClasses}`}
+        className={`flex h-full w-full items-center justify-center ${baseClasses}`}
       >
         {content}
       </Link>
@@ -100,7 +100,7 @@ export default function HoverRevealButton({
         initial="rest"
         animate="rest"
         whileHover="hover"
-        className={`w-full h-full flex items-center justify-center ${baseClasses}`}
+        className={`flex h-full w-full items-center justify-center ${baseClasses}`}
       >
         {content}
       </MotionLink>

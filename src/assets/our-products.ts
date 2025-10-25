@@ -36,26 +36,25 @@ import GooglePlay from "$/images/products/softphone/google_play.webp";
 import QRCode from "$/images/products/softphone/qr_code.webp";
 
 export const Images = {
-    DMSBG: {
-        Banner: { Desktop: DMSBGBannerDesktop, Mobile: DMSBGBannerMobile },
-        Devices: {
-            DMSBG300: { Desktop: DMSBG300Desktop, Mobile: DMSBG300Mobile },
-            DMSBG100: { Desktop: DMSBG100Desktop, Mobile: DMSBG100Mobile },
-            DMSBG50: { Desktop: DMSBG50Desktop, Mobile: DMSBG50Mobile },
-        },
-
+  DMSBG: {
+    Banner: { Desktop: DMSBGBannerDesktop, Mobile: DMSBGBannerMobile },
+    Devices: {
+      DMSBG300: { Desktop: DMSBG300Desktop, Mobile: DMSBG300Mobile },
+      DMSBG100: { Desktop: DMSBG100Desktop, Mobile: DMSBG100Mobile },
+      DMSBG50: { Desktop: DMSBG50Desktop, Mobile: DMSBG50Mobile },
     },
+  },
 
-    DPBX: {
-        Banner: { Desktop: DPBXBannerDesktop, Mobile: DPBXBannerMobile },
-        Devices: { DPBX50: { Desktop: DPBX50Desktop, Mobile: DPBX50Mobile } },
-    },
+  DPBX: {
+    Banner: { Desktop: DPBXBannerDesktop, Mobile: DPBXBannerMobile },
+    Devices: { DPBX50: { Desktop: DPBX50Desktop, Mobile: DPBX50Mobile } },
+  },
 
-    Softphone: {
-        Banner: { Desktop: SoftphoneBannerDesktop, Mobile: SoftphoneBannerMobile },
-        Main: { Desktop: SoftphoneMainDesktop, Mobile: SoftphoneMainMobile },
-        Extras: { MasonryImage, GooglePlay, QRCode },
-    },
+  Softphone: {
+    Banner: { Desktop: SoftphoneBannerDesktop, Mobile: SoftphoneBannerMobile },
+    Main: { Desktop: SoftphoneMainDesktop, Mobile: SoftphoneMainMobile },
+    Extras: { MasonryImage, GooglePlay, QRCode },
+  },
 
-    ExtraImages: { DMSBGDevicesImg, DPBXDevicesImg, SoftphoneImg },
+  ExtraImages: { DMSBGDevicesImg, DPBXDevicesImg, SoftphoneImg },
 };

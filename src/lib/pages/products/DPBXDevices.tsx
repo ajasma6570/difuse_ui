@@ -77,20 +77,20 @@ const products = [
 export default function DPBXDevices() {
   return (
     <PageTransition motionKey="our-products-dpbx-page-wrapper">
-      <div className="pt-14 min-h-screen flex flex-col items-center justify-center">
-        <div className="w-full md:max-w-8xl px-6 py-16">
-          <div className="text-center md:max-w-6xl w-full mx-auto space-y-6">
-            <p className="text-2xl lg:text-3xl tracking-wide text-[#25276C]">
+      <div className="flex min-h-screen flex-col items-center justify-center pt-14">
+        <div className="md:max-w-8xl w-full px-6 py-16">
+          <div className="mx-auto w-full space-y-6 text-center md:max-w-6xl">
+            <p className="text-2xl tracking-wide text-[#25276C] lg:text-3xl">
               Our Products {">"}{" "}
               <span className="text-[#080808]">DPBX Devices</span>
             </p>
-            <h1 className="text-4xl md:text-7xl font-normal leading-tight text-[#080808]">
+            <h1 className="text-4xl leading-tight font-normal text-[#080808] md:text-7xl">
               Decentralized Telephony,
               <span className="md:hidden">&nbsp;</span>
               <br className="hidden md:inline" />
               Reimagined.
             </h1>
-            <p className="text-lg text-center font-light text-[#2A2A2A] max-w-4xl mx-auto">
+            <p className="mx-auto max-w-4xl text-center text-lg font-light text-[#2A2A2A]">
               Break free from rigid legacy PBX systems. Our DPBX devices are
               built for modern businesses that demand flexibility, security, and
               control over their communications — all without vendor lock-in or
@@ -102,7 +102,7 @@ export default function DPBXDevices() {
           </div>
 
           <div className="relative mt-20 flex justify-center">
-            <div className="relative w-full h-[650px] md:max-w-8xl rounded-lg overflow-hidden shadow-sm">
+            <div className="md:max-w-8xl relative h-[650px] w-full overflow-hidden rounded-lg shadow-sm">
               <picture>
                 <source
                   media="(max-width: 1024px)"
@@ -119,19 +119,19 @@ export default function DPBXDevices() {
               </picture>
             </div>
 
-            <div className="absolute inset-0 flex flex-col justify-end mb-20 items-end">
-              <div className="space-x-4 justify-center mx-auto gap-4 flex flex-col sm:flex-row items-center">
+            <div className="absolute inset-0 mb-20 flex flex-col items-end justify-end">
+              <div className="mx-auto flex flex-col items-center justify-center gap-4 space-x-4 sm:flex-row">
                 <AnimatedSlideButton
                   icon={<Icon icon={arrowRight} width={24} height={24} />}
                   text="Contact Us"
-                  className="items-center gap-2 hover:bg-[#25276C] hover:text-[#FBFBF9] text-[#25276C] border border-[#25276C] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#25276C] px-6 py-4 text-lg font-medium text-[#25276C] transition-colors hover:bg-[#25276C] hover:text-[#FBFBF9] lg:text-xl"
                   variant="link"
                   href="/contact Us"
                 />
                 <AnimatedSlideButton
                   icon={<Icon icon={bag4Linear} width={24} height={24} />}
                   text="Explore Online Store"
-                  className="items-center gap-2 hover:bg-[#25276C] hover:text-[#FBFBF9] text-[#25276C] border border-[#25276C] transition-colors px-6 py-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#25276C] px-6 py-4 text-lg font-medium text-[#25276C] transition-colors hover:bg-[#25276C] hover:text-[#FBFBF9] lg:text-xl"
                   variant="link"
                   href="/online-store"
                 />
@@ -139,7 +139,7 @@ export default function DPBXDevices() {
             </div>
           </div>
 
-          <p className="text-lg text-center font-light text-[#2A2A2A] max-w-4xl mx-auto mt-10">
+          <p className="mx-auto mt-10 max-w-4xl text-center text-lg font-light text-[#2A2A2A]">
             Difuse&lsquo;s DPBX (Private Branch Exchange) devices are
             purpose-built for secure, self-hosted business communication. They
             combine PBX capabilities with modular software, supporting advanced
@@ -149,14 +149,14 @@ export default function DPBXDevices() {
             voice infrastructure.
           </p>
 
-          <p className="text-lg text-[#2A2A2A] text-center mt-10 font-medium">
+          <p className="mt-10 text-center text-lg font-medium text-[#2A2A2A]">
             Explore our communication systems:
           </p>
 
           <section className="max-w-8xl mx-auto mt-20 space-y-2">
             {products.map((p) => (
               <div key={p.name} className="relative overflow-hidden rounded-xl">
-                <div className="relative  h-[800px] lg:h-[500px] bg-black">
+                <div className="relative h-[800px] bg-black lg:h-[500px]">
                   <picture>
                     <source
                       media="(max-width: 1024px)"
@@ -173,22 +173,22 @@ export default function DPBXDevices() {
                   </picture>
                 </div>
 
-                <div className="p-6 md:p-8 absolute inset-0 text-white">
-                  <div className="flex flex-col lg:flex-row justify-between h-full w-full ">
-                    <h3 className="text-5xl font-semibold h-full w-full xl:w-6/12 2xl:w-7/12">
+                <div className="absolute inset-0 p-6 text-white md:p-8">
+                  <div className="flex h-full w-full flex-col justify-between lg:flex-row">
+                    <h3 className="h-full w-full text-5xl font-semibold xl:w-6/12 2xl:w-7/12">
                       {p.name}
                     </h3>
 
-                    <div className="flex flex-col justify-start h-full w-full xl:w-6/12 2xl:w-5/12 space-y-2">
-                      <p className="mt-3 text-md xl:text-lg">{p.desc}</p>
-                      <p className="mt-3 text-md xl:text-lg">{p.moreDesc}</p>
-                      <div className="mt-4 flex gap-2 flex-wrap">
+                    <div className="flex h-full w-full flex-col justify-start space-y-2 xl:w-6/12 2xl:w-5/12">
+                      <p className="text-md mt-3 xl:text-lg">{p.desc}</p>
+                      <p className="text-md mt-3 xl:text-lg">{p.moreDesc}</p>
+                      <div className="mt-4 flex flex-wrap gap-2">
                         <AnimatedSlideButton
                           icon={
                             <Icon icon={bag4Linear} width={24} height={24} />
                           }
                           text="Explore Online Store"
-                          className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg font-medium inline-flex whitespace-nowrap"
+                          className="inline-flex items-center gap-2 rounded-lg border border-[#FBFBF9] px-6 py-4 text-lg font-medium whitespace-nowrap text-[#FBFBF9] transition-colors hover:bg-[#FBFBF9] hover:text-[#25276C]"
                           variant="link"
                           href={p.store}
                         />
@@ -197,7 +197,7 @@ export default function DPBXDevices() {
                             <Icon icon={arrowRight} width={24} height={24} />
                           }
                           text="Enquire"
-                          className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors px-6 py-4 rounded-lg text-lg  font-medium inline-flex whitespace-nowrap"
+                          className="inline-flex items-center gap-2 rounded-lg border border-[#FBFBF9] px-6 py-4 text-lg font-medium whitespace-nowrap text-[#FBFBF9] transition-colors hover:bg-[#FBFBF9] hover:text-[#25276C]"
                           variant="link"
                           href={p.enquire}
                         />
@@ -208,27 +208,27 @@ export default function DPBXDevices() {
               </div>
             ))}
 
-            <div className="flex flex-col lg:flex-row mt-20 lg:items-center lg:justify-between text-lg text-[#2A2A2A] font-normal">
-              <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-4 lg:mb-0">
+            <div className="mt-20 flex flex-col text-lg font-normal text-[#2A2A2A] lg:flex-row lg:items-center lg:justify-between">
+              <div className="mb-4 flex flex-col gap-4 lg:mb-0 lg:flex-row lg:items-center">
                 <Image
                   src={Vectors.DifuseIcon.src}
                   alt="vector_icon"
                   width={24}
                   height={24}
-                  className="object-contain inline mb-4 lg:mb-0"
+                  className="mb-4 inline object-contain lg:mb-0"
                 />
-                <p className="text-[#2A2A2A] ">(More models incoming...)</p>
+                <p className="text-[#2A2A2A]">(More models incoming...)</p>
               </div>
 
               <p className="text-[#A8A8A8]">
                 Get updates from our{" "}
-                <Link href="/newsroom" className="text-[#080808] font-semibold">
+                <Link href="/newsroom" className="font-semibold text-[#080808]">
                   Newsroom
                 </Link>
                 ,or subscribe to our{" "}
                 <Link
                   href="/newsletter"
-                  className="text-[#080808] font-semibold"
+                  className="font-semibold text-[#080808]"
                 >
                   Newsletter.
                 </Link>
@@ -236,18 +236,18 @@ export default function DPBXDevices() {
             </div>
           </section>
 
-          <section className="max-w-8xl mx-auto mt-12 ">
-            <div className="rounded-lg p-6 py-14 md:p-20 bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] ">
-              <h2 className="font-semibold mb-14 lg:mb-20 text-white text-4xl lg:text-6xl">
+          <section className="max-w-8xl mx-auto mt-12">
+            <div className="rounded-lg bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] p-6 py-14 md:p-20">
+              <h2 className="mb-14 text-4xl font-semibold text-white lg:mb-20 lg:text-6xl">
                 Key Features
               </h2>
-              <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-3 ">
+              <div className="grid grid-cols-1 gap-3 lg:grid-cols-2 2xl:grid-cols-3">
                 {features.map((f) => (
                   <div
                     key={f.title}
-                    className="bg-white rounded-xl flex flex-col justify-between p-8 min-h-[300px]"
+                    className="flex min-h-[300px] flex-col justify-between rounded-xl bg-white p-8"
                   >
-                    <p className="text-3xl lg:text-4xl  text-[#080808]">
+                    <p className="text-3xl text-[#080808] lg:text-4xl">
                       {f.title}
                     </p>
 
@@ -269,11 +269,11 @@ export default function DPBXDevices() {
             </div>
           </section>
 
-          <section className="max-w-8xl mx-auto my-40 ">
-            <div className="rounded-xl bg-[linear-gradient(to_right,black_0%,#25276C_100%)] text-white p-8 md:p-12 h-[630px] lg:h-[350px] flex flex-col justify-center ">
-              <div className="flex flex-col lg:flex-row gap-8 lg:items-center">
+          <section className="max-w-8xl mx-auto my-40">
+            <div className="flex h-[630px] flex-col justify-center rounded-xl bg-[linear-gradient(to_right,black_0%,#25276C_100%)] p-8 text-white md:p-12 lg:h-[350px]">
+              <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
                 <div className="w-full lg:w-7/12">
-                  <h2 className="text-4xl xl:text-5xl font-normal leading-snug mb-4">
+                  <h2 className="mb-4 text-4xl leading-snug font-normal xl:text-5xl">
                     Find the Right DPBX for
                     <span className="lg:hidden">&nbsp;</span>
                     <br className="hidden lg:inline" />
@@ -281,24 +281,24 @@ export default function DPBXDevices() {
                   </h2>
                 </div>
                 <div className="w-full lg:w-5/12">
-                  <p className="text-[#FBFBF9] text-lg leading-relaxed mb-6">
+                  <p className="mb-6 text-lg leading-relaxed text-[#FBFBF9]">
                     Explore specs, compare models, and choose
                     <br className="hidden lg:inline" /> the device that fits
                     your scale.
                   </p>
 
-                  <div className="flex flex-col sm:flex-row gap-3">
+                  <div className="flex flex-col gap-3 sm:flex-row">
                     <AnimatedSlideButton
                       icon={<Icon icon={bag4Linear} width={24} height={24} />}
                       text="Explore Online Store"
-                      className="inline-flex hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] rounded-lg text-xl tracking-[-0.05em] p-5 max-w-max "
+                      className="inline-flex max-w-max rounded-lg border border-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#FBFBF9] hover:bg-[#FBFBF9] hover:text-[#25276C]"
                       variant="link"
                       href="/online-store"
                     />
                     <AnimatedSlideButton
                       icon={<Icon icon={arrowRight} width={24} height={24} />}
                       text="Contact Us"
-                      className="inline-flex hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] rounded-lg text-xl tracking-[-0.05em] p-5 max-w-max "
+                      className="inline-flex max-w-max rounded-lg border border-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#FBFBF9] hover:bg-[#FBFBF9] hover:text-[#25276C]"
                       variant="link"
                       href="/contact"
                     />
@@ -309,9 +309,9 @@ export default function DPBXDevices() {
           </section>
 
           <section className="max-w-8xl mx-auto mb-20">
-            <div className="grid lg:grid-cols-[1fr_2fr] gap-12 items-start">
+            <div className="grid items-start gap-12 lg:grid-cols-[1fr_2fr]">
               <div>
-                <h2 className="text-4xl xl:text-5xl font-normal text-[#080808] leading-tight">
+                <h2 className="text-4xl leading-tight font-normal text-[#080808] xl:text-5xl">
                   Explore More
                   <span className="xl:hidden">&nbsp;</span>
                   <br className="hidden xl:inline" />
@@ -322,39 +322,39 @@ export default function DPBXDevices() {
                 </h2>
               </div>
 
-              <div className="flex xl:justify-end lg:flex-row flex-col gap-2">
-                <div className="relative h-[400px] lg:w-[400px] group overflow-hidden rounded-xl">
+              <div className="flex flex-col gap-2 lg:flex-row xl:justify-end">
+                <div className="group relative h-[400px] overflow-hidden rounded-xl lg:w-[400px]">
                   <Image
                     src={Images.ExtraImages.DMSBGDevicesImg.src}
                     placeholder="blur"
                     blurDataURL={Images.ExtraImages.DMSBGDevicesImg.blurDataURL}
                     alt="DMSBG Devices"
                     fill
-                    className="object-cover transition-transform group-hover:scale-105 duration-300"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
 
                   <motion.div
                     initial="rest"
                     animate="rest"
                     whileHover="hover"
-                    className="absolute inset-0 p-10 flex flex-col justify-between group:"
+                    className="group: absolute inset-0 flex flex-col justify-between p-10"
                   >
                     {" "}
-                    <h3 className="text-white text-3xl lg:text-4xl font-medium">
+                    <h3 className="text-3xl font-medium text-white lg:text-4xl">
                       DMSBG Devices
                     </h3>
                     <div className="flex justify-start">
                       <HoverRevealButton
                         icon={<Icon icon={arrowRight} width={24} height={24} />}
                         text="Explore"
-                        className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                        className="hidden max-w-max items-center rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors hover:bg-[#E5E5E5] xl:flex"
                         variant="link"
                         href="/our-products/dmsbg-devices"
                         parentControlled
                       />
                       <Link
                         href="/our-products/dmsbg-devices"
-                        className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                        className="flex max-w-max items-center gap-2 rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors hover:bg-[#E5E5E5] xl:hidden"
                       >
                         <Icon
                           icon={arrowRight}
@@ -368,38 +368,38 @@ export default function DPBXDevices() {
                   </motion.div>
                 </div>
 
-                <div className="relative h-[400px] lg:w-[400px] group overflow-hidden rounded-xl">
+                <div className="group relative h-[400px] overflow-hidden rounded-xl lg:w-[400px]">
                   <Image
                     src={Images.ExtraImages.SoftphoneImg.src}
                     placeholder="blur"
                     blurDataURL={Images.ExtraImages.SoftphoneImg.blurDataURL}
                     alt="Softphone App"
                     fill
-                    className="object-cover transition-transform group-hover:scale-105 duration-300"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
 
                   <motion.div
                     initial="rest"
                     animate="rest"
                     whileHover="hover"
-                    className="absolute inset-0 p-10 flex flex-col justify-between group:"
+                    className="group: absolute inset-0 flex flex-col justify-between p-10"
                   >
                     {" "}
-                    <h3 className="text-white text-3xl lg:text-4xl font-medium">
+                    <h3 className="text-3xl font-medium text-white lg:text-4xl">
                       Softphone
                     </h3>
                     <div className="flex justify-start">
                       <HoverRevealButton
                         icon={<Icon icon={arrowRight} width={24} height={24} />}
                         text="Explore"
-                        className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                        className="hidden max-w-max items-center rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors hover:bg-[#E5E5E5] xl:flex"
                         variant="link"
                         href="/our-products/softphone"
                         parentControlled
                       />
                       <Link
                         href="/our-products/softphone"
-                        className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
+                        className="flex max-w-max items-center gap-2 rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] transition-colors hover:bg-[#E5E5E5] xl:hidden"
                       >
                         <Icon
                           icon={arrowRight}
@@ -416,7 +416,7 @@ export default function DPBXDevices() {
             </div>
           </section>
         </div>
-        <div className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] w-full">
+        <div className="w-full bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)]">
           <Footer />
         </div>
       </div>

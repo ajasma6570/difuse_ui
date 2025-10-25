@@ -10,18 +10,18 @@ import { BlogPost } from "@/interface/blog";
 
 export default function NewsRoom({ blogs }: { blogs: BlogPost[] }) {
   return (
-    <section className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] pt-20 ">
-      <div className="lg:max-w-[90rem] w-full mx-auto rounded-xl px-6 2xl:px-0">
-        <p className="text-white text-4xl lg:text-6xl font-normal">Newsroom</p>
+    <section className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] pt-20">
+      <div className="mx-auto w-full rounded-xl px-6 lg:max-w-[90rem] 2xl:px-0">
+        <p className="text-4xl font-normal text-white lg:text-6xl">Newsroom</p>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-3">
+        <div className="mt-16 grid grid-cols-1 gap-3 md:grid-cols-2 2xl:grid-cols-3">
           {blogs.slice(-3).map((blog) => (
             <BlogCard key={blog.slug} blog={blog} variant="home" />
           ))}
         </div>
 
-        <div className="flex lg:flex-row flex-col lg:justify-between lg:items-center w-full mt-14 gap-8">
-          <p className="w-full lg:w-1/2 text-xl text-white">
+        <div className="mt-14 flex w-full flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+          <p className="w-full text-xl text-white lg:w-1/2">
             Explore what’s new across the platform — integrations, services, OS
             upgrades, and forward-looking innovations.
           </p>
@@ -29,7 +29,7 @@ export default function NewsRoom({ blogs }: { blogs: BlogPost[] }) {
           <AnimatedSlideButton
             icon={<Icon icon={arrowRight} width={24} height={24} />}
             text="Explore Newsroom"
-            className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
+            className="inline-flex items-center gap-2 rounded-lg border border-[#FBFBF9] p-4 text-lg font-medium text-[#FBFBF9] transition-colors hover:bg-[#FBFBF9] hover:text-[#25276C] lg:text-xl"
             variant="link"
             href="/newsroom"
           />

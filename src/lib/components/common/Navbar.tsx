@@ -95,18 +95,18 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 px-6",
+        "fixed top-0 right-0 left-0 z-50 px-6",
         stickyMenu ? "backdrop-blur-sm" : ""
       )}
     >
       <nav
         className={cn(
-          "flex items-center justify-between py-3 w-full max-w-10xl mx-auto transform transition-all duration-300",
+          "max-w-10xl mx-auto flex w-full transform items-center justify-between py-3 transition-all duration-300",
           stickyMenu ? "lg:py-4" : "lg:py-6"
         )}
       >
         {/* Top bar */}
-        <div className="flex items-center justify-between w-full max-w-10xl mx-auto z-50">
+        <div className="max-w-10xl z-50 mx-auto flex w-full items-center justify-between">
           <Link href="/" aria-label="Home">
             <Image
               src="/images/logo.svg"
@@ -120,7 +120,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="cursor-pointer z-50"
+            className="z-50 cursor-pointer"
             aria-label="Open menu"
           >
             <MdMenuOpen className="h-8 w-8 text-[#1C1E55]" />
@@ -130,14 +130,14 @@ export default function Navbar() {
         {/* Backdrop */}
         <div
           onClick={() => setOpen(false)}
-          className={`fixed inset-0 bg-black/40 transition-opacity duration-300 z-40 ${
-            open ? "opacity-100 visible" : "opacity-0 invisible"
+          className={`fixed inset-0 z-40 bg-black/40 transition-opacity duration-300 ${
+            open ? "visible opacity-100" : "invisible opacity-0"
           }`}
         />
 
         {/* Drawer */}
         <div
-          className={`fixed top-0 right-0 h-screen w-full sm:w-3/4 md:w-1/2 2xl:w-4/12 bg-[#1C1E55] shadow-lg z-50 transform transition-transform duration-300 pt-6 px-12 space-y-8 flex flex-col overflow-y-auto md:overflow-visible ${
+          className={`fixed top-0 right-0 z-50 flex h-screen w-full transform flex-col space-y-8 overflow-y-auto bg-[#1C1E55] px-12 pt-6 shadow-lg transition-transform duration-300 sm:w-3/4 md:w-1/2 md:overflow-visible 2xl:w-4/12 ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -154,7 +154,7 @@ export default function Navbar() {
 
           <div
             ref={navbarRef}
-            className="flex-1 flex flex-col text-white text-right space-y-4 pb-10"
+            className="flex flex-1 flex-col space-y-4 pb-10 text-right text-white"
           >
             {routes.map((route) => {
               const isParentActive =
@@ -172,7 +172,7 @@ export default function Navbar() {
                       <button
                         type="button"
                         onClick={() => toggleMenu(route.title)}
-                        className={`flex w-full justify-end items-center gap-1 cursor-pointer ${
+                        className={`flex w-full cursor-pointer items-center justify-end gap-1 ${
                           isParentActive
                             ? "text-[#6C6FD2]"
                             : "hover:text-[#6C6FD2]"
@@ -185,7 +185,7 @@ export default function Navbar() {
                         ) : (
                           <IoChevronDown className="h-7 w-7" />
                         )}
-                        <span className="tracking-tighter font-light text-4xl lg:text-5xl">
+                        <span className="text-4xl font-light tracking-tighter lg:text-5xl">
                           {route.title}
                         </span>
                       </button>
@@ -193,7 +193,7 @@ export default function Navbar() {
                       <div
                         id={`submenu-${route.title}`}
                         className={`overflow-hidden transition-all duration-300 ${
-                          menuIsOpen ? "max-h-60 mt-2" : "max-h-0"
+                          menuIsOpen ? "mt-2 max-h-60" : "max-h-0"
                         }`}
                       >
                         <div className="flex flex-col space-y-2 pl-4 text-right">
@@ -217,7 +217,7 @@ export default function Navbar() {
                                   whileHover="hover"
                                 >
                                   <motion.span
-                                    className="tracking-tight inline-block"
+                                    className="inline-block tracking-tight"
                                     variants={{
                                       rest: { x: 0 },
                                       hover: { x: -35 },
@@ -230,7 +230,7 @@ export default function Navbar() {
                                     {child.title}
                                   </motion.span>
                                   <motion.span
-                                    className="absolute right-0 top-1/2 -translate-y-1/2"
+                                    className="absolute top-1/2 right-0 -translate-y-1/2"
                                     variants={{
                                       rest: { x: -35, opacity: 0 },
                                       hover: { x: 0, opacity: 1 },
@@ -253,7 +253,7 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={route.url}
-                      className={`block text-4xl lg:text-5xl font-light text-right ${
+                      className={`block text-right text-4xl font-light lg:text-5xl ${
                         pathname === route.url
                           ? "text-[#6C6FD2]"
                           : "hover:text-[#6C6FD2]"
@@ -267,7 +267,7 @@ export default function Navbar() {
                         whileHover="hover"
                       >
                         <motion.span
-                          className="tracking-tight text-4xl lg:text-5xl font-light inline-block"
+                          className="inline-block text-4xl font-light tracking-tight lg:text-5xl"
                           variants={{
                             rest: { x: 0 },
                             hover: { x: -65 },
@@ -277,7 +277,7 @@ export default function Navbar() {
                           {route.title}
                         </motion.span>
                         <motion.span
-                          className="absolute right-0 top-1/2 -translate-y-1/2"
+                          className="absolute top-1/2 right-0 -translate-y-1/2"
                           variants={{
                             rest: { x: -65, opacity: 0 },
                             hover: { x: 0, opacity: 1 },

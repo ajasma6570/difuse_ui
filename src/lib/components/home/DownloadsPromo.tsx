@@ -117,7 +117,7 @@ export default function DownloadsPromo() {
   return (
     <section className="px-6">
       <motion.div
-        className="relative mt-20 w-full px-6 h-[780px] sm:h-[650px] rounded-xl max-w-8xl flex space-y-10 justify-center flex-col items-center mx-auto bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] overflow-hidden"
+        className="max-w-8xl relative mx-auto mt-20 flex h-[780px] w-full flex-col items-center justify-center space-y-10 overflow-hidden rounded-xl bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] px-6 sm:h-[650px]"
         initial="rest"
         animate={phase}
         onHoverStart={() => {
@@ -130,11 +130,11 @@ export default function DownloadsPromo() {
           timeoutRef.current = setTimeout(() => setPhase("rest"), 800);
         }}
       >
-        <p className="text-white text-4xl lg:text-7xl font-normal text-center">
+        <p className="text-center text-4xl font-normal text-white lg:text-7xl">
           Get the Latest Builds, <br /> Tools &amp; Updates
         </p>
 
-        <p className="text-[#FBFBF9] text-lg lg:text-xl w-full lg:w-lg font-light text-center">
+        <p className="w-full text-center text-lg font-light text-[#FBFBF9] lg:w-lg lg:text-xl">
           Stay current with the latest releases of Difuse OS, device firmware,
           and communication tools, everything needed to deploy or upgrade.
         </p>
@@ -142,11 +142,11 @@ export default function DownloadsPromo() {
         <AnimatedSlideButton
           icon={<Icon icon={arrowRight} width={30} height={30} />}
           text="Go to Downloads"
-          className="items-center gap-2 hover:bg-[#FBFBF9] hover:text-[#25276C] text-[#FBFBF9] border border-[#FBFBF9] transition-colors p-4 rounded-lg text-lg lg:text-xl font-medium inline-flex"
+          className="inline-flex items-center gap-2 rounded-lg border border-[#FBFBF9] p-4 text-lg font-medium text-[#FBFBF9] transition-colors hover:bg-[#FBFBF9] hover:text-[#25276C] lg:text-xl"
         />
 
         <ul
-          className="mt-72 xl:mt-64 pointer-events-none absolute inset-0 z-10 hidden lg:block"
+          className="pointer-events-none absolute inset-0 z-10 mt-72 hidden lg:block xl:mt-64"
           aria-hidden
         >
           {ICONS.map(({ id, icon, style, drop, className }) => {
@@ -161,7 +161,7 @@ export default function DownloadsPromo() {
               >
                 <div
                   className={cn(
-                    "grid place-items-center rounded-full shadow-2xl shadow-black will-change-transform bg-[radial-gradient(circle_at_center,#FBFBF9_10%,#1C1E55_130%)]",
+                    "grid place-items-center rounded-full bg-[radial-gradient(circle_at_center,#FBFBF9_10%,#1C1E55_130%)] shadow-2xl shadow-black will-change-transform",
                     size
                   )}
                 >
@@ -173,15 +173,15 @@ export default function DownloadsPromo() {
         </ul>
 
         <ul
-          className="lg:hidden absolute bottom-6 inset-x-0 z-10 flex items-end justify-evenly gap-2 px-6"
+          className="absolute inset-x-0 bottom-6 z-10 flex items-end justify-evenly gap-2 px-6 lg:hidden"
           aria-hidden
         >
           {MOBILE_ICONS.map(({ id, icon }) => (
             <li
               key={`m-${id}`}
-              className="odd:-translate-y-0 even:-translate-y-16 transition-transform"
+              className="transition-transform odd:-translate-y-0 even:-translate-y-16"
             >
-              <div className="grid place-items-center h-12 sm:h-14 w-12  sm:w-14 rounded-full bg-[#F2F2F6] shadow-[0_12px_30px_rgba(0,0,0,0.25)]">
+              <div className="grid h-12 w-12 place-items-center rounded-full bg-[#F2F2F6] shadow-[0_12px_30px_rgba(0,0,0,0.25)] sm:h-14 sm:w-14">
                 <Image alt="icon" src={icon} className="p-2" fill />
               </div>
             </li>

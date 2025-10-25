@@ -1,7 +1,7 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
-import { BlogPost } from '@/interface/blog';
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { BlogPost } from "@/interface/blog";
 
 const getMarkDownData = (folder: string): BlogPost[] => {
   const absolutePath = path.join(process.cwd(), folder);
@@ -15,7 +15,7 @@ const getMarkDownData = (folder: string): BlogPost[] => {
 
     return {
       id: data.id,
-      slug: file.replace('.md', ''),
+      slug: file.replace(".md", ""),
       title: data.title,
       description: data.description,
       content: markdownContent,

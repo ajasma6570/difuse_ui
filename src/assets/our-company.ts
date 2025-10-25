@@ -11,11 +11,11 @@ import SoftphoneDesktop from "$/images/about/product_3.webp";
 import SoftphoneMobile from "$/images/about/product_3_sm.webp";
 
 export const OurCompanyImages = {
-    Banner: { Desktop: BannerDesktop, Mobile: BannerMobile },
-    Team,
-    Products: {
-        DMSBG: { Desktop: DMSBGDesktop, Mobile: DMSBGMobile },
-        DPBX: { Desktop: DPBXDesktop, Mobile: DPBXMobile },
-        Softphone: { Desktop: SoftphoneDesktop, Mobile: SoftphoneMobile },
-    },
+  Banner: { Desktop: BannerDesktop, Mobile: BannerMobile },
+  Team,
+  Products: {
+    DMSBG: { Desktop: DMSBGDesktop, Mobile: DMSBGMobile },
+    DPBX: { Desktop: DPBXDesktop, Mobile: DPBXMobile },
+    Softphone: { Desktop: SoftphoneDesktop, Mobile: SoftphoneMobile },
+  },
 };

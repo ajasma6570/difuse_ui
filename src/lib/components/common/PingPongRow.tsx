@@ -6,12 +6,12 @@ import { useEffect, useRef, useState } from "react";
 
 export default function HeroPillsPingPong() {
   return (
-    <div className="relative rounded-xl overflow-hidden min-h-[310px]">
+    <div className="relative min-h-[310px] overflow-hidden rounded-xl">
       <Image
         src="/images/img1.webp"
         alt="Hero"
         fill
-        className="object-cover scale-125"
+        className="scale-125 object-cover"
         priority
       />
 
@@ -111,7 +111,7 @@ function PingPongRow({
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
-    <p className="bg-white/95 backdrop-blur p-1.5 px-3 rounded-md text-xl">
+    <p className="rounded-md bg-white/95 p-1.5 px-3 text-xl backdrop-blur">
       {children}
     </p>
   );
