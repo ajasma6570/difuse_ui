@@ -2,15 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Footer from "@/lib/components/common/Footer";
-import { NewPost, news } from "@/lib/static-data/newsroom";
 import HoverRevealButton from "@/lib/components/common/HoverRevealButton";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 import SearchIcon from "@iconify/icons-lucide/search";
 import { motion } from "motion/react";
 import PageTransition from "@/lib/components/common/PageTransition";
+import { BlogPost } from "@/interface/blog";
+import BlogCard from "../components/common/BlogCard";
+import BlogBannerCard from "../components/common/BlogBannerCard";
 
 const CATEGORIES = [
   "Latest",
@@ -19,28 +21,20 @@ const CATEGORIES = [
   "Company News",
 ] as const;
 
-export default function Newsroom() {
+export default function Newsroom({ blogs }: { blogs: BlogPost[] }) {
   const [active, setActive] = useState<"All" | (typeof CATEGORIES)[number]>(
     "All"
   );
+
   const [q, setQ] = useState("");
   const [limit, setLimit] = useState(9);
 
-  const posts = useMemo(() => {
-    const list = news.concat(
-      Array.from({ length: 12 }).map((_, i) => ({
-        ...news[i % news.length],
-        id: `g-${i}`,
-      }))
-    );
-    return list;
-  }, []);
+  const bannerPost = blogs.find((p) => p.isBanner) || blogs[0];
 
-  const bannerPost = posts.find((p) => p.isBanner) || posts[0];
-  const featured = posts.slice(1, 4);
+  const featured = blogs.filter((p) => p.id !== bannerPost.id).slice(0, 3);
 
-  const filtered = posts
-    .filter((p) => (active === "All" ? true : p.categories.includes(active)))
+  const filtered = blogs
+    .filter((p) => (active === "All" ? true : p.categories?.includes(active)))
     .filter((p) =>
       q.trim()
         ? (p.title + " " + p.description)
@@ -65,16 +59,16 @@ export default function Newsroom() {
             </p>
           </div>
           <section className="mt-12 gap-6 hidden lg:grid">
-            <HeroCard post={bannerPost} />
+            <BlogBannerCard key={bannerPost.slug} blog={bannerPost} />
           </section>
 
           <section className="mt-12 grid gap-6 lg:hidden">
-            <PostCard key={bannerPost.id} post={bannerPost} />
+            <BlogCard key={bannerPost.slug} blog={bannerPost} />
           </section>
 
           <section className="mt-2 grid grid-cols-1 lg:grid-cols-3 gap-2">
             {featured.map((p) => (
-              <PostCard key={p.id} post={p} compact />
+              <BlogCard key={p.slug} blog={p} />
             ))}
           </section>
 
@@ -156,106 +150,14 @@ export default function Newsroom() {
   );
 }
 
-function HeroCard({ post }: { post: NewPost }) {
+function PostCard({ post }: { post: BlogPost; compact?: boolean }) {
   return (
-    <article className="relative w-full overflow-hidden rounded-xl">
-      <div className="group relative h-[320px] lg:h-[700px] w-full">
-        <Image
-          src={post.image.src}
-          alt={post.title}
-          fill
-          quality={100}
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-          priority
-        />
-
-        <div className="absolute inset-0 p-5 sm:p-14 flex flex-col justify-between">
-          <div className="flex items-center gap-2 mb-3 ">
-            <button className="text-xl font-normal px-3 py-1 rounded-md bg-[#6C6FD2] text-white">
-              Latest
-            </button>
-            <button className="text-xl font-normal px-3 py-1 rounded-md bg-[#25276C] text-white">
-              Product Updates
-            </button>
-          </div>
-
-          <motion.div
-            initial="rest"
-            animate="rest"
-            whileHover="hover"
-            className="flex items-end"
-          >
-            <div className="w-8/12 space-y-4">
-              <div className="flex gap-8 items-center text-white text-sm">
-                <div className="inline-flex items-center gap-2">
-                  <Image
-                    src="/images/news/vector1.png"
-                    alt="calendar_icon"
-                    width={20}
-                    height={14}
-                    className="object-contain"
-                  />
-                  <span className="text-base">{post.date}</span>
-                </div>
-                <div className="inline-flex items-center gap-2">
-                  <Image
-                    src="/images/news/vector.png"
-                    alt="calendar_icon"
-                    width={16}
-                    height={16}
-                    className="object-contain"
-                  />
-                  <span className="text-base">{post.author}</span>
-                </div>
-              </div>
-
-              <h3 className="text-[#FBFBF9] text-xl sm:text-4xl font-normal leading-tight">
-                {post.title}
-              </h3>
-
-              <p className="mt-2 line-clamp-2 text-[#FBFBF9] text-lg">
-                {post.description}
-              </p>
-            </div>
-
-            <div className="mt-3 w-5/12 flex justify-end">
-              <HoverRevealButton
-                icon={<Icon icon={arrowRight} width={24} height={24} />}
-                text="Read"
-                className="hidden xl:flex items-center text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
-                variant="link"
-                href={`/newsroom/${post.slug}`}
-                parentControlled
-              />
-
-              <Link
-                href={`/newsroom/${post.slug}`}
-                className="flex gap-2 items-center xl:hidden text-[#1C1E55] bg-[#FBFBF9] hover:bg-[#E5E5E5] transition-colors p-5 rounded-lg text-xl tracking-[-0.05em] max-w-max"
-              >
-                <Icon
-                  icon={arrowRight}
-                  width={24}
-                  height={24}
-                  className="text-[#25276C]"
-                />
-                <span>Read</span>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </article>
-  );
-}
-
-function PostCard({ post }: { post: NewPost; compact?: boolean }) {
-  return (
-    <article className="relative overflow-hidden rounded-xl bg-gray-100 h-[400px]">
+    <article className="relative overflow-hidden rounded-xl bg-gray-100">
       <Link href={`/newsroom/${post.slug}`} className="block group">
         <div className={`relative h-[400px]`}>
           <div className="absolute inset-0 overflow-hidden">
             <Image
-              src={post.image.src}
+              src={post.image}
               alt={post.title}
               fill
               priority

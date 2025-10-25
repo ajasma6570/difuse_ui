@@ -2,6 +2,8 @@ import Newsroom from "@/lib/pages/Newsroom";
 import React from "react";
 import { icons, title } from "@/lib/utils/meta";
 import { Metadata } from "next";
+import getMarkDownData from "@/lib/utils/GetMarkDownData";
+import { BlogPost } from "@/interface/blog";
 
 const siteName = process.env.SITE_NAME;
 const siteUrl = process.env.SITE_URL;
@@ -53,6 +55,10 @@ export const metadata: Metadata = {
   },
 };
 
+const blogs: BlogPost[] = getMarkDownData("src/data/blogs").sort(
+  (a, b) => a.id - b.id
+);
+
 export default function page() {
-  return <Newsroom />;
+  return <Newsroom blogs={blogs} />;
 }

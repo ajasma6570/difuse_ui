@@ -8,6 +8,8 @@ import OnlineStore from "@/lib/components/home/OnlineStore";
 import DownloadsPromo from "@/lib/components/home/DownloadsPromo";
 import Testimonials from "@/lib/components/home/Testimonial";
 import NewsRoom from "@/lib/components/home/NewsRoom";
+import getMarkDownData from "@/lib/utils/GetMarkDownData";
+import { BlogPost } from "@/interface/blog";
 
 const siteName = process.env.SITE_NAME;
 const siteUrl = process.env.SITE_URL;
@@ -59,6 +61,10 @@ export const metadata: Metadata = {
   },
 };
 
+const blogs: BlogPost[] = getMarkDownData("src/data/blogs").sort(
+  (a, b) => b.id - a.id
+);
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -68,7 +74,7 @@ export default function Home() {
       <OnlineStore />
       <DownloadsPromo />
       <Testimonials />
-      <NewsRoom />
+      <NewsRoom blogs={blogs} />
     </div>
   );
 }

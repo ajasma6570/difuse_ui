@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/lib/components/common/Navbar";
 import SmoothScroll from "@/lib/components/common/SmoothScroll";
 import ScrollToTopButton from "@/lib/components/common/ScrollToTopButton";
+import { icons } from "@/lib/utils/meta";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
   title: "Difuse · Networks Simplified",
   description:
     "Experience streamlined connectivity and security at the edge with Difuse – Intuitive business gateways",
+  icons,
 };
 
 export default function RootLayout({
