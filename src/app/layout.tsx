@@ -14,6 +14,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.SITE_URL || "https://difuse-ui.vercel.app"),
   title: "Difuse · Networks Simplified",
   description:
     "Experience streamlined connectivity and security at the edge with Difuse – Intuitive business gateways",
