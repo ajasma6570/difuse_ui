@@ -1,6 +1,6 @@
 "use client";
 import { ReactLenis, useLenis } from "lenis/react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { ReactNode, useEffect } from "react";
 
 interface SmoothScrollingProps {
@@ -9,14 +9,14 @@ interface SmoothScrollingProps {
 
 const SmoothScrollProvider = ({ children }: Readonly<SmoothScrollingProps>) => {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-
   const lenis = useLenis();
 
+  // Reset scroll to top when pathname changes
   useEffect(() => {
     lenis?.scrollTo(0, { immediate: true });
-  }, [pathname, searchParams, lenis]);
+  }, [pathname, lenis]);
 
+  // Handle smooth scroll to anchor links
   useEffect(() => {
     if (!lenis) return;
 

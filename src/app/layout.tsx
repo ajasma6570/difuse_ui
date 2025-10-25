@@ -5,6 +5,7 @@ import Navbar from "@/lib/components/common/Navbar";
 import ScrollToTopButton from "@/lib/components/common/ScrollToTopButton";
 import { icons } from "@/utils/meta";
 import SmoothScrollProvider from "@/lib/components/common/SmoothScroll";
+import { Suspense } from "react";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -53,6 +54,13 @@ export default function RootLayout({
           <span className="hidden xl:block 2xl:hidden">xl</span>
           <span className="hidden 2xl:block">2xl</span>
         </div>{" "}
+        <Suspense fallback={null}>
+          <SmoothScrollProvider>
+            <Navbar />
+            {children}
+            <ScrollToTopButton />
+          </SmoothScrollProvider>
+        </Suspense>{" "}
         <SmoothScrollProvider>
           <Navbar />
           {children}
