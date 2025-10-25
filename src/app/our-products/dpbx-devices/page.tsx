@@ -1,6 +1,6 @@
 import React from "react";
 import DPBXDevices from "@/lib/pages/products/DPBXDevices";
-import { icons, title } from "@/lib/utils/meta";
+import { icons, title } from "@/utils/meta";
 import { Metadata } from "next";
 
 const siteName = process.env.SITE_NAME;

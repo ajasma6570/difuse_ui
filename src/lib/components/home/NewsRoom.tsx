@@ -9,8 +9,6 @@ import BlogCard from "../common/BlogCard";
 import { BlogPost } from "@/interface/blog";
 
 export default function NewsRoom({ blogs }: { blogs: BlogPost[] }) {
-  console.log(blogs);
-
   return (
     <section className="bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] pt-20 ">
       <div className="lg:max-w-[90rem] w-full mx-auto rounded-xl px-6 2xl:px-0">

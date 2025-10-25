@@ -1,5 +1,5 @@
 import React from "react";
-import { icons, title } from "@/lib/utils/meta";
+import { icons, title } from "@/utils/meta";
 import { Metadata } from "next";
 import Hero from "@/lib/components/home/Hero";
 import PlatformOverview from "@/lib/components/home/PlatformOverview";
@@ -8,7 +8,7 @@ import OnlineStore from "@/lib/components/home/OnlineStore";
 import DownloadsPromo from "@/lib/components/home/DownloadsPromo";
 import Testimonials from "@/lib/components/home/Testimonial";
 import NewsRoom from "@/lib/components/home/NewsRoom";
-import getMarkDownData from "@/lib/utils/GetMarkDownData";
+import getMarkDownData from "@/utils/GetMarkDownData";
 import { BlogPost } from "@/interface/blog";
 
 const siteName = process.env.SITE_NAME;

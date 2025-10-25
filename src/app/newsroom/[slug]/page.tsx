@@ -8,12 +8,12 @@ import arrowLeft from "@iconify/icons-lucide/arrow-left";
 import user from "@iconify/icons-lucide/user";
 import PageTransition from "@/lib/components/common/PageTransition";
 import ShareButtons from "@/lib/components/common/ShareButtons";
-import getMarkDownData from "@/lib/utils/GetMarkDownData";
-import getMarkDownContent from "@/lib/utils/GetMarkDownContent";
+import getMarkDownData from "@/utils/GetMarkDownData";
+import getMarkDownContent from "@/utils/GetMarkDownContent";
 import ReactMarkdown from "react-markdown";
 import rehypeSlug from "rehype-slug";
 import { BlogPost } from "@/interface/blog";
-import { icons } from "@/lib/utils/meta";
+import { icons } from "@/utils/meta";
 import { Metadata } from "next";
 
 const siteName = process.env.SITE_NAME;

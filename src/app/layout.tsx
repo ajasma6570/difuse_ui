@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/lib/components/common/Navbar";
 import SmoothScroll from "@/lib/components/common/SmoothScroll";
 import ScrollToTopButton from "@/lib/components/common/ScrollToTopButton";
-import { icons } from "@/lib/utils/meta";
+import { icons } from "@/utils/meta";
 
 const poppins = Poppins({
   subsets: ["latin"],

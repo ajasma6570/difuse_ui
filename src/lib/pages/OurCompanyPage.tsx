@@ -8,12 +8,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
-import {
-  ourValues,
-  products,
-  rightFeatures,
-} from "@/lib/static-data/ourCompany";
-import type { FeatureCard } from "@/lib/static-data/ourCompany";
+import { ourValues, products, rightFeatures } from "@/data/ourCompany";
+import type { FeatureCard } from "@/data/ourCompany";
 import PageTransition from "@/lib/components/common/PageTransition";
 
 export default function OurCompanyPage() {

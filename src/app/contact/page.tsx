@@ -1,6 +1,6 @@
 import React from "react";
 import Contact from "@/lib/pages/Contact";
-import { icons, title } from "@/lib/utils/meta";
+import { icons, title } from "@/utils/meta";
 import { Metadata } from "next";
 
 const siteName = process.env.SITE_NAME;

@@ -1,6 +1,6 @@
 import React from "react";
 import Downloads from "@/lib/pages/resources/downloads";
-import { icons, title } from "@/lib/utils/meta";
+import { icons, title } from "@/utils/meta";
 import { Metadata } from "next";
 
 const siteName = process.env.SITE_NAME;

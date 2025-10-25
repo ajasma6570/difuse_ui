@@ -2,7 +2,7 @@ import AnimatedSlideButton from "@/lib/components/common/AnimatedSlideButton";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 import Footer from "@/lib/components/common/Footer";
-import { icons, title } from "@/lib/utils/meta";
+import { icons, title } from "@/utils/meta";
 import { Metadata } from "next";
 
 const siteName = process.env.SITE_NAME;
