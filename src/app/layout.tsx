@@ -25,6 +25,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/intro.webp"
+          type="image/webp"
+          fetchPriority="high"
+        ></link>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/intro_mobile.webp"
+          type="image/webp"
+          fetchPriority="high"
+        ></link>
+      </head>
       <body className={`${poppins.variable} antialiased font-poppins`}>
         <div className="md:bg-yellow-200 fixed left-0 top-20 z-[100] flex w-[30px] items-center justify-center bg-gray-200 py-[2.5px] text-[12px] uppercase text-black sm:bg-red-200 lg:bg-green-200 xl:bg-blue-200 2xl:bg-pink-200">
           <span className="block sm:hidden">all</span>
