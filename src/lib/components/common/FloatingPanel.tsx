@@ -16,7 +16,7 @@ export default function ExpandablePanel() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label={isOpen ? "Collapse panel" : "Expand panel"}
-        className="absolute -top-4 right-4 z-30 flex min-h-[44px] min-w-[44px] cursor-pointer items-center justify-center rounded-full bg-white p-3 text-black shadow-lg"
+        className="absolute -top-3 right-4 z-30 flex min-h-[30px] min-w-[30px] cursor-pointer items-center justify-center rounded-full bg-white text-black shadow-lg md:-top-4 md:min-h-[40px] md:min-w-[40px]"
       >
         {isOpen ? (
           <Icon icon={minus} width={24} height={24} />
