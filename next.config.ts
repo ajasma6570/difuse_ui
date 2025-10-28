@@ -1,21 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  distDir: 'build',
-  output: 'export',
+  distDir: "build",
+  output: "export",
   images: {
     unoptimized: true,
   },
-  webpack: (
-    config,
-    { dev }
-  ) => {
+  webpack: (config, { dev }) => {
     if (config.cache && !dev) {
       config.cache = Object.freeze({
-        type: 'memory',
-      })
+        type: "memory",
+      });
     }
-    return config
+    return config;
   },
 };
 
