@@ -89,7 +89,7 @@ export default function Footer({
                   </p>
                   <AnimatedSlideButton
                     icon={<Icon icon={arrowRight} width={30} height={30} />}
-                    text="Learn more"
+                    text="Learn about Partnership"
                     className="inline-flex items-center gap-2 rounded-lg border border-[#FBFBF9] p-4 text-lg font-medium text-[#FBFBF9] transition-colors hover:bg-[#FBFBF9] hover:text-[#25276C] lg:text-xl"
                     variant="link"
                     href="/become-a-partner"

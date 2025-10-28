@@ -282,7 +282,7 @@ export default function Contact() {
                 </p>{" "}
                 <AnimatedSlideButton
                   icon={<Icon icon={arrowRight} width={24} height={24} />}
-                  text="Learn more"
+                  text="Learn about Partnership"
                   className="inline-flex rounded-lg border border-[#1C1E55] px-[18px] py-4 text-xl leading-7 font-normal tracking-[-0.05em] text-[#1C1E55] hover:bg-[#1C1E55] hover:text-white"
                   variant="link"
                   href="/become-a-partner"
