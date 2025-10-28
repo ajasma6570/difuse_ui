@@ -86,8 +86,11 @@ export default function Downloads() {
                         {item.version}
                       </td>
                       <td className="px-6 py-2 text-center">
-                        <button className="flex h-8 w-8 items-center justify-center rounded-full text-[#25276C] transition-colors">
-                          <Icon icon={download} width={28} height={28} />
+                        <button
+                          className="flex h-11 w-11 items-center justify-center rounded-full text-[#25276C] transition-colors hover:bg-[#25276C] hover:text-white focus:ring-2 focus:ring-[#25276C] focus:ring-offset-2 focus:outline-none"
+                          aria-label={`Download ${item.type} for ${item.device} version ${item.version}`}
+                        >
+                          <Icon icon={download} width={24} height={24} />
                         </button>
                       </td>
                     </tr>
@@ -104,18 +107,24 @@ export default function Downloads() {
                 <button
                   onClick={() => handlePageChange(1)}
                   disabled={currentPage === 1}
-                  className="cursor-pointer rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#9E9E9E] disabled:cursor-not-allowed disabled:opacity-50"
+                  className="min-h-[44px] cursor-pointer rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#9E9E9E] disabled:cursor-not-allowed disabled:opacity-50"
+                  aria-label="Go to first page"
                 >
                   First
                 </button>
                 <button
                   onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
                   disabled={currentPage === 1}
-                  className="cursor-pointer rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#9E9E9E] disabled:cursor-not-allowed disabled:opacity-50"
+                  className="min-h-[44px] cursor-pointer rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#9E9E9E] disabled:cursor-not-allowed disabled:opacity-50"
+                  aria-label="Go to previous page"
                 >
                   Prev
                 </button>
-                <span className="rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#25276C]">
+                <span
+                  className="flex min-h-[44px] items-center rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#25276C]"
+                  aria-current="page"
+                  aria-label={`Current page ${currentPage} of ${totalPages}`}
+                >
                   {currentPage}
                 </span>
                 <button
@@ -123,14 +132,16 @@ export default function Downloads() {
                     handlePageChange(Math.min(totalPages, currentPage + 1))
                   }
                   disabled={currentPage === totalPages}
-                  className="cursor-pointer rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#9E9E9E] disabled:cursor-not-allowed disabled:opacity-50"
+                  className="min-h-[44px] cursor-pointer rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#9E9E9E] disabled:cursor-not-allowed disabled:opacity-50"
+                  aria-label="Go to next page"
                 >
                   Next
                 </button>
                 <button
                   onClick={() => handlePageChange(totalPages)}
                   disabled={currentPage === totalPages}
-                  className="cursor-pointer rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#9E9E9E] disabled:cursor-not-allowed disabled:opacity-50"
+                  className="min-h-[44px] cursor-pointer rounded-lg border border-[#D9D9D9] px-3 py-1 text-lg text-[#9E9E9E] disabled:cursor-not-allowed disabled:opacity-50"
+                  aria-label="Go to last page"
                 >
                   Last
                 </button>

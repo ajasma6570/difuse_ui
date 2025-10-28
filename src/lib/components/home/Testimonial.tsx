@@ -166,6 +166,7 @@ export default function Testimonials() {
                   : "group border border-[#999999] transition-colors duration-300 hover:border-[#25276C] hover:bg-[#25276C]"
               }`}
             >
+              <span className="sr-only">Previous</span>
               <Icon
                 icon={arrowLeft}
                 width={30}
@@ -183,6 +184,7 @@ export default function Testimonials() {
                   : "group border border-[#999999] transition-colors duration-300 hover:border-[#25276C] hover:bg-[#25276C]"
               }`}
             >
+              <span className="sr-only">Next</span>
               <Icon
                 icon={arrowRight}
                 width={30}

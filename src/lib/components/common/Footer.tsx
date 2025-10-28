@@ -217,7 +217,11 @@ export default function Footer({
         <div className="flex flex-col items-center justify-between border-t border-[#FBFBF9]/20 py-5 md:flex-row">
           <div className="flex items-center gap-4 text-[#6C6FD2]">
             <span className="text-lg text-[#FBFBF9]">Follow us on:</span>
-            <Link href="https://www.facebook.com/DifuseHQ" target="_blank">
+            <Link
+              href="https://www.facebook.com/DifuseHQ"
+              target="_blank"
+              aria-label="Follow Difuse on Facebook"
+            >
               <Icon
                 icon={facebookIcon}
                 width={30}
@@ -225,7 +229,11 @@ export default function Footer({
                 className="cursor-pointer hover:text-white"
               />
             </Link>
-            <Link href="https://x.com/DifuseHQ" target="_blank">
+            <Link
+              href="https://x.com/DifuseHQ"
+              target="_blank"
+              aria-label="Follow Difuse on Twitter/X"
+            >
               <Icon
                 icon={twitterIcon}
                 width={30}
@@ -236,6 +244,7 @@ export default function Footer({
             <Link
               href="https://www.linkedin.com/company/iridiasolutions/about/"
               target="_blank"
+              aria-label="Follow Difuse on LinkedIn"
             >
               <Icon
                 icon={linkedinIcon}

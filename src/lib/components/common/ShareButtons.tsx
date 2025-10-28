@@ -39,18 +39,21 @@ export default function ShareButtons({ url, title }: Props) {
       <button
         className="cursor-pointer hover:text-[#25276C]"
         onClick={() => handleShare("facebook")}
+        aria-label={`Share "${title}" on Facebook`}
       >
         <Icon icon={facebookIcon} width={28} height={28} />
       </button>
       <button
         className="cursor-pointer hover:text-[#25276C]"
         onClick={() => handleShare("twitter")}
+        aria-label={`Share "${title}" on Twitter/X`}
       >
         <Icon icon={twitterIcon} width={28} height={28} />
       </button>
       <button
         className="cursor-pointer hover:text-[#25276C]"
         onClick={() => handleShare("linkedin")}
+        aria-label={`Share "${title}" on LinkedIn`}
       >
         <Icon icon={linkedinIcon} width={28} height={28} />
       </button>

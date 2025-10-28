@@ -12,6 +12,7 @@ import arrowRight from "@iconify/icons-lucide/arrow-right";
 const FLEX_GROW_DURATION = 600;
 const CARD_HEIGHT_COLLAPSED = 120;
 const CARD_HEIGHT_EXPANDED = 360;
+const MotionLink = motion(Link);
 
 export default function ProductsOverview() {
   const [expandedCardId, setExpandedCardId] = useState<number | null>(1);
@@ -392,8 +393,9 @@ export default function ProductsOverview() {
                       </Link>
                     </motion.button>
                   ) : (
-                    <motion.button
+                    <MotionLink
                       key="icon-btn"
+                      href={card.href}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{
@@ -401,17 +403,16 @@ export default function ProductsOverview() {
                         delay: 0.3,
                         ease: "easeInOut",
                       }}
-                      className="cursor-pointer rounded-md bg-white p-3"
+                      className="inline-flex cursor-pointer items-center justify-center rounded-md bg-white p-3"
+                      aria-label={`Learn more about ${card.title}`}
                     >
-                      <Link href={card.href}>
-                        <Icon
-                          icon={arrowRight}
-                          width={28}
-                          height={28}
-                          className="text-[#1C1E55]"
-                        />
-                      </Link>
-                    </motion.button>
+                      <Icon
+                        icon={arrowRight}
+                        width={28}
+                        height={28}
+                        className="text-[#1C1E55]"
+                      />
+                    </MotionLink>
                   )}
                 </AnimatePresence>
               </div>
@@ -441,10 +442,17 @@ export default function ProductsOverview() {
               <Link href="/newsroom" className="font-bold text-[#FBFBF9]">
                 Newsroom
               </Link>
-              , <br /> or subscribe to our{" "}
-              <Link href="#" className="font-bold text-[#FBFBF9]">
-                Newsletter
-              </Link>
+              , <br /> or{" "}
+              <button
+                onClick={() => {
+                  // TODO: Implement newsletter subscription
+                  alert("Newsletter subscription coming soon!");
+                }}
+                className="cursor-pointer border-none bg-transparent p-0 font-bold text-[#FBFBF9] underline hover:text-white"
+                aria-label="Subscribe to newsletter (coming soon)"
+              >
+                subscribe to our Newsletter
+              </button>
               .
             </p>
           </div>

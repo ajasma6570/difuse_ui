@@ -220,6 +220,7 @@ export default function OnlineStore() {
             onClick={handleLeft}
             className="group hidden cursor-pointer rounded-lg border border-[#999999] p-4 transition-colors duration-300 hover:border-[#25276C] hover:bg-[#25276C] lg:block"
           >
+            <span className="sr-only">Previous</span>
             <Icon
               icon={arrowLeft}
               width={30}
@@ -231,6 +232,7 @@ export default function OnlineStore() {
             onClick={handleRight}
             className="group hidden cursor-pointer rounded-lg border border-[#999999] p-4 transition-colors duration-300 hover:border-[#25276C] hover:bg-[#25276C] lg:block"
           >
+            <span className="sr-only">Next</span>
             <Icon
               icon={arrowRight}
               width={30}

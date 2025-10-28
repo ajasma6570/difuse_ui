@@ -208,6 +208,7 @@ export default function Contact() {
                   <Link
                     href="https://www.facebook.com/DifuseHQ"
                     target="_blank"
+                    aria-label="Follow Difuse on Facebook"
                   >
                     <Icon
                       icon={facebookIcon}
@@ -216,7 +217,11 @@ export default function Contact() {
                       className="cursor-pointer hover:text-[#1C1E55]"
                     />
                   </Link>
-                  <Link href="https://x.com/DifuseHQ" target="_blank">
+                  <Link
+                    href="https://x.com/DifuseHQ"
+                    target="_blank"
+                    aria-label="Follow Difuse on Twitter/X"
+                  >
                     <Icon
                       icon={twitterIcon}
                       width={30}
@@ -227,6 +232,7 @@ export default function Contact() {
                   <Link
                     href="https://www.linkedin.com/company/iridiasolutions/about/"
                     target="_blank"
+                    aria-label="Follow Difuse on LinkedIn"
                   >
                     <Icon
                       icon={linkedinIcon}
