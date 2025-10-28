@@ -26,7 +26,6 @@ interface NavRoute {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [stickyMenu, setStickyMenu] = useState(false);
   const pathname = usePathname();
   const navbarRef = useRef<HTMLDivElement | null>(null);
   const container = useRef<HTMLDivElement | null>(null);
@@ -78,25 +77,25 @@ export default function Navbar() {
     return parent?.title ?? null;
   }, [pathname, routes]);
 
-  const handleStickyMenu = useCallback(() => {
-    setStickyMenu(window.scrollY >= 80);
-  }, []);
-
   useEffect(() => {
     if (open) {
+      // Get scrollbar width before hiding it
+      const scrollbarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
+
+      // Apply overflow hidden and maintain scrollbar space
       document.documentElement.style.overflow = "hidden";
+      document.documentElement.style.paddingRight = `${scrollbarWidth}px`;
     } else {
+      // Reset styles
       document.documentElement.style.overflow = "";
+      document.documentElement.style.paddingRight = "";
     }
     return () => {
       document.documentElement.style.overflow = "";
+      document.documentElement.style.paddingRight = "";
     };
   }, [open]);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleStickyMenu);
-    return () => window.removeEventListener("scroll", handleStickyMenu);
-  }, [handleStickyMenu]);
 
   //outside click the container close the menu
   const handleClickOutside = useCallback((event: MouseEvent) => {
@@ -118,18 +117,8 @@ export default function Navbar() {
   }, [open, handleClickOutside]);
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 right-0 left-0 z-50 px-6",
-        stickyMenu ? "backdrop-blur-sm" : ""
-      )}
-    >
-      <nav
-        className={cn(
-          "max-w-10xl mx-auto flex w-full transform items-center justify-between py-3 transition-all duration-300",
-          stickyMenu ? "lg:py-4" : "lg:py-6"
-        )}
-      >
+    <header className="absolute top-0 right-0 left-0 z-50 px-6">
+      <nav className="max-w-10xl mx-auto flex w-full transform items-center justify-between py-6 transition-all duration-300">
         {/* Top bar */}
         <div className="max-w-10xl z-50 mx-auto flex w-full items-center justify-between">
           <Link href="/" aria-label="Home">
