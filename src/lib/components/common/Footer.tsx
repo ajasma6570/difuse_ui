@@ -57,10 +57,6 @@ export default function Footer({
       url: "/resources/downloads",
     },
     {
-      name: "Forum",
-      url: "/resources/forum",
-    },
-    {
       name: "Documentation",
       url: "/resources/documentation",
     },

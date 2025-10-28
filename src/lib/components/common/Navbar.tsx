@@ -51,7 +51,6 @@ export default function Navbar() {
         title: "Resources",
         url: "/resources",
         children: [
-          { title: "Forum", url: "/resources/forum" },
           { title: "Downloads", url: "/resources/downloads" },
           { title: "Documentation", url: "/resources/documentation" },
           { title: "Warranty Portal", url: "/resources/warranty-portal" },
