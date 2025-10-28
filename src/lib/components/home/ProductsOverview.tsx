@@ -442,16 +442,16 @@ export default function ProductsOverview() {
               <Link href="/newsroom" className="font-bold text-[#FBFBF9]">
                 Newsroom
               </Link>
-              , <br /> or{" "}
+              , <br /> or subscribe to our{" "}
               <button
                 onClick={() => {
                   // TODO: Implement newsletter subscription
                   alert("Newsletter subscription coming soon!");
                 }}
-                className="cursor-pointer border-none bg-transparent p-0 font-bold text-[#FBFBF9] underline hover:text-white"
+                className="cursor-pointer border-none bg-transparent p-0 font-bold text-[#FBFBF9] hover:text-white"
                 aria-label="Subscribe to newsletter (coming soon)"
               >
-                subscribe to our Newsletter
+                Newsletter
               </button>
               .
             </p>
