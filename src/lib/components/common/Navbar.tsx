@@ -14,7 +14,6 @@ import { MdMenuOpen } from "react-icons/md";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 import { LuArrowLeft } from "react-icons/lu";
 import { motion } from "motion/react";
-import { cn } from "@/utils/tailwindmerge";
 
 interface NavRoute {
   title: string;
