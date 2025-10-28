@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://difuse.io
+
+# Sitemaps
+Sitemap: https://difuse.io/sitemap.xml
