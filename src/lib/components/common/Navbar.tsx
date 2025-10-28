@@ -28,6 +28,7 @@ export default function Navbar() {
   const [stickyMenu, setStickyMenu] = useState(false);
   const pathname = usePathname();
   const navbarRef = useRef<HTMLDivElement | null>(null);
+  const container = useRef<HTMLDivElement | null>(null);
 
   const routes: NavRoute[] = useMemo(
     () => [
@@ -92,6 +93,25 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleStickyMenu);
   }, [handleStickyMenu]);
 
+  //outside click the container close the menu
+  const handleClickOutside = useCallback((event: MouseEvent) => {
+    if (
+      container.current &&
+      !container.current.contains(event.target as Node)
+    ) {
+      setOpen(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }
+  }, [open, handleClickOutside]);
+
   return (
     <header
       className={cn(
@@ -137,6 +157,7 @@ export default function Navbar() {
 
         {/* Drawer */}
         <div
+          ref={container}
           className={`fixed top-0 right-0 z-50 flex h-screen w-full transform flex-col space-y-8 overflow-y-auto bg-[#1C1E55] px-12 pt-6 shadow-lg transition-transform duration-300 sm:w-3/4 md:w-1/2 md:overflow-visible 2xl:w-4/12 ${
             open ? "translate-x-0" : "translate-x-full"
           }`}

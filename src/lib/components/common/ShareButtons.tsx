@@ -36,13 +36,22 @@ export default function ShareButtons({ url, title }: Props) {
 
   return (
     <div className="flex items-center gap-3">
-      <button onClick={() => handleShare("facebook")}>
+      <button
+        className="cursor-pointer hover:text-[#25276C]"
+        onClick={() => handleShare("facebook")}
+      >
         <Icon icon={facebookIcon} width={28} height={28} />
       </button>
-      <button onClick={() => handleShare("twitter")}>
+      <button
+        className="cursor-pointer hover:text-[#25276C]"
+        onClick={() => handleShare("twitter")}
+      >
         <Icon icon={twitterIcon} width={28} height={28} />
       </button>
-      <button onClick={() => handleShare("linkedin")}>
+      <button
+        className="cursor-pointer hover:text-[#25276C]"
+        onClick={() => handleShare("linkedin")}
+      >
         <Icon icon={linkedinIcon} width={28} height={28} />
       </button>
     </div>

@@ -143,6 +143,8 @@ export default function DownloadsPromo() {
           icon={<Icon icon={arrowRight} width={30} height={30} />}
           text="Go to Downloads"
           className="inline-flex items-center gap-2 rounded-lg border border-[#FBFBF9] p-4 text-lg font-medium text-[#FBFBF9] transition-colors hover:bg-[#FBFBF9] hover:text-[#25276C] lg:text-xl"
+          variant="link"
+          href="/resources/downloads"
         />
 
         <ul

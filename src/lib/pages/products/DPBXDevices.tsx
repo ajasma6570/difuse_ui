@@ -70,7 +70,7 @@ const products = [
     moreDesc:
       "Designed to replace cluttered legacy setups, it’s your go-to platform for secure, modular, and self-hosted connectivity, whether you're running a small business, a growing branch office, or a privacy-first home lab.",
     store: "/#",
-    enquire: "/#",
+    enquire: "/contact",
   },
 ];
 
@@ -132,8 +132,7 @@ export default function DPBXDevices() {
                   icon={<Icon icon={bag4Linear} width={24} height={24} />}
                   text="Explore Online Store"
                   className="inline-flex items-center gap-2 rounded-lg border border-[#25276C] px-6 py-4 text-lg font-medium text-[#25276C] transition-colors hover:bg-[#25276C] hover:text-[#FBFBF9] lg:text-xl"
-                  variant="link"
-                  href="/online-store"
+                  onClick={() => alert("Online Store is coming soon! 🚀")}
                 />
               </div>
             </div>
@@ -189,8 +188,7 @@ export default function DPBXDevices() {
                           }
                           text="Explore Online Store"
                           className="inline-flex items-center gap-2 rounded-lg border border-[#FBFBF9] px-6 py-4 text-lg font-medium whitespace-nowrap text-[#FBFBF9] transition-colors hover:bg-[#FBFBF9] hover:text-[#25276C]"
-                          variant="link"
-                          href={p.store}
+                          onClick={() => alert("Online Store is coming soon!")}
                         />
                         <AnimatedSlideButton
                           icon={
@@ -292,8 +290,7 @@ export default function DPBXDevices() {
                       icon={<Icon icon={bag4Linear} width={24} height={24} />}
                       text="Explore Online Store"
                       className="inline-flex max-w-max rounded-lg border border-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#FBFBF9] hover:bg-[#FBFBF9] hover:text-[#25276C]"
-                      variant="link"
-                      href="/online-store"
+                      onClick={() => alert("Online Store is coming soon!")}
                     />
                     <AnimatedSlideButton
                       icon={<Icon icon={arrowRight} width={24} height={24} />}

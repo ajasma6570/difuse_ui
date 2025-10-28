@@ -8,7 +8,9 @@ export default function UnderConstruction() {
   return (
     <main>
       <div className="flex h-screen flex-col items-center justify-center bg-gray-50 text-center">
-        <h1 className="mb-4 text-5xl font-bold">🚧 Under Construction 🚧</h1>
+        <h1 className="mb-4 text-5xl font-bold">
+          We’re Building Something New
+        </h1>
         <p className="mb-4 text-lg text-gray-600">
           This section of the site is coming soon. Stay tuned!
         </p>{" "}

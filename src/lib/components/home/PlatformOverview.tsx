@@ -48,7 +48,7 @@ export default function PlatformOverview() {
                 text="Learn about company"
                 className="max-w-max items-center gap-2 rounded-lg bg-[#1C1E55] p-5 text-xl tracking-[-0.05em] text-white transition-colors hover:bg-[#151347] md:inline-flex"
                 variant="link"
-                href="/about"
+                href="/our-company"
               />
             </div>
           </div>

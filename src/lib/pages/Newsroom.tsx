@@ -8,7 +8,7 @@ import HoverRevealButton from "@/lib/components/common/HoverRevealButton";
 import { Icon } from "@iconify/react/dist/offline";
 import arrowRight from "@iconify/icons-lucide/arrow-right";
 import SearchIcon from "@iconify/icons-lucide/search";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import PageTransition from "@/lib/components/common/PageTransition";
 import { BlogPost } from "@/interface/blog";
 import BlogCard from "../components/common/BlogCard";
@@ -81,7 +81,7 @@ export default function Newsroom({ blogs }: { blogs: BlogPost[] }) {
               <div className="order-2 flex flex-wrap items-center gap-2 xl:order-1">
                 <button
                   onClick={() => setActive("All")}
-                  className={`rounded-md border px-5 py-2.5 text-lg lg:px-10 ${
+                  className={`cursor-pointer rounded-md border px-5 py-2.5 text-lg lg:px-10 ${
                     active === "All"
                       ? "border-[#25276C] bg-[#25276C] text-[#FBFBF9]"
                       : "border-[#BEBEBE] text-[#080808] hover:bg-gray-100"
@@ -93,7 +93,7 @@ export default function Newsroom({ blogs }: { blogs: BlogPost[] }) {
                   <button
                     key={c}
                     onClick={() => setActive(c)}
-                    className={`rounded-md border px-5 py-2.5 text-lg lg:px-10 ${
+                    className={`cursor-pointer rounded-md border px-5 py-2.5 text-lg lg:px-10 ${
                       active === c
                         ? "border-[#25276C] bg-[#25276C] text-[#FBFBF9]"
                         : "border-[#BEBEBE] text-[#080808] hover:bg-gray-100"
@@ -118,11 +118,20 @@ export default function Newsroom({ blogs }: { blogs: BlogPost[] }) {
             </div>
           </section>
 
-          <section className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.slice(0, limit).map((p) => (
-              <PostCard key={p.id} post={p} />
-            ))}
-          </section>
+          <AnimatePresence mode="wait">
+            <motion.section
+              key={active + q + limit}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -24 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {filtered.slice(0, limit).map((p) => (
+                <PostCard key={p.id} post={p} />
+              ))}
+            </motion.section>
+          </AnimatePresence>
 
           {limit < filtered.length && (
             <div className="mt-20 flex justify-center">
