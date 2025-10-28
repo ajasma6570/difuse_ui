@@ -49,13 +49,13 @@ export default function Hero() {
                   </p>
 
                   <div className="mt-10 flex flex-col gap-4 lg:flex-row">
-                    <AnimatedSlideButton
+                    {/* <AnimatedSlideButton
                       icon={<Icon icon={bag4Linear} width={24} height={24} />}
                       text="Online Store"
                       className="inline-flex max-w-max rounded-lg bg-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#1C1E55] hover:bg-[#1C1E55] hover:text-white"
                       variant="link"
                       href="/online-store"
-                    />
+                    /> */}
                     <AnimatedSlideButton
                       icon={<Icon icon={arrowRight} width={24} height={24} />}
                       text="Become a Partner"

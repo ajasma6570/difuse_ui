@@ -42,7 +42,7 @@ export default function Navbar() {
           { title: "Softphone", url: "/our-products/softphone" },
         ],
       },
-      { title: "Online Store", url: "/online-store" },
+      // { title: "Online Store", url: "/online-store" },
       { title: "Newsroom", url: "/newsroom" },
       { title: "Become a Partner", url: "/become-a-partner" },
       { title: "Careers", url: "/careers" },

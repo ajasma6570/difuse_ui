@@ -202,14 +202,14 @@ export default function DMSBGDevices() {
                       <p className="text-md mt-3 xl:text-lg">{p.desc}</p>
                       <p className="text-md mt-3 xl:text-lg">{p.moreDesc}</p>
                       <div className="mt-4 flex flex-wrap gap-2">
-                        <AnimatedSlideButton
+                        {/* <AnimatedSlideButton
                           icon={
                             <Icon icon={bag4Linear} width={24} height={24} />
                           }
                           text="Explore Online Store"
                           className="inline-flex max-w-max rounded-lg border border-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#FBFBF9] hover:bg-[#FBFBF9] hover:text-[#25276C]"
                           onClick={() => alert("Online Store is coming soon!")}
-                        />
+                        /> */}
                         <AnimatedSlideButton
                           icon={
                             <Icon icon={arrowRight} width={24} height={24} />
@@ -306,12 +306,12 @@ export default function DMSBGDevices() {
                   </p>
 
                   <div className="flex flex-col gap-3 sm:flex-row">
-                    <AnimatedSlideButton
+                    {/* <AnimatedSlideButton
                       icon={<Icon icon={bag4Linear} width={24} height={24} />}
                       text="Explore Online Store"
                       className="inline-flex max-w-max rounded-lg border border-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#FBFBF9] hover:bg-[#FBFBF9] hover:text-[#25276C]"
                       onClick={() => alert("Online Store is coming soon!")}
-                    />
+                    /> */}
                     <AnimatedSlideButton
                       icon={<Icon icon={arrowRight} width={24} height={24} />}
                       text="Contact Us"

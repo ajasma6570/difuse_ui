@@ -21,10 +21,10 @@ export default function Footer({
       name: "Our Company",
       url: "/our-company",
     },
-    {
-      name: "Online Store",
-      url: "/online-store",
-    },
+    // {
+    //   name: "Online Store",
+    //   url: "/online-store",
+    // },
     {
       name: "Become a Partner",
       url: "/become-a-partner",
@@ -104,13 +104,13 @@ export default function Footer({
                   Purchase directly from our online store and take full control
                   of your infrastructure.
                 </p>
-                <AnimatedSlideButton
+                {/* <AnimatedSlideButton
                   icon={<Icon icon={arrowRight} width={30} height={30} />}
                   text="Explore Online Store"
                   className="inline-flex items-center gap-2 rounded-lg border border-[#FBFBF9] p-4 text-lg font-medium text-[#FBFBF9] transition-colors hover:bg-[#FBFBF9] hover:text-[#25276C] lg:text-xl"
                   variant="link"
                   href="/online-store"
-                />
+                /> */}
               </div>
             )}
           </div>

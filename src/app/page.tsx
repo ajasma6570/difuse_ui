@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import Hero from "@/lib/components/home/Hero";
 import PlatformOverview from "@/lib/components/home/PlatformOverview";
 import ProductsOverview from "@/lib/components/home/ProductsOverview";
-import OnlineStore from "@/lib/components/home/OnlineStore";
+// import OnlineStore from "@/lib/components/home/OnlineStore";
 import DownloadsPromo from "@/lib/components/home/DownloadsPromo";
 import Testimonials from "@/lib/components/home/Testimonial";
 import NewsRoom from "@/lib/components/home/NewsRoom";
@@ -71,7 +71,7 @@ export default function Home() {
       <Hero />
       <PlatformOverview />
       <ProductsOverview />
-      <OnlineStore />
+      {/* <OnlineStore /> */}
       <DownloadsPromo />
       <Testimonials />
       <NewsRoom blogs={blogs} />

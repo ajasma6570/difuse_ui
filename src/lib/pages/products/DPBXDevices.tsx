@@ -128,12 +128,12 @@ export default function DPBXDevices() {
                   variant="link"
                   href="/contact Us"
                 />
-                <AnimatedSlideButton
+                {/* <AnimatedSlideButton
                   icon={<Icon icon={bag4Linear} width={24} height={24} />}
                   text="Explore Online Store"
                   className="inline-flex items-center gap-2 rounded-lg border border-[#25276C] px-6 py-4 text-lg font-medium text-[#25276C] transition-colors hover:bg-[#25276C] hover:text-[#FBFBF9] lg:text-xl"
                   onClick={() => alert("Online Store is coming soon! 🚀")}
-                />
+                /> */}
               </div>
             </div>
           </div>
@@ -182,14 +182,14 @@ export default function DPBXDevices() {
                       <p className="text-md mt-3 xl:text-lg">{p.desc}</p>
                       <p className="text-md mt-3 xl:text-lg">{p.moreDesc}</p>
                       <div className="mt-4 flex flex-wrap gap-2">
-                        <AnimatedSlideButton
+                        {/* <AnimatedSlideButton
                           icon={
                             <Icon icon={bag4Linear} width={24} height={24} />
                           }
                           text="Explore Online Store"
                           className="inline-flex items-center gap-2 rounded-lg border border-[#FBFBF9] px-6 py-4 text-lg font-medium whitespace-nowrap text-[#FBFBF9] transition-colors hover:bg-[#FBFBF9] hover:text-[#25276C]"
                           onClick={() => alert("Online Store is coming soon!")}
-                        />
+                        /> */}
                         <AnimatedSlideButton
                           icon={
                             <Icon icon={arrowRight} width={24} height={24} />
@@ -286,12 +286,12 @@ export default function DPBXDevices() {
                   </p>
 
                   <div className="flex flex-col gap-3 sm:flex-row">
-                    <AnimatedSlideButton
+                    {/* <AnimatedSlideButton
                       icon={<Icon icon={bag4Linear} width={24} height={24} />}
                       text="Explore Online Store"
                       className="inline-flex max-w-max rounded-lg border border-[#FBFBF9] p-5 text-xl tracking-[-0.05em] text-[#FBFBF9] hover:bg-[#FBFBF9] hover:text-[#25276C]"
                       onClick={() => alert("Online Store is coming soon!")}
-                    />
+                    /> */}
                     <AnimatedSlideButton
                       icon={<Icon icon={arrowRight} width={24} height={24} />}
                       text="Contact Us"
