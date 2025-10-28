@@ -18,8 +18,9 @@ import { cn } from "@/utils/tailwindmerge";
 
 interface NavRoute {
   title: string;
-  url: string;
-  children?: { title: string; url: string }[];
+  url?: string;
+  href?: string;
+  children?: { title: string; url?: string; href?: string }[];
 }
 
 export default function Navbar() {
@@ -52,7 +53,7 @@ export default function Navbar() {
         url: "/resources",
         children: [
           { title: "Downloads", url: "/resources/downloads" },
-          { title: "Documentation", url: "/resources/documentation" },
+          { title: "Documentation", href: "https://docs.difuse.io/dmsbg-100/" },
           { title: "Warranty Portal", url: "/resources/warranty-portal" },
         ],
       },
@@ -67,7 +68,12 @@ export default function Navbar() {
 
   const activeParent = useMemo(() => {
     const parent = routes.find(
-      (r) => r.children && r.children.some((child) => child.url === pathname)
+      (r) =>
+        r.children &&
+        r.children.some((child) => {
+          const childUrl = child.href ?? child.url;
+          return childUrl === pathname;
+        })
     );
     return parent?.title ?? null;
   }, [pathname, routes]);
@@ -177,10 +183,14 @@ export default function Navbar() {
             className="flex flex-1 flex-col space-y-4 pb-10 text-right text-white"
           >
             {routes.map((route) => {
+              const routeUrl = route.href ?? route.url;
               const isParentActive =
-                pathname === route.url ||
+                pathname === routeUrl ||
                 (route.children &&
-                  route.children.some((child) => pathname === child.url));
+                  route.children.some((child) => {
+                    const childUrl = child.href ?? child.url;
+                    return pathname === childUrl;
+                  }));
 
               const menuIsOpen =
                 activeMenu === route.title || activeParent === route.title;
@@ -218,17 +228,25 @@ export default function Navbar() {
                       >
                         <div className="flex flex-col space-y-2 pl-4 text-right">
                           {route.children.map((child) => {
-                            const isChildActive = pathname === child.url;
+                            const childUrl = child.href ?? child.url;
+                            const isExternal = childUrl?.startsWith("http");
+                            const isChildActive = pathname === childUrl;
                             return (
                               <Link
                                 key={child.title}
-                                href={child.url}
+                                href={childUrl ?? "/"}
                                 className={`flex w-full items-center justify-end text-2xl ${
                                   isChildActive
                                     ? "text-[#6C6FD2]"
                                     : "hover:text-[#6C6FD2]"
                                 }`}
                                 onClick={() => setOpen(false)}
+                                {...(isExternal
+                                  ? {
+                                      target: "_blank",
+                                      rel: "noopener noreferrer",
+                                    }
+                                  : {})}
                               >
                                 <motion.div
                                   className="relative flex w-full items-center justify-end overflow-hidden"
@@ -272,13 +290,16 @@ export default function Navbar() {
                     </>
                   ) : (
                     <Link
-                      href={route.url}
+                      href={routeUrl ?? "/"}
                       className={`block text-right text-4xl font-light lg:text-5xl ${
-                        pathname === route.url
+                        pathname === routeUrl
                           ? "text-[#6C6FD2]"
                           : "hover:text-[#6C6FD2]"
                       }`}
                       onClick={() => setOpen(false)}
+                      {...(routeUrl?.startsWith("http")
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                     >
                       <motion.div
                         className="relative flex w-full items-center justify-end overflow-hidden"
