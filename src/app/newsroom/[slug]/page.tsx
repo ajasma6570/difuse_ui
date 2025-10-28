@@ -119,7 +119,7 @@ export default async function Page({
 
           <hr className="my-20" />
           <div className="flex w-full flex-col gap-10 lg:flex-row">
-            <div className="w-full space-y-6 lg:w-6/12">
+            <div className="w-full space-y-6 lg:w-8/12">
               <article className="prose lg:prose-xl">
                 <ReactMarkdown rehypePlugins={[rehypeSlug]}>
                   {blog.content}
@@ -127,7 +127,6 @@ export default async function Page({
               </article>
             </div>
 
-            <div className="hidden lg:block lg:w-2/12"></div>
             <div className="flex h-full w-full flex-col items-center gap-2 rounded-xl bg-[linear-gradient(to_bottom,black_10%,#25276C_100%)] p-4 lg:w-4/12">
               <div className="flex h-[70px] w-full items-center justify-between rounded-xl bg-[#FBFBF9] px-6 text-lg font-medium text-[#080808]">
                 <div className="flex items-center gap-2">
