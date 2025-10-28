@@ -58,7 +58,7 @@ export default function Footer({
     },
     {
       name: "Documentation",
-      url: "/resources/documentation",
+      href: "https://docs.difuse.io/dmsbg-100/",
     },
     {
       name: "Warranty Portal",
@@ -171,14 +171,25 @@ export default function Footer({
           <div className="order-4 col-span-12 sm:col-span-6 lg:order-3 lg:col-span-2">
             <h3 className="mb-4 text-xl font-semibold text-[#FBFBF9]">Help</h3>
             <ul className="space-y-2 text-lg text-[#6C6FD2]">
-              {help.map((item) => (
-                <li
-                  key={item.name}
-                  className="text-[#6C6FD2] hover:text-[#FBFBF9]"
-                >
-                  <Link href={item.url}>{item.name}</Link>
-                </li>
-              ))}
+              {help.map((item) => {
+                const linkUrl = item.href ?? item.url;
+                const isExternal = linkUrl?.startsWith("http");
+                return (
+                  <li
+                    key={item.name}
+                    className="text-[#6C6FD2] hover:text-[#FBFBF9]"
+                  >
+                    <Link
+                      href={linkUrl}
+                      {...(isExternal
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
