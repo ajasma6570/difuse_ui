@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   },
 };
 
-const blogs: BlogPost[] = getMarkDownData("src/data/blogs").sort(
+const blogs = (getMarkDownData("src/data/blogs") as BlogPost[]).sort(
   (a, b) => b.id - a.id
 );
 
